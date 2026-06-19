@@ -264,11 +264,25 @@ eleştirisini internal test ile azaltır.
 ### Aşama 1 — Pilot altyapı
 
 - TRUBA üzerinde tek modelle uçtan uca QLoRA eğitimi kur.
-- Başlangıç modeli olarak `qwen3:8b` veya `llama3.1:8b` kullan.
+- İlk pilot modeli olarak `Qwen/Qwen3-8B` kullan. Bu model ilk makaledeki
+  `qwen3:8b` Ollama modelinin aynı upstream ailesindendir.
+- Ollama Q4 GGUF artefaktının fine-tuning için doğrudan kullanılamayacağını;
+  Hugging Face `safetensors` checkpoint'inin ayrıca gerektiğini kaydet.
+- İlk pilotu V100 16 GB üzerinde FP16 compute, 4-bit NF4 QLoRA ve non-thinking
+  chat şablonuyla çalıştır.
 - Eğitim logları, seed, paket sürümleri, GPU türü, wall time ve peak VRAM'i
   kaydet.
 - Validation macro-F1 ile checkpoint seçimini doğrula.
 - Eğitimden bağımsız inference ve değerlendirme scriptleri oluştur.
+
+Pilot dosyaları:
+
+- `scripts/train_qlora.py`
+- `scripts/evaluate_adapter.py`
+- `scripts/download_hf_model.py`
+- `slurm_files/qwen3_8b_qlora_pilot.slurm`
+- `slurm_files/README.md`
+- `requirements-truba.txt`
 
 ### Aşama 2 — Temel model karşılaştırması
 

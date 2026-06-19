@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.venv/
+hf_cache/
+hf_models/
+logs/
+outputs/

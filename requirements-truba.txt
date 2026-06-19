@@ -1,0 +1,14 @@
+# PyTorch is intentionally separate: install the explicit CUDA wheel first.
+# Recommended initial command for V100:
+# python -m pip install torch --index-url https://download.pytorch.org/whl/cu118
+# The remaining ranges cover Qwen3, QLoRA, TRL SFT, and evaluation.
+transformers>=4.51.0,<5
+datasets>=3.2,<5
+accelerate>=1.2,<2
+peft>=0.14,<1
+trl>=0.23,<0.27
+bitsandbytes>=0.45,<1
+safetensors>=0.4
+sentencepiece>=0.2
+pandas>=2.0,<3
+scikit-learn>=1.4,<2
