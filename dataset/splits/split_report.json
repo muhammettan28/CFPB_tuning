@@ -1,0 +1,83 @@
+{
+  "seed": 42,
+  "ratios": {
+    "train": 0.8,
+    "validation": 0.1,
+    "internal_test": 0.1
+  },
+  "source": {
+    "complaints_csv_rows": 162415,
+    "dropped_missing_rows": 10,
+    "usable_rows": 162405,
+    "unique_normalized_narratives": 124471
+  },
+  "legacy": {
+    "manifest_rows": 12000,
+    "manifest_unique_label_narrative": 5909,
+    "manifest_unique_narratives": 5909,
+    "excluded_main_rows": 8123,
+    "excluded_unique_narratives": 4888,
+    "excluded_class_counts": {
+      "credit_reporting": 5634,
+      "debt_collection": 642,
+      "mortgages_and_loans": 623,
+      "credit_card": 621,
+      "retail_banking": 603
+    },
+    "match_reason_counts": {
+      "legacy_exact": 4990,
+      "legacy_250_prefix": 3096,
+      "legacy_narrative_group": 23,
+      "legacy_250_prefix_cross_label": 14
+    }
+  },
+  "remaining_pool": {
+    "rows": 154282,
+    "unique_normalized_narratives": 119583,
+    "mixed_label_narrative_groups": 156
+  },
+  "splits": {
+    "train": {
+      "rows": 123427,
+      "fraction_of_remaining": 0.8000090742925292,
+      "unique_normalized_narratives": 95365,
+      "class_counts": {
+        "credit_reporting": 68400,
+        "debt_collection": 18053,
+        "mortgages_and_loans": 14703,
+        "credit_card": 11925,
+        "retail_banking": 10346
+      }
+    },
+    "validation": {
+      "rows": 15427,
+      "fraction_of_remaining": 0.09999222203497492,
+      "unique_normalized_narratives": 12063,
+      "class_counts": {
+        "credit_reporting": 8566,
+        "debt_collection": 2206,
+        "mortgages_and_loans": 1838,
+        "credit_card": 1524,
+        "retail_banking": 1293
+      }
+    },
+    "internal_test": {
+      "rows": 15428,
+      "fraction_of_remaining": 0.09999870367249582,
+      "unique_normalized_narratives": 12155,
+      "class_counts": {
+        "credit_reporting": 8571,
+        "debt_collection": 2244,
+        "mortgages_and_loans": 1826,
+        "credit_card": 1494,
+        "retail_banking": 1293
+      }
+    }
+  },
+  "overlap_checks": {
+    "train_validation_narratives": 0,
+    "train_internal_test_narratives": 0,
+    "validation_internal_test_narratives": 0,
+    "exact_legacy_hashes_in_remaining_pool": 0
+  }
+}
