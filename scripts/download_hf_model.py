@@ -22,7 +22,6 @@ def main() -> None:
     snapshot_download(
         repo_id=args.model,
         local_dir=args.destination,
-        local_dir_use_symlinks=False,
     )
     print(args.destination.resolve())
 

@@ -20,7 +20,8 @@ indirilmelidir.
 ├── requirements-truba.txt
 ├── outputs/
 ├── logs/
-└── .venv/
+├── miniforge3/
+└── .conda-env/
 ```
 
 `~/ollama` ve `~/ollama_models` mevcut zero-shot inference ortamı olarak
@@ -63,65 +64,115 @@ cat logs/cfpb-gpu-check-JOBID.err
 Bu çıktı GPU modelini, NVIDIA driver sürümünü, desteklenen CUDA seviyesini ve
 TRUBA'da mevcut CUDA/PyTorch modüllerini gösterecektir.
 
-Ardından login node üzerinde sanal ortamı oluştur:
+İlk denemede oluşturulan standart `.venv`, sistem Python'ında geliştirme
+başlıkları bulunmadığı için bitsandbytes/Triton importunda şu hatayı vermiştir:
+
+```text
+fatal error: Python.h: No such file or directory
+```
+
+Standart venv kendi Python geliştirme başlıklarını sağlamaz. Kullanıcı
+yetkisiyle sistem `python3-devel` paketi de kurulamayacağından pilot ortamı,
+Python başlıklarını beraberinde getiren Miniforge/Conda ile oluşturulacaktır.
+Eski `.venv` artık fine-tuning işlerinde kullanılmayacaktır.
+
+### Bu küme için sabitlenen ortam
+
+Tanılama işi şu ortamı doğrulamıştır:
+
+- GPU: Tesla V100-SXM2-16GB
+- NVIDIA driver: 565.57.01
+- Driver tarafından bildirilen CUDA seviyesi: 12.7
+- Sistem Python: 3.9.16
+- Sistem CUDA/PyTorch modülü: yok
+
+Yeni deney ortamı Python 3.10 ve `torch==2.7.1+cu118` kullanacaktır. Yeni NVIDIA
+driver daha eski CUDA runtime wheel'lerini çalıştırabildiği için CUDA 11.8 wheel
+bu node üzerinde uygundur.
+
+Güncel `scripts/`, `slurm_files/` ve `requirements-truba.txt` dosyalarını
+TRUBA'ya kopyaladıktan sonra:
 
 ```bash
 cd /arf/scratch/muhtan/ccc
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
+bash scripts/setup_truba_env.sh
 ```
 
-Yeni bir venv içinde `torch` bulunmaması beklenen durumdur. PyTorch,
-`requirements-truba.txt` içine bilinçli olarak eklenmemiştir; CUDA wheel
-kaynağının açıkça seçilmesi gerekir.
+Script şunları otomatik yapar:
 
-### Önerilen başlangıç kurulumu
+- Miniforge'u `/arf/scratch/muhtan/ccc/miniforge3/` altına kurar.
+- Python 3.10 ortamını `.conda-env/` altında oluşturur.
+- `torch==2.7.1+cu118` ve sabitlenmiş bağımlılıkları kurar.
+- `environment.freeze.txt` üretir.
+- Ortam içindeki `Python.h` başlığını doğrular.
 
-V100 için muhafazakâr ve yaygın uyumluluk seçeneği CUDA 11.8 PyTorch wheel'idir:
+`torchvision` ve `torchaudio` bu proje için gerekli değildir. Eski `.venv`
+silinmek zorunda değildir, ancak SLURM işleri yalnızca `.conda-env` kullanır.
 
-```bash
-python -m pip install torch --index-url https://download.pytorch.org/whl/cu118
-python -m pip install -r requirements-truba.txt
-python -m pip freeze > environment.freeze.txt
-```
+### Neden doğrudan en güncel PyTorch değil?
 
-`torchvision` ve `torchaudio` bu proje için gerekli değildir.
-
-PyTorch'u kurduktan sonra login node üzerinde şu kontrol yapılabilir:
-
-
-python -c "import torch; print('torch:', torch.__version__); print('wheel CUDA:', torch.version.cuda)"
-
-
-Burada `torch.cuda.is_available()` değerinin `False` olması login node üzerinde
-tek başına hata değildir. Gerçek GPU doğrulaması compute job içinde yapılır.
-Pilot SLURM işi başlangıçta `nvidia-smi` çalıştırır ve eğitim scripti CUDA
-görülmüyorsa hemen durur.
-
-### Neden doğrudan “en güncel” PyTorch değil?
-
-- `pip install torch` kullanılınca seçilen wheel'in CUDA varyantı yeterince
-  açık değildir.
+- `pip install torch` CUDA varyantını deney protokolünde açıkça sabitlemez.
 - Nightly/preview paketler tam test edilmemiştir.
 - Çok yeni CUDA wheel'i, TRUBA compute node NVIDIA driver'ından daha yeni bir
   runtime isteyebilir.
 - Deneylerin yeniden üretilebilirliği için PyTorch ve CUDA varyantı
   `environment.freeze.txt` içinde sabitlenmelidir.
 
-Resmî PyTorch stable sürümünün `cu118` wheel'i V100 için uygun başlangıçtır.
-Tanılama çıktısında TRUBA'nın açıkça önerdiği bir PyTorch modülü veya farklı
-CUDA sürümü görülürse kurulum komutu buna göre değiştirilmelidir. Sistem modülü
-kullanılacaksa önce modül yüklenmeli, ardından gerekirse venv
-`--system-site-packages` ile oluşturulmalıdır; iki farklı PyTorch kurulumu aynı
-ortamda karıştırılmamalıdır.
+Bu pilot için Python 3.10 ve `torch==2.7.1+cu118` birlikte sabitlenmiştir.
+Daha güncel PyTorch denemek istersek ayrı bir Conda ortamı oluşturmalı ve bunu
+yeni bir deney ortamı olarak kaydetmeliyiz.
+
+Kurulumdan sonra GPU kontrol işini tekrar gönder:
+
+```bash
+sbatch slurm_files/gpu_environment_check.slurm
+```
+
+Yeni logda aşağıdakiler görünmelidir:
+
+```text
+torch: 2.7.1+cu118
+torch wheel CUDA: 11.8
+CUDA available: True
+GPU: Tesla V100-SXM2-16GB
+compute capability: (7, 0)
+bitsandbytes: 0.46.1
+```
+
+Bu kontrol 22 Haziran 2026 tarihinde `akya1` compute node üzerinde başarıyla
+tamamlanmıştır. Doğrulanan ortam:
+
+```text
+Python: 3.10.20
+Python.h exists: True
+torch: 2.7.1+cu118
+CUDA available: True
+GPU: Tesla V100-SXM2-16GB
+bitsandbytes: 0.46.1
+```
+
+Bu aşamadan sonra ortam paketleri pilot tamamlanana kadar yükseltilmemelidir.
+
+`torch.cuda.is_available()` doğru olduğu hâlde bitsandbytes importu
+`cuda_utils...so` derleme hatası verirse hem `.out` hem `.err` dosyası
+incelenmelidir:
+
+```bash
+cat logs/cfpb-gpu-check-JOBID.out
+cat logs/cfpb-gpu-check-JOBID.err
+```
+
+Bu hata çoğunlukla compute node üzerindeki `libcuda.so` linker konumu veya
+`Python.h` geliştirme başlığıyla ilgilidir. Güncellenmiş tanılama işi her
+ikisinin konumunu ve tam traceback'i raporlar. Kesin linker mesajı görülmeden
+bitsandbytes veya PyTorch sürümü değiştirilmemelidir.
 
 ## 3. Hugging Face modelini indirme
 
 Login node internete erişebiliyorsa:
 
 ```bash
-source /arf/scratch/muhtan/ccc/.venv/bin/activate
+export PATH=/arf/scratch/muhtan/ccc/.conda-env/bin:$PATH
 python scripts/download_hf_model.py \
   --model Qwen/Qwen3-8B \
   --destination /arf/scratch/muhtan/ccc/hf_models/Qwen3-8B
@@ -134,7 +185,7 @@ TRUBA'dan Hugging Face erişimi yoksa model başka bir makinede indirilip
 
 ```bash
 cd /arf/scratch/muhtan/ccc
-source .venv/bin/activate
+export PATH=/arf/scratch/muhtan/ccc/.conda-env/bin:$PATH
 python -m py_compile scripts/train_qlora.py scripts/evaluate_adapter.py
 test -f dataset/splits/train.csv
 test -f dataset/splits/validation.csv
@@ -143,11 +194,54 @@ test -f hf_models/Qwen3-8B/config.json
 
 ## 5. Pilot işi gönderme
 
+Tam pilot öncesinde model yükleme, 4-bit quantization, QLoRA eğitimi, adapter
+kaydı ve inference zincirini küçük bir smoke testiyle doğrula:
+
+```bash
+cd /arf/scratch/muhtan/ccc
+mkdir -p logs outputs
+sbatch slurm_files/qwen3_8b_qlora_smoke.slurm
+```
+
+Smoke testi yalnızca 64 train ve 32 validation örneği kullanır. Başarılı
+olduğunda logun sonunda şu satır görünür:
+
+```text
+Smoke test completed: /arf/scratch/muhtan/ccc/outputs/...
+```
+
+Çıktıları kontrol et:
+
+```bash
+cat logs/cfpb-qwen3-smoke-JOBID.out
+cat logs/cfpb-qwen3-smoke-JOBID.err
+find outputs/qwen3_8b_qlora_smoke_JOBID -maxdepth 2 -type f | sort
+```
+
+Smoke testi başarılı olduktan sonra asıl pilotu gönder:
+
 ```bash
 cd /arf/scratch/muhtan/ccc
 mkdir -p logs outputs
 sbatch slurm_files/qwen3_8b_qlora_pilot.slurm
 ```
+
+İlk smoke testi başarıyla tamamlanmıştır:
+
+```text
+Train: 64 örnek, 1 epoch, 112,8 saniye
+Validation inference: 32 örnek
+Accuracy: 0,7813
+Macro-F1: 0,7085
+Weighted F1: 0,7719
+Off-label: 0
+Mean latency: 0,966 saniye/örnek
+```
+
+Bu küçük örneklem yalnızca teknik doğrulama içindir; bilimsel performans sonucu
+olarak raporlanmayacaktır. Smoke sürelerinden yapılan kaba doğrusal tahmine
+göre 10.000 örnekli pilot, validation ve inference dahil yaklaşık 6–8 saat
+sürebilir ve 24 saatlik SLURM sınırına sığmalıdır.
 
 İzleme:
 

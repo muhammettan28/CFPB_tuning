@@ -12,13 +12,18 @@
 set -euo pipefail
 
 PROJECT_DIR=/arf/scratch/muhtan/ccc
-VENV_DIR="${PROJECT_DIR}/.venv"
+ENV_DIR="${PROJECT_DIR}/.conda-env"
 MODEL_DIR="${PROJECT_DIR}/hf_models/Qwen3-8B"
 OUTPUT_DIR="${PROJECT_DIR}/outputs/qwen3_8b_qlora_pilot_${SLURM_JOB_ID}"
 
 cd "${PROJECT_DIR}"
 mkdir -p logs outputs hf_cache
-source "${VENV_DIR}/bin/activate"
+if [[ ! -x "${ENV_DIR}/bin/python" ]]; then
+  echo "Missing environment: ${ENV_DIR}" >&2
+  echo "Run: bash scripts/setup_truba_env.sh" >&2
+  exit 1
+fi
+export PATH="${ENV_DIR}/bin:${PATH}"
 
 export HF_HOME="${PROJECT_DIR}/hf_cache"
 export TRANSFORMERS_CACHE="${HF_HOME}/transformers"

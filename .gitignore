@@ -1,6 +1,9 @@
 __pycache__/
 *.py[cod]
 .venv/
+.conda-env/
+miniforge3/
+Miniforge3-*.sh
 hf_cache/
 hf_models/
 logs/

@@ -284,6 +284,23 @@ Pilot dosyaları:
 - `slurm_files/README.md`
 - `requirements-truba.txt`
 
+Doğrulanan ilk TRUBA pilot ortamı:
+
+- Compute node doğrulaması: `akya1` ve `akya8`
+- GPU: Tesla V100-SXM2-16GB
+- NVIDIA driver: 565.57.01
+- Driver CUDA seviyesi: 12.7
+- Sistem Python: 3.9.16
+- Deney ortamı: Miniforge/Conda Python 3.10.20 (`.conda-env`)
+- Sistem CUDA/PyTorch modülü: bulunmadı
+- Sabitlenen PyTorch: `2.7.1+cu118`
+- Sabitlenen bitsandbytes: `0.46.1`
+- CUDA kullanılabilirliği: doğrulandı
+- GPU compute capability: `(7, 0)`
+- Conda ortamında `Python.h`: doğrulandı
+- Standart venv kullanılmama nedeni: sistem Python geliştirme başlığı
+  `Python.h` bulunmadığından bitsandbytes/Triton yardımcı modülü derlenemedi.
+
 ### Aşama 2 — Temel model karşılaştırması
 
 Önerilen başlangıç modeli kümesi:
@@ -385,8 +402,29 @@ Her eğitim koşusu için en az şu bilgiler saklanmalıdır:
       üretildi.
 - [x] Exact ve prefix overlap kontrolleri sıfırlandı.
 - [x] Split raporu ve legacy manifest oluşturuldu.
-- [ ] TRUBA fine-tuning ortamı ve paket sürümleri sabitlenecek.
-- [ ] Pilot QLoRA eğitimi gerçekleştirilecek.
+- [x] TRUBA fine-tuning ortamı ve paket sürümleri sabitlendi.
+- [x] Qwen3-8B QLoRA smoke testi tamamlandı.
+- [ ] 10.000 örnekli pilot QLoRA eğitimi gerçekleştirilecek.
 - [ ] Evaluation ve istatistik scriptleri hazırlanacak.
 - [ ] Model ve veri ölçeği deneyleri yürütülecek.
 - [ ] Internal ve legacy final değerlendirmeleri protokole uygun çalıştırılacak.
+
+### Qwen3-8B QLoRA smoke testi
+
+Smoke test, eğitim ve inference zincirini doğrulamak amacıyla 64 train ve
+32 validation örneği üzerinde çalıştırılmıştır.
+
+- Epoch: 1
+- Train süresi: 112,8 saniye
+- Train loss: 0,2490
+- En düşük gözlenen validation loss: 0,1330
+- Validation inference örneği: 32
+- Accuracy: 0,7813
+- Macro-F1: 0,7085
+- Weighted F1: 0,7719
+- Off-label: 0
+- Ortalama inference latency: 0,966 saniye/örnek
+
+Bu metrikler yalnızca teknik smoke test sonucudur. Küçük ve doğal dağılımlı
+32 örnek üzerinden elde edildiği için model performans bulgusu veya makale
+sonucu olarak kullanılmayacaktır.

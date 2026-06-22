@@ -8,6 +8,7 @@ import json
 import re
 import time
 from pathlib import Path
+from typing import Optional
 
 import pandas as pd
 import torch
@@ -85,7 +86,7 @@ def protect_final_sets(path: Path, allow: bool) -> None:
         )
 
 
-def parse_label(response: str) -> str | None:
+def parse_label(response: str) -> Optional[str]:
     matches = PRODUCT_RE.findall(response)
     if not matches:
         return None
