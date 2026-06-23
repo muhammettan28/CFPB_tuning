@@ -8,3 +8,4 @@ hf_cache/
 hf_models/
 logs/
 outputs/
+/experiment_archive

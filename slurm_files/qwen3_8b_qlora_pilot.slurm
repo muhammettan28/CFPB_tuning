@@ -26,7 +26,6 @@ fi
 export PATH="${ENV_DIR}/bin:${PATH}"
 
 export HF_HOME="${PROJECT_DIR}/hf_cache"
-export TRANSFORMERS_CACHE="${HF_HOME}/transformers"
 export HF_DATASETS_CACHE="${HF_HOME}/datasets"
 export TOKENIZERS_PARALLELISM=false
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
@@ -43,6 +42,7 @@ python scripts/train_qlora.py \
   --output-dir "${OUTPUT_DIR}" \
   --max-train-samples 10000 \
   --max-eval-samples 2000 \
+  --train-sampling natural \
   --max-narrative-chars 500 \
   --max-length 512 \
   --epochs 1 \

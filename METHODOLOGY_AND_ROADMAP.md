@@ -338,6 +338,24 @@ Generative LLM eğitiminde loss'a doğrudan class weight uygulamak kullanılan
 altyapıya bağlıdır; uygulanırsa yöntem açıkça belgelenmelidir. Sonuçlar
 özellikle azınlık sınıflarının recall ve F1 değerleriyle yorumlanmalıdır.
 
+İlk sınırlı arama turu:
+
+| Deney | Train sampling | LR | LoRA r/alpha | Epoch | Durum |
+|---|---|---:|---:|---:|---|
+| E0 | Natural | 2e-4 | 16/32 | 1 | Tamamlandı |
+| E1 | Balanced | 2e-4 | 16/32 | 1 | Planlandı |
+| E2 | Balanced | 1e-4 | 16/32 | 1 | Planlandı |
+| E3 | Balanced | 2e-4 | 8/16 | 1 | Planlandı |
+
+Balanced koşullarda 10.000 train kaydı, sınıf başına 2.000 örnek olarak
+seçilecektir. Validation doğal dağılımda ve tüm deneylerde aynı 2.000 kayıt
+olarak sabit kalacaktır. Her koşunun seçtiği train ve validation kayıtları
+manifest CSV dosyalarına yazılacaktır.
+
+Bu turun amacı aynı anda geniş bir grid search yapmak değil, sırasıyla sampling,
+learning rate ve LoRA kapasitesinin etkisini ölçmektir. İki epoch deneyi yalnızca
+bu turda validation macro-F1 açısından kazanan yapılandırmaya uygulanacaktır.
+
 ### Aşama 5 — Güçlü baseline'lar
 
 Fine-tuned generative LLM sonuçları en az bir encoder ve bir klasik yöntemle
@@ -404,7 +422,7 @@ Her eğitim koşusu için en az şu bilgiler saklanmalıdır:
 - [x] Split raporu ve legacy manifest oluşturuldu.
 - [x] TRUBA fine-tuning ortamı ve paket sürümleri sabitlendi.
 - [x] Qwen3-8B QLoRA smoke testi tamamlandı.
-- [ ] 10.000 örnekli pilot QLoRA eğitimi gerçekleştirilecek.
+- [x] 10.000 örnekli pilot QLoRA eğitimi gerçekleştirildi.
 - [ ] Evaluation ve istatistik scriptleri hazırlanacak.
 - [ ] Model ve veri ölçeği deneyleri yürütülecek.
 - [ ] Internal ve legacy final değerlendirmeleri protokole uygun çalıştırılacak.
@@ -428,3 +446,85 @@ Smoke test, eğitim ve inference zincirini doğrulamak amacıyla 64 train ve
 Bu metrikler yalnızca teknik smoke test sonucudur. Küçük ve doğal dağılımlı
 32 örnek üzerinden elde edildiği için model performans bulgusu veya makale
 sonucu olarak kullanılmayacaktır.
+
+### Qwen3-8B 10.000 örnekli ilk pilot
+
+İlk ciddi pilot doğal sınıf dağılımından stratified seçilen 10.000 train ve
+2.000 validation örneğiyle, 1 epoch çalıştırılmıştır.
+
+- Train süresi: 9.394,8 saniye (2 saat 36 dakika 35 saniye)
+- Train loss: 0,0598
+- En iyi checkpoint: step 600
+- En iyi validation loss: 0,0492
+- Validation accuracy: 0,8475
+- Validation macro-F1: 0,8098
+- Validation weighted F1: 0,8439
+- Off-label: 0
+- Ortalama inference latency: 0,876 saniye/örnek
+
+En zayıf sınıf `debt_collection` olmuştur (`F1 = 0,6429`); 265 örneğin 95'i
+`credit_reporting` olarak tahmin edilmiştir. Sınıf dengeleme deneylerinde bu
+karışıklık özellikle izlenecektir.
+
+Bu sonuç yalnızca validation performansıdır. Fine-tuning kazancını izole etmek
+için aynı Hugging Face base modelin aynı quantization, prompt ve 2.000
+validation örneğinde adaptersız zero-shot sonucu ayrıca ölçülecektir.
+
+### Kontrollü zero-shot ve fine-tuned validation karşılaştırması
+
+Aynı Hugging Face Qwen3-8B checkpoint'i; aynı 4-bit NF4 quantization, prompt,
+500-karakter sınırı, decoding ayarları ve aynı 2.000 validation örneği üzerinde
+adapter olmadan ve QLoRA adapter ile değerlendirilmiştir.
+
+| Metrik | Zero-shot | Fine-tuned | Mutlak değişim |
+|---|---:|---:|---:|
+| Accuracy | 0,7115 | 0,8475 | +0,1360 |
+| Macro-F1 | 0,5993 | 0,8098 | +0,2104 |
+| Weighted F1 | 0,6931 | 0,8439 | +0,1507 |
+| Weighted precision | 0,7236 | 0,8433 | +0,1197 |
+| Weighted recall | 0,7115 | 0,8475 | +0,1360 |
+| Off-label | 1 | 0 | -1 |
+| Ortalama latency (sn) | 0,565 | 0,876 | +0,311 |
+
+Sınıf bazında F1 değişimi:
+
+| Sınıf | Zero-shot | Fine-tuned | Mutlak değişim |
+|---|---:|---:|---:|
+| `retail_banking` | 0,5571 | 0,8603 | +0,3032 |
+| `credit_reporting` | 0,8183 | 0,8965 | +0,0781 |
+| `credit_card` | 0,5794 | 0,8098 | +0,2303 |
+| `mortgages_and_loans` | 0,6905 | 0,8394 | +0,1489 |
+| `debt_collection` | 0,3513 | 0,6429 | +0,2916 |
+
+En büyük mutlak kazanımlar `retail_banking` ve `debt_collection` sınıflarında
+görülmüştür. Bununla birlikte `debt_collection`, fine-tuning sonrasında da en
+zayıf sınıftır. Adapter inference latency'si yaklaşık %55 artmıştır.
+
+Bu karşılaştırma fine-tuning etkisinin güçlü bir pilot göstergesidir; nihai
+test sonucu değildir. Aynı validation verisi checkpoint seçimi ve performans
+ölçümü için kullanıldığından sonuç model seçimine iyimser olabilir. Makaledeki
+nihai genelleme iddiaları yalnızca yapılandırma dondurulduktan sonra internal
+test ve legacy benchmark üzerinde yapılacaktır. İlk makaledeki Qwen3-8B skoru
+farklı veri dağılımı ve Ollama/GGUF altyapısı nedeniyle bu validation skoruyla
+doğrudan karşılaştırılmayacaktır.
+
+### Deney arşivleme durumu
+
+İlk Qwen3-8B deneyleri yerel `experiment_archive/` dizinine alınmıştır:
+
+- Smoke-test output ve adapter
+- 10.000 örnekli pilot output, best adapter ve checkpoint'ler
+- Kontrollü zero-shot validation predictions ve metrics
+- Pilot ve zero-shot SLURM logları
+- Conda ortamının `environment.freeze.txt` kaydı
+- Deney sırasında kullanılan scripts, SLURM dosyaları ve requirements snapshot'ı
+- Yerel dosyalar için `SHA256SUMS` bütünlük manifesti
+
+Pilot ve zero-shot prediction dosyalarının her biri 2.000 satırdır. `record_id`
+ve gerçek etiket sıraları birebir aynıdır; bu nedenle kontrollü karşılaştırma
+paired yapıdadır. Arşivdeki JSON ve CSV dosyaları parse edilerek doğrulanmıştır.
+
+Smoke-test ve GPU ortam kontrol logları yerel arşivde bulunmuyorsa bunlar
+teknik provenance açısından TRUBA'dan ayrıca alınmalıdır; smoke output,
+run metadata ve adapter dosyaları mevcut olduğundan bilimsel pilot sonucunda
+veri kaybı bulunmamaktadır.

@@ -239,9 +239,153 @@ Mean latency: 0,966 saniye/örnek
 ```
 
 Bu küçük örneklem yalnızca teknik doğrulama içindir; bilimsel performans sonucu
-olarak raporlanmayacaktır. Smoke sürelerinden yapılan kaba doğrusal tahmine
-göre 10.000 örnekli pilot, validation ve inference dahil yaklaşık 6–8 saat
-sürebilir ve 24 saatlik SLURM sınırına sığmalıdır.
+olarak raporlanmayacaktır. Sonraki 10.000 örnekli pilot başarıyla tamamlanmış;
+eğitim 2 saat 36 dakika, 2.000 örnekli validation inference ise yaklaşık
+8 dakika sürmüştür.
+
+## 6. Kontrollü zero-shot validation baseline
+
+Fine-tuning kazancını ölçmek için aynı Hugging Face Qwen3-8B base modeli, aynı
+NF4 quantization, aynı prompt, aynı 500-karakter sınırı ve aynı 2.000 validation
+örneği üzerinde adaptersız çalıştırılmalıdır:
+
+```bash
+sbatch slurm_files/qwen3_8b_validation_baseline.slurm
+```
+
+Sonuç:
+
+```bash
+cat outputs/qwen3_8b_zero_shot_validation_JOBID/metrics.json
+```
+
+Fine-tuning etkisinin ilk kontrollü tahmini:
+
+```text
+Delta macro-F1 = fine-tuned validation macro-F1
+                 - base zero-shot validation macro-F1
+```
+
+İlk 10.000 örnekli pilotun fine-tuned validation sonucu:
+
+```text
+Accuracy: 0,8475
+Macro-F1: 0,8098
+Weighted F1: 0,8439
+Off-label: 0
+Best checkpoint: step 600
+Train runtime: 2 saat 36 dakika 35 saniye
+```
+
+Bu değer hâlâ validation sonucudur; internal veya legacy test sonucu değildir.
+
+Kontrollü base-model zero-shot sonucu:
+
+```text
+Accuracy: 0,7115
+Macro-F1: 0,5993
+Weighted F1: 0,6931
+Off-label: 1
+Mean latency: 0,565 saniye/örnek
+```
+
+Fine-tuning kazanımı:
+
+```text
+Accuracy: +0,1360
+Macro-F1: +0,2104
+Weighted F1: +0,1507
+Off-label: 1 → 0
+Latency: 0,565 → 0,876 saniye/örnek
+```
+
+Bu kontrollü pilot sonucu QLoRA'nın belirgin fayda sağladığını gösterir.
+Validation verisi model/checkpoint seçimi için kullanıldığından bu skorlar
+nihai test bulgusu olarak raporlanmamalıdır.
+
+## 7. Balanced sampling ve sınırlı hiperparametre araması
+
+İlk arama turu üç balanced-training koşulunu çalıştırır. Her koşul 10.000
+training örneği kullanır: her sınıftan tam 2.000 kayıt. Validation seti doğal
+dağılımda ve bütün koşullarda aynı kalır.
+
+| Array index | Deney | LR | LoRA r | LoRA alpha | Epoch |
+|---:|---|---:|---:|---:|---:|
+| 0 | E1 balanced baseline | 2e-4 | 16 | 32 | 1 |
+| 1 | E2 düşük LR | 1e-4 | 16 | 32 | 1 |
+| 2 | E3 düşük rank | 2e-4 | 8 | 16 | 1 |
+
+LoRA `alpha/r` oranı E1 ve E3'te 2 olarak sabit tutulmuştur. Mevcut E0 natural
+pilot (`LR=2e-4`, `r=16`) karşılaştırma noktasıdır.
+
+Güncel dosyaları TRUBA'ya kopyala:
+
+```bash
+rsync -av \
+  scripts slurm_files requirements-truba.txt \
+  muhtan@172.16.6.11:/arf/scratch/muhtan/ccc/
+```
+
+Array işini gönder:
+
+```bash
+cd /arf/scratch/muhtan/ccc
+sbatch slurm_files/qwen3_8b_balanced_search.slurm
+```
+
+Array durumunu izle:
+
+```bash
+squeue -u muhtan
+```
+
+Log adları:
+
+```text
+logs/cfpb-qwen3-search-ARRAYJOBID_0.out
+logs/cfpb-qwen3-search-ARRAYJOBID_1.out
+logs/cfpb-qwen3-search-ARRAYJOBID_2.out
+```
+
+Her deney şu ek provenance dosyalarını üretir:
+
+- `train_selection_manifest.csv`
+- `validation_selection_manifest.csv`
+- `run_metadata.json`
+- `trainer_state.json`
+- `validation_inference/metrics.json`
+- `validation_inference/predictions.csv`
+- `best_adapter/`
+
+Üç iş tamamlandıktan sonra:
+
+```bash
+python scripts/summarize_search.py \
+  --outputs-dir outputs \
+  --output outputs/qwen3_8b_search_summary.csv
+```
+
+Kazanan öncelikle validation macro-F1 ile seçilir. Eşitliğe yakın durumda
+`debt_collection` F1, weighted F1, latency ve adapter rank birlikte
+değerlendirilir. Bu tur bitmeden 2-epoch deneyi gönderilmez.
+
+Sonuçları yerel arşive al:
+
+```bash
+rsync -av --progress \
+  muhtan@172.16.6.11:/arf/scratch/muhtan/ccc/outputs/qwen3_8b_search_\* \
+  experiment_archive/outputs/
+
+rsync -av --progress \
+  muhtan@172.16.6.11:/arf/scratch/muhtan/ccc/logs/cfpb-qwen3-search-\* \
+  experiment_archive/logs/
+```
+
+Kopyalamadan sonra yerel checksum manifestini yeniden üret:
+
+```bash
+bash scripts/create_archive_checksums.sh
+```
 
 İzleme:
 

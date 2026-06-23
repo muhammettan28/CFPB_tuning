@@ -8,6 +8,7 @@ import json
 import os
 import platform
 import subprocess
+from collections import Counter
 from pathlib import Path
 
 import pandas as pd
@@ -57,6 +58,12 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--max-train-samples", type=int, default=10_000)
     parser.add_argument("--max-eval-samples", type=int, default=2_000)
+    parser.add_argument(
+        "--train-sampling",
+        choices=["natural", "balanced"],
+        default="natural",
+        help="Sampling distribution used only for the training subset.",
+    )
     parser.add_argument("--max-narrative-chars", type=int, default=500)
     parser.add_argument("--max-length", type=int, default=512)
     parser.add_argument("--epochs", type=float, default=1.0)
@@ -75,7 +82,7 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def stratified_sample(frame: pd.DataFrame, limit: int, seed: int) -> pd.DataFrame:
+def natural_sample(frame: pd.DataFrame, limit: int, seed: int) -> pd.DataFrame:
     if limit <= 0 or limit >= len(frame):
         return frame.sample(frac=1, random_state=seed).reset_index(drop=True)
     fractions = frame["product"].value_counts(normalize=True)
@@ -95,7 +102,35 @@ def stratified_sample(frame: pd.DataFrame, limit: int, seed: int) -> pd.DataFram
     )
 
 
-def load_frame(path: Path, limit: int, seed: int) -> pd.DataFrame:
+def balanced_sample(frame: pd.DataFrame, limit: int, seed: int) -> pd.DataFrame:
+    if limit <= 0:
+        per_class = min(frame["product"].value_counts())
+        limit = per_class * len(LABELS)
+    base, remainder = divmod(limit, len(LABELS))
+    allocations = {
+        label: base + (1 if index < remainder else 0)
+        for index, label in enumerate(LABELS)
+    }
+    pieces = []
+    for index, label in enumerate(LABELS):
+        group = frame.loc[frame["product"].eq(label)]
+        count = allocations[label]
+        if count > len(group):
+            raise ValueError(
+                f"Balanced sampling requests {count} rows for {label}, "
+                f"but only {len(group)} are available"
+            )
+        pieces.append(group.sample(n=count, random_state=seed + index))
+    return (
+        pd.concat(pieces, ignore_index=True)
+        .sample(frac=1, random_state=seed)
+        .reset_index(drop=True)
+    )
+
+
+def load_frame(
+    path: Path, limit: int, seed: int, sampling: str = "natural"
+) -> pd.DataFrame:
     frame = pd.read_csv(path)
     required = {"product", "narrative"}
     if not required.issubset(frame.columns):
@@ -105,7 +140,9 @@ def load_frame(path: Path, limit: int, seed: int) -> pd.DataFrame:
     unknown = sorted(set(frame["product"]) - set(LABELS))
     if unknown:
         raise ValueError(f"{path} contains unknown labels: {unknown}")
-    return stratified_sample(frame, limit, seed)
+    if sampling == "balanced":
+        return balanced_sample(frame, limit, seed)
+    return natural_sample(frame, limit, seed)
 
 
 def to_prompt_completion(
@@ -140,7 +177,18 @@ def to_prompt_completion(
     return Dataset.from_list(records)
 
 
-def write_run_metadata(args: argparse.Namespace, train_rows: int, eval_rows: int) -> None:
+def write_selection_manifest(frame: pd.DataFrame, path: Path) -> None:
+    columns = [
+        column
+        for column in ["record_id", "product", "narrative_hash"]
+        if column in frame.columns
+    ]
+    frame[columns].to_csv(path, index=False)
+
+
+def write_run_metadata(
+    args: argparse.Namespace, train_frame: pd.DataFrame, eval_frame: pd.DataFrame
+) -> None:
     args.output_dir.mkdir(parents=True, exist_ok=True)
     try:
         pip_freeze = subprocess.check_output(
@@ -153,8 +201,16 @@ def write_run_metadata(args: argparse.Namespace, train_rows: int, eval_rows: int
             key: str(value) if isinstance(value, Path) else value
             for key, value in vars(args).items()
         },
-        "train_rows": train_rows,
-        "validation_rows": eval_rows,
+        "train_rows": len(train_frame),
+        "validation_rows": len(eval_frame),
+        "train_class_counts": {
+            label: int(count)
+            for label, count in Counter(train_frame["product"]).items()
+        },
+        "validation_class_counts": {
+            label: int(count)
+            for label, count in Counter(eval_frame["product"]).items()
+        },
         "python": platform.python_version(),
         "torch": torch.__version__,
         "cuda_runtime": torch.version.cuda,
@@ -165,6 +221,12 @@ def write_run_metadata(args: argparse.Namespace, train_rows: int, eval_rows: int
     (args.output_dir / "run_metadata.json").write_text(
         json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+    write_selection_manifest(
+        train_frame, args.output_dir / "train_selection_manifest.csv"
+    )
+    write_selection_manifest(
+        eval_frame, args.output_dir / "validation_selection_manifest.csv"
+    )
 
 
 def main() -> None:
@@ -173,9 +235,17 @@ def main() -> None:
         raise RuntimeError("CUDA GPU is required for this QLoRA training script")
     set_seed(args.seed)
 
-    train_frame = load_frame(args.train_file.resolve(), args.max_train_samples, args.seed)
+    train_frame = load_frame(
+        args.train_file.resolve(),
+        args.max_train_samples,
+        args.seed,
+        sampling=args.train_sampling,
+    )
     eval_frame = load_frame(
-        args.validation_file.resolve(), args.max_eval_samples, args.seed
+        args.validation_file.resolve(),
+        args.max_eval_samples,
+        args.seed,
+        sampling="natural",
     )
     tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True)
     if tokenizer.pad_token_id is None:
@@ -187,7 +257,7 @@ def main() -> None:
     eval_dataset = to_prompt_completion(
         eval_frame, tokenizer, args.max_narrative_chars
     )
-    write_run_metadata(args, len(train_frame), len(eval_frame))
+    write_run_metadata(args, train_frame, eval_frame)
 
     quantization_config = BitsAndBytesConfig(
         load_in_4bit=True,
@@ -198,7 +268,7 @@ def main() -> None:
     model = AutoModelForCausalLM.from_pretrained(
         args.model,
         quantization_config=quantization_config,
-        torch_dtype=torch.float16,
+        dtype=torch.float16,
         device_map={"": 0},
         low_cpu_mem_usage=True,
     )

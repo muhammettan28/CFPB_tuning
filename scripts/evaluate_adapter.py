@@ -50,6 +50,11 @@ def parse_args() -> argparse.Namespace:
         default=PROJECT_ROOT / "outputs/qwen3_8b_qlora_pilot/best_adapter",
     )
     parser.add_argument(
+        "--base-only",
+        action="store_true",
+        help="Evaluate the base model without loading a PEFT adapter.",
+    )
+    parser.add_argument(
         "--data-file",
         type=Path,
         default=PROJECT_ROOT / "dataset/splits/validation.csv",
@@ -106,7 +111,8 @@ def main() -> None:
     frame = frame.reset_index(drop=True)
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
-    tokenizer = AutoTokenizer.from_pretrained(args.adapter, use_fast=True)
+    tokenizer_source = args.model if args.base_only else args.adapter
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_source, use_fast=True)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
     quantization_config = BitsAndBytesConfig(
@@ -118,11 +124,11 @@ def main() -> None:
     base = AutoModelForCausalLM.from_pretrained(
         args.model,
         quantization_config=quantization_config,
-        torch_dtype=torch.float16,
+        dtype=torch.float16,
         device_map={"": 0},
         low_cpu_mem_usage=True,
     )
-    model = PeftModel.from_pretrained(base, args.adapter)
+    model = base if args.base_only else PeftModel.from_pretrained(base, args.adapter)
     model.eval()
 
     rows = []

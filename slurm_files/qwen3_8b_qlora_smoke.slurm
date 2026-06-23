@@ -46,6 +46,7 @@ python scripts/train_qlora.py \
   --output-dir "${OUTPUT_DIR}" \
   --max-train-samples 64 \
   --max-eval-samples 32 \
+  --train-sampling natural \
   --max-narrative-chars 500 \
   --max-length 512 \
   --epochs 1 \
