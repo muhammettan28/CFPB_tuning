@@ -1,0 +1,4 @@
+split,retail_banking,credit_reporting,credit_card,mortgages_and_loans,debt_collection
+internal test,1293,8571,1494,1826,2244
+train,10346,68400,11925,14703,18053
+validation,1293,8566,1524,1838,2206

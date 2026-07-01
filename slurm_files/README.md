@@ -387,6 +387,317 @@ Kopyalamadan sonra yerel checksum manifestini yeniden üret:
 bash scripts/create_archive_checksums.sh
 ```
 
+## 9. İkinci aşama: 2 epoch aday karşılaştırması
+
+İlk sınırlı hiperparametre aramasında en iyi genel validation sonucu doğal
+sampling ile geldi; balanced sampling ise `debt_collection` F1 değerini bir
+miktar yükseltti. Bu nedenle test setlerine dokunmadan iki adayın 2 epoch
+versiyonu karşılaştırılır:
+
+- `S1_nat_lr2e4_r16_2ep`: natural sampling, lr=2e-4, LoRA r/alpha=16/32
+- `S2_bal_lr2e4_r16_2ep`: balanced sampling, lr=2e-4, LoRA r/alpha=16/32
+
+Güncel dosyaları TRUBA'ya kopyala:
+
+```bash
+rsync -av \
+  scripts slurm_files requirements-truba.txt \
+  muhtan@172.16.6.11:/arf/scratch/muhtan/ccc/
+```
+
+İkinci aşama array işini gönder:
+
+```bash
+cd /arf/scratch/muhtan/ccc
+sbatch slurm_files/qwen3_8b_second_stage_2epoch.slurm
+```
+
+Log adları:
+
+```text
+logs/cfpb-qwen3-2ep-ARRAYJOBID_0.out
+logs/cfpb-qwen3-2ep-ARRAYJOBID_1.out
+```
+
+Tamamlandıktan sonra validation metriklerini karşılaştır:
+
+```bash
+python scripts/summarize_search.py \
+  --outputs-dir outputs \
+  --pattern "qwen3_8b_second_stage_*" \
+  --pilot-pattern "qwen3_8b_qlora_pilot_*" \
+  --output outputs/qwen3_8b_second_stage_summary.csv
+```
+
+Bu aşamada seçim yine validation macro-F1 ile yapılır. Eşitliğe yakın durumda
+`debt_collection` F1, weighted F1 ve latency birlikte değerlendirilir. Internal
+test ve legacy benchmark bu aşamada hâlâ kullanılmaz.
+
+## 10. Seed stabilitesi
+
+2 epoch ikinci aşama sonucunda doğal sampling, lr=2e-4, LoRA r/alpha=16/32
+ayarı en iyi validation sonucunu verdiyse bu ayar final aday olarak kabul edilir.
+Seed 42 sonucu ikinci aşama çıktısından zaten mevcuttur; kaynak kullanımı için
+yalnızca seed 43 ve 44 tekrarları çalıştırılır.
+
+Güncel dosyaları TRUBA'ya kopyala:
+
+```bash
+rsync -av \
+  scripts slurm_files requirements-truba.txt \
+  muhtan@172.16.6.11:/arf/scratch/muhtan/ccc/
+```
+
+Seed stabilitesi array işini gönder:
+
+```bash
+cd /arf/scratch/muhtan/ccc
+sbatch slurm_files/qwen3_8b_seed_stability.slurm
+```
+
+Tamamlandıktan sonra seed 42 ikinci aşama sonucu ile seed 43/44 sonuçlarını
+birlikte özetle:
+
+```bash
+python scripts/summarize_search.py \
+  --outputs-dir outputs \
+  --pattern "qwen3_8b_seed_stability_*" \
+  --pilot-pattern "qwen3_8b_second_stage_S1_nat_lr2e4_r16_2ep_*" \
+  --output outputs/qwen3_8b_seed_stability_summary.csv
+```
+
+Seed sonuçları birbirine yakınsa konfigürasyon dondurulur ve final internal test
+ile legacy benchmark aşamasına geçilir.
+
+## 11. Final internal test ve legacy benchmark
+
+Seed stabilitesi doğrulandıktan sonra konfigürasyon dondurulur. Bu aşamada
+artık validation üzerinde seçim yapılmaz. Final değerlendirme şu dört varyantı
+çalıştırır:
+
+- `base_zero_shot`: HF Qwen3-8B, adaptersız
+- `fine_tuned_seed42`: dondurulmuş ayar, seed 42 adapter
+- `fine_tuned_seed43`: dondurulmuş ayar, seed 43 adapter
+- `fine_tuned_seed44`: dondurulmuş ayar, seed 44 adapter
+
+Her varyant şu veri kümelerinde çalışır:
+
+- `dataset/splits/internal_test.csv`
+- `dataset/legacy_subsets/*.csv`
+
+Güncel dosyaları TRUBA'ya kopyala:
+
+```bash
+rsync -av \
+  scripts slurm_files requirements-truba.txt \
+  muhtan@172.16.6.11:/arf/scratch/muhtan/ccc/
+```
+
+Final evaluation array işini gönder:
+
+```bash
+cd /arf/scratch/muhtan/ccc
+sbatch slurm_files/qwen3_8b_final_evaluation.slurm
+```
+
+Log adları:
+
+```text
+logs/cfpb-qwen3-final-ARRAYJOBID_0.out
+logs/cfpb-qwen3-final-ARRAYJOBID_1.out
+logs/cfpb-qwen3-final-ARRAYJOBID_2.out
+logs/cfpb-qwen3-final-ARRAYJOBID_3.out
+```
+
+Tamamlandıktan sonra özet CSV üret:
+
+```bash
+python scripts/summarize_final_evaluation.py \
+  --outputs-dir outputs \
+  --output outputs/qwen3_8b_final_evaluation_summary.csv
+```
+
+Bu CSV, internal test ve tüm legacy subset metriklerini tek tabloda toplar.
+Makaledeki ana sonuçlar internal test üzerinde raporlanır; legacy subsetler ise
+ilk zero-shot makalesiyle paired/benchmark karşılaştırması için kullanılır.
+
+### 11.1 Legacy subsetler ayrı çalıştırılırsa
+
+Eğer `qwen3_8b_final_evaluation.slurm` yalnızca `internal_test` sonuçlarını
+üretip legacy subsetlere geçmeden tamamlanır ya da kesilirse internal test
+tekrar edilmez. Sadece legacy benchmark için ayrı iş gönderilir:
+
+```bash
+cd /arf/scratch/muhtan/ccc
+sbatch slurm_files/qwen3_8b_legacy_final_evaluation.slurm
+```
+
+Tamamlandıktan sonra legacy özet CSV'si:
+
+```bash
+python scripts/summarize_final_evaluation.py \
+  --outputs-dir outputs \
+  --pattern "qwen3_8b_legacy_final_eval_*" \
+  --output outputs/qwen3_8b_legacy_final_evaluation_summary.csv
+```
+
+Beklenen satır sayısı 48'dir:
+
+```text
+4 varyant x 12 legacy subset = 48 satır
+```
+
+## 12. Llama 3.1 8B doğrulama deneyleri
+
+Qwen3-8B üzerinde hiperparametre seçimi ve seed stabilitesi tamamlandıktan
+sonra aynı dondurulmuş protokol Llama 3.1 8B üzerinde de çalıştırılır. Bu aşama
+yeni bir hiperparametre araması değildir; amaç bulgunun tek modele özgü
+olmadığını göstermek için ikinci bir açık kaynak LLM ile doğrulama yapmaktır.
+
+Kullanılan protokol:
+
+- Train sampling: natural
+- Train sample size: 10.000
+- Validation sample size: 2.000
+- Epoch: 2
+- Learning rate: 2e-4
+- LoRA r/alpha: 16/32
+- Seeds: 42, 43, 44
+- Final evaluation: internal test + legacy subsets
+
+Önce Hugging Face checkpoint'inin TRUBA'da bulunduğundan emin olun. Varsayılan
+beklenen klasör:
+
+```text
+/arf/scratch/muhtan/ccc/hf_models/Llama-3.1-8B-Instruct
+```
+
+Model farklı bir klasördeyse SLURM gönderirken `LLAMA_MODEL_DIR` değişkeni
+verilebilir.
+
+Örnek indirme komutu:
+
+```bash
+python scripts/download_hf_model.py \
+  --model meta-llama/Llama-3.1-8B-Instruct \
+  --destination /arf/scratch/muhtan/ccc/hf_models/Llama-3.1-8B-Instruct
+```
+
+Not: Resmi Meta Llama checkpoint'i Hugging Face erişim onayı/token
+gerektirebilir. TRUBA ortamında token yoksa önce Hugging Face erişimi
+tanımlanmalıdır veya aynı Llama 3.1 8B Instruct ağırlıklarını içeren erişilebilir
+bir HF repo kullanılmalıdır.
+
+Eğer Llama 3.1 erişimi `pending` durumundaysa ve Meta Llama 3 erişimi
+hesapta `accepted` görünüyorsa, beklemeden `Meta-Llama-3-8B-Instruct` ile aynı
+doğrulama protokolü çalıştırılabilir. Bu durumda model klasörü:
+
+```text
+/arf/scratch/muhtan/ccc/hf_models/Meta-Llama-3-8B-Instruct
+```
+
+İndirme:
+
+```bash
+python scripts/download_hf_model.py \
+  --model meta-llama/Meta-Llama-3-8B-Instruct \
+  --destination /arf/scratch/muhtan/ccc/hf_models/Meta-Llama-3-8B-Instruct
+```
+
+Llama 3 için ayrı SLURM dosyaları:
+
+- `slurm_files/llama3_8b_fixed_protocol_train.slurm`
+- `slurm_files/llama3_8b_final_internal.slurm`
+- `slurm_files/llama3_8b_final_legacy.slurm`
+
+Güncel dosyaları TRUBA'ya kopyala:
+
+```bash
+rsync -av \
+  scripts slurm_files requirements-truba.txt \
+  muhtan@172.16.6.11:/arf/scratch/muhtan/ccc/
+```
+
+Üç seed fine-tuning işini gönder:
+
+```bash
+cd /arf/scratch/muhtan/ccc
+sbatch slurm_files/llama31_8b_fixed_protocol_train.slurm
+```
+
+Tamamlanınca validation özetini üret:
+
+```bash
+python scripts/summarize_search.py \
+  --outputs-dir outputs \
+  --pattern "llama31_8b_fixed_protocol_seed*" \
+  --pilot-pattern "__none__" \
+  --output outputs/llama31_8b_validation_seed_summary.csv
+```
+
+Internal final evaluation:
+
+```bash
+sbatch slurm_files/llama31_8b_final_internal.slurm
+```
+
+Tamamlanınca:
+
+```bash
+python scripts/summarize_final_evaluation.py \
+  --outputs-dir outputs \
+  --pattern "llama31_8b_final_eval_*" \
+  --output outputs/llama31_8b_final_internal_summary.csv
+```
+
+Legacy final evaluation:
+
+```bash
+sbatch slurm_files/llama31_8b_final_legacy.slurm
+```
+
+Tamamlanınca:
+
+```bash
+python scripts/summarize_final_evaluation.py \
+  --outputs-dir outputs \
+  --pattern "llama31_8b_legacy_final_eval_*" \
+  --output outputs/llama31_8b_legacy_final_summary.csv
+```
+
+Beklenen legacy satır sayısı yine 48'dir:
+
+```text
+4 varyant x 12 legacy subset = 48 satır
+```
+
+Llama 3 fallback seçilirse komutlar aynıdır, yalnızca dosya adları `llama3`
+olur:
+
+```bash
+sbatch slurm_files/llama3_8b_fixed_protocol_train.slurm
+
+python scripts/summarize_search.py \
+  --outputs-dir outputs \
+  --pattern "llama3_8b_fixed_protocol_seed*" \
+  --pilot-pattern "__none__" \
+  --output outputs/llama3_8b_validation_seed_summary.csv
+
+sbatch slurm_files/llama3_8b_final_internal.slurm
+
+python scripts/summarize_final_evaluation.py \
+  --outputs-dir outputs \
+  --pattern "llama3_8b_final_eval_*" \
+  --output outputs/llama3_8b_final_internal_summary.csv
+
+sbatch slurm_files/llama3_8b_final_legacy.slurm
+
+python scripts/summarize_final_evaluation.py \
+  --outputs-dir outputs \
+  --pattern "llama3_8b_legacy_final_eval_*" \
+  --output outputs/llama3_8b_legacy_final_summary.csv
+```
+
 İzleme:
 
 ```bash

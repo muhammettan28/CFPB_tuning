@@ -528,3 +528,384 @@ Smoke-test ve GPU ortam kontrol logları yerel arşivde bulunmuyorsa bunlar
 teknik provenance açısından TRUBA'dan ayrıca alınmalıdır; smoke output,
 run metadata ve adapter dosyaları mevcut olduğundan bilimsel pilot sonucunda
 veri kaybı bulunmamaktadır.
+
+### İkinci aşama validation planı
+
+Sınırlı hiperparametre ve sampling aramasında 1 epoch sonuçları şu şekilde
+yorumlanmıştır:
+
+- En iyi genel validation performansı doğal sampling ile elde edilmiştir
+  (`macro-F1 = 0,8098`, `weighted F1 = 0,8439`).
+- Balanced sampling, genel macro/weighted F1 değerlerini az miktarda düşürmüş,
+  ancak `debt_collection` F1 değerini yükseltmiştir.
+
+Bu nedenle test setlerine geçmeden önce yalnızca iki 2-epoch aday çalıştırılacak:
+
+| Aday | Sampling | LR | LoRA r/alpha | Epoch |
+|---|---|---:|---:|---:|
+| S1 | natural | 2e-4 | 16/32 | 2 |
+| S2 | balanced | 2e-4 | 16/32 | 2 |
+
+Bu deneyler `slurm_files/qwen3_8b_second_stage_2epoch.slurm` ile çalıştırılır.
+Amaç daha geniş bir hiperparametre araması yapmak değil, ilk turda en makul
+görünen iki seçeneğin epoch artışına verdiği tepkiyi ölçmektir.
+
+Seçim metrik önceliği:
+
+1. Validation macro-F1
+2. Yakın sonuçlarda `debt_collection` F1
+3. Weighted F1
+4. Off-label count
+5. Ortalama inference latency
+
+Bu aşamada `internal_test.csv` ve `legacy_subsets/` hâlâ kullanılmayacaktır.
+Nihai konfigürasyon validation üzerinde dondurulduktan sonra önce seed
+stabilitesi, ardından internal test ve legacy benchmark raporlanacaktır.
+
+### İkinci aşama sonucu ve seed stabilitesi
+
+2 epoch validation deneyinde doğal sampling ayarı açık ara en iyi sonucu
+vermiştir:
+
+| Aday | Sampling | Epoch | Accuracy | Macro-F1 | Weighted F1 | Debt collection F1 |
+|---|---|---:|---:|---:|---:|---:|
+| S1 | natural | 2 | 0,8545 | 0,8235 | 0,8531 | 0,7033 |
+| Pilot | natural | 1 | 0,8475 | 0,8098 | 0,8439 | 0,6429 |
+| S2 | balanced | 2 | 0,8415 | 0,8065 | 0,8397 | 0,6456 |
+
+Bu sonuçla final aday konfigürasyon şu şekilde belirlenmiştir:
+
+- Model: Qwen3-8B
+- Fine-tuning: QLoRA
+- Train sampling: natural
+- Train sample size: 10.000
+- Validation sample size: 2.000
+- Max narrative chars: 500
+- Max length: 512
+- Epoch: 2
+- Learning rate: 2e-4
+- LoRA r/alpha: 16/32
+
+Seed 42 sonucu ikinci aşama S1 çalışmasında mevcuttur. Seed stabilitesi için
+aynı konfigürasyon yalnızca seed 43 ve seed 44 ile yeniden çalıştırılacaktır
+(`slurm_files/qwen3_8b_seed_stability.slurm`). Seed sonuçları validation
+macro-F1 açısından tutarlıysa konfigürasyon dondurulacak; bundan sonra
+hyperparameter veya sampling seçimi yapılmayacaktır.
+
+Seed stabilitesi sonuçları konfigürasyonun tutarlı olduğunu göstermiştir:
+
+| Seed | Accuracy | Macro-F1 | Weighted F1 | Debt collection F1 | Off-label |
+|---:|---:|---:|---:|---:|---:|
+| 42 | 0,8545 | 0,8235 | 0,8531 | 0,7033 | 0 |
+| 43 | 0,8545 | 0,8187 | 0,8531 | 0,6975 | 0 |
+| 44 | 0,8510 | 0,8181 | 0,8474 | 0,7015 | 0 |
+
+Üç seed ortalaması:
+
+- Accuracy: 0,8533 ± 0,0020
+- Macro-F1: 0,8201 ± 0,0030
+- Weighted F1: 0,8512 ± 0,0033
+- `debt_collection` F1: 0,7008 ± 0,0030
+
+Macro-F1 aralığı yalnızca 0,0054 olduğundan final aday konfigürasyon
+dondurulmuştur. Bundan sonra validation üzerinde yeni hiperparametre veya
+sampling seçimi yapılmayacak; sonraki adım aynı dondurulmuş konfigürasyonla
+internal test ve legacy benchmark değerlendirmesidir.
+
+### Final değerlendirme planı
+
+Final değerlendirme `slurm_files/qwen3_8b_final_evaluation.slurm` ile
+çalıştırılacaktır. Bu aşamada validation metriklerine bakılarak yeni karar
+alınmayacaktır.
+
+Çalıştırılacak varyantlar:
+
+- HF Qwen3-8B base zero-shot
+- Fine-tuned Qwen3-8B seed 42
+- Fine-tuned Qwen3-8B seed 43
+- Fine-tuned Qwen3-8B seed 44
+
+Değerlendirilecek veri kümeleri:
+
+- `dataset/splits/internal_test.csv`: ana nihai genelleme testi
+- `dataset/legacy_subsets/*.csv`: önceki zero-shot makalesiyle karşılaştırmalı
+  benchmark
+
+Final çıktı yapısı:
+
+- `outputs/qwen3_8b_final_eval_*/internal_test/metrics.json`
+- `outputs/qwen3_8b_final_eval_*/internal_test/predictions.csv`
+- `outputs/qwen3_8b_final_eval_*/legacy_subsets/*/metrics.json`
+- `outputs/qwen3_8b_final_eval_*/legacy_subsets/*/predictions.csv`
+- `outputs/qwen3_8b_final_evaluation_summary.csv`
+
+Ana makale iddiası aynı HF pipeline içinde yapılacaktır:
+
+> HF Qwen3-8B zero-shot ile aynı modelin QLoRA fine-tuned versiyonları
+> karşılaştırılır.
+
+Önceki makaledeki Ollama/GGUF zero-shot sonuçları ise legacy benchmark üzerinde
+tarihsel/protokol karşılaştırması olarak raporlanacaktır.
+
+### Final internal test sonuçları
+
+Final değerlendirme çıktısında `internal_test.csv` için HF Qwen3-8B base
+zero-shot ve üç fine-tuned seed sonucu elde edilmiştir. Bu aşama artık
+validation seçimi değildir; dondurulmuş konfigürasyonun nihai test sonucudur.
+
+| Varyant | Accuracy | Macro-F1 | Weighted F1 | Debt collection F1 | Off-label |
+|---|---:|---:|---:|---:|---:|
+| Base zero-shot | 0,7350 | 0,6294 | 0,7202 | 0,4644 | 1 |
+| Fine-tuned seed 42 | 0,8706 | 0,8370 | 0,8696 | 0,7527 | 0 |
+| Fine-tuned seed 43 | 0,8686 | 0,8339 | 0,8675 | 0,7512 | 0 |
+| Fine-tuned seed 44 | 0,8697 | 0,8342 | 0,8687 | 0,7599 | 0 |
+
+Fine-tuned üç seed ortalaması:
+
+- Accuracy: 0,8696
+- Macro-F1: 0,8350
+- Weighted F1: 0,8686
+- `debt_collection` F1: 0,7546
+
+Base zero-shot'a göre ortalama mutlak kazanımlar:
+
+- Accuracy: +0,1346
+- Macro-F1: +0,2056
+- Weighted F1: +0,1483
+- `debt_collection` F1: +0,2902
+
+Bu sonuç, QLoRA fine-tuning'in internal test üzerinde güçlü ve seed açısından
+tutarlı bir performans artışı sağladığını göstermektedir. Mevcut arşivdeki
+`qwen3_8b_final_evaluation_summary.csv` yalnızca `internal_test` satırlarını
+içerdiği için legacy benchmark çıktıları ayrıca doğrulanmalı ve arşive
+eklenmelidir.
+
+Legacy subsetler için ayrı değerlendirme işi
+`slurm_files/qwen3_8b_legacy_final_evaluation.slurm` olarak hazırlanmıştır. Bu
+iş internal test'i tekrar çalıştırmaz; yalnızca `dataset/legacy_subsets/*.csv`
+üzerinde base zero-shot ve üç fine-tuned seed varyantını değerlendirir. Beklenen
+özet çıktı `outputs/qwen3_8b_legacy_final_evaluation_summary.csv` dosyasında
+48 satırdır.
+
+### Final legacy benchmark sonuçları
+
+Legacy benchmark değerlendirmesi 12 subset ve 4 varyant için tamamlanmıştır:
+
+- 12 legacy subset
+- 1 base zero-shot varyant
+- 3 fine-tuned seed varyantı
+- Toplam 48 metrik satırı
+- Toplam 48 `metrics.json` dosyası
+
+Legacy subsetler üzerindeki ortalama performans:
+
+| Metrik | Base zero-shot ort. | Fine-tuned seed ort. | Mutlak kazanım |
+|---|---:|---:|---:|
+| Accuracy | 0,6593 | 0,8160 | +0,1566 |
+| Macro-F1 | 0,6150 | 0,8003 | +0,1853 |
+| Weighted F1 | 0,6486 | 0,8163 | +0,1676 |
+
+Seed bazında legacy ortalamaları:
+
+| Seed | Accuracy | Macro-F1 | Weighted F1 |
+|---:|---:|---:|---:|
+| 42 | 0,8153 | 0,8005 | 0,8157 |
+| 43 | 0,8156 | 0,7993 | 0,8161 |
+| 44 | 0,8170 | 0,8011 | 0,8170 |
+
+Balanced ve imbalanced legacy subsetlerde macro-F1 kazanımı birbirine çok
+yakındır:
+
+- Balanced subsetler: base 0,6150 → fine-tuned 0,8003 (`+0,1853`)
+- Imbalanced subsetler: base 0,6194 → fine-tuned 0,8044 (`+0,1849`)
+
+Bu sonuçlar, internal test bulgusuyla tutarlıdır: QLoRA fine-tuning hem yeni
+internal test ayrımında hem de önceki zero-shot makalesinde kullanılan legacy
+benchmark subsetlerinde base HF zero-shot modele göre belirgin performans
+artışı sağlamaktadır.
+
+## İkinci model doğrulaması: Llama 3.1 8B
+
+Qwen3-8B deneyleri fine-tuning etkisini güçlü biçimde göstermektedir; ancak
+makalenin önceki zero-shot çalışmaya bağlanması nedeniyle hakemler farklı açık
+kaynak LLM'lerde de sonuç görmek isteyebilir. Bu nedenle ikinci model olarak
+Llama 3.1 8B eklenecektir.
+
+Bu aşamada yeni hiperparametre araması yapılmayacaktır. Qwen3-8B üzerinde
+validation ile seçilip seed stabilitesi gösterilen protokol dondurulmuş şekilde
+Llama 3.1 8B'ye uygulanacaktır:
+
+- Model: Llama 3.1 8B Instruct
+- Fine-tuning: QLoRA
+- Train sampling: natural
+- Train sample size: 10.000
+- Validation sample size: 2.000
+- Epoch: 2
+- Learning rate: 2e-4
+- LoRA r/alpha: 16/32
+- Seeds: 42, 43, 44
+- Final evaluation: internal test ve legacy subsets
+
+Bu tasarımın amacı Llama için en iyi hiperparametreleri aramak değildir. Amaç,
+Qwen3-8B'de gözlenen fine-tuning kazanımının en az bir ikinci açık kaynak LLM
+üzerinde de görülüp görülmediğini test etmektir. Bu nedenle sonuçlar
+“confirmatory/robustness experiment” olarak raporlanacaktır.
+
+Llama çalıştırma dosyaları:
+
+- `slurm_files/llama31_8b_fixed_protocol_train.slurm`
+- `slurm_files/llama31_8b_final_internal.slurm`
+- `slurm_files/llama31_8b_final_legacy.slurm`
+
+Varsayılan HF checkpoint klasörü:
+
+- `/arf/scratch/muhtan/ccc/hf_models/Llama-3.1-8B-Instruct`
+
+Resmi Meta checkpoint'i erişim onayı/token gerektirebileceği için TRUBA tarafında
+model indirme adımı ayrıca doğrulanmalıdır.
+
+Llama 3.1 erişimi Hugging Face üzerinde `pending` kalırsa, hesapta erişimi
+`accepted` görünen Meta Llama 3 ailesinden `Meta-Llama-3-8B-Instruct` aynı
+doğrulama rolü için kullanılabilir. Bu durumda model adı makalede açıkça
+“Llama 3 8B Instruct” olarak raporlanacak; Llama 3.1 ile karıştırılmayacaktır.
+
+Llama 3 fallback dosyaları:
+
+- `slurm_files/llama3_8b_fixed_protocol_train.slurm`
+- `slurm_files/llama3_8b_final_internal.slurm`
+- `slurm_files/llama3_8b_final_legacy.slurm`
+
+Bu fallback, metodolojik olarak aynı amaca hizmet eder: Qwen3-8B'de gözlenen
+fine-tuning kazanımının ikinci bir açık kaynak LLM ailesinde de görülüp
+görülmediğini kontrol etmek.
+
+### Llama 3.1 8B final sonuçları
+
+Llama 3.1 8B Instruct için dondurulmuş Qwen protokolü değiştirilmeden
+uygulanmıştır. Üç seed fine-tuning, internal final test ve legacy benchmark
+tamamlanmış; arşive 3 validation seed satırı, 4 internal test satırı ve 48
+legacy benchmark satırı alınmıştır.
+
+Internal test sonuçları:
+
+| Metrik | Base zero-shot | Fine-tuned seed ort. | Mutlak kazanım |
+|---|---:|---:|---:|
+| Accuracy | 0,7319 | 0,8717 | +0,1398 |
+| Macro-F1 | 0,6189 | 0,8378 | +0,2189 |
+| Weighted F1 | 0,7094 | 0,8705 | +0,1611 |
+| `debt_collection` F1 | 0,3354 | 0,7613 | +0,4259 |
+
+Legacy benchmark ortalamaları:
+
+| Metrik | Base zero-shot ort. | Fine-tuned seed ort. | Mutlak kazanım |
+|---|---:|---:|---:|
+| Accuracy | 0,6394 | 0,8201 | +0,1807 |
+| Macro-F1 | 0,5763 | 0,8053 | +0,2289 |
+| Weighted F1 | 0,6134 | 0,8204 | +0,2070 |
+
+Legacy macro-F1 seed ortalamaları:
+
+- Seed 42: 0,8040
+- Seed 43: 0,8068
+- Seed 44: 0,8050
+
+Bu sonuçlar Qwen3-8B bulgusunu güçlendirmektedir: aynı dondurulmuş protokol,
+ikinci bir açık kaynak LLM olan Llama 3.1 8B üzerinde de hem internal testte hem
+legacy benchmarkta güçlü ve tutarlı fine-tuning kazanımı üretmiştir.
+
+## Makale konumlandırması, novelty ve yapılacak son analizler
+
+Bu çalışmanın novelty'si yeni bir model mimarisi veya yeni bir fine-tuning
+algoritması önermek değildir. Çalışma şu şekilde çerçevelenecektir:
+
+> Önceki zero-shot açık kaynak LLM çalışmasını, leakage-kontrollü
+> train/validation/test ayrımı, legacy benchmark koruması, iki farklı 8B açık
+> kaynak model ailesi, üç seed stabilitesi ve paired zero-shot vs QLoRA
+> fine-tuning karşılaştırmasıyla genişlettik.
+
+Bu framing makalenin iddiasını daha doğru kurar: katkı bir algoritma icadı
+değil; tekrarlanabilir, leakage-safe ve önceki zero-shot benchmark ile doğrudan
+bağlantılı uygulamalı bir değerlendirme protokolüdür.
+
+### Ana novelty noktaları
+
+1. CFPB consumer complaint classification için zero-shot → QLoRA fine-tuning
+   geçişinin sistematik analizi yapılmıştır.
+2. Önceki makalede kullanılan legacy subsetler eğitimden dışlanmış ve final
+   benchmark olarak korunmuştur. Bu, önceki zero-shot çalışma ile yeni
+   fine-tuning çalışması arasında metodolojik köprü kurar.
+3. Data leakage riski açıkça yönetilmiştir:
+   - legacy örnekler train/validation/internal test havuzundan ayrılmıştır,
+   - duplicate/near-duplicate anlatıların splitler arasında sızması
+     engellenmiştir,
+   - internal test ve legacy benchmark hiperparametre seçiminde
+     kullanılmamıştır.
+4. Aynı Hugging Face pipeline içinde base zero-shot ve QLoRA fine-tuned modeller
+   karşılaştırılmıştır. Böylece kazanım altyapı farkından değil, fine-tuning
+   etkisinden kaynaklanacak şekilde izole edilmiştir.
+5. İki farklı 8B açık kaynak model ailesi kullanılmıştır:
+   - Qwen3-8B
+   - Llama 3.1-8B
+6. Üç seed ile stabilite değerlendirilmiştir:
+   - seed 42
+   - seed 43
+   - seed 44
+7. İki ayrı final değerlendirme düzlemi kullanılmıştır:
+   - leakage-safe `internal_test.csv`
+   - önceki makaleyle bağlantılı `legacy_subsets/`
+8. Sınıf bazlı kazanımlar raporlanacaktır. Özellikle zor sınıflardan
+   `debt_collection` için fine-tuning sonrası büyük F1 artışı vurgulanacaktır.
+
+Özet novelty cümlesi:
+
+> Novelty, algoritmik bir icattan ziyade reproducible applied evaluation ve
+> leakage-safe benchmark extension düzeyindedir.
+
+### Yayın şansını artırmak için eklenecek son analizler
+
+Aşağıdaki analizler makale yazımına geçmeden önce tamamlanacaktır:
+
+1. Internal test için confidence interval hesaplanacak.
+   - Accuracy, macro-F1 ve weighted F1 için bootstrap confidence interval
+     tercih edilebilir.
+   - Seed ortalamalarıyla birlikte raporlanacaktır.
+2. Legacy 12 subset üzerinde paired istatistiksel test yapılacak.
+   - Base zero-shot ve fine-tuned sonuçları subset bazında paired yapıdadır.
+   - Wilcoxon signed-rank test uygun bir adaydır.
+   - Ayrı ayrı accuracy, macro-F1 ve weighted F1 için uygulanabilir.
+3. Confusion matrix ve sınıf bazlı error analysis eklenecek.
+   - Qwen3-8B ve Llama 3.1-8B için internal test confusion matrixleri
+     incelenecek.
+   - En çok karışan sınıf çiftleri raporlanacak.
+   - `debt_collection` sınıfındaki kazanım ayrıca tartışılacak.
+4. Latency ve fine-tuning cost tartışması yapılacak.
+   - Base zero-shot ve fine-tuned inference latency karşılaştırılacak.
+   - Eğitim süresi, GPU tipi ve örnek sayısı raporlanacak.
+   - Fine-tuning kazanımının ek maliyeti tartışılacak.
+5. Limitations bölümü açık yazılacak.
+   - Çalışma yeni bir model mimarisi önermemektedir.
+   - QLoRA/LoRA yöntemi bilinen bir PEFT yaklaşımıdır.
+   - Bulgular CFPB complaint classification bağlamında değerlendirilmelidir.
+   - Daha büyük modeller, farklı veri kümeleri ve daha geniş hiperparametre
+     aramaları gelecek çalışma olarak bırakılacaktır.
+
+### Olası hedef dergi notu
+
+İlk uygun hedeflerden biri Turkish Journal of Electrical Engineering and
+Computer Sciences olabilir. Derginin kapsamı genel Electrical Engineering ve
+Computer Sciences alanlarını kapsadığı için uygulamalı LLM/NLP sınıflandırma
+çalışması kapsam açısından uyumlu görünebilir.
+
+Ön değerlendirme:
+
+- Dergi İngilizce, hakemli ve açık erişimdir.
+- Açık erişim yayın ücreti olmadığı belirtilmektedir; ancak gönderim öncesi
+  güncel author guidelines ve publication fee sayfası mutlaka tekrar kontrol
+  edilmelidir.
+- Makale DOI alır ve kalıcı erişim/preservation altyapısından yararlanır.
+- Çalışmanın uygulamalı yapısı, leakage-safe deney tasarımı ve iki açık kaynak
+  LLM ile doğrulama içermesi bu dergi için uygun bir paket oluşturabilir.
+
+Bu hedef için makale yazılırken katkı cümlesi “yeni algoritma” iddiasına değil,
+reproducible benchmarking, leakage-safe evaluation ve practical PEFT adaptation
+üzerine kurulmalıdır.

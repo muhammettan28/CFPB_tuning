@@ -9,3 +9,6 @@ hf_models/
 logs/
 outputs/
 /experiment_archive
+/PAPER/manuscript-template
+/PAPER/literature
+/ref_paper

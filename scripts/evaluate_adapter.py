@@ -106,6 +106,16 @@ def main() -> None:
         raise RuntimeError("CUDA GPU is required")
 
     frame = pd.read_csv(args.data_file)
+    if "product" in frame.columns:
+        label_column = "product"
+    elif "true_label" in frame.columns:
+        label_column = "true_label"
+    else:
+        raise ValueError(
+            f"{args.data_file} must contain either 'product' or 'true_label'"
+        )
+    if "narrative" not in frame.columns:
+        raise ValueError(f"{args.data_file} must contain 'narrative'")
     if args.max_samples > 0 and args.max_samples < len(frame):
         frame = frame.sample(n=args.max_samples, random_state=args.seed)
     frame = frame.reset_index(drop=True)
@@ -133,6 +143,7 @@ def main() -> None:
 
     rows = []
     for row in frame.itertuples(index=False):
+        true_label = getattr(row, label_column)
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
             {
@@ -173,7 +184,7 @@ def main() -> None:
         rows.append(
             {
                 "record_id": getattr(row, "record_id", None),
-                "true_label": row.product,
+                "true_label": true_label,
                 "prediction": prediction or "__off_label__",
                 "is_off_label": prediction is None,
                 "latency_seconds": latency,
@@ -216,6 +227,23 @@ def main() -> None:
     }
     (args.output_dir / "metrics.json").write_text(
         json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    metadata = {
+        "model": str(args.model),
+        "adapter": None if args.base_only else str(args.adapter),
+        "base_only": bool(args.base_only),
+        "data_file": str(args.data_file),
+        "label_column": label_column,
+        "output_dir": str(args.output_dir),
+        "max_samples": args.max_samples,
+        "max_narrative_chars": args.max_narrative_chars,
+        "max_input_length": args.max_input_length,
+        "max_new_tokens": args.max_new_tokens,
+        "seed": args.seed,
+        "allow_final_eval": bool(args.allow_final_eval),
+    }
+    (args.output_dir / "evaluation_metadata.json").write_text(
+        json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     print(json.dumps(metrics, ensure_ascii=False, indent=2))
 
