@@ -231,14 +231,14 @@ def main():
     parser.add_argument("--legacy-dir",    type=Path,
                         default=ROOT / "dataset/legacy_subsets")
     parser.add_argument("--out-dir",       type=Path,
-                        default=Path(__file__).parent / "outputs/encoder_baselines")
+                        default=Path(__file__).parent / "outputs/encoder_baselines_10k_len512")
     parser.add_argument("--max-train",     type=int, default=10_000)
     parser.add_argument("--max-chars",     type=int, default=500)
     parser.add_argument("--max-length",    type=int, default=512)
     parser.add_argument("--batch-size",    type=int, default=4)
     parser.add_argument("--grad-accum",    type=int, default=4)
     parser.add_argument("--lr",            type=float, default=2e-5)
-    parser.add_argument("--epochs",        type=int, default=3)
+    parser.add_argument("--epochs",        type=int, default=2)
     parser.add_argument("--seed",          type=int, default=42)
     parser.add_argument("--models",        nargs="+",
                         default=["bert-base-uncased", "distilbert-base-uncased", "roberta-base"])

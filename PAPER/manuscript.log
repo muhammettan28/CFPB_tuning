@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.4.24)  1 JUL 2026 15:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.4.24)  6 JUL 2026 16:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -530,26 +530,26 @@ File: figures/class_distribution.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/class_distribution.pdf  used on input line 94.
 
 (pdftex.def)             Requested size: 357.93831pt x 135.47281pt.
-<figures/narrative_length_histogram.pdf, id=178, 714.90967pt x 267.06651pt>
-File: figures/narrative_length_histogram.pdf Graphic file (type pdf)
-<use figures/narrative_length_histogram.pdf>
-Package pdftex.def Info: figures/narrative_length_histogram.pdf  used on input 
-line 106.
-(pdftex.def)             Requested size: 445.0002pt x 166.2356pt.
  [4
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.112 \subsection{Leakage-controlled split}
-                                            <./figures/class_distribution.pdf>]
-[5
+l.103 
+       <./figures/class_distribution.pdf>]
+<figures/narrative_length_histogram.pdf, id=231, 714.90967pt x 267.06651pt>
+File: figures/narrative_length_histogram.pdf Graphic file (type pdf)
+<use figures/narrative_length_histogram.pdf>
+Package pdftex.def Info: figures/narrative_length_histogram.pdf  used on input 
+line 106.
+(pdftex.def)             Requested size: 445.0002pt x 166.2356pt.
+ [5
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.126 
-       <./figures/narrative_length_histogram.pdf>]
+l.118 \subsection{Models}
+                          <./figures/narrative_length_histogram.pdf>]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
 41.
 
@@ -564,68 +564,62 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.178 ...tion{Evaluation and statistical analysis}
-                                                  ]
-(./tables/table_internal_summary_v2.tex)
-(./tables/table_internal_bootstrap_ci.tex)
+l.173 
+      ] (./tables/table_internal_summary_v2.tex)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8
+[8] (./tables/table_internal_bootstrap_ci.tex) [9
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.222 
-      ] (./tables/table_legacy_summary.tex) (./tables/table_legacy_wilcoxon.tex
-)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[9
+l.228 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.260 
-      
+l.228 
+      ] (./tables/table_legacy_summary.tex) (./tables/table_legacy_wilcoxon.tex
+) [10
 pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.260 
-      ] (./tables/table_supervised_baselines.tex) [10
+l.262 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.281 
-      
+l.262 
+      ] (./tables/table_supervised_baselines.tex) [11
 pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.281 
+l.285 
       ]
-<figures/internal_confusion_matrices.pdf, id=332, 823.87799pt x 650.43pt>
+<figures/internal_confusion_matrices.pdf, id=337, 823.87799pt x 650.43pt>
 File: figures/internal_confusion_matrices.pdf Graphic file (type pdf)
 <use figures/internal_confusion_matrices.pdf>
 Package pdftex.def Info: figures/internal_confusion_matrices.pdf  used on input
- line 286.
+ line 288.
 (pdftex.def)             Requested size: 474.02083pt x 374.22261pt.
- [11] [12
+ [12
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.309 
-       <./figures/internal_confusion_matrices.pdf>] [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 388--389
+l.299 
+       <./figures/internal_confusion_matrices.pdf>] [13] [14] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
 []\OT1/cmr/m/n/9 Consumer Fi-nan-cial Pro-tec-tion Bu-reau. Con-sumer com-plain
 t database. Web-site
  []
 
-[15] [16] (./manuscript.aux)
+[16] [17] (./manuscript.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -635,13 +629,13 @@ Package rerunfilecheck Info: File `manuscript.out' has not changed.
  )
 (\end occurred when \ifx on line 2 was incomplete) 
 Here is how much of TeX's memory you used:
- 13012 strings out of 467533
- 201170 string characters out of 5422138
- 643128 words of memory out of 5000000
- 41640 multiletter control sequences out of 15000+600000
+ 13015 strings out of 467533
+ 201192 string characters out of 5422138
+ 643307 words of memory out of 5000000
+ 41642 multiletter control sequences out of 15000+600000
  637253 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,84p,1892b,725s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,14n,84p,2448b,717s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type
@@ -662,10 +656,10 @@ cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></u
 sr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts
 /type1/public/cm-super/sfrm0800.pfb>
-Output written on manuscript.pdf (16 pages, 427413 bytes).
+Output written on manuscript.pdf (17 pages, 432135 bytes).
 PDF statistics:
- 550 PDF objects out of 1000 (max. 8388607)
- 350 compressed objects within 4 object streams
- 84 named destinations out of 1000 (max. 500000)
+ 556 PDF objects out of 1000 (max. 8388607)
+ 355 compressed objects within 4 object streams
+ 85 named destinations out of 1000 (max. 500000)
  197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

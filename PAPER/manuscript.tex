@@ -25,7 +25,7 @@
 \lpage{}
 \doi{}
 
-\title{From zero-shot inference to parameter-efficient fine-tuning: a leakage-controlled evaluation of open-source large language models for consumer complaint classification}
+\title{From zero-shot prompting to QLoRA fine-tuning: open-source LLMs for consumer complaint classification}
 
 \author[TAN and BAKIR]{
 \textbf{Muhammet TAN$^{1,}$\thanks{muhammet.tan@sivas.edu.tr}~, Halit BAKIR$^{1}$}\\
@@ -54,7 +54,7 @@ The Consumer Financial Protection Bureau (CFPB) complaint database is a large pu
 
 Recent work has explored large language models (LLMs) for zero-shot complaint classification. In zero-shot settings, models receive the candidate categories in the prompt and must return a valid label without task-specific training. This is attractive for complaint triage because new product taxonomies or institutional routing schemes may be introduced before large labelled datasets are available. However, zero-shot classification also raises practical issues: models can confuse overlapping financial products, output labels outside the allowed taxonomy, and show sensitivity to prompt and deployment details. Once a local zero-shot baseline is established for a given open-weight model, the next methodological question is how much performance can be gained through parameter-efficient fine-tuning under a fair and leakage-controlled protocol.
 
-This paper addresses that question. The central novelty is not a new model architecture or a new fine-tuning algorithm. Instead, the contribution is a reproducible applied evaluation and leakage-safe benchmark extension of a zero-shot experimental setting. We introduce a duplicate-aware train/validation/test split, exclude all legacy zero-shot subsets from model selection and training, and evaluate paired zero-shot versus QLoRA fine-tuned models in the same Hugging Face pipeline. Two different 8B-class open-source model families, Qwen3-8B and Llama 3.1-8B, are evaluated across three random seeds. The final evaluation uses both a held-out internal test set and preserved legacy zero-shot subsets.
+This paper addresses that question. The central novelty is not a new model architecture or a new fine-tuning algorithm. Instead, the contribution is a reproducible applied evaluation and leakage-safe benchmark extension of a zero-shot experimental setting. We introduce a duplicate-aware train/validation/test split, exclude all legacy zero-shot subsets from model selection and training, and evaluate paired zero-shot versus QLoRA fine-tuned models in the same Hugging Face pipeline. Unlike single-model or single-seed complaint-classification studies, the present work evaluates the zero-shot-to-fine-tuned transition under paired, multi-seed, multi-model, leakage-controlled conditions. Two different 8B-class open-source model families, Qwen3-8B and Llama 3.1-8B, are evaluated across three random seeds. The final evaluation uses both a held-out internal test set and preserved legacy zero-shot subsets.
 
 The contributions are as follows:
 \begin{enumerate}
@@ -62,7 +62,7 @@ The contributions are as follows:
     \item We preserve pre-existing zero-shot subsets as a legacy benchmark and explicitly exclude them from fine-tuning and model selection.
     \item We compare base zero-shot and fine-tuned models within the same Hugging Face quantised inference pipeline, isolating the effect of fine-tuning from infrastructure differences.
     \item We evaluate two 8B-class model families, Qwen3-8B and Llama 3.1-8B, each across seeds 42, 43, and 44.
-    \item We report internal test performance, legacy benchmark performance, paired Wilcoxon tests, confidence intervals, latency, and class-level error patterns.
+    \item We report internal test performance, legacy benchmark performance, paired Wilcoxon tests, confidence intervals, latency, off-label behaviour, and class-level error patterns.
 \end{enumerate}
 
 \section{Related work}
@@ -79,7 +79,7 @@ Supervised fine-tuning of encoder-only transformer models has been widely applie
 
 Parameter-efficient fine-tuning (PEFT) provides a middle path between zero-shot inference and full model fine-tuning. LoRA freezes the pretrained model weights and learns low-rank adapter matrices, reducing the number of trainable parameters and memory requirements \cite{hu2022lora}. QLoRA further enables fine-tuning of quantised LLMs by combining 4-bit NormalFloat quantisation, double quantisation, and LoRA adapters \cite{dettmers2023qlora}. Alternative PEFT methods include prefix tuning \cite{li2021prefix}, which prepends trainable tokens to the input, and $(IA)^3$ \cite{liu2022fewshot}, which rescales activations with learned vectors and achieves strong few-shot performance with even fewer parameters than LoRA. While these alternatives have shown competitive results on sequence classification benchmarks, QLoRA was selected for the present study because of its established support for 4-bit inference on 16 GB GPUs and its compatibility with the instruction-tuned Qwen3-8B and Llama 3.1-8B model families. Exploring alternative PEFT variants under the same leakage-controlled protocol is an avenue for future work. These properties are particularly relevant for shared high-performance computing environments where 8B--14B models can be adapted on limited-memory GPUs.
 
-The present study builds on this literature in an applied and evaluation-focused manner. It does not claim to improve LoRA or QLoRA. Instead, it asks whether PEFT produces reliable gains over open-source zero-shot complaint classification when the evaluation protocol protects against leakage, uses paired baselines, includes balanced and imbalanced legacy benchmarks, and reports seed stability across more than one model family.
+Taken together, the literature leaves a specific methodological gap. Classical and encoder-based classifiers show that supervised learning can be strong for complaint taxonomies, while recent LLM studies show that zero-shot prompting is feasible when labelled data or retraining are not immediately available. What remains less clear is how these two settings should be connected under a fair evaluation protocol: whether locally deployable open-weight LLMs that start from zero-shot prompting can be moved into a supervised regime through PEFT; whether the gains remain stable across random seeds and model families; whether preserved zero-shot benchmarks can be reused without leakage; and how the resulting models compare with lighter classical and encoder baselines. The present study addresses this gap in an applied and evaluation-focused manner. It does not claim to improve LoRA or QLoRA. Instead, it asks whether PEFT produces reliable gains over open-source zero-shot complaint classification when the evaluation protocol protects against leakage, uses paired baselines, includes balanced and imbalanced legacy benchmarks, and reports seed stability across more than one model family.
 
 \section{Materials and methods}
 
@@ -111,7 +111,7 @@ Complaint narratives are mostly short to medium length but have a long tail. The
 
 \subsection{Leakage-controlled split}
 
-To prevent evaluation leakage, the legacy subsets are first removed from the train/validation/internal-test pool. Narrative normalisation applies NFKC Unicode decomposition, whitespace stripping, and lowercasing; a SHA-256 hash of the normalised text is used as a deduplication key. Matching the 12,000 legacy rows (5,909 unique label--narrative pairs) back to the 162,405-row corpus excludes 8,123 rows from the fine-tuning pool through four mechanisms: (1) 4,990 exact normalised-text matches, (2) 3,096 matches where the first 250 normalised characters of a main-corpus narrative equal a legacy narrative truncated at 250 characters, (3) 23 rows whose normalised narrative belongs to the same duplicate group as a matched row but was not itself matched, and (4) 14 cross-label 250-character prefix matches where the main-corpus narrative begins with the same text as a legacy narrative from a different product category. These four mechanisms ensure that training data cannot leak any textual prefix of a legacy evaluation record, regardless of label or narrative length.
+To prevent evaluation leakage, the legacy subsets are first removed from the train/validation/internal-test pool. Narrative normalisation applies NFKC Unicode decomposition, whitespace stripping, and lowercasing; a SHA-256 hash of the normalised text is used as a deduplication key. Matching the 12,000 legacy rows (5,909 unique label--narrative pairs) back to the 162,405-row corpus excludes 8,123 rows from the fine-tuning pool through four mechanisms: (1) 4,990 exact normalised-text matches, (2) 3,096 matches where the first 250 normalised characters of a main-corpus narrative equal a legacy narrative truncated at 250 characters, (3) 23 rows whose normalised narrative belongs to the same duplicate group as a matched row but was not itself matched, and (4) 14 cross-label 250-character prefix matches where the main-corpus narrative begins with the same text as a legacy narrative from a different product category. The 250-character threshold is used because it is the minimum truncation length among the legacy subsets, making it a conservative prefix-matching rule that also protects the 500-character legacy variants. These four mechanisms ensure that training data cannot leak any textual prefix of a legacy evaluation record, regardless of label or narrative length.
 
 After legacy exclusion, the remaining pool contains 154,282 rows and 119,583 unique normalised narratives. The split is performed with a fixed seed of 42 and an 80/10/10 ratio, resulting in 123,427 training records, 15,427 validation records, and 15,428 internal test records. The split assigns all rows sharing the same normalised narrative to the same partition, preventing any information leakage between train, validation, and test sets even when narratives appear under different product labels. Duplicate-aware overlap checks confirm zero shared normalised narratives across all three partitions. Exact legacy hashes are also absent from the remaining pool. Legacy examples are therefore retained only for final paired benchmark evaluation.
 
@@ -126,7 +126,7 @@ To provide non-LLM reference points, two families of supervised baselines are tr
 
 \textbf{TF-IDF + Logistic Regression.} The TF-IDF representation uses unigram and bigram features, Unicode accent stripping, sublinear term frequency, minimum document frequency of 2, and a maximum of 200,000 features. Logistic Regression is trained with balanced class weights, $C=2.0$, and a maximum of 2000 iterations. Two budgets are evaluated: a 10,000-example natural training sample matching the QLoRA fixed-budget setting, and the full 123,427-example training split.
 
-\textbf{Fine-tuned transformer encoders.} Three encoder-only models are fine-tuned on a 5{,}000-example natural subsample: BERT-base-uncased \cite{devlin2019bert}, DistilBERT-base-uncased \cite{sanh2019distilbert}, and RoBERTa-base \cite{liu2019roberta}. A reduced training budget was used to accommodate CPU-only infrastructure (the local GPU has 4 GB VRAM, sufficient for inference but tight for full encoder fine-tuning with AdamW). Each model is fine-tuned for 2 epochs with a learning rate of $2\times10^{-5}$, batch size 16, linear warm-up over 6\% of steps, and maximum sequence length of 64 tokens. The 500-character narrative truncation is applied before tokenisation to match the QLoRA setup. All encoder baselines use seed 42 and are evaluated on the internal test set and all 12 legacy subsets under the same metrics as the QLoRA experiments. These baselines fill the gap between simple lexical classifiers and decoder-based LLMs, but they are resource-conscious reference baselines rather than an exhaustive search for the best possible encoder model.
+\textbf{Fine-tuned transformer encoders.} Three encoder-only models are fine-tuned on the same 10{,}000-example natural training budget used for QLoRA: BERT-base-uncased \cite{devlin2019bert}, DistilBERT-base-uncased \cite{sanh2019distilbert}, and RoBERTa-base \cite{liu2019roberta}. Each model is fine-tuned on TRUBA for 2 epochs with a learning rate of $2\times10^{-5}$, effective batch size 16, linear warm-up over 6\% of steps, and maximum sequence length of 512 tokens. These settings are selected as conservative, commonly used full fine-tuning settings for pretrained encoder models: unlike QLoRA, encoder fine-tuning updates the pretrained encoder weights directly, so a smaller learning rate is used to reduce the risk of destabilising the learned representations; the two-epoch budget and effective batch size 16 mirror the fixed-budget design used for QLoRA; and 512 tokens is the standard maximum input length supported by BERT-style encoders. The 500-character narrative truncation is applied before tokenisation to match the QLoRA setup. All encoder baselines use seed 42 and are evaluated on the internal test set and all 12 legacy subsets under the same metrics as the QLoRA experiments. These baselines fill the gap between simple lexical classifiers and decoder-based LLMs and provide a supervised encoder reference under the same fixed training budget.
 
 \subsection{Prompt and training format}
 
@@ -147,7 +147,7 @@ retail\_banking, credit\_reporting, credit\_card, mortgages\_and\_loans, and deb
 
 Thus, the system message specifies the five allowed categories and enforces a single JSON field, while the user message contains the prefix \texttt{Complaint:} followed by the truncated complaint narrative.
 
-For QLoRA training, each example is converted into a prompt--completion pair. The prompt contains the system and user messages, while the completion contains only the target JSON object with the correct product label, followed by the tokenizer end-of-sequence token. Training uses completion-only loss, so the optimisation target is the label-bearing assistant completion rather than the prompt text. During inference, generated text is parsed with a constrained regular expression over the \texttt{product} field; outputs outside the five-label taxonomy are counted as off-label predictions. No retry prompting, synonym normalisation, or external constrained-decoding API is used, so the off-label analysis reflects strict raw model compliance under the fixed prompt.
+For QLoRA training, each example is converted into a prompt--completion pair. The prompt contains the system and user messages, while the completion contains only the target JSON object with the correct product label, followed by the tokenizer end-of-sequence token. Training uses completion-only loss, so the optimisation target is the label-bearing assistant completion rather than the prompt text. No auxiliary format penalty or special JSON-specific loss is used. During inference, generated text is parsed with a constrained regular expression over the \texttt{product} field; outputs outside the five-label taxonomy are counted as off-label predictions. No retry prompting, synonym normalisation, or external constrained-decoding API is used, so the off-label analysis reflects strict raw model compliance under the fixed prompt.
 
 \subsection{Fine-tuning protocol}
 
@@ -167,13 +167,13 @@ Experiment & Sampling & LR & Rank & Epochs & Macro-F1 & Debt F1\\
 \end{table}
 
 The final protocol is fixed as follows: natural training sampling; 10,000 training examples; 2,000 validation examples; two epochs; learning rate $2 \times 10^{-4}$; LoRA rank/alpha 16/32; maximum narrative length of 500 characters; maximum input length of 512 tokens; seeds 42, 43, and 44.
-The 10,000-example training budget is a deliberate fixed-compute design choice. The full training split contains 123,427 records, but training all models on the full split would substantially increase the computational burden of the three-seed, two-model protocol on 16 GB V100 GPUs. By using the same 10,000-example natural sample, 2,000-example validation sample, and two-epoch budget for each seed and model, the study prioritises a reproducible paired comparison over maximum possible leaderboard performance. Larger training budgets may improve absolute scores and are therefore treated as future work rather than as part of the present controlled evaluation.
+The 10,000-example training budget is a deliberate fixed-compute design choice. The full training split contains 123,427 records, but training all models on the full split would substantially increase the computational burden of the three-seed, two-model protocol on 16 GB V100 GPUs. By using the same 10,000-example natural sample, 2,000-example validation sample, and two-epoch budget for each seed and model, the study prioritises a reproducible paired comparison over maximum possible leaderboard performance. Consequently, the reported QLoRA scores should be interpreted as fixed-budget adaptation results rather than upper-bound performance estimates. Larger training budgets may improve absolute scores and are therefore treated as future work rather than as part of the present controlled evaluation.
 
-The same frozen protocol is then applied to Llama 3.1-8B without additional hyperparameter search. This design treats Llama 3.1-8B as a confirmatory model rather than a separately optimised model.
+The same frozen protocol is then applied to Llama 3.1-8B without additional hyperparameter search. This design treats Llama 3.1-8B as a confirmatory model rather than a separately optimised model: the objective is to test whether the selected protocol transfers across model families, not to maximise the score of each model through model-specific tuning.
 
 \subsection{Experimental setup}
 
-All experiments were conducted on the TRUBA ARF high-performance computing infrastructure. Training and inference jobs were submitted with SLURM on the \texttt{akya-cuda} partition using one NVIDIA Tesla V100-SXM2 GPU with 16 GB memory and 10 CPU cores per job. The software environment used Python 3.10.20, PyTorch 2.7.1 with CUDA 11.8 wheels, Transformers, PEFT, TRL, bitsandbytes 0.46.1, pandas, and scikit-learn. Models were stored on shared scratch storage and loaded from local Hugging Face checkpoints in offline mode during SLURM jobs. QLoRA training used 4-bit NF4 quantisation with double quantisation and FP16 compute. Each training job used batch size 1, gradient accumulation 16, and deterministic seed control. Final inference used greedy decoding, maximum 32 generated tokens, batch size 1, and constrained JSON-style prompting with a fixed five-label taxonomy.
+All experiments were conducted on the TRUBA ARF high-performance computing infrastructure. Training and inference jobs were submitted with SLURM on the \texttt{akya-cuda} partition using one NVIDIA Tesla V100-SXM2 GPU with 16 GB memory and 10 CPU cores per job. The software environment used Python 3.10.20, PyTorch 2.7.1 with CUDA 11.8 wheels, Transformers, PEFT, TRL, bitsandbytes 0.46.1, pandas, and scikit-learn. Models were stored on shared scratch storage and loaded from local Hugging Face checkpoints in offline mode during SLURM jobs. QLoRA training used 4-bit NF4 quantisation with double quantisation and FP16 compute; QLoRA jobs used batch size 1 with gradient accumulation 16. Encoder fine-tuning used batch size 4 with gradient accumulation 4, giving the same effective batch size of 16. Final LLM inference used greedy decoding, maximum 32 generated tokens, batch size 1, and constrained JSON-style prompting with a fixed five-label taxonomy.
 
 \subsection{Evaluation and statistical analysis}
 
@@ -188,7 +188,7 @@ Table~\ref{tab:internal-summary} shows the internal test results on the leakage-
 The class-level pattern in Table~\ref{tab:internal-summary} is particularly relevant for the central complaint-triage problem. After fine-tuning, \texttt{debt\_collection} F1 reaches 0.7546 for Qwen3-8B and 0.7613 for Llama 3.1-8B. This category is operationally important because debt collection narratives frequently mention disputed accounts, credit bureaus, and credit reports, making them easy to confuse with \texttt{credit\_reporting}. The internal test results therefore support the main claim of the paper: QLoRA fine-tuning teaches the open-source LLMs the dataset-specific decision boundary that zero-shot prompting alone does not capture reliably.
 
 \begin{table}[h!]
-\caption{Internal test summary. Fine-tuned scores are mean$\pm$std over seeds 42, 43, and 44.}
+\caption{Internal test summary. Fine-tuned scores are mean$\pm$sample standard deviation over seeds 42, 43, and 44.}
 \label{tab:internal-summary}
 \begin{center}
 \footnotesize
@@ -201,10 +201,10 @@ Model & Base macro-F1 & FT macro-F1 & Gain & Base wF1 & FT wF1 & Gain & FT debt 
 \end{center}
 \end{table}
 
-Bootstrap confidence intervals confirm that the internal-test gains are well separated from zero for both models (Table~\ref{tab:bootstrap-ci}). For Qwen3-8B, the macro-F1 gain is 0.2060 with a 95\% confidence interval of [0.1965, 0.2143]. For Llama 3.1-8B, the macro-F1 gain is 0.2191 with a 95\% confidence interval of [0.2099, 0.2266]. Accuracy and weighted-F1 gains are similarly positive for both models. These intervals are narrow because the internal test set contains 15,428 examples, and none of the gain intervals approaches zero. Thus, the observed improvement is not a small fluctuation caused by a favourable sample; it is a stable effect at the prediction level.
+Bootstrap confidence intervals confirm that the internal-test gains are well separated from zero for both models (Table~\ref{tab:bootstrap-ci}). Each cell in Table~\ref{tab:bootstrap-ci} reports the point estimate followed by its 95\% bootstrap confidence interval in brackets. For Qwen3-8B, the macro-F1 gain is 0.2060 with a 95\% confidence interval of [0.1965, 0.2143]. For Llama 3.1-8B, the macro-F1 gain is 0.2191 with a 95\% confidence interval of [0.2099, 0.2266]. Accuracy and weighted-F1 gains are similarly positive for both models. These intervals are narrow because the internal test set contains 15,428 examples, and none of the gain intervals approaches zero. Thus, the observed improvement is not a small fluctuation caused by a favourable sample; it is a stable effect at the prediction level.
 
 \begin{table}[h!]
-\caption{Bootstrap 95\% confidence intervals on the internal test. Fine-tuned scores are seed means and confidence intervals are estimated from 300 bootstrap resamples over archived prediction files.}
+\caption{Bootstrap 95\% confidence intervals on the internal test. Each cell reports point estimate [lower, upper]. Fine-tuned scores are seed means, gain is fine-tuned minus base, and confidence intervals are estimated from 300 bootstrap resamples over archived prediction files.}
 \label{tab:bootstrap-ci}
 \begin{center}
 \begin{tabular}{llrrr}
@@ -218,7 +218,9 @@ Model & Metric & Base & Fine-tuned & Gain\\
 
 \subsection{Seed stability}
 
-Across the per-seed internal test runs, macro-F1 standard deviation is 0.0014 for Qwen3-8B and 0.0021 for Llama 3.1-8B, indicating that the fine-tuning protocol is highly reproducible. Weighted F1 and accuracy show similarly tight dispersion ($\sigma \leq 0.0009$). The largest per-seed spread is observed for debt-collection F1 (0.0038 for Qwen3-8B; 0.0059 for Llama 3.1-8B), which reflects the inherent difficulty of that class boundary rather than training instability.
+Seed stability is evaluated by repeating the final QLoRA protocol three times for each model family, using seeds 42, 43, and 44. The train/validation/internal-test split, 10,000-example training budget, validation set, prompt template, learning rate, LoRA configuration, number of epochs, and final evaluation sets are kept fixed. The random seed affects the stochastic parts of fine-tuning, including training-order shuffling, adapter initialisation, dropout, and low-level GPU randomness where applicable. Each seed-specific adapter is then evaluated on the same internal test set, and the mean and standard deviation of each metric are computed across the three independently fine-tuned adapters.
+
+Across these per-seed internal test runs, macro-F1 sample standard deviation is 0.0017 for Qwen3-8B and 0.0026 for Llama 3.1-8B, indicating that the fine-tuning protocol is highly reproducible and not dependent on a single favourable random seed. Weighted F1 and accuracy show similarly tight dispersion, remaining close to approximately 0.001 across both model families. The largest per-seed spread is observed for debt-collection F1 (0.0046 for Qwen3-8B; 0.0072 for Llama 3.1-8B), which reflects the inherent difficulty of that class boundary rather than training instability.
 
 \subsection{Legacy benchmark performance}
 
@@ -239,15 +241,15 @@ Model & Base macro-F1 & FT macro-F1 & Gain & Base wF1 & FT wF1 & Gain\\
 \end{center}
 \end{table}
 
-The paired Wilcoxon tests in Table~\ref{tab:wilcoxon} show that the fine-tuned models consistently outperform their base zero-shot counterparts over the 12 legacy subsets. For each model and metric, the one-sided $p$ value is 0.000244. Since there are 12 paired subsets, this result indicates that the improvement is directionally consistent across the preserved benchmark rather than being driven by one or two favourable subsets. The median gains are close to the mean gains for all three metrics, which further suggests that the improvement is not dominated by an outlier subset. For example, Qwen3-8B has a mean macro-F1 gain of 0.1853 and a median macro-F1 gain of 0.1842, while Llama 3.1-8B has a mean macro-F1 gain of 0.2289 and a median macro-F1 gain of 0.2217.
+The paired Wilcoxon tests in Table~\ref{tab:wilcoxon} show that the fine-tuned models consistently outperform their base zero-shot counterparts over the 12 legacy subsets. For each model and metric, the one-sided $p$ value is 0.000244. Since there are 12 paired subsets, this result indicates that the improvement is directionally consistent across the preserved benchmark rather than being driven by one or two favourable subsets. The rank-biserial effect size is 1.000 for every model--metric pair because all 12 paired differences are positive. The median gains are close to the mean gains for all three metrics, which further suggests that the improvement is not dominated by an outlier subset. For example, Qwen3-8B has a mean macro-F1 gain of 0.1853 and a median macro-F1 gain of 0.1842, while Llama 3.1-8B has a mean macro-F1 gain of 0.2289 and a median macro-F1 gain of 0.2217.
 
 \begin{table}[h!]
-\caption{One-sided Wilcoxon signed-rank tests over 12 legacy subsets. The alternative hypothesis is that fine-tuned performance is greater than base zero-shot performance.}
+\caption{One-sided Wilcoxon signed-rank tests over 12 legacy subsets. The alternative hypothesis is that fine-tuned performance is greater than base zero-shot performance. Effect size is the matched-pairs rank-biserial correlation.}
 \label{tab:wilcoxon}
 \begin{center}
-\begin{tabular}{llrrrrr}
+\begin{tabular}{llrrrrrr}
 \hline
-Model & Metric & Base mean & FT mean & Mean gain & Median gain & $p$\\
+Model & Metric & Base mean & FT mean & Mean gain & Median gain & Effect & $p$\\
 \hline
 \input{tables/table_legacy_wilcoxon.tex}
 \end{tabular}
@@ -256,10 +258,10 @@ Model & Metric & Base mean & FT mean & Mean gain & Median gain & $p$\\
 
 \subsection{Supervised baseline comparison}
 
-Table~\ref{tab:supervised-baselines} reports the TF-IDF + Logistic Regression and fine-tuned encoder baselines. With the same 10,000-example training budget used for QLoRA, TF-IDF + Logistic Regression reaches 0.8021 internal macro-F1 and 0.7965 mean legacy macro-F1. When trained on the full 123,427-example training split, it reaches 0.8345 internal macro-F1 and 0.8279 legacy macro-F1, matching or exceeding the fine-tuned LLMs on aggregate supervised classification scores. Among the encoder-only models trained on 5,000 examples, RoBERTa-base performs best (internal macro-F1 0.786), followed by BERT-base (0.776) and DistilBERT (0.755). These results show that classical and encoder baselines remain strong for a stable five-label taxonomy, while the QLoRA-tuned decoder models provide the paired zero-shot-to-fine-tuned comparison and prompt-controllable operation studied in this paper.
+Table~\ref{tab:supervised-baselines} reports the TF-IDF + Logistic Regression and fine-tuned encoder baselines. With the same 10,000-example training budget used for QLoRA, TF-IDF + Logistic Regression reaches 0.8021 internal macro-F1 and 0.7965 mean legacy macro-F1. Under the same 10,000-example budget, BERT-base and RoBERTa-base reach almost identical internal macro-F1 scores of 0.8036, while DistilBERT reaches 0.7950. When TF-IDF + Logistic Regression is trained on the full 123,427-example training split, it reaches 0.8345 internal macro-F1 and 0.8279 legacy macro-F1, matching or exceeding the fine-tuned LLMs on aggregate supervised classification scores. These results show that classical and encoder baselines remain strong for a stable five-label taxonomy, while the QLoRA-tuned decoder models provide the paired zero-shot-to-fine-tuned comparison and prompt-controllable operation studied in this paper.
 
 \begin{table}[H]
-\caption{Supervised baselines under the leakage-controlled split. TF-IDF variants use 500-character truncation; encoder models use a 5,000-example budget, 2 epochs, CPU training, seed 42, and 500-character truncation. Legacy scores are averages over the 12 preserved subsets.}
+\caption{Supervised baselines under the leakage-controlled split. TF-IDF variants use 500-character truncation; encoder models use a 10,000-example budget, 2 epochs, effective batch size 16, seed 42, 512-token maximum sequence length, and 500-character truncation. Legacy scores are averages over the 12 preserved subsets.}
 \label{tab:supervised-baselines}
 \begin{center}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr}
@@ -271,7 +273,7 @@ Baseline & Train examples & Internal macro-F1 & Internal wF1 & Legacy macro-F1 &
 \end{center}
 \end{table}
 
-The comparison clarifies the scope of the paper. The claim is not that QLoRA-tuned LLMs universally dominate supervised classifiers for a fixed taxonomy. Rather, locally deployable open-source LLMs can be moved from weaker zero-shot performance to a competitive supervised-classification regime using a fixed 10,000-example PEFT budget, while preserving the same promptable model family for zero-shot and fine-tuned operation. Encoder models produce deterministic categorical outputs without JSON parsing and are computationally efficient; decoder LLMs require more compute but support zero-shot inference, prompt constraints, and potential label redefinition without retraining.
+The comparison clarifies the scope of the paper. The claim is not that QLoRA-tuned LLMs universally dominate supervised classifiers for a fixed taxonomy. Rather, locally deployable open-source LLMs can be moved from weaker zero-shot performance to a competitive supervised-classification regime using a fixed 10,000-example PEFT budget, while preserving the same promptable model family for zero-shot and fine-tuned operation. Encoder models produce deterministic categorical outputs without JSON parsing and are computationally efficient; decoder LLMs require more compute but support zero-shot inference, prompt constraints, and potential label redefinition without retraining. The full-data TF-IDF result also indicates that simple lexical models remain attractive when the taxonomy is fixed and all labelled data can be used. In this sense, the classical baselines are not treated as weak straw-man competitors; they define a practical efficiency reference. If the deployment objective is only to classify a stable five-label taxonomy with abundant labelled data, TF-IDF or encoder models may be preferable. The value of the LLM/QLoRA pipeline is instead in the paired zero-shot-to-adapted workflow, local open-weight deployment, and reuse of the same instruction-following model when taxonomies, prompts, or downstream routing requirements change.
 
 \subsection{Error analysis}
 
@@ -313,11 +315,13 @@ Figure~\ref{fig:confusion-matrices} explains where the improvement comes from. T
 
 The latency analysis adds the deployment trade-off. The fine-tuned models are slower by approximately 0.31--0.32 seconds per complaint, but the gain is large enough to make this trade-off favourable for offline analytics, audit, compliance, or semi-real-time routing. This discussion is important because it prevents the paper from presenting F1 improvements in isolation. In realistic complaint-processing systems, accuracy, latency, reproducibility, and data governance must be evaluated together.
 
+The results should also be interpreted with appropriate deployment safeguards. The study evaluates product-category classification rather than automated consumer-facing decisions, and it does not use demographic attributes or attempt to infer protected characteristics. Nevertheless, class-specific error disparities can still matter operationally because routing errors may delay responses to particular complaint types. The confusion-matrix analysis therefore functions as a limited bias and reliability audit at the product-category level: it shows that fine-tuning reduces the largest \texttt{debt\_collection} $\rightarrow$ \texttt{credit\_reporting} error, but it also identifies the remaining credit-reporting/debt-collection boundary as a candidate for human review, cost-sensitive training, or class-specific calibration in deployment.
+
 The study also illustrates why leakage control matters. If the legacy zero-shot subsets had been allowed into training, the paired benchmark comparison in Tables~\ref{tab:legacy-summary} and~\ref{tab:wilcoxon} would have been contaminated. By excluding them before split construction and using them only at final evaluation, the present work preserves the interpretability of the legacy comparison. This leakage-safe design is also what makes the comparison with prior zero-shot CFPB studies meaningful: the paper evaluates the transition from zero-shot inference to QLoRA fine-tuning without erasing the benchmark that motivated the transition.
 
 \section{Limitations}
 
-This study does not propose a new model architecture or a new PEFT algorithm. LoRA and QLoRA are established methods; the contribution is a controlled empirical evaluation in a specific high-value application domain. The experiments use two 8B-class model families and a fixed 10,000-example training budget; larger models (13B--70B parameters) or additional decoder architectures such as Mistral and Mixtral represent a natural extension but are deferred due to the computational burden of the three-seed, two-model evaluation protocol on 16 GB V100 GPUs. The 500-character narrative truncation was selected for GPU feasibility and fully covers 63\% of examples, but may discard useful information in the long tail of complaints; ablating this limit at shorter and longer values remains future work. Similarly, the fixed 10,000-example training budget was chosen to enable a controlled paired comparison; mapping the accuracy--compute frontier across larger budgets would further characterise the efficiency of PEFT relative to encoder fine-tuning. The encoder baselines should also be read as constrained reference points, since stronger GPU-trained encoders, longer sequence lengths, domain-adapted encoders, and larger encoder variants could improve supervised baseline performance. Latency measurements are serial batch-size-1 measurements; deployment-oriented batching and throughput analysis are left for future work. The CFPB corpus is English-language and domain-specific, and the present split is not temporal, so the results should not be assumed to transfer directly to other regulatory, multilingual, or cross-year drift settings. Finally, although the preserved legacy subsets are separated from training and validation, they are still drawn from the same CFPB source distribution rather than from an independently collected external dataset.
+This study does not propose a new model architecture or a new PEFT algorithm. LoRA and QLoRA are established methods; the contribution is a controlled empirical evaluation in a specific high-value application domain. The experiments use two 8B-class model families and a fixed 10,000-example training budget; larger models (13B--70B parameters) or additional decoder architectures such as Mistral and Mixtral represent a natural extension but are deferred due to the computational burden of the three-seed, two-model evaluation protocol on 16 GB V100 GPUs. The prompt is also fixed rather than optimised. This choice supports comparability with the zero-shot CFPB prompt template used in prior work and keeps the paired base-versus-fine-tuned comparison controlled, but it does not rule out prompt sensitivity. Alternative prompt phrasings, label descriptions, few-shot demonstrations, or constrained decoding could change zero-shot and fine-tuned performance and should be evaluated in future prompt-ablation studies. The 500-character narrative truncation was selected for GPU feasibility and fully covers 63\% of examples, but may discard useful information in the long tail of complaints; ablating this limit at shorter and longer values remains future work. Similarly, the fixed 10,000-example training budget was chosen to enable a controlled paired comparison; mapping the accuracy--compute frontier across larger budgets would further characterise the efficiency of PEFT relative to full-data classical learning and encoder fine-tuning. Encoder-only models could also be further strengthened with domain-adapted checkpoints, hyperparameter searches, and larger encoder variants. Latency measurements are serial batch-size-1 measurements; deployment-oriented batching and throughput analysis are left for future work. The CFPB corpus is English-language and domain-specific, and the present split is not temporal. A temporal split was not used because the primary goal was a paired comparison against preserved legacy zero-shot subsets; robustness to cross-year drift in complaint style, product definitions, or consumer use of generative writing tools remains a separate deployment question. Finally, although the preserved legacy subsets are separated from training and validation, they are still drawn from the same CFPB source distribution rather than from an independently collected external dataset.
 
 \section{Conclusion}
 
@@ -347,13 +351,15 @@ The authors declare no conflict of interest.
 \setlength{\itemsep}{1pt}
 \setlength{\parsep}{0pt}
 
-\bibitem{raju2022cfpbtopic} Raju SV, Bolla BK, Nayak DK, Jyothsna K. Topic modelling on Consumer Financial Protection Bureau data: an approach using BERT based embeddings. In: Proceedings of IEEE International Conference; 2022.
+\bibitem{devlin2019bert} Devlin J, Chang MW, Lee K, Toutanova K. BERT: pre-training of deep bidirectional transformers for language understanding. In: Proceedings of NAACL-HLT; Minneapolis, MN, USA; 2019. pp. 4171-4186.
 
 \bibitem{bozyigit2022foodcomplaints} Bozyigit F, Dogan O, Kilinc D. Categorization of customer complaints in food industry using machine learning approaches. Journal of Intelligent Systems: Theory and Applications 2022; 5 (1): 85-91.
 
 \bibitem{gewaly2024telecomcomplaint} Gewaly MM, Saeed MS, Ammar AM. Machine learning approach for complaint prediction in the telecom industry. In: 2024 Intelligent Methods, Systems, and Applications; 2024. pp. 12-17.
 
 \bibitem{vairetti2024complaintpriority} Vairetti C, Aranguiz I, Maldonado S, Karmy JP, Leal A. Analytics-driven complaint prioritisation via deep learning and multicriteria decision-making. European Journal of Operational Research 2024; 312 (3): 1108-1118.
+
+\bibitem{raju2022cfpbtopic} Raju SV, Bolla BK, Nayak DK, Jyothsna K. Topic modelling on Consumer Financial Protection Bureau data: an approach using BERT based embeddings. In: Proceedings of IEEE International Conference; 2022.
 
 \bibitem{das2024negative} Das S, Singh A, Saha S, Maurya A. Negative review or complaint? Exploring interpretability in financial complaints. IEEE Transactions on Computational Social Systems 2024; 11 (3): 3606. doi: 10.1109/TCSS.2023.3338357.
 
@@ -369,11 +375,21 @@ The authors declare no conflict of interest.
 
 \bibitem{roumeliotis2025think} Roumeliotis KI, Tselikas ND, Nasiopoulos DK. Think before you classify: the rise of reasoning large language models for consumer complaint detection and classification. Electronics 2025; 14: 1070. doi: 10.3390/electronics14061070.
 
-\bibitem{devlin2019bert} Devlin J, Chang MW, Lee K, Toutanova K. BERT: pre-training of deep bidirectional transformers for language understanding. In: Proceedings of NAACL-HLT; Minneapolis, MN, USA; 2019. pp. 4171-4186.
+\bibitem{sanh2019distilbert} Sanh V, Debut L, Chaumond J, Wolf T. DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter. arXiv:1910.01108, 2019.
+
+\bibitem{liu2019roberta} Liu Y, Ott M, Goyal N, Du J, Joshi M et al. RoBERTa: a robustly optimized BERT pretraining approach. arXiv:1907.11692, 2019.
+
+\bibitem{sy2024beyondbert} Sy CY, Maceda LL, Canon MJP, Flores NM. Beyond BERT: exploring the efficacy of RoBERTa and ALBERT in supervised multiclass text classification. International Journal of Advanced Computer Science and Applications 2024; 15 (3).
 
 \bibitem{hu2022lora} Hu EJ, Shen Y, Wallis P, Allen-Zhu Z, Li Y et al. LoRA: low-rank adaptation of large language models. In: International Conference on Learning Representations; 2022.
 
 \bibitem{dettmers2023qlora} Dettmers T, Pagnoni A, Holtzman A, Zettlemoyer L. QLoRA: efficient finetuning of quantized LLMs. In: Advances in Neural Information Processing Systems; 2023.
+
+\bibitem{li2021prefix} Li XL, Liang P. Prefix-tuning: optimizing continuous prompts for generation. In: Proceedings of ACL-IJCNLP; 2021. pp. 4582-4597.
+
+\bibitem{liu2022fewshot} Liu H, Tam D, Muqeeth M, Mohta J, Huang T et al. Few-shot parameter-efficient fine-tuning is better and cheaper than in-context learning. In: Advances in Neural Information Processing Systems; 2022.
+
+\bibitem{cfpbdata} Consumer Financial Protection Bureau. Consumer complaint database. Website https://www.consumerfinance.gov/data-research/consumer-complaints/ [accessed 01 July 2026].
 
 \bibitem{yang2025qwen3} Yang A, Li A, Yang B, Zhang B, Hui B et al. Qwen3 technical report. arXiv:2505.09388, 2025.
 
@@ -384,18 +400,6 @@ The authors declare no conflict of interest.
 \bibitem{mangrulkar2022peft} Mangrulkar S, Gugger S, Debut L, Belkada Y, Paul S et al. PEFT: state-of-the-art parameter-efficient fine-tuning methods. GitHub repository, 2022.
 
 \bibitem{paszke2019pytorch} Paszke A, Gross S, Massa F, Lerer A, Bradbury J et al. PyTorch: an imperative style, high-performance deep learning library. In: Advances in Neural Information Processing Systems; 2019. pp. 8024-8035.
-
-\bibitem{cfpbdata} Consumer Financial Protection Bureau. Consumer complaint database. Website https://www.consumerfinance.gov/data-research/consumer-complaints/ [accessed 01 July 2026].
-
-\bibitem{sanh2019distilbert} Sanh V, Debut L, Chaumond J, Wolf T. DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter. arXiv:1910.01108, 2019.
-
-\bibitem{liu2019roberta} Liu Y, Ott M, Goyal N, Du J, Joshi M et al. RoBERTa: a robustly optimized BERT pretraining approach. arXiv:1907.11692, 2019.
-
-\bibitem{sy2024beyondbert} Sy CY, Maceda LL, Canon MJP, Flores NM. Beyond BERT: exploring the efficacy of RoBERTa and ALBERT in supervised multiclass text classification. International Journal of Advanced Computer Science and Applications 2024; 15 (3).
-
-\bibitem{li2021prefix} Li XL, Liang P. Prefix-tuning: optimizing continuous prompts for generation. In: Proceedings of ACL-IJCNLP; 2021. pp. 4582-4597.
-
-\bibitem{liu2022fewshot} Liu H, Tam D, Muqeeth M, Mohta J, Huang T et al. Few-shot parameter-efficient fine-tuning is better and cheaper than in-context learning. In: Advances in Neural Information Processing Systems; 2022.
 
 \end{thebibliography}
 

@@ -159,7 +159,7 @@ print("\n".join(sub_rows))
 
 
 # ── 7. TABLE: Encoder baseline ────────────────────────────────────────────────
-ENCODER_DIR = Path(__file__).resolve().parents[1] / "CLASSIC_TEST" / "outputs" / "encoder_baselines"
+ENCODER_DIR = Path(__file__).resolve().parents[1] / "CLASSIC_TEST" / "outputs" / "encoder_baselines_10k_len512"
 enc_rows = []
 for short_name in ["BERT_base", "DistilBERT", "RoBERTa_base"]:
     jf = ENCODER_DIR / f"results_{short_name}.json"
