@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1783345381.88012 "manuscript.tex" "manuscript.pdf" "manuscript" 1783345382.65621 0
+["pdflatex"] 1785763815.45263 "manuscript.tex" "manuscript.pdf" "manuscript" 1785763816.01207 0
   "/etc/texmf/web2c/texmf.cnf" 1777045411.6785 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1136768653 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
@@ -36,7 +36,6 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb" 1248133631 32166 b0c356b15f19587482a9217ce1d8fa67 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb" 1248133631 32298 c6d25bb16d1eac01ebdc6d7084126a1e ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1248133631 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
@@ -125,12 +124,10 @@
   "elektr.cls" 1782888663.43435 10274 0c1a9f51f9077a8680ff70e973ac8f5b ""
   "elk-creative.eps" 1782888799.60101 957922 6064076cd6996a24379b660bdea053ae ""
   "elksty.tex" 1782888663.43562 2982 74dfa441ebf34e543b4fdb03f543365c ""
-  "figures/class_distribution.pdf" 1782889559.38193 17370 3f876d527e978752a21f6abc0493010d ""
   "figures/internal_confusion_matrices.pdf" 1782891398.39781 70139 9aafa010ef4bce6588e273e8d4255ce2 ""
-  "figures/narrative_length_histogram.pdf" 1782889558.66913 18784 bfb47665134125a5bae9f024752cb16f ""
-  "manuscript.aux" 1783345382.5541 17275 e6c187bfe7776ac64aab09a745304530 "pdflatex"
-  "manuscript.out" 1783345382.5551 3313 a7f6d7fdb2ef612dd2ba0c5b06cbfbf1 "pdflatex"
-  "manuscript.tex" 1783345371.71706 59478 7b8624bfd2295b434905fecc1e781342 ""
+  "manuscript.aux" 1785763815.93935 15008 63f306c2819386ea1289ed4c683fd389 "pdflatex"
+  "manuscript.out" 1785763815.94035 3313 a7f6d7fdb2ef612dd2ba0c5b06cbfbf1 "pdflatex"
+  "manuscript.tex" 1785763808.68636 51599 f3928b22cda30af27fd0466242c6292d ""
   "tables/table_internal_bootstrap_ci.tex" 1782926451.05465 624 e827721ac89ab3f468ded570e1e2370b ""
   "tables/table_internal_summary_v2.tex" 1783343514.91839 220 5cd03f5547c2da104d1c6c7da880ece1 ""
   "tables/table_legacy_summary.tex" 1782893244.49728 136 3ebbe4f4b32d47fdd6b8446a3c128979 ""

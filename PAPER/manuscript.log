@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.4.24)  6 JUL 2026 16:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.4.24)  3 AUG 2026 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -446,25 +446,25 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 (./manuscript.aux)
 \openout1 = `manuscript.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-Package hyperref Info: Link coloring ON on input line 43.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+Package hyperref Info: Link coloring ON on input line 42.
  (./manuscript.out) (./manuscript.out)
 \@outlinefile=\write3
 \openout3 = `manuscript.out'.
@@ -492,13 +492,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 44.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 44.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -512,114 +512,86 @@ Package epstopdf Info: Source file: <elk-creative.eps>
 (epstopdf)                    size: 13069 bytes
 (epstopdf)             Command: <repstopdf --outfile=elk-creative-eps-converted
 -to.pdf elk-creative.eps>
-(epstopdf)             \includegraphics on input line 56.
+(epstopdf)             \includegraphics on input line 57.
 Package epstopdf Info: Output file is already uptodate.
-<elk-creative-eps-converted-to.pdf, id=94, 27.10126pt x 10.0375pt>
+<elk-creative-eps-converted-to.pdf, id=92, 27.10126pt x 10.0375pt>
 File: elk-creative-eps-converted-to.pdf Graphic file (type pdf)
 <use elk-creative-eps-converted-to.pdf>
 Package pdftex.def Info: elk-creative-eps-converted-to.pdf  used on input line 
-56.
+57.
 (pdftex.def)             Requested size: 40.68857pt x 15.0694pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./elk-creative-ep
-s-converted-to.pdf>] [2] [3]
-<figures/class_distribution.pdf, id=176, 787.27187pt x 297.96182pt>
-File: figures/class_distribution.pdf Graphic file (type pdf)
-<use figures/class_distribution.pdf>
-Package pdftex.def Info: figures/class_distribution.pdf  used on input line 94.
-
-(pdftex.def)             Requested size: 357.93831pt x 135.47281pt.
- [4
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.103 
-       <./figures/class_distribution.pdf>]
-<figures/narrative_length_histogram.pdf, id=231, 714.90967pt x 267.06651pt>
-File: figures/narrative_length_histogram.pdf Graphic file (type pdf)
-<use figures/narrative_length_histogram.pdf>
-Package pdftex.def Info: figures/narrative_length_histogram.pdf  used on input 
-line 106.
-(pdftex.def)             Requested size: 445.0002pt x 166.2356pt.
- [5
-pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.118 \subsection{Models}
-                          <./figures/narrative_length_histogram.pdf>]
+s-converted-to.pdf>] [2] [3] [4]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-41.
+16.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 141.
- [6]
-(./tables/table_protocol_selection.tex) [7
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 116.
+
+(./tables/table_protocol_selection.tex) [5
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.173 
-      ] (./tables/table_internal_summary_v2.tex)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[8] (./tables/table_internal_bootstrap_ci.tex) [9
+l.146 
+      ] [6] (./tables/table_internal_summary_v2.tex)
+(./tables/table_internal_bootstrap_ci.tex) [7
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.228 
+l.199 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.228 
+l.199 
       ] (./tables/table_legacy_summary.tex) (./tables/table_legacy_wilcoxon.tex
-) [10
+) [8
 pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 
-      
+l.234 \subsection{Supervised baseline comparison}
+                                                 
 pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 
-      ] (./tables/table_supervised_baselines.tex) [11
+l.234 \subsection{Supervised baseline comparison}
+                                                 ]
+(./tables/table_supervised_baselines.tex)
+<figures/internal_confusion_matrices.pdf, id=220, 823.87799pt x 650.43pt>
+File: figures/internal_confusion_matrices.pdf Graphic file (type pdf)
+<use figures/internal_confusion_matrices.pdf>
+Package pdftex.def Info: figures/internal_confusion_matrices.pdf  used on input
+ line 259.
+(pdftex.def)             Requested size: 474.02083pt x 374.22261pt.
+ [9
 pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.285 
-      ]
-<figures/internal_confusion_matrices.pdf, id=337, 823.87799pt x 650.43pt>
-File: figures/internal_confusion_matrices.pdf Graphic file (type pdf)
-<use figures/internal_confusion_matrices.pdf>
-Package pdftex.def Info: figures/internal_confusion_matrices.pdf  used on input
- line 288.
-(pdftex.def)             Requested size: 474.02083pt x 374.22261pt.
- [12
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
+l.264 
+      ] [10
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.299 
-       <./figures/internal_confusion_matrices.pdf>] [13] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 392--393
+l.268 
+       <./figures/internal_confusion_matrices.pdf>] [11] [12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
 []\OT1/cmr/m/n/9 Consumer Fi-nan-cial Pro-tec-tion Bu-reau. Con-sumer com-plain
 t database. Web-site
  []
 
-[16] [17] (./manuscript.aux)
+[14] (./manuscript.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -629,37 +601,36 @@ Package rerunfilecheck Info: File `manuscript.out' has not changed.
  )
 (\end occurred when \ifx on line 2 was incomplete) 
 Here is how much of TeX's memory you used:
- 13015 strings out of 467533
- 201192 string characters out of 5422138
- 643261 words of memory out of 5000000
- 41642 multiletter control sequences out of 15000+600000
+ 12987 strings out of 467533
+ 200421 string characters out of 5422138
+ 642336 words of memory out of 5000000
+ 41619 multiletter control sequences out of 15000+600000
  637253 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,84p,2448b,717s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,14n,84p,1620b,660s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></u
-sr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts
-/type1/public/cm-super/sfrm0800.pfb>
-Output written on manuscript.pdf (17 pages, 431696 bytes).
+/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.
+pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texm
+f/fonts/type1/public/cm-super/sfrm0800.pfb>
+Output written on manuscript.pdf (14 pages, 377832 bytes).
 PDF statistics:
- 556 PDF objects out of 1000 (max. 8388607)
- 355 compressed objects within 4 object streams
- 85 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 435 PDF objects out of 1000 (max. 8388607)
+ 320 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 187 words of extra memory for PDF output out of 10000 (max. 10000000)
 
