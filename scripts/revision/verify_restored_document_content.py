@@ -9,6 +9,7 @@ import pandas as pd
 from project_paths import ROOT, PAPER
 from revision_gpu_common import sha_file
 from restored_content_evidence import historical_protocol_rows, verified_confusions
+from publication_language import editorial_history_hits
 
 
 def main():
@@ -17,6 +18,8 @@ def main():
     args = parser.parse_args()
     main_tex = (PAPER/'manuscript.tex').read_text()
     sup = (PAPER/'supplementary_material.tex').read_text()
+    for name,tex in [('manuscript',main_tex),('supplementary',sup)]:
+        assert not editorial_history_hits(tex),(name,editorial_history_hits(tex))
     intro = main_tex.split(r'\section{Introduction}', 1)[1].strip().split('\n\n', 1)[0]
     assert hashlib.sha256(intro.encode()).hexdigest() == 'b2286e3fd4cc2e6c13b891e723e23d3e14c260a9a447c56755f1f9f45f88c161'
     matrices, sources = verified_confusions()
@@ -53,22 +56,24 @@ def main():
     pool = pd.concat(frames, ignore_index=True)
     length = pool.narrative.str.len()
     counts = pool['product'].value_counts()
-    historical_population = sup.split('For continuity with the original dataset description,', 1)[1]
+    historical_population = sup.split('The 154,282-row partitioning pool contains', 1)[1]
     for label, count in counts.items():
         for value in [f'{count:,}', f'{100*count/len(pool):.2f}'+r'\%']:
             assert value in historical_population, (label, value)
-    for value in [f'{len(pool):,}', f'{length.median():,.0f}',
+    for value in [f'{length.median():,.0f}',
                   f'{length.quantile(.9):,.0f}', f'{100*length.le(500).mean():.2f}'+r'\%']:
         assert value in historical_population, value
     split_report = json.loads((ROOT/'dataset/splits/split_report.json').read_text())
     for value in split_report['legacy']['match_reason_counts'].values():
-        assert f'{value:,}' in sup.split('The earlier exclusion records comprise', 1)[1].split('\n\n', 1)[0]
+        assert f'{value:,}' in sup.split('The benchmark-related exclusion records comprise', 1)[1].split('\n\n', 1)[0]
     for path in [ROOT/'dataset/splits/split_report.json', ROOT/'analysis/postprocessing/corrected_confusion_counts.npz']:
         sources.append(dict(path=str(path.relative_to(ROOT)), sha256=sha_file(path)))
     for record in historical:
         sources.append(dict(path=record['source'], sha256=record['source_sha256']))
     report = dict(passed=True, cpu_only=True, fitting_or_inference_performed=False,
                   original_intro_opening_retained_verbatim=True,
+                  publication_revision_history_absent=True,
+                  auxiliary_fitting_scope_and_overlap_limitations_retained=True,
                   historical_selection_conditions_checked=len(historical),
                   historical_scores_separate_from_corrected_results=True,
                   raw_prediction_files_checked=8, all_four_LLM_confusion_matrices_reconstructed=True,

@@ -5,6 +5,7 @@
   "all_pages_rendered": true,
   "all_page_contact_sheets_visually_inspected": true,
   "detailed_pages_inspected": [
+    4,
     5,
     8,
     11
@@ -12,8 +13,9 @@
   "no_overfull_boxes": true,
   "no_undefined_citations_or_references": true,
   "page_bounds_checked": true,
-  "rendered_evidence_directory": ".build/revision_paper/qa_content_restoration/manuscript",
-  "manuscript_tex_sha256": "b930cca96419606c38243d9667a1540b63d639cda1022f9a087cd2741a719339",
-  "manuscript_pdf_sha256": "55a1d0ab4b39e706944d6ec6a8788ee1947af7a68ea2bbb3f7cceb1ea461a5ff",
-  "content_restoration_completed": true
+  "rendered_evidence_directory": ".build/revision_paper/qa_standalone/manuscript",
+  "manuscript_tex_sha256": "5f87748c6c89966eb4ebbf5f2b23de382f04acfde586d8adbc2d5137f80b0db9",
+  "manuscript_pdf_sha256": "cd016dc7013f43397d9c1507ae01694b1f051cd25feeba50899f527800a4e243",
+  "content_restoration_completed": true,
+  "standalone_publication_narrative_checked": true
 }

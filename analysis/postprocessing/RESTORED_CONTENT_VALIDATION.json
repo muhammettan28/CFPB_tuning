@@ -3,6 +3,8 @@
   "cpu_only": true,
   "fitting_or_inference_performed": false,
   "original_intro_opening_retained_verbatim": true,
+  "publication_revision_history_absent": true,
+  "auxiliary_fitting_scope_and_overlap_limitations_retained": true,
   "historical_selection_conditions_checked": 6,
   "historical_scores_separate_from_corrected_results": true,
   "raw_prediction_files_checked": 8,
@@ -82,7 +84,7 @@
     }
   ],
   "documents_sha256": {
-    "manuscript.tex": "b930cca96419606c38243d9667a1540b63d639cda1022f9a087cd2741a719339",
-    "supplementary_material.tex": "77d7628fd27d1b3f1befd20b34149f6e86576da663cbc6eda11b093611b9b509"
+    "manuscript.tex": "5f87748c6c89966eb4ebbf5f2b23de382f04acfde586d8adbc2d5137f80b0db9",
+    "supplementary_material.tex": "3330e76ab7e5efb2a401e3f4ce954daba90a19b3efc083e5d143dfac794c1d05"
   }
 }

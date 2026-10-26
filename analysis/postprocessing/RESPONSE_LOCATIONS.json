@@ -96,7 +96,7 @@
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 11
+      "page": 10
     },
     {
       "document": "supplementary_material",
@@ -173,7 +173,7 @@
       "kind": "Table",
       "label": "tab:contrasts",
       "number": "4",
-      "page": 8
+      "page": 7
     },
     {
       "document": "supplementary_material",
@@ -222,7 +222,7 @@
       "kind": "Table",
       "label": "tab:contrasts",
       "number": "4",
-      "page": 8
+      "page": 7
     },
     {
       "document": "supplementary_material",
@@ -278,7 +278,7 @@
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 11
+      "page": 10
     },
     {
       "document": "supplementary_material",
@@ -299,7 +299,7 @@
       "kind": "Table",
       "label": "tab:long",
       "number": "5",
-      "page": 10
+      "page": 9
     },
     {
       "document": "manuscript",
@@ -313,7 +313,7 @@
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 11
+      "page": 10
     },
     {
       "document": "supplementary_material",
@@ -334,7 +334,7 @@
       "kind": "Table",
       "label": "sup:historical-pairs",
       "number": "S24",
-      "page": 13
+      "page": 14
     },
     {
       "document": "supplementary_material",
@@ -411,7 +411,7 @@
       "kind": "Table",
       "label": "tab:long",
       "number": "5",
-      "page": 10
+      "page": 9
     },
     {
       "document": "supplementary_material",
@@ -481,14 +481,14 @@
       "kind": "Section",
       "label": "sec:cost-results",
       "number": "4.4",
-      "page": 10
+      "page": 8
     },
     {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 11
+      "page": 10
     },
     {
       "document": "supplementary_material",
@@ -516,7 +516,7 @@
       "kind": "Table",
       "label": "tab:contrasts",
       "number": "4",
-      "page": 8
+      "page": 7
     },
     {
       "document": "manuscript",
@@ -558,12 +558,12 @@
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 11
+      "page": 10
     }
   ],
   "source_sha256": {
-    "manuscript": "833f33cf7a37577df324602ce7c87becff94d965b28453a635b9b92ac3f8ee21",
-    "supplementary_material": "d696a3be56bc63b42d5a8ceacd6251aabe794a9e8fe791cfc6dff7aef697253e"
+    "manuscript": "fd0abd2580b5f152230688986ede12bd5d6d11a210fd9efb26f73fbf9f46f707",
+    "supplementary_material": "90acca2515982533e07f85525d87c627681da6cd6a32651c13d8148e8eb2f876"
   },
   "units": 15,
   "original_requests_quoted": true

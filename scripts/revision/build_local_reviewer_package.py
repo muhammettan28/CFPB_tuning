@@ -38,11 +38,11 @@ Editable TeX/Markdown sources and the final reviewer-comment index are included.
 The pre-experiment written protocols are under protocols; the
 executed settings and immutable model identities are in the configs and run metadata.
 
-All planned main and reference-parameter experiments are complete. The primary
+The package contains the primary and reference-parameter experiments. The primary
 comparison uses 500 narrative characters / 512 tokens. Reference [14]'s RoBERTa
 100-token setting is a separate sensitivity. Full-data TF-IDF uses a larger training
-budget. Pre-revision results in the supplement are explicitly labelled and are not
-part of the corrected-data ranking. Points, paired intervals and seed SD differ.
+budget. Auxiliary fits in the supplement specify their data allocations and dependence
+limitations and are excluded from the primary model ranking. Points, paired intervals and seed SD differ.
 
 ## Verify and replay on CPU
 

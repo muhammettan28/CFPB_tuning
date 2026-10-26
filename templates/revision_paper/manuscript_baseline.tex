@@ -67,7 +67,7 @@ Our distinction from G\"ull\"u et al. is the adaptation question and the explici
 Task and data & Comcast rating classification and five-category financial complaints; financial dataset reported as 162,421 records. & Five-category financial complaints from a 162,415-row source file; no new corpus or taxonomy is claimed.\\
 Comparison & Supervised comparison of six architectures, including GPT-2 and Llama 3.1-8B. & Paired zero-shot versus QLoRA adaptation for Qwen3-8B and Llama 3.1-8B; TF-IDF and encoders as supervised comparators.\\
 Adaptation & LLM training with cross-entropy loss; LoRA and 4-bit settings not described. & Explicit 4-bit NF4 LoRA configuration and completion-only loss for generated JSON labels.\\
-Data allocation & 80/20 train/test division; separate validation selection and text-group overlap audits not described. & Model-visible conflicts are quarantined; fixed training/validation selections and evaluation records are retained across all new runs.\\
+Data allocation & 80/20 train/test division; separate validation selection and text-group overlap audits not described. & Model-visible conflicts are quarantined; fixed training/validation selections and evaluation records are retained across all model runs.\\
 Budgets & Three LLM epochs and a maximum of 512 tokens. & Two epochs on 10,000 selected training rows per seed; 500 narrative characters within a 512-token prompt budget.\\
 Reporting & Accuracy, precision, recall, and weighted F1; three-seed uncertainty summaries not described. & Accuracy, macro-F1, weighted F1, and results across three fine-tuning seeds; separate analysis of adaptation gains.\\
 \hline

@@ -27,7 +27,9 @@ POST = project_path(PAPER, 'analysis/postprocessing')
 def f(v): return f'{float(v):.4f}'
 def ci(r): return f'[{f(r.low)}, {f(r.high)}]'
 def sd(v): return '---' if pd.isna(v) else f(v)
-def normalize(v): return re.sub(r'\s+', ' ', str(v).replace(r'\_', '_')).strip()
+def normalize(v):
+    value=re.sub(r'\s+', ' ', str(v).replace(r'\_', '_')).strip()
+    return 'benchmark' if value.lower() in {'benchmark','legacy'} else value
 def parse_rows(text):
     return [[normalize(c) for c in line.strip().removesuffix(r'\\').split(' & ')]
             for line in text.splitlines() if ' & ' in line and line.strip().endswith(r'\\')]

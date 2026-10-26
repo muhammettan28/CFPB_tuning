@@ -13,14 +13,14 @@
   "keyed_tables_checked": 36,
   "keyed_rows_checked": 546,
   "keyed_cells_checked": 3517,
-  "cpu_tests_run": 44,
-  "cpu_tests_passed": 44,
+  "cpu_tests_run": 48,
+  "cpu_tests_passed": 48,
   "response_regeneration_from_git_only_checkout_byte_identical": true,
   "original_source_ODT_or_original_paper_required_for_standalone_replay": false,
   "local_model_registry_required_for_standalone_replay": false,
   "neural_weights_required_for_standalone_replay": false,
   "main_manuscript_and_reviewer_response_unchanged": false,
-  "supplement_changes": "Subsequent content restoration: original problem context, six historical Qwen validation conditions (S34), old population descriptions and verified new directional error analysis.",
+  "supplement_changes": "Publication narrative states data allocations, fitting scope and limitations directly, without manuscript-version chronology; all 34 tables and numerical results retained.",
   "original_code_snapshots_preserved": "experiments/provenance/layout_before_2026_10_26/",
   "old_input_audits_rewritten": false,
   "fresh_execution_code_requires_new_CPU_tokenizer_audit": true,
@@ -29,5 +29,6 @@
   "neural_weights_optimizer_states_private_registry_runtime_logs_in_Git": false,
   "external_reviewer_access_verified": false,
   "publication_documents_updated_after_relocation": true,
-  "subsequent_document_validation": "analysis/postprocessing/RESTORED_CONTENT_VALIDATION.json"
+  "subsequent_document_validation": "analysis/postprocessing/RESTORED_CONTENT_VALIDATION.json",
+  "publication_narrative_history_removed": true
 }

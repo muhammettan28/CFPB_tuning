@@ -11,8 +11,8 @@
     {1}{33.54727pt}}
 \gdef \LT@ii {\LT@entry 
     {4}{45.6237pt}\LT@entry 
-    {1}{40.91pt}\LT@entry 
-    {1}{53.50356pt}\LT@entry 
+    {1}{71.027pt}\LT@entry 
+    {1}{45.3885pt}\LT@entry 
     {1}{44.10649pt}\LT@entry 
     {1}{33.42815pt}}
 \gdef \LT@iii {\LT@entry 
@@ -24,10 +24,10 @@
 \newlabel{sup:data}{{S1}{2}{Data provenance, fixed selections and visible-input checks}{section.1}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S1}{Retained and actually selected class counts. The full training pool is used only by the full-data sparse baseline.}}{2}{table.1}\protected@file@percent }
 \newlabel{sup:classes}{{S1}{2}{Retained and actually selected class counts. The full training pool is used only by the full-data sparse baseline}{table.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {S2}{Original allocation, quarantine, retained rows and conservative component counts.}}{2}{table.2}\protected@file@percent }
-\newlabel{sup:flow}{{S2}{2}{Original allocation, quarantine, retained rows and conservative component counts}{table.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {S3}{Actual pinned-tokenizer audits. Every model has 10k train + 2k validation + 15,428 internal + 12k legacy appearances. Zero refers only to the tested train/validation split intersections.}}{2}{table.3}\protected@file@percent }
-\newlabel{sup:audits}{{S3}{2}{Actual pinned-tokenizer audits. Every model has 10k train + 2k validation + 15,428 internal + 12k legacy appearances. Zero refers only to the tested train/validation split intersections}{table.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S2}{Candidate allocation, excluded fitting conflicts, retained rows and conservative component counts.}}{2}{table.2}\protected@file@percent }
+\newlabel{sup:flow}{{S2}{2}{Candidate allocation, excluded fitting conflicts, retained rows and conservative component counts}{table.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S3}{Actual pinned-tokenizer audits. Every model has 10k train + 2k validation + 15,428 internal + 12k benchmark appearances. Zero refers only to the tested train/validation split intersections.}}{2}{table.3}\protected@file@percent }
+\newlabel{sup:audits}{{S3}{2}{Actual pinned-tokenizer audits. Every model has 10k train + 2k validation + 15,428 internal + 12k benchmark appearances. Zero refers only to the tested train/validation split intersections}{table.3}{}}
 \gdef \LT@iv {\LT@entry 
     {1}{49.5244pt}\LT@entry 
     {1}{164.49014pt}\LT@entry 
@@ -37,9 +37,9 @@
     {1}{331.20668pt}}
 \@writefile{toc}{\contentsline {section}{\numberline {S2}Implementation, immutable artifacts and validation searches}{3}{section.2}\protected@file@percent }
 \newlabel{sup:implementation}{{S2}{3}{Implementation, immutable artifacts and validation searches}{section.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {S2.1}New pinned models and execution environment}{3}{subsection.2.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {S4}{Immutable identities used for the completed new study.}}{3}{table.4}\protected@file@percent }
-\newlabel{sup:pins}{{S4}{3}{Immutable identities used for the completed new study}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {S2.1}Pinned models and execution environment}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {S4}{Immutable model identities used for the primary comparison.}}{3}{table.4}\protected@file@percent }
+\newlabel{sup:pins}{{S4}{3}{Immutable model identities used for the primary comparison}{table.4}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S5}{Actual GPU environment. Complete pip freeze and code snapshots are retained per job. CPU statistics use the separately recorded analysis environment (pandas 3.0.3; scikit-learn 1.9.0).}}{3}{table.5}\protected@file@percent }
 \newlabel{sup:environment}{{S5}{3}{Actual GPU environment. Complete pip freeze and code snapshots are retained per job. CPU statistics use the separately recorded analysis environment (pandas 3.0.3; scikit-learn 1.9.0)}{table.5}{}}
 \gdef \LT@vi {\LT@entry 
@@ -53,8 +53,8 @@
     {1}{66.47302pt}\LT@entry 
     {1}{37.84213pt}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {S2.2}QLoRA and inference}{4}{subsection.2.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {S6}{Complete new QLoRA and generation settings.}}{4}{table.6}\protected@file@percent }
-\newlabel{sup:qlora}{{S6}{4}{Complete new QLoRA and generation settings}{table.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S6}{QLoRA and generation settings.}}{4}{table.6}\protected@file@percent }
+\newlabel{sup:qlora}{{S6}{4}{QLoRA and generation settings}{table.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {S2.3}Encoder selection and fresh refits}{4}{subsection.2.3}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {S7}{All 18 main encoder validation candidates. Only validation enters selection.}}{4}{table.7}\protected@file@percent }
 \newlabel{sup:encoder-search}{{S7}{4}{All 18 main encoder validation candidates. Only validation enters selection}{table.7}{}}
@@ -87,8 +87,8 @@
     {1}{37.79431pt}}
 \@writefile{lot}{\contentsline {table}{\numberline {S9}{Internal: 15,428 rows / 12,099 groups. All three metrics use observed points and common paired-group draws.}}{7}{table.9}\protected@file@percent }
 \newlabel{sup:metrics-internal}{{S9}{7}{Internal: 15,428 rows / 12,099 groups. All three metrics use observed points and common paired-group draws}{table.9}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {S10}{Legacy: 5,909 weighted units / 3,919 groups. All three metrics use observed points and common paired-group draws.}}{7}{table.10}\protected@file@percent }
-\newlabel{sup:metrics-legacy}{{S10}{7}{Legacy: 5,909 weighted units / 3,919 groups. All three metrics use observed points and common paired-group draws}{table.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S10}{Benchmark: 5,909 weighted units / 3,919 groups. All three metrics use observed points and common paired-group draws.}}{7}{table.10}\protected@file@percent }
+\newlabel{sup:metrics-legacy}{{S10}{7}{Benchmark: 5,909 weighted units / 3,919 groups. All three metrics use observed points and common paired-group draws}{table.10}{}}
 \gdef \LT@xi {\LT@entry 
     {4}{57.0046pt}\LT@entry 
     {1}{45.27599pt}\LT@entry 
@@ -101,10 +101,10 @@
     {1}{55.52153pt}}
 \@writefile{lot}{\contentsline {table}{\numberline {S11}{Individual internal checkpoint scores. Each TF-IDF row represents three identical deterministic fits.}}{8}{table.11}\protected@file@percent }
 \newlabel{sup:seeds-internal}{{S11}{8}{Individual internal checkpoint scores. Each TF-IDF row represents three identical deterministic fits}{table.11}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {S12}{Individual legacy checkpoint scores. Each TF-IDF row represents three identical deterministic fits.}}{8}{table.12}\protected@file@percent }
-\newlabel{sup:seeds-legacy}{{S12}{8}{Individual legacy checkpoint scores. Each TF-IDF row represents three identical deterministic fits}{table.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S12}{Individual benchmark checkpoint scores. Each TF-IDF row represents three identical deterministic fits.}}{8}{table.12}\protected@file@percent }
+\newlabel{sup:seeds-legacy}{{S12}{8}{Individual benchmark checkpoint scores. Each TF-IDF row represents three identical deterministic fits}{table.12}{}}
 \gdef \LT@xiii {\LT@entry 
-    {4}{35.11456pt}\LT@entry 
+    {4}{48.47546pt}\LT@entry 
     {4}{74.67157pt}\LT@entry 
     {4}{82.63806pt}\LT@entry 
     {1}{48.24191pt}\LT@entry 
@@ -116,18 +116,18 @@
     {4}{31.61118pt}\LT@entry 
     {4}{31.61118pt}\LT@entry 
     {1}{33.99364pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {S13}{All main macro-F1 paired contrasts, comparison minus reference. Full-data TF-IDF comparisons have unequal training budgets. The internal Llama-versus-full-data upper bound is $+6.8 imes10^{-6}$ before rounding, so that interval includes zero.}}{9}{table.13}\protected@file@percent }
-\newlabel{sup:contrasts}{{S13}{9}{All main macro-F1 paired contrasts, comparison minus reference. Full-data TF-IDF comparisons have unequal training budgets. The internal Llama-versus-full-data upper bound is $+6.8 imes10^{-6}$ before rounding, so that interval includes zero}{table.13}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {S14}{Corrected internal class metrics. Multi-seed rows average the individually computed class statistics; supports are fixed.}}{9}{table.14}\protected@file@percent }
-\newlabel{sup:class-metrics}{{S14}{9}{Corrected internal class metrics. Multi-seed rows average the individually computed class statistics; supports are fixed}{table.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S13}{All main macro-F1 paired contrasts, comparison minus reference. Full-data TF-IDF comparisons have unequal training budgets. The internal Llama-versus-full-data upper bound is $+6.8\times 10^{-6}$ before rounding, so that interval includes zero.}}{9}{table.13}\protected@file@percent }
+\newlabel{sup:contrasts}{{S13}{9}{All main macro-F1 paired contrasts, comparison minus reference. Full-data TF-IDF comparisons have unequal training budgets. The internal Llama-versus-full-data upper bound is $+6.8\times 10^{-6}$ before rounding, so that interval includes zero}{table.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S14}{Internal class metrics. Multi-seed rows average the individually computed class statistics; supports are fixed.}}{9}{table.14}\protected@file@percent }
+\newlabel{sup:class-metrics}{{S14}{9}{Internal class metrics. Multi-seed rows average the individually computed class statistics; supports are fixed}{table.14}{}}
 \gdef \LT@xv {\LT@entry 
     {4}{78.63806pt}\LT@entry 
     {1}{38.08173pt}\LT@entry 
     {1}{64.38562pt}}
 \@writefile{lot}{\contentsline {table}{\numberline {S15}{Observed off-label outputs among 15,428 internal predictions. Compliance is not constrained decoding.}}{10}{table.15}\protected@file@percent }
 \newlabel{sup:off-label}{{S15}{10}{Observed off-label outputs among 15,428 internal predictions. Compliance is not constrained decoding}{table.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {S4}Legacy overlaps and per-view descriptions}{10}{section.4}\protected@file@percent }
-\newlabel{sup:legacy}{{S4}{10}{Legacy overlaps and per-view descriptions}{section.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {S4}Benchmark overlaps and per-view descriptions}{10}{section.4}\protected@file@percent }
+\newlabel{sup:legacy}{{S4}{10}{Benchmark overlaps and per-view descriptions}{section.4}{}}
 \gdef \LT@xvi {\LT@entry 
     {1}{14.40399pt}\LT@entry 
     {1}{39.9943pt}\LT@entry 
@@ -168,8 +168,8 @@
     {1}{64.88695pt}\LT@entry 
     {1}{63.88425pt}\LT@entry 
     {1}{72.57025pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {S16}{Legacy file key. ID order matches both overlap matrices. Imbalanced counts are credit reporting/debt/loans/card/banking; original sampling code is unavailable.}}{11}{table.16}\protected@file@percent }
-\newlabel{sup:legacy-key}{{S16}{11}{Legacy file key. ID order matches both overlap matrices. Imbalanced counts are credit reporting/debt/loans/card/banking; original sampling code is unavailable}{table.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S16}{Benchmark file key. ID order matches both overlap matrices. Imbalanced counts are credit reporting/debt/loans/card/banking; sampling code is unavailable.}}{11}{table.16}\protected@file@percent }
+\newlabel{sup:legacy-key}{{S16}{11}{Benchmark file key. ID order matches both overlap matrices. Imbalanced counts are credit reporting/debt/loans/card/banking; sampling code is unavailable}{table.16}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S17}{Normalised narrative overlap. Counts are shared unique inputs; diagonals count within-file unique inputs. Row fractions and Jaccard matrices are in the archive.}}{11}{table.17}\protected@file@percent }
 \newlabel{sup:legacy_overlap_narrative_counts}{{S17}{11}{Normalised narrative overlap. Counts are shared unique inputs; diagonals count within-file unique inputs. Row fractions and Jaccard matrices are in the archive}{table.17}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S18}{Normalised label--narrative-unit overlap. Counts are shared unique inputs; diagonals count within-file unique inputs. Row fractions and Jaccard matrices are in the archive.}}{11}{table.18}\protected@file@percent }
@@ -192,8 +192,8 @@
     {1}{55.52153pt}}
 \@writefile{lot}{\contentsline {table}{\numberline {S20}{Per-file macro-F1: baseline. Multi-seed columns are means. Descriptive scores are not independent replicates or the unique-unit aggregate.}}{12}{table.20}\protected@file@percent }
 \newlabel{sup:legacy-baseline}{{S20}{12}{Per-file macro-F1: baseline. Multi-seed columns are means. Descriptive scores are not independent replicates or the unique-unit aggregate}{table.20}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {S5}Input-length conditions, cohorts and historical sensitivity}{12}{section.5}\protected@file@percent }
-\newlabel{sup:length}{{S5}{12}{Input-length conditions, cohorts and historical sensitivity}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {S5}Input-length conditions, cohorts and sensitivity analyses}{12}{section.5}\protected@file@percent }
+\newlabel{sup:length}{{S5}{12}{Input-length conditions, cohorts and sensitivity analyses}{section.5}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S21}{Every actual length/checkpoint condition on the complete internal test.}}{12}{table.21}\protected@file@percent }
 \newlabel{sup:length-seeds}{{S21}{12}{Every actual length/checkpoint condition on the complete internal test}{table.21}{}}
 \gdef \LT@xxii {\LT@entry 
@@ -205,17 +205,17 @@
     {4}{66.80585pt}}
 \@writefile{lot}{\contentsline {table}{\numberline {S22}{Paired C minus B changes for all metrics and both predefined cohorts.}}{13}{table.22}\protected@file@percent }
 \newlabel{sup:length-effects}{{S22}{13}{Paired C minus B changes for all metrics and both predefined cohorts}{table.22}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {S5.1}Historical descriptive and matched-view analyses}{13}{subsection.5.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {S23}{\ignorespaces Historical internal macro-F1 by full narrative length. Every archived input was capped at 500 characters.}}{13}{table.23}\protected@file@percent }
-\newlabel{sup:historical-strata}{{S23}{13}{Historical internal macro-F1 by full narrative length. Every archived input was capped at 500 characters}{table.23}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {S24}{\ignorespaces Historical changed-input 250/500 matched-view results, unique-pair weighted. These do not replace the new B/C experiment.}}{13}{table.24}\protected@file@percent }
-\newlabel{sup:historical-pairs}{{S24}{13}{Historical changed-input 250/500 matched-view results, unique-pair weighted. These do not replace the new B/C experiment}{table.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {S5.1}Auxiliary length-stratum and matched-view analyses}{13}{subsection.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {S23}{\ignorespaces Auxiliary-model internal macro-F1 by full narrative length. Inputs are capped at 500 characters; model-visible overlap limits interpretation.}}{13}{table.23}\protected@file@percent }
+\newlabel{sup:historical-strata}{{S23}{13}{Auxiliary-model internal macro-F1 by full narrative length. Inputs are capped at 500 characters; model-visible overlap limits interpretation}{table.23}{}}
 \gdef \LT@xxiii {\LT@entry 
     {1}{29.18294pt}\LT@entry 
     {1}{48.08353pt}\LT@entry 
     {4}{52.79997pt}\LT@entry 
     {1}{48.24191pt}\LT@entry 
     {4}{66.18085pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {S24}{\ignorespaces Auxiliary-model 250/500-character matched-view results, unique-pair weighted. The source cohort and fitted models differ from the controlled B/C comparison.}}{14}{table.24}\protected@file@percent }
+\newlabel{sup:historical-pairs}{{S24}{14}{Auxiliary-model 250/500-character matched-view results, unique-pair weighted. The source cohort and fitted models differ from the controlled B/C comparison}{table.24}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {S6}Controlled latency and measurement limitations}{14}{section.6}\protected@file@percent }
 \newlabel{sup:latency}{{S6}{14}{Controlled latency and measurement limitations}{section.6}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S25}{All paired FT-three-seed-mean minus base time differences (seconds), using ID means over three repetitions.}}{14}{table.25}\protected@file@percent }
@@ -234,35 +234,35 @@
 \@writefile{lot}{\contentsline {table}{\numberline {S26}{All 24 fresh-call latency conditions (300 timed calls each; total 7,200). Gen. is generation seconds; E2E includes preprocessing/postprocessing.}}{15}{table.26}\protected@file@percent }
 \newlabel{sup:latency-all}{{S26}{15}{All 24 fresh-call latency conditions (300 timed calls each; total 7,200). Gen. is generation seconds; E2E includes preprocessing/postprocessing}{table.26}{}}
 \gdef \LT@xxv {\LT@entry 
-    {4}{35.11456pt}\LT@entry 
+    {4}{48.47546pt}\LT@entry 
     {4}{37.59341pt}\LT@entry 
     {1}{36.78102pt}\LT@entry 
     {1}{47.20277pt}\LT@entry 
     {4}{70.18085pt}\LT@entry 
     {1}{37.79431pt}}
 \gdef \LT@xxvi {\LT@entry 
-    {4}{35.11456pt}\LT@entry 
+    {4}{48.47546pt}\LT@entry 
     {4}{37.59341pt}\LT@entry 
     {4}{57.85242pt}\LT@entry 
     {1}{48.24191pt}\LT@entry 
     {4}{69.26418pt}}
 \@writefile{toc}{\contentsline {section}{\numberline {S7}Reference [14] encoder-parameter sensitivity}{16}{section.7}\protected@file@percent }
 \newlabel{sup:ref14}{{S7}{16}{Reference [14] encoder-parameter sensitivity}{section.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {S27}{Reference-parameter conditions, macro-F1. Main point estimates are unchanged; inference intervals below belong to the separate supplementary paired analysis.}}{16}{table.27}\protected@file@percent }
-\newlabel{sup:ref14-means}{{S27}{16}{Reference-parameter conditions, macro-F1. Main point estimates are unchanged; inference intervals below belong to the separate supplementary paired analysis}{table.27}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S27}{Reference-parameter conditions, macro-F1. Point estimates refer to the same primary-model predictions; intervals belong to the separate supplementary paired analysis.}}{16}{table.27}\protected@file@percent }
+\newlabel{sup:ref14-means}{{S27}{16}{Reference-parameter conditions, macro-F1. Point estimates refer to the same primary-model predictions; intervals belong to the separate supplementary paired analysis}{table.27}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S28}{All supplementary paired reference-setting minus main-setting differences. The seed order is paired and all 12 prediction variants share each supplementary draw.}}{16}{table.28}\protected@file@percent }
 \newlabel{sup:ref14-deltas}{{S28}{16}{All supplementary paired reference-setting minus main-setting differences. The seed order is paired and all 12 prediction variants share each supplementary draw}{table.28}{}}
 \gdef \LT@xxvii {\LT@entry 
     {4}{33.59341pt}\LT@entry 
     {1}{26.507pt}\LT@entry 
-    {4}{39.11456pt}\LT@entry 
+    {4}{52.47546pt}\LT@entry 
     {1}{45.27599pt}\LT@entry 
     {1}{47.20277pt}\LT@entry 
     {1}{55.52153pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {S29}{Every supplementary refit, with the same legacy unique-input weighting.}}{17}{table.29}\protected@file@percent }
-\newlabel{sup:ref14-seeds}{{S29}{17}{Every supplementary refit, with the same legacy unique-input weighting}{table.29}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {S8}Reproducibility files, historical evidence and remaining gaps}{17}{section.8}\protected@file@percent }
-\newlabel{sup:reproducibility}{{S8}{17}{Reproducibility files, historical evidence and remaining gaps}{section.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S29}{Every supplementary refit, with the same benchmark unique-input weighting.}}{17}{table.29}\protected@file@percent }
+\newlabel{sup:ref14-seeds}{{S29}{17}{Every supplementary refit, with the same benchmark unique-input weighting}{table.29}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {S8}Reproducibility and auxiliary protocol analyses}{17}{section.8}\protected@file@percent }
+\newlabel{sup:reproducibility}{{S8}{17}{Reproducibility and auxiliary protocol analyses}{section.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {S8.1}Artifact map and verification}{17}{subsection.8.1}\protected@file@percent }
 \gdef \LT@xxviii {\LT@entry 
     {1}{151.95433pt}\LT@entry 
@@ -274,11 +274,11 @@
 \newlabel{sup:artifact-map}{{S30}{18}{Key paths relative to the repository root. Complete filename/hash lists are machine-readable}{table.30}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S31}{Frozen protocol SHA-256 values.}}{18}{table.31}\protected@file@percent }
 \newlabel{sup:protocol-hashes}{{S31}{18}{Frozen protocol SHA-256 values}{table.31}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {S8.2}Historical-only results and interpretation}{18}{subsection.8.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {S32}{\ignorespaces Historical internal results, trained before quarantine. FT is mean plus/minus sample SD; these are not corrected-data scores.}}{18}{table.32}\protected@file@percent }
-\newlabel{sup:historical-internal}{{S32}{18}{Historical internal results, trained before quarantine. FT is mean plus/minus sample SD; these are not corrected-data scores}{table.32}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {S33}{\ignorespaces Historical point/interval reconciliation. These observed points share the archived estimator, without asserting that old training exposure is repaired.}}{18}{table.33}\protected@file@percent }
-\newlabel{sup:historical-ci}{{S33}{18}{Historical point/interval reconciliation. These observed points share the archived estimator, without asserting that old training exposure is repaired}{table.33}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {S8.2}Auxiliary data-overlap analysis}{18}{subsection.8.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {S32}{\ignorespaces Internal results for auxiliary models with model-visible overlap. FT is mean plus/minus sample SD across fits with varying selections; these scores are excluded from the primary comparison.}}{18}{table.32}\protected@file@percent }
+\newlabel{sup:historical-internal}{{S32}{18}{Internal results for auxiliary models with model-visible overlap. FT is mean plus/minus sample SD across fits with varying selections; these scores are excluded from the primary comparison}{table.32}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S33}{\ignorespaces Observed points and paired group-bootstrap intervals for the auxiliary models. Conditioning on fitted models does not eliminate training exposure.}}{18}{table.33}\protected@file@percent }
+\newlabel{sup:historical-ci}{{S33}{18}{Observed points and paired group-bootstrap intervals for the auxiliary models. Conditioning on fitted models does not eliminate training exposure}{table.33}{}}
 \gdef \LT@xxx {\LT@entry 
     {4}{75.05156pt}\LT@entry 
     {1}{45.51402pt}\LT@entry 
@@ -287,8 +287,8 @@
     {1}{37.2141pt}\LT@entry 
     {1}{47.20277pt}\LT@entry 
     {1}{37.6613pt}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {S8.3}Origin of the transferred QLoRA protocol}{19}{subsection.8.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {S34}{Earlier Qwen validation conditions underlying the transferred protocol. Scores are historical, before model-visible quarantine; they are not corrected-data results.}}{19}{table.34}\protected@file@percent }
-\newlabel{sup:historical-selection}{{S34}{19}{Earlier Qwen validation conditions underlying the transferred protocol. Scores are historical, before model-visible quarantine; they are not corrected-data results}{table.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {S8.3}Configuration screening for the shared QLoRA settings}{19}{subsection.8.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {S34}{Qwen configuration-screening conditions on the full-text-grouped allocation. Validation scores are auxiliary selection evidence, not primary-comparison test estimates.}}{19}{table.34}\protected@file@percent }
+\newlabel{sup:historical-selection}{{S34}{19}{Qwen configuration-screening conditions on the full-text-grouped allocation. Validation scores are auxiliary selection evidence, not primary-comparison test estimates}{table.34}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {S8.4}Validation scope}{19}{subsection.8.4}\protected@file@percent }
 \gdef \@abspage@last{19}
