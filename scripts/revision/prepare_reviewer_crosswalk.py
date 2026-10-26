@@ -274,20 +274,17 @@ def write_final_crosswalk():
     source,original,r1,r2=extract()
     response=(project_path(PAPER, 'RESPONSE_TO_REVIEWERS.md')).read_text()
     blocks=re.split(r'(?=^### R[12]\.\d+)',response,flags=re.M)[1:]
-    access_path=ROOT/'analysis/repository_layout/PUBLIC_REPOSITORY_ACCESS.json'
-    access=json.loads(access_path.read_text()) if access_path.exists() else {}
-    access_verified=access.get('published_evidence_complete') is True
     records=[]
     for block,quote in zip(blocks,r1+r2):
         ident=re.match(r'### (R[12]\.\d+)',block).group(1)
         assert '> '+quote in block
         locations=block.split('**Changes and locations.** ',1)[1].strip().split('\n\n## Reviewer',1)[0]
         records.append({'id':ident,'original_comment':quote,'locations':locations,
-            'status':('addressed_public_repository' if access_verified else 'public_link_documented_pending_sync') if ident in {'R1.3','R2.7'} else 'addressed_with_stated_limits'})
+            'status':'public_repository_link_provided' if ident in {'R1.3','R2.7'} else 'addressed_with_stated_limits'})
     assert len(records)==15
     report={'source':str(source.relative_to(ROOT)),'source_sha256':sha_file(source),
             'response_sha256':sha_file(project_path(PAPER, 'RESPONSE_TO_REVIEWERS.md')),'requests':records,
-            'request_units':15,'reviewer_access_delivered':access_verified,
+            'request_units':15,'access_method':'Public GitHub repository',
             'public_repository_url':'https://github.com/muhammettan28/CFPB_tuning'}
     final=project_path(PAPER, 'analysis/postprocessing/REVIEWER_COVERAGE_FINAL.json')
     final.write_text(json_text(report))

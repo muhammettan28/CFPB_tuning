@@ -48,6 +48,7 @@ logs/
 *.synctex.gz
 *.tmp
 *.lock
+.~lock.*#
 
 # Retired author-only planning documents.
 /METHODOLOGY_AND_ROADMAP.md

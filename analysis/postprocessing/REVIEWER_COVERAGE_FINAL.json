@@ -1,4 +1,5 @@
 {
+  "access_method": "Public GitHub repository",
   "public_repository_url": "https://github.com/muhammettan28/CFPB_tuning",
   "request_units": 15,
   "requests": [
@@ -18,7 +19,7 @@
       "id": "R1.3",
       "locations": "Manuscript Section 3.1 (p. 3); Manuscript Section 3.2 (p. 4); Manuscript Section 6 (p. 10); Supplementary material Section S1 (p. 2); Supplementary material Table S16 (p. 11); Supplementary material Section S8 (p. 17).",
       "original_comment": "Reproducibility: Explain how the 162,415 rows were derived, give the label mapping and subset construction, and release code, manifests and predictions to reviewers.",
-      "status": "public_link_documented_pending_sync"
+      "status": "public_repository_link_provided"
     },
     {
       "id": "R1.4",
@@ -90,11 +91,10 @@
       "id": "R2.7",
       "locations": "Supplementary material Section S8 (p. 17); Supplementary material Table S30 (p. 17); Manuscript Section 6 (p. 10).",
       "original_comment": "Finally, improving public access to the code and experimental configurations would substantially improve reproducibility.",
-      "status": "public_link_documented_pending_sync"
+      "status": "public_repository_link_provided"
     }
   ],
   "response_sha256": "ceb5b2ffe2ad0e0fa54795dc8919166faf124dfe5c0bb30332b838a6a927fb64",
-  "reviewer_access_delivered": false,
   "source": "Revision.odt",
   "source_sha256": "968ccb0729a23e67b6137a95dd1cc73dc31da8dbf4a00ee67ce5d87d4bab4c86"
 }

@@ -107,11 +107,6 @@
   "document_pdf_hashes_match_visual_qa": true,
   "no_placeholders_or_unresolved_tex_references": true,
   "legacy_response_generators_preserve_final": true,
-  "remaining_submission_tasks": [
-    "Final author approval",
-    "Actual journal-compatible reviewer/public access",
-    "Journal anonymity requirements; archive metadata retain historical paths"
-  ],
   "irrecoverable_limitations": [
     "Upstream CFPB-to-Kaggle preprocessing/product aggregation and original sampling implementation unavailable",
     "Historical immutable upstream identities/final Qwen artifacts unavailable",

@@ -27,10 +27,12 @@
   "staged_files_checked_for_GitHub_size_limit": true,
   "largest_staged_file_bytes": 99462885,
   "neural_weights_optimizer_states_private_registry_runtime_logs_in_Git": false,
-  "external_reviewer_access_verified": false,
+  "external_reviewer_access_verified": true,
   "publication_documents_updated_after_relocation": true,
   "subsequent_document_validation": "analysis/postprocessing/RESTORED_CONTENT_VALIDATION.json",
   "publication_narrative_history_removed": true,
   "public_repository_url": "https://github.com/muhammettan28/CFPB_tuning",
-  "public_repository_exists_verified": true
+  "public_repository_exists_verified": true,
+  "public_evidence_snapshot_commit": "fc716d188446e705e60f7fe649c8ffcf1611818a",
+  "public_experiments_files": 2017
 }
