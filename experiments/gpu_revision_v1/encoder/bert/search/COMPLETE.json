@@ -1,0 +1,21 @@
+{
+  "action": "encoder-search",
+  "completed": true,
+  "result": {
+    "artifact": {
+      "commit": "86b5e0934494bd15c9632b12f734a8a67f723594",
+      "repo_id": "google-bert/bert-base-uncased",
+      "snapshot": "/home/tan/.cache/huggingface/hub/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594"
+    },
+    "candidate": {
+      "candidate_id": 2,
+      "epochs": 3,
+      "learning_rate": 2e-05
+    },
+    "plan_sha256": "1fe25cdd571eee549060a362980a232fa56978021dc015d25823695086d1d0e2",
+    "selection_seed": 42,
+    "test_read_during_selection": false,
+    "validation_macro_f1": 0.8083166613893736,
+    "validation_search_sha256": "30a1418004793cc063802c51f35591cdeb39bde5aa819cd15eb6104c62e39e8b"
+  }
+}

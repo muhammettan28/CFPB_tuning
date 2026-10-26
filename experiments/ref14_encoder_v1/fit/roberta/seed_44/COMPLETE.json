@@ -1,0 +1,21 @@
+{
+  "action": "fit",
+  "completed": true,
+  "result": {
+    "accuracy": 0.8375,
+    "macro_f1": 0.7978891934256465,
+    "n": 2000,
+    "off_label_count": 0,
+    "weighted_f1": 0.8359368584898197
+  },
+  "saved_model_files_sha256": {
+    "config.json": "483dcef8be3c11a60e6cd1372dea2413f80d05cbb38ba4b831c215f2d27b9475",
+    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+    "model.safetensors": "dacf8cbac2adba97a0138e4403ef600c58962e29ba044bca4c6c8236b73eae11",
+    "special_tokens_map.json": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f",
+    "tokenizer.json": "90b230ae3575d1be66827ba1e21b87ec9b79618a0cfd590b0a4df6044246b11b",
+    "tokenizer_config.json": "4ea8648e4067230942ac6b32dd61328675bc99ae0a9f4cc665c30a95f0f68712",
+    "training_args.bin": "d5e8dd44792019a919c823f75a21d3bdebfb58bdc5769181923d4835335dfc9a",
+    "vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e"
+  }
+}

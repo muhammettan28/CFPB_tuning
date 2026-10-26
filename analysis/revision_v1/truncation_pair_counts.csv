@@ -1,0 +1,7 @@
+seed,condition,short_rows,long_rows,unambiguous_pairs,ambiguous_short_rows,ambiguous_long_rows
+1,balanced,1000,1000,998,2,2
+1,imbalanced,1000,1000,994,6,6
+2,balanced,1000,1000,1000,0,0
+2,imbalanced,1000,1000,998,2,2
+3,balanced,1000,1000,1000,0,0
+3,imbalanced,1000,1000,996,4,4

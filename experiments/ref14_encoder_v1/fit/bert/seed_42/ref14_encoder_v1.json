@@ -1,0 +1,60 @@
+{
+  "design": "Predeclared supplementary parameter sensitivity; all six final-epoch refits reported. No replacement or test-based selection of main baselines. Same frozen memberships and pinned models as main study. Not an exact replication of source split/preprocessing/framework.",
+  "frozen_date": "2026-10-21",
+  "inherited_unreported_execution_settings": {
+    "eval_batch_size": 16,
+    "optimizer": "adamw_torch",
+    "scheduler": "linear",
+    "warmup_ratio": 0.06,
+    "weight_decay": 0.01
+  },
+  "max_narrative_chars": 500,
+  "models": {
+    "bert": {
+      "batch_size": 16,
+      "commit": "86b5e0934494bd15c9632b12f734a8a67f723594",
+      "epochs": 3,
+      "gradient_accumulation_steps": 1,
+      "learning_rate": 2e-05,
+      "max_length": 128,
+      "repo_id": "google-bert/bert-base-uncased"
+    },
+    "roberta": {
+      "batch_size": 16,
+      "commit": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+      "epochs": 3,
+      "gradient_accumulation_steps": 1,
+      "learning_rate": 5e-05,
+      "max_length": 100,
+      "repo_id": "FacebookAI/roberta-base"
+    }
+  },
+  "optimization_seeds": [
+    42,
+    43,
+    44
+  ],
+  "other_execution_settings": {
+    "checkpoint": "final epoch; no new hyperparameter search",
+    "fp16_autocast": true,
+    "framework": "PyTorch for both models; source Table IV reports tf for RoBERTa",
+    "loss": "unweighted cross-entropy",
+    "pad_to_multiple_of": 8
+  },
+  "parent_gpu_plan_sha256": "1fe25cdd571eee549060a362980a232fa56978021dc015d25823695086d1d0e2",
+  "parent_protocol_sha256": "89fd382208515e946ab2a941d07809cec8b9fc659d554048f008cf2dea225d0f",
+  "scheduling": "Wait until core study succeeds and releases its master lock; six training jobs before six supplementary evaluation jobs; no concurrent CUDA jobs.",
+  "source": {
+    "doi": "10.1109/ACDSA65407.2025.11166338",
+    "path": "REVISION_PAPER/literature/Customer_Complaint_Classification_with_Large_Language_Models.pdf",
+    "sha256": "929aa957d27528d44ceb869e00454e06f3ff1245c61253fc8dbee17837943391",
+    "tables": {
+      "bert": "III (PDF page 3)",
+      "roberta": "IV (PDF page 4)"
+    }
+  },
+  "train_rows": 10000,
+  "uncertainty": "10000 paired frozen-group bootstrap draws, common to original and supplementary encoder predictions; seed sample SD separately. Legacy views weighted per unique normalized input as in core analysis.",
+  "validation_rows": 2000,
+  "version": "ref14_encoder_v1"
+}

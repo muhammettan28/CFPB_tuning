@@ -1,0 +1,23 @@
+{
+  "raw_rows": 162415,
+  "missing_required_rows": 10,
+  "usable_rows": 162405,
+  "excluded_legacy_rows": 8123,
+  "remaining_rows": 154282,
+  "splits": {
+    "train": {
+      "rows": 123427,
+      "unique_full_narratives": 95365
+    },
+    "validation": {
+      "rows": 15427,
+      "unique_full_narratives": 12063
+    },
+    "internal_test": {
+      "rows": 15428,
+      "unique_full_narratives": 12155
+    }
+  },
+  "split_rows_match_source_by_record_id_label_and_text": true,
+  "upstream_limit": "complaints.csv already has five mapped labels and preprocessed narratives. The original CFPB extraction, preprocessing and original-product mapping cannot be recovered from this file alone."
+}

@@ -1,0 +1,21 @@
+{
+  "prediction_hashes": [
+    {
+      "seed": 42,
+      "internal_test": "1203f0fb039f5b9e9785b4e88b93ce79d3f7e954ea2cc04987a33d2e200cd247",
+      "legacy": "9bacc6a884b77f4e601b61adba85bf586791316997f3cc1a3c57512c64abcd40"
+    },
+    {
+      "seed": 43,
+      "internal_test": "1203f0fb039f5b9e9785b4e88b93ce79d3f7e954ea2cc04987a33d2e200cd247",
+      "legacy": "9bacc6a884b77f4e601b61adba85bf586791316997f3cc1a3c57512c64abcd40"
+    },
+    {
+      "seed": 44,
+      "internal_test": "1203f0fb039f5b9e9785b4e88b93ce79d3f7e954ea2cc04987a33d2e200cd247",
+      "legacy": "9bacc6a884b77f4e601b61adba85bf586791316997f3cc1a3c57512c64abcd40"
+    }
+  ],
+  "identical_predictions_all_three_seeds": true,
+  "interpretation": "lbfgs ignores random_state; with fixed data these three seed-labelled refits are determinism checks, not independent stochastic runs. Report identical-score SD=0 transparently; do not manufacture training variability."
+}

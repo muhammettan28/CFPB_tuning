@@ -1,0 +1,127 @@
+{
+  "passed": true,
+  "date": "2026-10-26",
+  "main_gpu_stages": 88,
+  "reference_gpu_stages": 12,
+  "source_hashes_verified": true,
+  "numerical_source_files_checked": 9,
+  "protected_originals_checked": 107,
+  "protected_ORJ_PAPER_files": 84,
+  "compiled_response_locations_checked": 79,
+  "exact_request_units_checked": 15,
+  "all_model_macro_f1_points_and_bounds_checked": [
+    {
+      "role": "internal",
+      "system": "qwen_base",
+      "macro_f1": 0.6295281946417624
+    },
+    {
+      "role": "internal",
+      "system": "qwen_ft",
+      "macro_f1": 0.8330575361647293
+    },
+    {
+      "role": "internal",
+      "system": "llama_base",
+      "macro_f1": 0.6246792424955949
+    },
+    {
+      "role": "internal",
+      "system": "llama_ft",
+      "macro_f1": 0.8401540683378957
+    },
+    {
+      "role": "internal",
+      "system": "bert",
+      "macro_f1": 0.8118984902725673
+    },
+    {
+      "role": "internal",
+      "system": "distilbert",
+      "macro_f1": 0.8104069392876393
+    },
+    {
+      "role": "internal",
+      "system": "roberta",
+      "macro_f1": 0.8104749595077555
+    },
+    {
+      "role": "internal",
+      "system": "tfidf_10000",
+      "macro_f1": 0.8067940065437542
+    },
+    {
+      "role": "internal",
+      "system": "tfidf_full",
+      "macro_f1": 0.8475628167027709
+    },
+    {
+      "role": "legacy",
+      "system": "qwen_base",
+      "macro_f1": 0.6324205734401037
+    },
+    {
+      "role": "legacy",
+      "system": "qwen_ft",
+      "macro_f1": 0.8210228699908027
+    },
+    {
+      "role": "legacy",
+      "system": "llama_base",
+      "macro_f1": 0.6271272024160541
+    },
+    {
+      "role": "legacy",
+      "system": "llama_ft",
+      "macro_f1": 0.8271744289706455
+    },
+    {
+      "role": "legacy",
+      "system": "bert",
+      "macro_f1": 0.7935978906437855
+    },
+    {
+      "role": "legacy",
+      "system": "distilbert",
+      "macro_f1": 0.7893549435383185
+    },
+    {
+      "role": "legacy",
+      "system": "roberta",
+      "macro_f1": 0.7926151355775528
+    },
+    {
+      "role": "legacy",
+      "system": "tfidf_10000",
+      "macro_f1": 0.7870587541238866
+    },
+    {
+      "role": "legacy",
+      "system": "tfidf_full",
+      "macro_f1": 0.8346548831221472
+    }
+  ],
+  "main_internal_contrasts_checked": true,
+  "long_input_table_checked": true,
+  "latency_response_checked": true,
+  "document_pdf_hashes_match_visual_qa": true,
+  "no_placeholders_or_unresolved_tex_references": true,
+  "legacy_response_generators_preserve_final": true,
+  "remaining_submission_tasks": [
+    "Final author approval",
+    "Actual journal-compatible reviewer/public access",
+    "Journal anonymity requirements; archive metadata retain historical paths"
+  ],
+  "irrecoverable_limitations": [
+    "Upstream CFPB-to-Kaggle preprocessing/product aggregation and original sampling implementation unavailable",
+    "Historical immutable upstream identities/final Qwen artifacts unavailable",
+    "Retrospective source-related evaluation, conservative text groups do not guarantee semantic independence",
+    "Intervals condition on fitted/selected models; no multiplicity correction",
+    "Serial batch-one latency does not establish deployment acceptability or concurrent capacity"
+  ],
+  "keyed_tables_checked": 35,
+  "keyed_rows_checked": 540,
+  "keyed_cells_checked": 3475,
+  "wrong_row_negative_controls_passed": true,
+  "pdf_copyable_ascii_replay_command_checked": true
+}

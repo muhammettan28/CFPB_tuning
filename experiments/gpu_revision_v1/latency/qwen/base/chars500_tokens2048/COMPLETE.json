@@ -1,0 +1,18 @@
+{
+  "action": "latency",
+  "completed": true,
+  "result": {
+    "end_to_end_seconds": {
+      "mean": 0.2893700550046439,
+      "median": 0.2784056055243127,
+      "p95": 0.3435358254238963
+    },
+    "generation_seconds": {
+      "mean": 0.2888223944270673,
+      "median": 0.2778494440135546,
+      "p95": 0.34297446895507167
+    },
+    "rows": 300,
+    "serial_requests_per_second": 3.455782596384936
+  }
+}

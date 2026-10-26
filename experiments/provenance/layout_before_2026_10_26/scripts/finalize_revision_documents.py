@@ -1,0 +1,324 @@
+#!/usr/bin/env python3
+"""CPU-only document integration from immutable, validated prediction artifacts."""
+from __future__ import annotations
+import argparse
+import json
+import os
+from pathlib import Path
+import re
+import numpy as np
+import pandas as pd
+from sklearn.metrics import confusion_matrix,precision_recall_fscore_support
+from revision_gpu_common import ROOT,PAPER,DATA,EXP,LABELS,load_frame,json_text,sha_file
+
+OUT=PAPER/'analysis/postprocessing'
+TABLES=PAPER/'tables/final'
+NAMES={'qwen_base':'Qwen3 base','qwen_ft':'Qwen3 QLoRA','llama_base':'Llama 3.1 base',
+       'llama_ft':'Llama 3.1 QLoRA','bert':'BERT','distilbert':'DistilBERT','roberta':'RoBERTa',
+       'tfidf_10000':'TF-IDF/LR 10k','tfidf_full':'TF-IDF/LR full'}
+CLASS_NAMES=['Retail banking','Credit reporting','Credit card','Mortgages/loans','Debt collection']
+
+
+def read(path):return json.loads(Path(path).read_text())
+def esc(text):
+    result=str(text)
+    for a,b in [('&',r'\&'),('%',r'\%'),('_',r'\_'),('#',r'\#')]:result=result.replace(a,b)
+    return result
+def f(value):return f'{float(value):.4f}'
+def ci(low,high):return f'[{f(low)}, {f(high)}]'
+def row(cells):return ' & '.join(str(x) for x in cells)+r' \\'
+def write_table(name,rows):
+    TABLES.mkdir(parents=True,exist_ok=True)
+    (TABLES/name).write_text('\n'.join(rows)+'\n'+r'\hline'+'\n')
+def metric_frame():return pd.read_csv(PAPER/'analysis/gpu_execution/corrected_model_metrics.csv')
+
+
+def facts():
+    """Additional descriptive summaries only: no fitting, selection or inference."""
+    from auto_postprocess_after_experiments import verify_evidence
+    verify_evidence();TABLES.mkdir(parents=True,exist_ok=True)
+    metrics=metric_frame()
+    for role in ['internal','legacy']:
+        selected=metrics.loc[metrics.role.eq(role)];lines=[]
+        for system,group in selected.groupby('system',sort=False):
+            g=group.set_index('metric');m=g.loc['macro_f1']
+            sd='---' if pd.isna(m.seed_sd_ddof1) else f(m.seed_sd_ddof1)
+            lines.append(row([NAMES[system],f'{int(m.train_rows):,}',f(m.point)+' '+ci(m.low,m.high),sd,
+                              f(g.loc['accuracy','point']),f(g.loc['weighted_f1','point'])]))
+        write_table(role+'_models.tex',lines)
+    contrasts=pd.read_csv(PAPER/'analysis/gpu_execution/corrected_paired_contrasts.csv')
+    selected=contrasts.loc[contrasts.role.eq('internal') & contrasts.metric.eq('macro_f1')]
+    write_table('internal_contrasts.tex',[row([NAMES[r.reference],NAMES[r.comparison],f(r.paired_difference),ci(r.low,r.high)]) for r in selected.itertuples(index=False)])
+    length=pd.read_csv(PAPER/'analysis/gpu_execution/corrected_long_input.csv')
+    selected=length.loc[length.metric.eq('macro_f1') & length.comparison.eq('500_to_1500_chars')]
+    write_table('long_macro.tex',[row(['Qwen3' if r.model=='qwen' else 'Llama 3.1',
+        'base' if r.variant=='base' else 'QLoRA mean','All' if r.cohort=='all' else r'$>500$',
+        f(r.reference_point),f(r.comparison_point),f(r.paired_difference),ci(r.low,r.high)]) for r in selected.itertuples(index=False)])
+    latency=pd.read_csv(PAPER/'analysis/gpu_execution/controlled_latency_summary.csv')
+    paired=pd.read_csv(PAPER/'analysis/gpu_execution/controlled_latency_paired.csv')
+    lines=[]
+    for model in ['qwen','llama']:
+        group=latency.loc[latency.model.eq(model) & latency.condition.eq('chars500_tokens512') & latency.timing.eq('end_to_end_seconds')]
+        base=group.loc[group.variant.eq('base'),'mean'].iloc[0];ft=group.loc[~group.variant.eq('base'),'mean'].mean()
+        delta=paired.loc[paired.model.eq(model) & paired.condition.eq('chars500_tokens512') & paired.timing.eq('end_to_end_seconds')].iloc[0]
+        lines.append(row(['Qwen3' if model=='qwen' else 'Llama 3.1',f(base),f(ft),f(delta.ft_seed_mean_minus_base_seconds),ci(delta.low,delta.high)]))
+    write_table('latency_main.tex',lines)
+    test=load_frame(DATA/'internal_test.csv');truth=test['product'].tolist();class_rows=[];off_rows=[];matrices={};view_rows=[]
+    for system in NAMES:
+        variants=['base'] if system.endswith('_base') else ['42','43','44'] if system not in {'tfidf_10000','tfidf_full'} else ['42']
+        model=system.split('_')[0] if system.startswith(('qwen','llama')) else system
+        stats=[];cms=[]
+        for variant in variants:
+            if system.startswith('tfidf'):
+                budget='10000' if system=='tfidf_10000' else 'full'
+                source=PAPER/f'experiments/tfidf_revision_v1/budget_{budget}/seed_42'
+            else:source=EXP/'evaluation/evaluate'/model/variant/'suite'
+            path=source/'internal_test_predictions.csv.gz'
+            pred=pd.read_csv(path,keep_default_na=False,dtype={'record_id':str})
+            if pred.record_id.tolist()!=test.record_id.astype(str).tolist() or pred.true_label.tolist()!=truth:raise RuntimeError('Descriptive internal alignment changed')
+            stat=np.array(precision_recall_fscore_support(truth,pred.prediction,labels=LABELS,zero_division=0),dtype=float)
+            stats.append(stat);cms.append(confusion_matrix(truth,pred.prediction,labels=LABELS+['__off_label__']))
+            off_rows.append({'system':system,'variant':variant,'n':len(pred),'off_label_count':int(pred.prediction.eq('__off_label__').sum())})
+        average=np.mean(stats,axis=0);matrices[system]=np.mean(cms,axis=0)
+        for i,label in enumerate(LABELS):class_rows.append({'system':system,'label':label,'precision':average[0,i],
+            'recall':average[1,i],'f1':average[2,i],'support':int(average[3,i])})
+        # Per-file scores are descriptive; they are never independent replicates.
+        for path in sorted((DATA/'legacy_subsets').glob('*.csv')):
+            values=[]
+            for variant in variants:
+                if system.startswith('tfidf'):
+                    full=pd.read_csv(source/'legacy_predictions.csv.gz',keep_default_na=False)
+                    pred=full.loc[full.source_file.eq(path.name)]
+                else:pred=pd.read_csv(EXP/'evaluation/evaluate'/model/variant/'suite'/f'{path.stem}_predictions.csv.gz',keep_default_na=False)
+                from revision_gpu_common import metrics as score
+                values.append(score(pred.true_label.tolist(),pred.prediction.tolist()))
+            view_rows.append({'source_file':path.name,'system':system,**{key:float(np.mean([v[key] for v in values])) for key in ['accuracy','macro_f1','weighted_f1']}})
+    pd.DataFrame(class_rows).to_csv(OUT/'corrected_class_metrics.csv',index=False)
+    pd.DataFrame(off_rows).to_csv(OUT/'corrected_off_label_counts.csv',index=False)
+    pd.DataFrame(view_rows).to_csv(OUT/'corrected_legacy_per_view.csv',index=False)
+    np.savez_compressed(OUT/'corrected_confusion_counts.npz',**matrices)
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    fig,axes=plt.subplots(2,2,figsize=(9,7.8),constrained_layout=True)
+    display=['Banking','Credit rep.','Card','Loans','Debt']
+    for ax,key in zip(axes.flat,['qwen_base','qwen_ft','llama_base','llama_ft']):
+        cm=matrices[key][:5,:5];denom=matrices[key][:5].sum(axis=1,keepdims=True)
+        normalized=cm/denom;im=ax.imshow(normalized,vmin=0,vmax=1,cmap='Blues')
+        ax.set_xticks(range(5),display,rotation=30,ha='right');ax.set_yticks(range(5),display)
+        ax.set_title(NAMES[key]);ax.set_xlabel('Predicted class');ax.set_ylabel('True class')
+        for i in range(5):
+            for j in range(5):ax.text(j,i,f'{normalized[i,j]:.2f}',ha='center',va='center',fontsize=8,color='white' if normalized[i,j]>.55 else 'black')
+    fig.colorbar(im,ax=axes.ravel().tolist(),shrink=.7,label='Within-true-class fraction')
+    fig.savefig(PAPER/'figures/corrected_confusion_matrices.pdf');fig.savefig(PAPER/'figures/corrected_confusion_matrices.png',dpi=170);plt.close(fig)
+    # Full condition-level observed metrics, including actual seed refits.
+    long_rows=[]
+    for model in ['qwen','llama']:
+        for variant in ['base','42','43','44']:
+            for condition in ['chars500_tokens512','chars500_tokens2048','chars1500_tokens2048']:
+                q=EXP/'evaluation/long-input'/model/variant/condition/'metrics.json'
+                long_rows.append({'model':model,'variant':variant,'condition':condition,**read(q)['internal_test']})
+    pd.DataFrame(long_rows).to_csv(OUT/'long_input_per_variant.csv',index=False)
+    sources=[]
+    for path in sorted((PAPER/'analysis/gpu_execution').glob('*.csv')):sources.append({'path':str(path.relative_to(ROOT)),'sha256':sha_file(path)})
+    for path in sorted((PAPER/'analysis/ref14_encoder').glob('*.csv')):sources.append({'path':str(path.relative_to(ROOT)),'sha256':sha_file(path)})
+    (OUT/'DOCUMENT_NUMERICAL_SOURCES.json').write_text(json_text(sources))
+    print('Validated source metrics and generated descriptive-only class/confusion/view tables.')
+
+
+def manuscript():
+    original=(PAPER/'templates/manuscript_baseline.tex').read_text()
+    preamble=original.split(r'\begin{document}')[0]+r'\setlength{\emergencystretch}{2em}'+'\n'
+    # Preserve existing bibliography and related-work attribution, including [14]/[15].
+    bibliography=original[original.index(r'\begin{thebibliography}'):original.index(r'\end{document}')]
+    bibliography=bibliography.replace('11 (3): 3606.', '11 (3): 3606-3615.')
+    bibliography=bibliography.replace('Gewaly M, Saeed MS, Ammar MA.', 'Gewaly MM, Saeed MS, Ammar AM.')
+    bibliography=bibliography.replace('Liu Y, Ouyang X, Bai R, Zhu X, Zhou Y et al. A framework', 'Yuan L, Ouyang X, Bai R, Zhu X, Zhou Y et al. A framework')
+    bibliography=bibliography.replace('Aranguiz I', 'Aránguiz I')
+    bibliography=bibliography.replace('Systems, and Applications; 2024. doi:', 'Systems, and Applications; 2024. pp. 12-17. doi:')
+    bibliography=bibliography.replace('Algorithms and Control Engineering; 2024. doi:', 'Algorithms and Control Engineering; 2024. pp. 519-523. doi:')
+    bibliography=bibliography.replace('Antalya, Türkiye; 2025. doi:', 'Antalya, Türkiye; 2025. pp. 1-6. doi:')
+    related=original[original.index(r'\section{Related work}'):original.index(r'\section{Materials and methods}')]
+    related=related.replace('Archived full-text grouping is audited after truncation; revised training/validation conflicts are quarantined while evaluation records are preserved.',
+        'Model-visible conflicts are quarantined; fixed training/validation selections and evaluation records are retained across all new runs.')
+    body=MAIN_BODY.replace('@@RELATED@@',related).replace('@@BIBLIOGRAPHY@@',bibliography)
+    body=re.sub(r'(\\input\{tables/final/[^}]+\})\\hline',r'\1',body)
+    for caption in ['Corrected-data internal test', 'Internal macro-F1 paired differences']:
+        body=body.replace(r'\begin{table}[htbp]'+'\n'+r'\caption{'+caption, r'\begin{table}[H]'+'\n'+r'\caption{'+caption)
+    (PAPER/'manuscript.tex').write_text(preamble+r'\begin{document}'+'\n'+body)
+
+
+MAIN_BODY=r'''
+\maketitle
+\begin{abstract}
+Consumer financial complaint classification requires balancing adaptation gains against lighter supervised alternatives. We compare Qwen3-8B and Llama 3.1-8B-Instruct before and after explicit 4-bit QLoRA adaptation on the same fixed 10,000 training and 2,000 validation examples. A model-visible audit revealed residual overlap in the archived allocation; the revised experiments quarantine conflicting training/validation records while preserving evaluation records. On the 15,428-row internal test, mean macro-F1 across three optimisation seeds rises from 0.6295 to 0.8331 for Qwen and from 0.6247 to 0.8402 for Llama. Paired group-bootstrap gains are 0.2035 [0.1934, 0.2141] and 0.2155 [0.2054, 0.2257]. Validation-tuned TF-IDF/Logistic Regression reaches 0.8068 with 10,000 examples and 0.8476 with the larger 120,502-row training pool. Increasing available narrative text from 500 to 1,500 characters improves adapted-model macro-F1 by 0.0072 and 0.0055, but does not consistently improve zero-shot performance. Controlled batch-one measurements show additional mean end-to-end time of 0.1224 and 0.0802 seconds for adaptation. These retrospective, source-related evaluations support a budget-conditional adaptation trade-off, not universal classification superiority or deployment acceptability.
+\keywords{Consumer complaint classification, large language models, QLoRA, parameter-efficient fine-tuning, model-visible overlap, paired group bootstrap, CFPB}
+\end{abstract}
+
+\section{Introduction}
+The Consumer Financial Protection Bureau (CFPB) complaint corpus contains narratives about financial disputes, credit reporting, debt collection and banking services. Mapping a narrative to a single product class is useful for triage and complaint analytics, but overlapping product references, informal language and class imbalance complicate the task. Both sparse lexical classifiers and pretrained language models therefore provide relevant comparisons.
+
+Zero-shot LLM classification supplies candidate categories in a prompt and requires a valid label without task-specific training. This raises an empirical adaptation question: how much improvement follows when the same locally executable model is adapted under a fixed labelled-data budget, and what computational cost accompanies that change? G\"ull\"u et al. already fine-tuned GPT-2 and Llama 3.1-8B for complaints, including the same five financial categories \cite{gullu2025complaintllm}. Roumeliotis et al. studied zero-shot financial complaint classification \cite{roumeliotis2025think}. Neither the first application of LLMs to this task nor a new PEFT algorithm is claimed here.
+
+We examine paired zero-shot-to-QLoRA transitions for two 8B model families, validation-tuned sparse and encoder baselines, and actual optimisation-seed variation on fixed data memberships. The revision also audits model-visible inputs and replaces the unsupported independence of overlapping legacy subsets with group-aware analysis. All primary comparisons below use newly executed corrected-data runs; archived results remain historical evidence in Supplementary Section S8. A same-checkpoint longer-input experiment and controlled latency study quantify additional trade-offs. The contribution is a specified, auditable evaluation protocol and its conditional findings, rather than general robustness, changed-taxonomy reuse or cross-paper score superiority.
+
+@@RELATED@@
+
+\section{Materials and methods}
+\subsection{Data provenance and preserved evaluation views}
+\label{sec:source}
+The processed CFPB-related resource is attributed to Tiwari on Kaggle \cite{tiwari2021complaints,cfpbdata}. Its local archive contains 162,421 rows. The working file is identical by index, label and narrative for the first 162,415 rows; six trailing records contain only the placeholder narrative \texttt{name} and are absent. We establish this local difference without asserting when or why the earlier copy changed. Removing ten rows with missing fields leaves 162,405 usable records. An earlier exclusion of 8,123 legacy-related source rows leaves the original partitioning pool of 154,282 records. The upstream CFPB-to-Kaggle extraction and product-aggregation code is unavailable; source hashes identify the actual archived input, not a newly downloaded version.
+
+The five inherited labels are retail banking, credit reporting, credit card, mortgages and loans, and debt collection. No new upstream product aggregation is performed. Twelve preserved legacy files contain 1,000 appearances each: sampling-seed identifiers 1/2/3, balanced/imbalanced sampling, and 250/500-character views. Balanced files contain 200 examples per class. Each imbalanced file contains 511 credit-reporting, 182 debt-collection, 107 mortgage/loan, 100 card and 100 banking examples. These files are byte-identical to their source-archive members. The original sampling implementation is not recovered; files and construction manifests are supplied. They are source-related legacy views, not independently collected external data.
+
+\subsection{Model-visible separation and fixed selections}
+\label{sec:revised-data}
+The archived split grouped full narratives using NFKC, lowercasing and whitespace normalisation. At 500 characters, however, 192 shared unique training inputs touch 584 internal-test rows. Recorded Llama selections expose 383/375/390 test rows in the three archived runs. These historical findings motivate a new allocation; re-scoring old models cannot repair their training exposure.
+
+Label-blind connected components link full-normalised narratives, normalised first-500-character inputs and reconstructed 512-token inputs of the available archived tokenizers. A conservative normalised 250-character prefix guard links legacy-related inputs. Priority is given to existing internal and legacy evaluation records. Conflicting training and validation rows are quarantined; remaining validation components take priority over conflicting training rows. Evaluation records are not moved into fitting sets. Table~\ref{tab:data-flow} gives the counts. Prefix components are conservative text dependencies, not verified complaint identities.
+\begin{table}[htbp]
+\caption{Allocation before and after model-visible quarantine. Internal evaluation records are preserved.}
+\label{tab:data-flow}\centering\small
+\begin{tabular}{lrrrr}\hline
+Partition & Original & Quarantined & Retained & Groups\\\hline
+\input{tables/table_revision_data_flow.tex}
+\end{tabular}
+\end{table}
+
+Twenty-five retained-partition checks find zero shared audited representations. The five actual pinned tokenizers are then independently audited on 39,428 inputs each: 10,000 train, 2,000 validation, 15,428 internal and 12,000 legacy appearances. Tested train/validation-to-evaluation token-identity intersections are empty. Long-input keys are also checked, and equal token inputs remain within the frozen dependency groups. This is an exact representation audit, not a guarantee of semantic or paraphrase independence.
+
+One naturally sampled 10,000-row train selection and one 2,000-row validation selection, with selection seed 42, are fixed for every new model and optimisation seed. Their IDs, order and hashes are retained. The 10k/2k budget is inherited to isolate adaptation and model-family comparisons under a common labelled-data allocation; it is not an empirically selected sample-efficiency optimum. Optimisation seeds 42/43/44 change training randomness, not membership. Full-data TF-IDF uses all 120,502 retained training rows. The internal test contains 15,428 rows in 12,099 groups. These evaluation records were inspected earlier in the project; the new runs are retrospective, not a newly unseen prospective test. Data details and the overlap matrices are in Supplementary Sections S1 and S4.
+
+\subsection{Pinned LLMs, prompting and QLoRA}
+\label{sec:llm}
+We use Qwen/Qwen3-8B \cite{yang2025qwen3} and meta-llama/Llama-3.1-8B-Instruct \cite{dubey2024llama}. Exact 40-character commits, tokenizer/config files and weight hashes are recorded; Supplementary Section S2 gives the identities. New pins do not recover missing historical upstream revisions or final Qwen artifacts.
+
+Base and adapted models share the same five-label prompt, 500 narrative characters, a 512-token input cap, NF4 4-bit double quantisation and FP16 compute. The 500-character limit is inherited from the original protocol to hold the paired input convention fixed; 512 is the tokenizer ceiling, not another character limit. In the usable source, 63.98\% of narratives fit within 500 characters. This coverage does not establish optimality, information preservation or necessity for this GPU; the longer-input experiment measures the restriction's effects (Sections~\ref{sec:length-latency} and~\ref{sec:long-results}). The chat template is rendered once and tokenised with \texttt{add\_special\_tokens=False}; Qwen thinking is disabled with \texttt{enable\_thinking=False}. SFT records use the identical prompt prefix and a completion mask over the target JSON/EOS. Boundary and full-target length checks reject mismatch or clipping. Greedy generation uses at most 32 new tokens, one beam and no sampling. A regular expression extracts the final \texttt{product} field; absent or invalid labels remain off-label errors. This is JSON prompting with strict parsing, not token-level constrained decoding. No retry, synonym mapping or post-hoc label repair is used.
+
+QLoRA uses rank 16, alpha 32, dropout 0.05 and all-linear targets, with frozen base weights and completion-only cross-entropy. Each fixed-data run has two epochs, learning rate $2\times10^{-4}$, physical batch 1, accumulation 16, paged AdamW 8-bit, cosine scheduling, warmup 0.03 and non-reentrant gradient checkpointing. Validation loss is measured every 100 optimiser steps; the best saved validation-loss checkpoint is retained. This configuration was transferred from the earlier protocol rather than newly tuned on revised test scores. Three fresh optimisation refits per model precede final evaluation.
+
+New GPU runs use an RTX 5060 Ti 16 GB, driver 595.99.02, Python 3.12.14, PyTorch 2.7.1+cu128 (CUDA 12.8) \cite{paszke2019pytorch}, Transformers 4.57.6 \cite{wolf2020transformers}, PEFT 0.17.1 \cite{mangrulkar2022peft}, TRL 0.23.1, bitsandbytes 0.46.1 and Accelerate 1.10.1. Historical TRUBA/V100 runs have a different environment and are not merged with these results. Each run retains code, versions, manifests and fitted-weight hashes.
+
+\subsection{Validation-tuned supervised baselines}
+\label{sec:baselines}
+TF-IDF plus Logistic Regression has separate 48-candidate validation searches at the 10k and full-data budgets. Like the neural systems, both sparse budgets use the first 500 narrative characters; the full-data condition increases training rows, not visible text per row. The grid crosses unigram/bigram features, maximum features 50,000/200,000, minimum document frequency 2/5, $C=0.25/1/4$, and no/balanced class weights. Vocabulary/IDF fit training text only. Lowercasing, Unicode accent stripping, sublinear TF and L2 normalisation are fixed. The lbfgs solver uses tolerance $10^{-5}$ and a 2,000-iteration cap; convergence warnings fail the run. Both winners use bigrams, minimum document frequency 5, $C=4$ and no class weighting; feature caps are 50,000 and 200,000. Validation macro-F1 is 0.7989 and 0.8363. Three identical seed-labelled refits at each budget are determinism checks, not stochastic optimisation replicates.
+
+BERT-base-uncased, DistilBERT-base-uncased and RoBERTa-base use all 10k/2k selected rows. Each has six validation candidates: learning rate $2/3/5\times10^{-5}$ crossed with two/three epochs, search seed 42. The maximum final-epoch validation macro-F1 wins; ties within $10^{-12}$ use the smallest predefined candidate ID. Winners are BERT $2\times10^{-5}$/three epochs, DistilBERT and RoBERTa $5\times10^{-5}$/three epochs. Each is freshly refit with seeds 42/43/44 and evaluated at its final epoch. Main encoder inputs are 500 characters with a \textbf{512-token cap}, physical batch 4, accumulation 4, evaluation batch 16, AdamW, weight decay 0.01, linear scheduling, warmup 0.06 and FP16 training/inference. Reloaded predictions must exactly match all 2,000 saved validation predictions before test inference.
+
+An additional, separately declared sensitivity uses the encoder token caps and physical batch reported in Tables III--IV of G\"ull\"u et al., with the same selected learning rates and three epochs. Parameter provenance and all six extra refits are in Supplementary Section S7. These conditions do not change the main 512-token baselines. Our data, 500-character text convention, PyTorch implementation and inherited execution defaults differ from that source, so this is not an exact replication. No baseline is replaced on test performance.
+
+\subsection{Metrics, dependence and uncertainty}
+\label{sec:statistics}
+Accuracy, macro-F1 and weighted F1 use the same confusion-count estimator. Off-label outputs contribute errors rather than being dropped. Points are observed-data estimates; an adapted system is the mean of three separately scored refits, not an ensemble or a pooled confusion matrix. Run variation is the sample SD ($\mathrm{ddof}=1$). The main and supplementary analyses report stochastic seed SD separately from conditional sampling intervals.
+
+We use 10,000 paired percentile group-bootstrap draws (RNG seed 20261020), sampling whole groups uniformly with replacement. All 19 main prediction variants share the same group multiplicities. Internal metrics retain row weights. Legacy analysis gives total weight one to each unique (true label, normalised visible narrative) across appearances: 5,909 units in 3,919 conservative full-text/prefix groups. Linked 250/500-character views are sampled together. This differs from averaging twelve overlapping subset scores; subset-level Wilcoxon significance claims are removed. Paired differences are computed within each common resample. Intervals condition on fitted checkpoints and fixed selected configurations; they exclude training/model-selection uncertainty. They are descriptive 95\% intervals without a family-wise multiple-comparison adjustment.
+
+\subsection{Longer inputs and controlled latency}
+\label{sec:length-latency}
+Each base and adapted checkpoint is evaluated on the same internal IDs under 500 characters/512 tokens, 500/2,048 (token-cap control), and 1,500/2,048. No model is retrained on longer text. The full-narrative $>500$ cohort is predefined (5,770 rows, 5,131 groups); cohort contrasts use paired groups. Token/character retention is recorded per input. Actual maxima are 207/403 Qwen and 224/421 Llama tokens for short/long settings, with no token-cap clipping. Deterministic generation responses may be memoised only for identical token IDs/masks with the same checkpoint, generation settings, versions and hardware. Every evaluation row remains in the analysis. Identical control inputs reuse responses; they are not independent generation replications.
+
+Latency bypasses memoisation and measures fresh calls on 100 fixed IDs (20 per class), ten validation warmups and three repetitions per variant/condition. Input order is hash-defined per repetition. CUDA is synchronised around generation; end-to-end time additionally includes tokenisation, transfer, decoding and parsing, excluding loading, warmup and disk I/O. All calls use batch 1 and the same quantised base precision, with unmerged adapters. Concurrent CUDA compute is rejected. Repetitions are averaged within ID before paired group-bootstrap differences. Variant jobs are separate blocks, not a randomised crossover; thermal/background drift can remain. Serial requests/second is not service capacity.
+
+\section{Results}
+\subsection{Corrected-data model comparison}
+\label{sec:main-results}
+Table~\ref{tab:models} combines the new fixed-data LLMs, tuned encoders and sparse baselines. Qwen macro-F1 rises from 0.6295 to 0.8331 and Llama from 0.6247 to 0.8402. Seed SD is 0.0048/0.0020 for the adapted models. Their paired macro-F1 gains are 0.2035 [0.1934, 0.2141] and 0.2155 [0.2054, 0.2257], conditional on these fitted checkpoints.
+\begin{table}[htbp]
+\caption{Corrected-data internal test (15,428 rows). Macro-F1 brackets are 95\% paired-group intervals; SD is across three actual optimisation refits. Base systems have no adaptation rows. TF-IDF SD zero denotes deterministic checks. Full-data TF-IDF has a larger training budget.}
+\label{tab:models}\centering\small\renewcommand{\arraystretch}{1.08}\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrr@{}}\hline
+System & Train rows & Macro-F1 [CI] & Seed SD & Accuracy & Weighted F1\\\hline
+\input{tables/final/internal_models.tex}\hline
+\end{tabular}
+\end{table}
+
+At the matched 10k budget, QLoRA exceeds TF-IDF macro-F1 by 0.0263 and 0.0334, with paired intervals above zero (Table~\ref{tab:contrasts}). Encoder differences from the sparse baseline are smaller, with macro-F1 intervals spanning zero. Full-data TF-IDF reaches 0.8476; Qwen's difference from it is $-0.0145$, whereas Llama's $-0.0074$ interval includes zero (unrounded upper bound $6.8\times10^{-6}$). This unequal-budget comparison rules out a general claim that QLoRA is the best classifier for the taxonomy. The consolidated points and intervals share one estimator; bootstrap means are not substituted for observed points.
+\begin{table}[htbp]
+\caption{Internal macro-F1 paired differences, comparison minus reference. All intervals condition on fitted models. The final two rows are unequal-training-budget context.}
+\label{tab:contrasts}\centering\small\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{llrr}\hline
+Reference & Comparison & Difference & 95\% CI\\\hline
+\input{tables/final/internal_contrasts.tex}\hline
+\end{tabular}
+\end{table}
+
+\subsection{Legacy views, classes and output compliance}
+\label{sec:legacy-errors}
+Unique-input-weighted legacy macro-F1 is 0.6324/0.8210 for base/adapted Qwen and 0.6271/0.8272 for Llama. Paired gains are 0.1886 [0.1723, 0.2051] and 0.2000 [0.1838, 0.2166]. Matched-budget TF-IDF gives 0.7871; full-data TF-IDF gives 0.8347. The overlapping views support a dependence-aware source-related analysis, not twelve independent replications or external generalisation. Supplementary Sections S3--S4 give all metrics, seeds and per-view descriptions.
+
+Figure~\ref{fig:corrected-confusion} and the supplementary class tables describe only the new predictions. Debt-collection recall rises from 0.3262 to 0.7347 for Qwen and from 0.2754 to 0.7540 for Llama. Improvements are not uniform: Qwen credit-card recall changes from 0.7637 to 0.7550 despite its higher class F1. Of 15,428 internal predictions, Qwen base has one off-label output and each adapted refit has zero; Llama base and each refit have one. These are observed compliance counts, not enforced constrained decoding or evidence of prompt robustness. Residual confusions and different class supports remain important.
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.90\linewidth]{figures/corrected_confusion_matrices.pdf}
+\caption{Corrected-data internal confusion fractions, normalised within true class. QLoRA matrices average the three refit count matrices before normalisation; performance metrics are means of separately scored runs. Class order and off-label counts are supplied in Supplementary Section S3.}
+\label{fig:corrected-confusion}
+\end{figure}
+
+\subsection{Same-checkpoint longer-input results}
+\label{sec:long-results}
+The 500/512 and 500/2,048 control predictions are identical. Increasing visible text to 1,500 characters improves adapted Qwen/Llama macro-F1 by 0.0072/0.0055 overall and by 0.0156/0.0117 in the longer-narrative cohort (Table~\ref{tab:long}). Zero-shot Qwen instead declines; the zero-shot Llama interval includes zero. The result supports a conditional benefit of longer input for these adapted checkpoints, not a universal improvement or an evaluation of longer-context training. Supplementary Section S5 also retains descriptive historical length strata and conservative matched 250/500 legacy views, separately from this controlled inference comparison.
+\begin{table}[htbp]
+\caption{Macro-F1 change for 1,500 versus 500 characters, both with a 2,048-token cap. ``All'' includes 15,428 rows; $>500$ is the predefined 5,770-row cohort. QLoRA is the three-seed mean.}
+\label{tab:long}\centering\small\renewcommand{\arraystretch}{1.08}\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lllrrrr}\hline
+Model & Variant & Cohort & 500 & 1,500 & Difference & 95\% CI\\\hline
+\input{tables/final/long_macro.tex}\hline
+\end{tabular}
+\end{table}
+
+\subsection{Controlled inference cost and supplementary sensitivity}
+\label{sec:cost-results}
+For 500/512, mean end-to-end seconds are 0.2896/0.4120 for base/adapted Qwen and 0.2831/0.3633 for Llama (Table~\ref{tab:latency}). The additional mean times are 0.1224 [0.1166, 0.1284] and 0.0802 [0.0758, 0.0847]. These differences include actual generated lengths and adapter execution, not an isolated adapter-overhead experiment. The balanced 100-record cohort and serial batch-one calls are not an operational workload benchmark. Full per-seed median/p95, token counts and all conditions are in Supplementary Section S6.
+\begin{table}[htbp]
+\caption{Fresh-call end-to-end latency (seconds), 500 characters/512 tokens, RTX 5060 Ti. QLoRA mean averages the three variant means; paired intervals use within-ID repetition means.}
+\label{tab:latency}\centering\small
+\begin{tabular}{lrrrr}\hline
+Model & Base mean & QLoRA mean & Added time & 95\% CI\\\hline
+\input{tables/final/latency_main.tex}\hline
+\end{tabular}
+\end{table}
+
+The separately declared Ref [14] conditions give internal macro-F1 0.8102 for BERT and 0.8095 for RoBERTa versus main values 0.8119/0.8105. Paired difference intervals span zero. The main RoBERTa remains 512 tokens. All source-specific parameter differences and three refits are reported in Supplementary Section S7 without selecting a replacement on test performance.
+
+\section{Discussion}
+\label{sec:discussion}
+Under a fixed 10k adaptation budget, the two LLM families show substantial within-model gains and smaller positive margins over the matched sparse classifier. Full-data TF-IDF remains at least competitive in observed macro-F1, with substantially more labelled training data. The practical question is therefore conditional on labelled-data availability, the value of retaining a generative model, and measured inference cost. These experiments do not test cross-task reuse or a changed taxonomy, so such potential workflow benefits are motivations rather than findings.
+
+The original full-text grouping was insufficient for truncated inputs. We preserve that audit and the historical limitations, execute corrected-allocation models from scratch, and report dependence-aware estimates. Differences between old and new runs cannot be attributed causally to leakage removal alone: membership, explicit serialization, pinned-artifact evidence and hardware also differ. The new comparisons address the revised protocol itself.
+
+Related work already establishes complaint LLM fine-tuning. Our distinction from G\"ull\"u et al. is the explicit NF4/LoRA and completion-only protocol, paired same-model baseline, fixed adaptation membership and separated uncertainty; from Roumeliotis et al., it is the adaptation comparison beyond zero-shot evaluation. Different splits, metrics and budgets preclude cross-paper performance ranking. Longer input helps the adapted checkpoints here, while zero-shot results show that more text alone is not a general solution. Latency intervals quantify conditional measured costs; their operational acceptability requires workload-specific evidence.
+
+\section{Limitations}
+\label{sec:limitations}
+Evaluation is retrospective on previously inspected CFPB-related records; there is no independent-source, temporal or prospective generalisation test. Exact-input audits and conservative groups do not eliminate semantic duplication. Bootstrap intervals condition on fixed refits and the chosen protocol, excluding training/model-selection uncertainty. Three seeds give limited evidence about training variation, and multiple intervals are not family-wise adjusted. The 10k budget, fixed prompt and two 8B model families do not establish an optimal sample size, prompt robustness or universal classifier ranking.
+
+The longer-input comparison changes inference text only; the models were trained with at most 500 characters. Latency uses serial unmerged-adapter jobs, a balanced 100-record sample and separate variant blocks, leaving thermal/background drift and output-length effects. Encoder/TF-IDF service latency and energy or total training cost were not benchmarked here. Historical missing upstream commits/final Qwen artifacts and upstream CFPB-to-Kaggle preprocessing remain unavailable; new immutable pins cannot reconstruct them. Local reproducibility artifacts and readable supplements are prepared, but external reviewer/public access and final author approval remain to be arranged.
+
+\section{Conclusion}
+\label{sec:conclusion}
+The completed corrected-data study quantifies a reproducible same-model transition from zero-shot prompting to QLoRA under a fixed 10k training budget. Internal macro-F1 gains of 0.2035/0.2155 coexist with competitive sparse baselines, dependence among source-related legacy views and measurable inference costs. The matched-data comparisons, full-data context, seed variation and longer-input results support a conditional adaptation trade-off. They do not establish first use of fine-tuned LLMs for financial complaints, general classification superiority or deployment/regulatory readiness.
+
+\section*{Acknowledgment and/or disclaimers, if any}
+Historical archived experiments used the TRUBA ARF infrastructure operated by T\"UB\.{I}TAK ULAKB\.{I}M. The corrected-data experiments reported in the main tables were run locally on an RTX 5060 Ti 16 GB. The authors acknowledge TRUBA's support for the earlier work.
+
+\section*{Declaration of Generative AI and AI-assisted technologies, if any}
+AI-assisted tools supported revision planning, analysis-code preparation, literature comparison, wording and LaTeX formatting. Numerical results come from recorded computations and independently checked prediction files. The authors retain responsibility for source verification, interpretation, final review and the submitted manuscript.
+
+\section*{Data availability statement}
+Readable supplementary material accompanies this revision. A local reviewer archive assembles source/derived data, fixed selections, code, configurations, immutable new model identities, validation and final predictions, and statistical evidence. The archive has not been uploaded or provided through an external reviewer/public access mechanism; arranging that access is an explicit remaining submission task. Third-party literature and base/fitted neural-model weights are omitted. Upstream-preprocessing and historical-identity gaps are disclosed in Supplementary Section S8.
+
+\section*{Funding, if any}
+The authors received no specific funding for this study.
+\section*{Conflict of interest, if any}
+The authors declare no conflict of interest.
+
+@@BIBLIOGRAPHY@@
+\end{document}
+'''
+
+
+def main():
+    p=argparse.ArgumentParser();p.add_argument('phase',choices=['facts','manuscript']);a=p.parse_args()
+    {'facts':facts,'manuscript':manuscript}[a.phase]()
+
+
+if __name__=='__main__':main()

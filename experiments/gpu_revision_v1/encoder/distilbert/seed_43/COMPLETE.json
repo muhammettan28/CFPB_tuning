@@ -1,0 +1,20 @@
+{
+  "action": "encoder-refit",
+  "completed": true,
+  "result": {
+    "accuracy": 0.8315,
+    "macro_f1": 0.7809936369368973,
+    "n": 2000,
+    "off_label_count": 0,
+    "weighted_f1": 0.8286141965684415
+  },
+  "saved_model_files_sha256": {
+    "config.json": "0a6a8385c7ac3ca6afed026ee8a349afedc03c20976971b206591926be967fa1",
+    "model.safetensors": "8504de4cac650349147c72959c52e793a19d1046e4ff0b0c8519e601a0f090b7",
+    "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+    "tokenizer.json": "435667fab0c06c165b1283ecb422497c37124f2d6a35b2ac73dc876332fc9518",
+    "tokenizer_config.json": "a3c9410f27554c6e26af779fd147e536c6c5f9e5cb0e6b8f38ddaa25e1b0f6af",
+    "training_args.bin": "e8fb092fda8f58e2d229fa00365944885aac4681c8ce4a86d6c306c85bfd8ce5",
+    "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+  }
+}

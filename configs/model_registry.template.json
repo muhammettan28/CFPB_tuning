@@ -1,0 +1,27 @@
+{
+  "bert": {
+    "commit": null,
+    "repo_id": "google-bert/bert-base-uncased",
+    "snapshot": null
+  },
+  "distilbert": {
+    "commit": null,
+    "repo_id": "distilbert/distilbert-base-uncased",
+    "snapshot": null
+  },
+  "llama": {
+    "commit": null,
+    "repo_id": "meta-llama/Llama-3.1-8B-Instruct",
+    "snapshot": null
+  },
+  "qwen": {
+    "commit": null,
+    "repo_id": "Qwen/Qwen3-8B",
+    "snapshot": null
+  },
+  "roberta": {
+    "commit": null,
+    "repo_id": "FacebookAI/roberta-base",
+    "snapshot": null
+  }
+}

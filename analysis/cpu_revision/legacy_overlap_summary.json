@@ -1,0 +1,7 @@
+{
+  "rows": 12000,
+  "unique_normalized_narratives": 5909,
+  "unique_label_narrative_pairs": 5909,
+  "conservative_prefix250_groups": 3919,
+  "group_definition": "Connected components sharing full normalized text OR normalized first 250 raw characters; NFKC/lowercase/whitespace normalization, label excluded. Conservative dependency grouping, not verified complaint identity."
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "path": "REVISION_PAPER/analysis/gpu_execution/controlled_latency_paired.csv",
+    "sha256": "4a4c1fe7dc468a5adef9e8e8d6193ac3f154f4e73b8b0839be254ebcf18df823"
+  },
+  {
+    "path": "REVISION_PAPER/analysis/gpu_execution/controlled_latency_summary.csv",
+    "sha256": "cdbe29d026f223090e848095ce9e4b34c3ddac6767e4827004273a97f1126b97"
+  },
+  {
+    "path": "REVISION_PAPER/analysis/gpu_execution/corrected_long_input.csv",
+    "sha256": "da7fea3fa5d1adfecf5a9763147f818c83fd65c294b9d083eb4f540520d9f65f"
+  },
+  {
+    "path": "REVISION_PAPER/analysis/gpu_execution/corrected_model_metrics.csv",
+    "sha256": "3cdb9ba33a3c92bb2b44a8487df144d40d85b3a11b15b5ad7a199e3a62707b71"
+  },
+  {
+    "path": "REVISION_PAPER/analysis/gpu_execution/corrected_paired_contrasts.csv",
+    "sha256": "9fcd56871c3be365456190b5a495a0c3c9f452e9c795eb718f4516f2af8dfce0"
+  },
+  {
+    "path": "REVISION_PAPER/analysis/gpu_execution/corrected_per_seed_metrics.csv",
+    "sha256": "29b32d2cb8a444001b4035df5c97f21d8dde883a0e89529dd1ff0e47acececcc"
+  },
+  {
+    "path": "REVISION_PAPER/analysis/ref14_encoder/model_metrics.csv",
+    "sha256": "4f11c7b2457a169e9ef418315240beb56e684d894acc1104e2ce8229bf8c43b4"
+  },
+  {
+    "path": "REVISION_PAPER/analysis/ref14_encoder/paired_contrasts.csv",
+    "sha256": "894a06b2d28d443910431885d3c12544af30229635dcab7387bd2e575535dfcd"
+  },
+  {
+    "path": "REVISION_PAPER/analysis/ref14_encoder/validation_metrics.csv",
+    "sha256": "52e8b144d642e2edc042a6edc4e66267dc6b54f740a355b72f5ae321e03cf9ec"
+  }
+]

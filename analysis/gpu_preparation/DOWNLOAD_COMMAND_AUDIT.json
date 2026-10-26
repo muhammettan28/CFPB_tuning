@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-20",
+  "hub_version": "2.2.0",
+  "method": "Click CliRunner with snapshot_download mocked: no network/downloads/GPU",
+  "results": {
+    "previous": {
+      "repo_id": "Qwen/Qwen3-8B",
+      "allow_patterns": [
+        "*.json",
+        "*.txt",
+        "*.model",
+        "*.jinja"
+      ],
+      "ignore_patterns": null
+    },
+    "corrected": {
+      "repo_id": "Qwen/Qwen3-8B",
+      "allow_patterns": [
+        "*.safetensors",
+        "*.json",
+        "*.txt",
+        "*.model",
+        "*.jinja"
+      ],
+      "ignore_patterns": null
+    }
+  },
+  "cause": "Each --include flag accepts one pattern; trailing values became positional filenames, which override include patterns.",
+  "actual_download_performed": false,
+  "gpu_started": false
+}

@@ -1,0 +1,13 @@
+,1_subset_balanced_250.csv,1_subset_balanced_500.csv,1_subset_imbalanced_250.csv,1_subset_imbalanced_500.csv,2_subset_balanced_250.csv,2_subset_balanced_500.csv,2_subset_imbalanced_250.csv,2_subset_imbalanced_500.csv,3_subset_balanced_250.csv,3_subset_balanced_500.csv,3_subset_imbalanced_250.csv,3_subset_imbalanced_500.csv
+1_subset_balanced_250.csv,999,490,688,348,1,0,315,142,1,0,3,0
+1_subset_balanced_500.csv,490,1000,348,689,0,0,142,311,0,0,0,0
+1_subset_imbalanced_250.csv,688,348,997,521,200,113,5,0,111,60,3,0
+1_subset_imbalanced_500.csv,348,689,521,1000,113,200,0,0,60,111,0,0
+2_subset_balanced_250.csv,1,0,200,113,1000,465,180,87,0,0,344,143
+2_subset_balanced_500.csv,0,0,113,200,465,1000,87,178,0,0,143,343
+2_subset_imbalanced_250.csv,315,142,5,0,180,87,999,502,90,48,2,0
+2_subset_imbalanced_500.csv,142,311,0,0,87,178,502,1000,48,89,0,0
+3_subset_balanced_250.csv,1,0,111,60,0,0,90,48,1000,478,146,79
+3_subset_balanced_500.csv,0,0,60,111,0,0,48,89,478,1000,79,146
+3_subset_imbalanced_250.csv,3,0,3,0,344,143,2,0,146,79,998,507
+3_subset_imbalanced_500.csv,0,0,0,0,143,343,0,0,79,146,507,1000

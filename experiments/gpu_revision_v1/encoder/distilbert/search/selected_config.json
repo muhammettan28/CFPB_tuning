@@ -1,0 +1,17 @@
+{
+  "artifact": {
+    "commit": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+    "repo_id": "distilbert/distilbert-base-uncased",
+    "snapshot": "/home/tan/.cache/huggingface/hub/models--distilbert--distilbert-base-uncased/snapshots/12040accade4e8a0f71eabdb258fecc2e7e948be"
+  },
+  "candidate": {
+    "candidate_id": 6,
+    "epochs": 3,
+    "learning_rate": 5e-05
+  },
+  "plan_sha256": "1fe25cdd571eee549060a362980a232fa56978021dc015d25823695086d1d0e2",
+  "selection_seed": 42,
+  "test_read_during_selection": false,
+  "validation_macro_f1": 0.8108210507099795,
+  "validation_search_sha256": "9913d48973cad59aa2a74b815ca0646552f6c9d942b6f8a1b5f91bec220cdc02"
+}

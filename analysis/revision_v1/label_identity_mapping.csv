@@ -1,0 +1,6 @@
+archive_product,analysis_product,meaning,transformation
+retail_banking,retail_banking,Retail banking,identity; already assigned in archived processed source
+credit_reporting,credit_reporting,Credit reporting,identity; already assigned in archived processed source
+credit_card,credit_card,Credit cards,identity; already assigned in archived processed source
+mortgages_and_loans,mortgages_and_loans,Mortgages and loans,identity; already assigned in archived processed source
+debt_collection,debt_collection,Debt collection,identity; already assigned in archived processed source

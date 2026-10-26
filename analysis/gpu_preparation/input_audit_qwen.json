@@ -1,0 +1,47 @@
+{
+  "artifact": {
+    "commit": "b968826d9c46dd6066d109eabc6255188de91218",
+    "repo_id": "Qwen/Qwen3-8B",
+    "snapshot": "/home/tan/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218"
+  },
+  "audit_code_sha256": "86a5b1221c290de411779781912ed49c0456cda97e020963f21f706d55b786c8",
+  "common_code_sha256": "3014dd487e45c5935d8d5c136548f6a06400e1e1a7fd05a2f9b57dee07423229",
+  "failures": [],
+  "keys_sha256": "9ccfab8f761cfe3827c95445da8927f3943f70da7e3944eb1fb96671fa731522",
+  "long_conditions": [
+    {
+      "clipped_rows": 0,
+      "condition": "chars500_tokens512",
+      "max_tokens_before_cap": 207,
+      "rows": 15428
+    },
+    {
+      "clipped_rows": 0,
+      "condition": "chars500_tokens2048",
+      "max_tokens_before_cap": 207,
+      "rows": 15428
+    },
+    {
+      "clipped_rows": 0,
+      "condition": "chars1500_tokens2048",
+      "max_tokens_before_cap": 403,
+      "rows": 15428
+    }
+  ],
+  "model": "qwen",
+  "passed": true,
+  "plan_sha256": "1fe25cdd571eee549060a362980a232fa56978021dc015d25823695086d1d0e2",
+  "protocol_sha256": "89fd382208515e946ab2a941d07809cec8b9fc659d554048f008cf2dea225d0f",
+  "rows": 39428,
+  "rows_over_512": 0,
+  "scope": "Actual fixed selections and preserved evaluation views. Token identities are label-blind. No semantic-duplication guarantee; long cap retention reported explicitly. SFT completion-mask/target length checked.",
+  "tokenizer_files_sha256": {
+    "config.json": "f7c4eadfbbf522470667b797a3c89be2524832d2d599797248dc304fff447c30",
+    "generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+    "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+    "model.safetensors.index.json": "f9fdbcb91c23971c13ec5d5f2573d2349e8f61f2f049371ec699281748fdb1bc",
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  }
+}

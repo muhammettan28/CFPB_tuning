@@ -1,0 +1,6 @@
+true_label,train,validation,internal_test
+credit_reporting,68400,8566,8571
+debt_collection,18053,2206,2244
+mortgages_and_loans,14703,1838,1826
+credit_card,11925,1524,1494
+retail_banking,10346,1293,1293

@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-21",
+  "python": "3.12.14",
+  "executable": "/home/tan/.venvs/cfpb-gpu-revision/bin/python",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "capability": [
+    12,
+    0
+  ],
+  "cuda_runtime": "12.8",
+  "torch": "2.7.1+cu128",
+  "compiled_arches": [
+    "sm_75",
+    "sm_80",
+    "sm_86",
+    "sm_90",
+    "sm_100",
+    "sm_120",
+    "compute_120"
+  ],
+  "versions": {
+    "transformers": "4.57.6",
+    "trl": "0.23.1",
+    "peft": "0.17.1",
+    "bitsandbytes": "0.46.1",
+    "datasets": "4.0.0",
+    "accelerate": "1.10.1",
+    "safetensors": "0.5.3",
+    "tokenizers": "0.22.2",
+    "huggingface_hub": "0.36.2",
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1"
+  },
+  "fp16_matmul_passed": true,
+  "historical_environment_difference": "New GPU architecture and CUDA 12.8 rather than historical V100/CUDA 11.8. Training/evaluation configuration held fixed."
+}

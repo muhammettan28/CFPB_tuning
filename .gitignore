@@ -1,3 +1,4 @@
+# Local environments, source backups and downloaded models.
 __pycache__/
 *.py[cod]
 .venv/
@@ -6,19 +7,36 @@ miniforge3/
 Miniforge3-*.sh
 hf_cache/
 hf_models/
-logs/
-outputs/
-/experiment_archive
-/PAPER/manuscript-template
-/PAPER/literature
-/ref_paper
 /X/
-ARSIV
-ORJ_PAPER
-REVISION_PAPER
-Revision.odt
+/ARSIV/
+/ORJ_PAPER/
+/Revision.odt
+/literature/
+/ref_paper/
+/PAPER/
+/docs/revision_history/
+/reviewer_package/
+/.build/
 
-# Generated build, log and temporary files are not research sources.
+# Keep predictions, metrics, configurations and trainer histories in Git.
+# Neural weights, optimizer/RNG states and caches remain available locally.
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+*.db
+/prediction_cache/
+**/prediction_cache/
+logs/
+/outputs/
+/CLASSIC_TEST/outputs/
+
+# LaTeX auxiliaries and runtime scratch files.
 *.aux
 *.log
 *.out
@@ -29,14 +47,14 @@ Revision.odt
 *.toc
 *.synctex.gz
 *.tmp
-/REVISION_PAPER/build/
+*.lock
 
-# Retired planning/status documents must not return to version control.
+# Retired author-only planning documents.
 /METHODOLOGY_AND_ROADMAP.md
-/REVISION_PAPER/GPU_RUN_STATUS.md
-/REVISION_PAPER/REF14_BASELINE_STATUS.md
-/REVISION_PAPER/AUTO_POSTPROCESS_STATUS.md
-/REVISION_PAPER/AUTO_POSTPROCESS_TASK.md
-/REVISION_PAPER/GPU_NEXT_STEPS.md
-/REVISION_PAPER/SUPPLEMENTARY_PLAN.md
-/REVISION_PAPER/REVISION_PROGRESS.md
+**/GPU_RUN_STATUS.md
+**/REF14_BASELINE_STATUS.md
+**/AUTO_POSTPROCESS_STATUS.md
+**/AUTO_POSTPROCESS_TASK.md
+**/GPU_NEXT_STEPS.md
+**/SUPPLEMENTARY_PLAN.md
+**/REVISION_PROGRESS.md

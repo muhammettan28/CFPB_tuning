@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "date": "2026-10-25",
+  "pages": 12,
+  "all_pages_rendered": true,
+  "all_page_contact_sheets_visually_inspected": true,
+  "detailed_pages_inspected": [
+    7
+  ],
+  "no_overfull_boxes": true,
+  "no_undefined_citations_or_references": true,
+  "page_bounds_checked": true,
+  "rendered_evidence_directory": "analysis/two_pass_review/qa_final/manuscript",
+  "manuscript_tex_sha256": "882b02d403ab583e9bd77745ba7a9d07bc47cd4278f5f39245526250a99b714e",
+  "manuscript_pdf_sha256": "d8915a04233384cf13e247e609959e43b215fb8d3504d62486ca8aca43d2f1ff"
+}

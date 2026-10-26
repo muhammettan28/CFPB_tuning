@@ -1,0 +1,24 @@
+{
+  "actual_six_refits": true,
+  "all_12_gpu_jobs_complete": true,
+  "all_frozen_memberships_verified": true,
+  "analysis_code_sha256": "c252ba6f5bd46c997320df22166073d8a8e6157dd5c72ae8b832d876e1efcc46",
+  "analysis_library_versions": {
+    "accelerate": null,
+    "bitsandbytes": null,
+    "datasets": null,
+    "pandas": "3.0.3",
+    "peft": null,
+    "scikit-learn": "1.9.0",
+    "torch": null,
+    "transformers": "4.57.6",
+    "trl": null
+  },
+  "completed": true,
+  "configuration_sha256": "2def9919ab37abd189f9035304c967cf8ede8d80338bf7cf3435afbfd256da6d",
+  "date": "2026-10-24",
+  "point_metrics_independently_verified": true,
+  "protected_original_files_unchanged": 107,
+  "reload_parity_verified": 6,
+  "uploaded": false
+}

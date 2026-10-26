@@ -1,0 +1,563 @@
+{
+  "references": [
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:statistics",
+      "number": "3.5",
+      "page": 5
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:legacy-errors",
+      "number": "4.2",
+      "page": 7
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:legacy",
+      "number": "S4",
+      "page": 10
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:legacy_overlap_narrative_counts",
+      "number": "S17",
+      "page": 11
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:legacy_overlap_label_narrative_counts",
+      "number": "S18",
+      "page": 11
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:contrasts",
+      "number": "S13",
+      "page": 9
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:revised-data",
+      "number": "3.2",
+      "page": 3
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:data-flow",
+      "number": "2",
+      "page": 4
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:data",
+      "number": "S1",
+      "page": 2
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:audits",
+      "number": "S3",
+      "page": 2
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:ref14",
+      "number": "S7",
+      "page": 16
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:source",
+      "number": "3.1",
+      "page": 3
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:revised-data",
+      "number": "3.2",
+      "page": 3
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:limitations",
+      "number": "6",
+      "page": 10
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:data",
+      "number": "S1",
+      "page": 2
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:legacy-key",
+      "number": "S16",
+      "page": 11
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:reproducibility",
+      "number": "S8",
+      "page": 17
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:llm",
+      "number": "3.3",
+      "page": 4
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:pins",
+      "number": "S4",
+      "page": 3
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:environment",
+      "number": "S5",
+      "page": 3
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:qlora",
+      "number": "S6",
+      "page": 4
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:reproducibility",
+      "number": "S8",
+      "page": 17
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:baselines",
+      "number": "3.4",
+      "page": 5
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:models",
+      "number": "3",
+      "page": 7
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:contrasts",
+      "number": "4",
+      "page": 7
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:encoder-search",
+      "number": "S7",
+      "page": 4
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:tfidf-search",
+      "number": "S8",
+      "page": 5
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:ref14",
+      "number": "S7",
+      "page": 16
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:ref14-deltas",
+      "number": "S28",
+      "page": 16
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:statistics",
+      "number": "3.5",
+      "page": 5
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:models",
+      "number": "3",
+      "page": 7
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:contrasts",
+      "number": "4",
+      "page": 7
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:performance",
+      "number": "S3",
+      "page": 6
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:seeds-internal",
+      "number": "S11",
+      "page": 8
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:historical-internal",
+      "number": "S32",
+      "page": 18
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:historical-ci",
+      "number": "S33",
+      "page": 18
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:gullu-positioning",
+      "number": "1",
+      "page": 3
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:source",
+      "number": "3.1",
+      "page": 3
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:discussion",
+      "number": "5",
+      "page": 9
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:limitations",
+      "number": "6",
+      "page": 10
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:ref14",
+      "number": "S7",
+      "page": 16
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:length-latency",
+      "number": "3.6",
+      "page": 6
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:long",
+      "number": "5",
+      "page": 9
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:latency",
+      "number": "6",
+      "page": 9
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:limitations",
+      "number": "6",
+      "page": 10
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:length",
+      "number": "S5",
+      "page": 12
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:historical-strata",
+      "number": "S23",
+      "page": 13
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:historical-pairs",
+      "number": "S24",
+      "page": 13
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:latency",
+      "number": "S6",
+      "page": 14
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:latency-all",
+      "number": "S26",
+      "page": 15
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:gullu-positioning",
+      "number": "1",
+      "page": 3
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:discussion",
+      "number": "5",
+      "page": 9
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:ref14",
+      "number": "S7",
+      "page": 16
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:source",
+      "number": "3.1",
+      "page": 3
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:statistics",
+      "number": "3.5",
+      "page": 5
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:legacy",
+      "number": "S4",
+      "page": 10
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:llm",
+      "number": "3.3",
+      "page": 4
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:baselines",
+      "number": "3.4",
+      "page": 5
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:long",
+      "number": "5",
+      "page": 9
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:implementation",
+      "number": "S2",
+      "page": 3
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:ref14",
+      "number": "S7",
+      "page": 16
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:statistics",
+      "number": "3.5",
+      "page": 5
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:performance",
+      "number": "S3",
+      "page": 6
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:seeds-internal",
+      "number": "S11",
+      "page": 8
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:historical-ci",
+      "number": "S33",
+      "page": 18
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:llm",
+      "number": "3.3",
+      "page": 4
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:long-results",
+      "number": "4.3",
+      "page": 9
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:cost-results",
+      "number": "4.4",
+      "page": 9
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:limitations",
+      "number": "6",
+      "page": 10
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:off-label",
+      "number": "S15",
+      "page": 10
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:latency",
+      "number": "S6",
+      "page": 14
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:models",
+      "number": "3",
+      "page": 7
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:contrasts",
+      "number": "4",
+      "page": 7
+    },
+    {
+      "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:latency",
+      "number": "6",
+      "page": 9
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:discussion",
+      "number": "5",
+      "page": 9
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:conclusion",
+      "number": "7",
+      "page": 10
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:reproducibility",
+      "number": "S8",
+      "page": 17
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:artifact-map",
+      "number": "S30",
+      "page": 18
+    },
+    {
+      "document": "manuscript",
+      "kind": "Section",
+      "label": "sec:limitations",
+      "number": "6",
+      "page": 10
+    }
+  ],
+  "source_sha256": {
+    "manuscript": "4e17aa4f31dbe423028913a21539cf5f1450956ee276dd110db291b8e8d8e82d",
+    "supplementary_material": "9a7f9d2a4e817d1a4fdf6d6c630e27f7b68c710dfbf6a630529968e264bc7da8"
+  },
+  "units": 15,
+  "original_requests_quoted": true
+}

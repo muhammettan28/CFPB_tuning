@@ -1,0 +1,12 @@
+{
+  "eval_batch_size": 16,
+  "final_test_read_before_check": false,
+  "max_length": 512,
+  "pad_to_multiple_of": 8,
+  "passed": true,
+  "precision": "FP32 saved parameters with CUDA FP16 autocast, as in Trainer validation",
+  "prediction_differences": 0,
+  "reference_path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/bert/seed_43/validation_predictions.csv",
+  "reference_sha256": "4db61cb741bea41527c388bff1f8807785fd15447aba22aa51d1e82d350dc8de",
+  "validation_rows": 2000
+}

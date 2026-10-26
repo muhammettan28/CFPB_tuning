@@ -1,0 +1,13 @@
+{
+  "action": "long-input",
+  "completed": true,
+  "result": {
+    "internal_test": {
+      "accuracy": 0.8782732693803474,
+      "macro_f1": 0.8464109252844926,
+      "n": 15428,
+      "off_label_count": 1,
+      "weighted_f1": 0.8773200634330408
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "fingerprint": "5e367ccf79af7b5101619c6b01e476f4c64535f021ad9154bc3197f1767db974",
+  "fresh_generations": 5179,
+  "hits": 10249,
+  "policy": "Exact token IDs/masks with fixed checkpoint/settings only. Every evaluation row retained. Latency bypasses cache."
+}

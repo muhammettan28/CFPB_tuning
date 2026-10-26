@@ -1,0 +1,104 @@
+{
+  "n": 15428,
+  "accuracy": 0.8709489240342235,
+  "macro_f1": 0.8350872989850616,
+  "weighted_f1": 0.8695100422397887,
+  "weighted_precision": 0.8693596029012256,
+  "weighted_recall": 0.8709489240342235,
+  "off_label_count": 1,
+  "mean_latency_seconds": 0.800327550914184,
+  "classification_report": {
+    "retail_banking": {
+      "precision": 0.8435032304379038,
+      "recall": 0.908739365815932,
+      "f1-score": 0.8749069247952346,
+      "support": 1293.0
+    },
+    "credit_reporting": {
+      "precision": 0.9044175799344707,
+      "recall": 0.9339633648349084,
+      "f1-score": 0.9189530478705086,
+      "support": 8571.0
+    },
+    "credit_card": {
+      "precision": 0.7906012439530062,
+      "recall": 0.7657295850066934,
+      "f1-score": 0.7779666780006801,
+      "support": 1494.0
+    },
+    "mortgages_and_loans": {
+      "precision": 0.8761737089201878,
+      "recall": 0.8176341730558598,
+      "f1-score": 0.8458923512747876,
+      "support": 1826.0
+    },
+    "debt_collection": {
+      "precision": 0.797244094488189,
+      "recall": 0.7219251336898396,
+      "f1-score": 0.7577174929840973,
+      "support": 2244.0
+    },
+    "micro avg": {
+      "precision": 0.8710053801776106,
+      "recall": 0.8709489240342235,
+      "f1-score": 0.8709771511910549,
+      "support": 15428.0
+    },
+    "macro avg": {
+      "precision": 0.8423879715467514,
+      "recall": 0.8295983244806466,
+      "f1-score": 0.8350872989850616,
+      "support": 15428.0
+    },
+    "weighted avg": {
+      "precision": 0.8693596029012256,
+      "recall": 0.8709489240342235,
+      "f1-score": 0.8695100422397887,
+      "support": 15428.0
+    }
+  },
+  "confusion_matrix_labels": [
+    "retail_banking",
+    "credit_reporting",
+    "credit_card",
+    "mortgages_and_loans",
+    "debt_collection"
+  ],
+  "confusion_matrix": [
+    [
+      1175,
+      20,
+      71,
+      21,
+      6
+    ],
+    [
+      36,
+      8005,
+      129,
+      90,
+      310
+    ],
+    [
+      135,
+      155,
+      1144,
+      16,
+      44
+    ],
+    [
+      25,
+      226,
+      30,
+      1493,
+      52
+    ],
+    [
+      22,
+      445,
+      73,
+      84,
+      1620
+    ]
+  ]
+}

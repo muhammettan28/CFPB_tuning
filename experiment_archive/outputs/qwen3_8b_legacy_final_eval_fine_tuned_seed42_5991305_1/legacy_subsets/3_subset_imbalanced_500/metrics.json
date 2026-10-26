@@ -1,0 +1,99 @@
+{
+  "n": 1000,
+  "accuracy": 0.848,
+  "macro_f1": 0.8201721363494443,
+  "weighted_f1": 0.8458460564871451,
+  "weighted_precision": 0.8478459956804398,
+  "weighted_recall": 0.848,
+  "off_label_count": 0,
+  "mean_latency_seconds": 0.9439891883060336,
+  "classification_report": {
+    "retail_banking": {
+      "precision": 0.8333333333333334,
+      "recall": 0.9,
+      "f1-score": 0.8653846153846154,
+      "support": 100.0
+    },
+    "credit_reporting": {
+      "precision": 0.8644688644688645,
+      "recall": 0.923679060665362,
+      "f1-score": 0.8930936613055819,
+      "support": 511.0
+    },
+    "credit_card": {
+      "precision": 0.78125,
+      "recall": 0.75,
+      "f1-score": 0.7653061224489796,
+      "support": 100.0
+    },
+    "mortgages_and_loans": {
+      "precision": 0.9069767441860465,
+      "recall": 0.7289719626168224,
+      "f1-score": 0.8082901554404145,
+      "support": 107.0
+    },
+    "debt_collection": {
+      "precision": 0.8109756097560976,
+      "recall": 0.7307692307692307,
+      "f1-score": 0.7687861271676301,
+      "support": 182.0
+    },
+    "accuracy": 0.848,
+    "macro avg": {
+      "precision": 0.8394009103488684,
+      "recall": 0.806684050810283,
+      "f1-score": 0.8201721363494443,
+      "support": 1000.0
+    },
+    "weighted avg": {
+      "precision": 0.8478459956804398,
+      "recall": 0.848,
+      "f1-score": 0.8458460564871451,
+      "support": 1000.0
+    }
+  },
+  "confusion_matrix_labels": [
+    "retail_banking",
+    "credit_reporting",
+    "credit_card",
+    "mortgages_and_loans",
+    "debt_collection"
+  ],
+  "confusion_matrix": [
+    [
+      90,
+      3,
+      5,
+      0,
+      2
+    ],
+    [
+      5,
+      472,
+      9,
+      2,
+      23
+    ],
+    [
+      9,
+      15,
+      75,
+      0,
+      1
+    ],
+    [
+      4,
+      18,
+      2,
+      78,
+      5
+    ],
+    [
+      0,
+      38,
+      5,
+      6,
+      133
+    ]
+  ]
+}

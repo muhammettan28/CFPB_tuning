@@ -1,0 +1,23 @@
+{
+  "replicates": 10000,
+  "rng_seed": 20261020,
+  "interval": "95% paired cluster percentile bootstrap",
+  "internal_groups": "Connected components sharing full normalized narrative OR normalized raw500 text OR either model's reconstructed 512-token input; labels never used to split groups.",
+  "legacy_groups": "Conservative components sharing normalized first 250 raw characters or full normalized narrative; not verified complaint identity.",
+  "legacy_estimand": "Equal weight per unique (true label, full normalized visible narrative) unit. Repeated appearances have inverse-frequency weights; different 250/500 visible texts are separate units clustered together. Different predictions for repeated normalized inputs, if any, are averaged at the confusion-count level, not silently discarded.",
+  "internal_estimand": "Original row-weighted metrics; all rows of a resampled dependency group retained.",
+  "ft_estimator": "Arithmetic mean of the three independently scored fixed training seeds, not ensemble voting and not pooled confusion counts.",
+  "seed_variation": "Sample SD across three fixed seed scores (ddof=1), reported separately. Bootstrap conditions on these trained models; it does not estimate training-seed uncertainty.",
+  "point_estimates": "Computed on observed data using the same function as bootstrap replicates, never the bootstrap sample mean.",
+  "sensitivity": {
+    "internal_original_rows": 15428,
+    "internal_clean_rows": 14826,
+    "removed_rows": 602,
+    "legacy_original_rows": 12000,
+    "legacy_prefix_clean_rows": 11986,
+    "legacy_removed_rows": 14,
+    "limit": "Conservative removal using full train/validation pools and reconstructed model inputs. This does not repair training, selection contamination, certify all possible semantic leakage, or substitute for newly trained leakage-controlled experiments."
+  },
+  "alignment_limit": "Legacy CSV predictions contain no IDs or text; matching verified using source row order, all labels, row counts and archived metrics, not full independent record identity.",
+  "method_reference": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html"
+}

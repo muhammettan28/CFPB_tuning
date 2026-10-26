@@ -1,0 +1,9 @@
+model,variant,normalized_units_with_different_predictions_across_appearances
+Qwen3-8B,base_zero_shot,0
+Qwen3-8B,fine_tuned_seed42,0
+Qwen3-8B,fine_tuned_seed43,0
+Qwen3-8B,fine_tuned_seed44,0
+Llama-3.1-8B,base_zero_shot,0
+Llama-3.1-8B,fine_tuned_seed42,0
+Llama-3.1-8B,fine_tuned_seed43,0
+Llama-3.1-8B,fine_tuned_seed44,0

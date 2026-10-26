@@ -1,0 +1,9 @@
+{
+  "python": "3.14.6",
+  "numpy": "2.4.6",
+  "pandas": "3.0.3",
+  "scikit_learn": "1.9.0",
+  "cpu_threads_limit": 4,
+  "gpu_used": false,
+  "script_sha256": "0b8109922d75c1dabe3c73c2546c8596ac1c942f0151f4838868ee56d68b6271"
+}

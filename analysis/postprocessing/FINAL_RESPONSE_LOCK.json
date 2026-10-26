@@ -1,0 +1,9 @@
+{
+  "final_local_author_review_version": true,
+  "date": "2026-10-25",
+  "artifacts_sha256": {
+    "RESPONSE_TO_REVIEWERS.md": "5c843008ea41c6d190f0274e134f9741f172af27a1b6dd43d1e75963853a49f0",
+    "response_to_reviewers.tex": "5015052d8234b7a139a2bf71d4bb46786efec5aba4ca17afaa4ff740bed0acd6",
+    "response_to_reviewers.pdf": "5c291d0c3064e99f15f1925546cd5c2695fb9e79c802f557eddb2f87c617d370"
+  }
+}

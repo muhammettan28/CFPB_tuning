@@ -1,0 +1,86 @@
+{
+  "sources": {
+    "training_args": {
+      "url": "https://github.com/huggingface/transformers/blob/v4.57.6/src/transformers/training_args.py",
+      "sha256": "444c4c5617b89e05ae4a31de3c4f7fc1f6311496a9bf7ef357aa69be3aa2afff"
+    },
+    "sft_config": {
+      "url": "https://raw.githubusercontent.com/huggingface/trl/v0.23.1/trl/trainer/sft_config.py",
+      "sha256": "df29c9e6a275dce7fb595a8c3c74b88567e3519684302447b0f650e51c6401a5"
+    },
+    "sft_trainer": {
+      "url": "https://raw.githubusercontent.com/huggingface/trl/v0.23.1/trl/trainer/sft_trainer.py",
+      "sha256": "c2378bd182751cdfca788037920876456cc7702290f9e0eaf4cf2521450a7d5d"
+    },
+    "peft_prepare": {
+      "url": "https://raw.githubusercontent.com/huggingface/peft/v0.17.1/src/peft/utils/other.py",
+      "sha256": "9b0cdf3c607d1ffc679f17af2e8b977307b36857b8410bb06ce44bff719e0bdd"
+    }
+  },
+  "checks": [
+    {
+      "call": "SFTConfig",
+      "line": 121,
+      "keywords": [
+        "bf16",
+        "completion_only_loss",
+        "data_seed",
+        "dataset_kwargs",
+        "eval_steps",
+        "eval_strategy",
+        "fp16",
+        "gradient_accumulation_steps",
+        "gradient_checkpointing",
+        "gradient_checkpointing_kwargs",
+        "greater_is_better",
+        "learning_rate",
+        "load_best_model_at_end",
+        "logging_steps",
+        "lr_scheduler_type",
+        "max_length",
+        "metric_for_best_model",
+        "num_train_epochs",
+        "optim",
+        "output_dir",
+        "packing",
+        "per_device_eval_batch_size",
+        "per_device_train_batch_size",
+        "report_to",
+        "save_steps",
+        "save_strategy",
+        "save_total_limit",
+        "seed",
+        "warmup_ratio"
+      ],
+      "supported": true
+    },
+    {
+      "call": "TrainingArguments",
+      "line": 161,
+      "keywords": [
+        "bf16",
+        "data_seed",
+        "eval_strategy",
+        "fp16",
+        "gradient_accumulation_steps",
+        "learning_rate",
+        "logging_steps",
+        "lr_scheduler_type",
+        "num_train_epochs",
+        "optim",
+        "output_dir",
+        "per_device_eval_batch_size",
+        "per_device_train_batch_size",
+        "report_to",
+        "save_strategy",
+        "seed",
+        "warmup_ratio",
+        "weight_decay"
+      ],
+      "supported": true
+    }
+  ],
+  "peft_gradient_checkpointing_kwargs": true,
+  "trl_pretokenized_completion_mask_supported": true,
+  "scope": "Static pinned API/source inspection only; no CUDA or training smoke test."
+}

@@ -1,0 +1,15 @@
+Reviewer #1: Major comments
+
+Legacy statistics: The 12 subsets contain only 5,909 unique pairs, so the Wilcoxon test (p = 2⁻¹²) assumes independence that isn’t shown. Provide an overlap matrix and use a group-aware paired analysis.
+Leakage audit: Splits group full narratives, but models see 500-character truncations. Audit overlap after truncation and prompt construction, and narrow the “no leakage” claim.
+Reproducibility: Explain how the 162,415 rows were derived, give the label mapping and subset construction, and release code, manifests and predictions to reviewers.
+Implementation details: State the Qwen3 thinking setting, checkpoint IDs, full QLoRA configuration and library versions.
+Baselines: Tune the encoders and TF-IDF comparably (three seeds, validation search), and compare in one table with uncertainty. Margins over TF-IDF are small.
+Bootstrap: Use a paired, group-level bootstrap with more replicates, report seed variation separately, and reconcile Tables 2 and 3.
+Contribution and claims: Compare explicitly with [14] and [15], and remove or test claims about reuse, “external” benchmark and robustness.
+Truncation and deployment: Report results by truncation and add a longer-context experiment. Control the latency measurements and avoid claiming acceptability or regulatory readiness.
+
+Reviewer #2: The manuscript presents a relevant and well-structured empirical investigation of QLoRA-based consumer complaint classification. The use of leakage control, multiple LLMs, multiple seeds, strong baselines, and error analysis are important strengths.
+However, major revision is recommended. The authors should strengthen the positioning against closely related recent studies, especially Reference [14], and clarify the distinction between the proposed approach and prior LLM-based complaint classification methods. The term “external benchmark” should be reconsidered because the benchmark originates from the same CFPB data source. The manuscript would also benefit from a more complete description of the QLoRA and inference configurations and clearer justification of the 500-character truncation and 10,000-example training budget.
+The statistical evaluation and bootstrap methodology should be described more clearly. Claims concerning constrained decoding, robustness, and deployment should also be moderated where appropriate. Most importantly, the results show that QLoRA achieves performance very close to the TF-IDF + Logistic Regression baseline; therefore, the practical contribution should be framed around the benefits and trade-offs of LLM-based PEFT rather than implying clear classification superiority.
+Finally, improving public access to the code and experimental configurations would substantially improve reproducibility.

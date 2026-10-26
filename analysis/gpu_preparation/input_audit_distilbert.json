@@ -1,0 +1,25 @@
+{
+  "artifact": {
+    "commit": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+    "repo_id": "distilbert/distilbert-base-uncased",
+    "snapshot": "/home/tan/.cache/huggingface/hub/models--distilbert--distilbert-base-uncased/snapshots/12040accade4e8a0f71eabdb258fecc2e7e948be"
+  },
+  "audit_code_sha256": "86a5b1221c290de411779781912ed49c0456cda97e020963f21f706d55b786c8",
+  "common_code_sha256": "3014dd487e45c5935d8d5c136548f6a06400e1e1a7fd05a2f9b57dee07423229",
+  "failures": [],
+  "keys_sha256": "ce5ffdd493167ffebe44483e93738ad7c49bdd64523691646cd779ed16f9886e",
+  "long_conditions": [],
+  "model": "distilbert",
+  "passed": true,
+  "plan_sha256": "1fe25cdd571eee549060a362980a232fa56978021dc015d25823695086d1d0e2",
+  "protocol_sha256": "89fd382208515e946ab2a941d07809cec8b9fc659d554048f008cf2dea225d0f",
+  "rows": 39428,
+  "rows_over_512": 0,
+  "scope": "Actual fixed selections and preserved evaluation views. Token identities are label-blind. No semantic-duplication guarantee; long cap retention reported explicitly. SFT completion-mask/target length checked.",
+  "tokenizer_files_sha256": {
+    "config.json": "69c94b0222d5d1f4b0ad027ca7416cdafb98378cbbb8305d0bf47c9365c60c83",
+    "tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+    "tokenizer_config.json": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+    "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+  }
+}

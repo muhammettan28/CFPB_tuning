@@ -1,0 +1,99 @@
+{
+  "request_units": 15,
+  "requests": [
+    {
+      "id": "R1.1",
+      "locations": "Manuscript Section 3.5 (p. 5); Manuscript Section 4.2 (p. 7); Supplementary material Section S4 (p. 10); Supplementary material Table S17 (p. 11); Supplementary material Table S18 (p. 11); Supplementary material Table S13 (p. 9).",
+      "original_comment": "Legacy statistics: The 12 subsets contain only 5,909 unique pairs, so the Wilcoxon test (p = 2⁻¹²) assumes independence that isn’t shown. Provide an overlap matrix and use a group-aware paired analysis.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R1.2",
+      "locations": "Manuscript Section 3.2 (p. 3); Manuscript Table 2 (p. 4); Supplementary material Section S1 (p. 2); Supplementary material Table S3 (p. 2); Supplementary material Section S7 (p. 16).",
+      "original_comment": "Leakage audit: Splits group full narratives, but models see 500-character truncations. Audit overlap after truncation and prompt construction, and narrow the “no leakage” claim.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R1.3",
+      "locations": "Manuscript Section 3.1 (p. 3); Manuscript Section 3.2 (p. 3); Manuscript Section 6 (p. 10); Supplementary material Section S1 (p. 2); Supplementary material Table S16 (p. 11); Supplementary material Section S8 (p. 17).",
+      "original_comment": "Reproducibility: Explain how the 162,415 rows were derived, give the label mapping and subset construction, and release code, manifests and predictions to reviewers.",
+      "status": "documented_with_delivery_open"
+    },
+    {
+      "id": "R1.4",
+      "locations": "Manuscript Section 3.3 (p. 4); Supplementary material Table S4 (p. 3); Supplementary material Table S5 (p. 3); Supplementary material Table S6 (p. 4); Supplementary material Section S8 (p. 17).",
+      "original_comment": "Implementation details: State the Qwen3 thinking setting, checkpoint IDs, full QLoRA configuration and library versions.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R1.5",
+      "locations": "Manuscript Section 3.4 (p. 5); Manuscript Table 3 (p. 7); Manuscript Table 4 (p. 7); Supplementary material Table S7 (p. 4); Supplementary material Table S8 (p. 5); Supplementary material Section S7 (p. 16); Supplementary material Table S28 (p. 16).",
+      "original_comment": "Baselines: Tune the encoders and TF-IDF comparably (three seeds, validation search), and compare in one table with uncertainty. Margins over TF-IDF are small.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R1.6",
+      "locations": "Manuscript Section 3.5 (p. 5); Manuscript Table 3 (p. 7); Manuscript Table 4 (p. 7); Supplementary material Section S3 (p. 6); Supplementary material Table S11 (p. 8); Supplementary material Table S32 (p. 18); Supplementary material Table S33 (p. 18).",
+      "original_comment": "Bootstrap: Use a paired, group-level bootstrap with more replicates, report seed variation separately, and reconcile Tables 2 and 3.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R1.7",
+      "locations": "Manuscript Table 1 (p. 3); Manuscript Section 3.1 (p. 3); Manuscript Section 5 (p. 9); Manuscript Section 6 (p. 10); Supplementary material Section S7 (p. 16).",
+      "original_comment": "Contribution and claims: Compare explicitly with [14] and [15], and remove or test claims about reuse, “external” benchmark and robustness.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R1.8",
+      "locations": "Manuscript Section 3.6 (p. 6); Manuscript Table 5 (p. 9); Manuscript Table 6 (p. 9); Manuscript Section 6 (p. 10); Supplementary material Section S5 (p. 12); Supplementary material Table S23 (p. 13); Supplementary material Table S24 (p. 13); Supplementary material Section S6 (p. 14); Supplementary material Table S26 (p. 15).",
+      "original_comment": "Truncation and deployment: Report results by truncation and add a longer-context experiment. Control the latency measurements and avoid claiming acceptability or regulatory readiness.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R2.1",
+      "locations": "Manuscript Table 1 (p. 3); Manuscript Section 5 (p. 9); Supplementary material Section S7 (p. 16).",
+      "original_comment": "The authors should strengthen the positioning against closely related recent studies, especially Reference [14], and clarify the distinction between the proposed approach and prior LLM-based complaint classification methods.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R2.2",
+      "locations": "Manuscript Section 3.1 (p. 3); Manuscript Section 3.5 (p. 5); Supplementary material Section S4 (p. 10).",
+      "original_comment": "The term “external benchmark” should be reconsidered because the benchmark originates from the same CFPB data source.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R2.3",
+      "locations": "Manuscript Section 3.3 (p. 4); Manuscript Section 3.4 (p. 5); Manuscript Table 5 (p. 9); Supplementary material Section S2 (p. 3); Supplementary material Section S7 (p. 16).",
+      "original_comment": "The manuscript would also benefit from a more complete description of the QLoRA and inference configurations and clearer justification of the 500-character truncation and 10,000-example training budget.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R2.4",
+      "locations": "Manuscript Section 3.5 (p. 5); Supplementary material Section S3 (p. 6); Supplementary material Table S11 (p. 8); Supplementary material Table S33 (p. 18).",
+      "original_comment": "The statistical evaluation and bootstrap methodology should be described more clearly.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R2.5",
+      "locations": "Manuscript Section 3.3 (p. 4); Manuscript Section 4.3 (p. 9); Manuscript Section 4.4 (p. 9); Manuscript Section 6 (p. 10); Supplementary material Table S15 (p. 10); Supplementary material Section S6 (p. 14).",
+      "original_comment": "Claims concerning constrained decoding, robustness, and deployment should also be moderated where appropriate.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R2.6",
+      "locations": "Manuscript Table 3 (p. 7); Manuscript Table 4 (p. 7); Manuscript Table 6 (p. 9); Manuscript Section 5 (p. 9); Manuscript Section 7 (p. 10).",
+      "original_comment": "Most importantly, the results show that QLoRA achieves performance very close to the TF-IDF + Logistic Regression baseline; therefore, the practical contribution should be framed around the benefits and trade-offs of LLM-based PEFT rather than implying clear classification superiority.",
+      "status": "addressed_with_stated_limits"
+    },
+    {
+      "id": "R2.7",
+      "locations": "Supplementary material Section S8 (p. 17); Supplementary material Table S30 (p. 18); Manuscript Section 6 (p. 10).",
+      "original_comment": "Finally, improving public access to the code and experimental configurations would substantially improve reproducibility.",
+      "status": "documented_with_delivery_open"
+    }
+  ],
+  "response_sha256": "5c843008ea41c6d190f0274e134f9741f172af27a1b6dd43d1e75963853a49f0",
+  "reviewer_access_delivered": false,
+  "source": "Revision.odt",
+  "source_sha256": "968ccb0729a23e67b6137a95dd1cc73dc31da8dbf4a00ee67ce5d87d4bab4c86"
+}

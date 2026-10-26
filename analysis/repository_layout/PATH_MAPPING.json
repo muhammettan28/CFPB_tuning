@@ -1,0 +1,15 @@
+{
+  "REVISION_PAPER/experiments": "experiments",
+  "REVISION_PAPER/analysis": "analysis",
+  "REVISION_PAPER/configs": "configs",
+  "REVISION_PAPER/data/revision_v1": "dataset/revision_v1",
+  "REVISION_PAPER/scripts": "scripts/revision",
+  "REVISION_PAPER/protocols": "protocols",
+  "REVISION_PAPER/templates": "templates/revision_paper",
+  "REVISION_PAPER/build": ".build/revision_paper",
+  "REVISION_PAPER/reviewer_package": "reviewer_package",
+  "REVISION_PAPER/literature": "literature",
+  "REVISION_PAPER/REVISION_LOG.md": "docs/revision_history/REVISION_LOG.md",
+  "REVISION_PAPER/TWO_PASS_REVIEW.md": "docs/revision_history/TWO_PASS_REVIEW.md",
+  "REVISION_PAPER/README.md": "docs/revision_history/PREVIOUS_REVISION_GUIDE.md"
+}

@@ -1,20 +1,50 @@
-# CFPB complaint classification
+# Consumer complaint classification: QLoRA revision
 
-This repository contains the original data preparation, QLoRA training and
-evaluation utilities for five-category consumer financial complaint classification.
+Completed experiments, saved predictions, search records and revised documents
+for five-category CFPB complaint classification are organised below. Main and
+reference-parameter studies are reported separately; older results are historical
+evidence and are not part of the corrected-data ranking.
 
 | Directory | Contents |
 | --- | --- |
-| `scripts/` | Data preparation, model training and evaluation code |
-| `CLASSIC_TEST/` | Classical and encoder baseline utilities |
-| `dataset/` | Source data, evaluation views and original split files |
-| `slurm_files/` | Original TRUBA execution recipes |
+| `REVISION_PAPER/` | Revised manuscript, supplement, reviewer responses, LaTeX sources and their table/figure assets |
+| `experiments/gpu_revision_v1/` | Main encoder searches/refits, QLoRA runs, final predictions, length sensitivity and controlled latency |
+| `experiments/ref14_encoder_v1/` | Separate reference [14] encoder-parameter sensitivity |
+| `experiments/tfidf_revision_v1/` | Both sparse training budgets, all 48 candidates per budget, fitted sparse objects and predictions |
+| `analysis/` | Result tables, statistical comparisons, data/tokenizer audits and frozen selection manifests |
+| `dataset/` | Original data/splits and corrected `revision_v1/` selections/evaluation data |
+| `configs/` | Frozen plans, signatures and model-registry template |
+| `scripts/revision/` | Revision experiment execution, analysis, verification and document-generation tools |
+| `protocols/` | Original written experiment protocols, preserved as historical records |
+| `experiment_archive/` | Saved predictions and execution evidence used for historical-only analyses |
+| `scripts/`, `CLASSIC_TEST/`, `slurm_files/` | Original preparation, training, baseline and TRUBA utilities |
 
-The revised manuscript, supplementary material, reviewer responses and completed
-revision experiments are maintained locally in `REVISION_PAPER/`. This directory
-is intentionally excluded from Git; these files are distributed in a separate
-revision/reproducibility package, rather than being claimed to be available through
-this repository. Its README identifies the current documents and CPU result replay.
+Start with `REVISION_PAPER/manuscript.pdf`, `supplementary_material.pdf`, and
+`response_to_reviewers.pdf`. The reviewer-comment index and editable response are
+in that same directory. [Reproducibility instructions](docs/REPRODUCIBILITY.md)
+explain the current paths and the preserved paths recorded in older metadata.
 
-Generated caches, logs, build auxiliaries and retired planning/status files are not
-versioned. The original manuscript is preserved separately in `ORJ_PAPER/`.
+## Check the reported results on CPU
+
+From the repository root, using a fresh virtual environment:
+
+```bash
+python -m pip install -r scripts/revision/requirements-cpu-revision.txt
+CUDA_VISIBLE_DEVICES='' python scripts/revision/replay_reviewer_results.py --output /tmp/cfpb-review-replay
+python scripts/revision/audit_document_rows.py --output /tmp/cfpb-review-table-cells.json
+```
+
+The replay output directory must not already exist. No neural weights, local
+model registry, GPU, original-paper directory or source ODT is needed. Replay
+verifies 404 source hashes and recomputes eight complete result tables, including
+10,000-draw paired intervals. The table audit checks 35 table fragments, 540 rows
+and 3,475 cells against their corresponding evidence.
+
+Neural weights, optimizer states, downloaded models and runtime caches stay local;
+predictions, numeric results, settings, validation search records and recorded
+code/environment evidence are included. Replaying saved results does not rerun
+training. Retired work/status files and author-only revision logs are excluded.
+The original paper is preserved separately and unchanged in local `ORJ_PAPER/`.
+
+Access depends on the repository's visibility and reviewer permissions. A local
+commit or a locally generated ZIP does not grant external access by itself.

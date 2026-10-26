@@ -1,0 +1,99 @@
+{
+  "n": 15428,
+  "accuracy": 0.8686155042779362,
+  "macro_f1": 0.8339211753105671,
+  "weighted_f1": 0.8674522357300474,
+  "weighted_precision": 0.8669946639360127,
+  "weighted_recall": 0.8686155042779362,
+  "off_label_count": 0,
+  "mean_latency_seconds": 0.9793053218377245,
+  "classification_report": {
+    "retail_banking": {
+      "precision": 0.8570359281437125,
+      "recall": 0.88553750966744,
+      "f1-score": 0.8710536325599088,
+      "support": 1293.0
+    },
+    "credit_reporting": {
+      "precision": 0.9056410256410257,
+      "recall": 0.9271963598179909,
+      "f1-score": 0.9162919405050156,
+      "support": 8571.0
+    },
+    "credit_card": {
+      "precision": 0.7891891891891892,
+      "recall": 0.7817938420348058,
+      "f1-score": 0.7854741089441829,
+      "support": 1494.0
+    },
+    "mortgages_and_loans": {
+      "precision": 0.8516666666666667,
+      "recall": 0.839539978094195,
+      "f1-score": 0.8455598455598455,
+      "support": 1826.0
+    },
+    "debt_collection": {
+      "precision": 0.7893961708394698,
+      "recall": 0.7165775401069518,
+      "f1-score": 0.7512263489838823,
+      "support": 2244.0
+    },
+    "accuracy": 0.8686155042779362,
+    "macro avg": {
+      "precision": 0.8385857960960127,
+      "recall": 0.8301290459442768,
+      "f1-score": 0.8339211753105671,
+      "support": 15428.0
+    },
+    "weighted avg": {
+      "precision": 0.8669946639360127,
+      "recall": 0.8686155042779362,
+      "f1-score": 0.8674522357300474,
+      "support": 15428.0
+    }
+  },
+  "confusion_matrix_labels": [
+    "retail_banking",
+    "credit_reporting",
+    "credit_card",
+    "mortgages_and_loans",
+    "debt_collection"
+  ],
+  "confusion_matrix": [
+    [
+      1145,
+      27,
+      87,
+      21,
+      13
+    ],
+    [
+      29,
+      7947,
+      129,
+      139,
+      327
+    ],
+    [
+      115,
+      166,
+      1168,
+      15,
+      30
+    ],
+    [
+      23,
+      187,
+      24,
+      1533,
+      59
+    ],
+    [
+      24,
+      448,
+      72,
+      92,
+      1608
+    ]
+  ]
+}

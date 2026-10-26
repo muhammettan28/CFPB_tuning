@@ -1,0 +1,21 @@
+{
+  "action": "encoder-search",
+  "completed": true,
+  "result": {
+    "artifact": {
+      "commit": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+      "repo_id": "FacebookAI/roberta-base",
+      "snapshot": "/home/tan/.cache/huggingface/hub/models--FacebookAI--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b"
+    },
+    "candidate": {
+      "candidate_id": 6,
+      "epochs": 3,
+      "learning_rate": 5e-05
+    },
+    "plan_sha256": "1fe25cdd571eee549060a362980a232fa56978021dc015d25823695086d1d0e2",
+    "selection_seed": 42,
+    "test_read_during_selection": false,
+    "validation_macro_f1": 0.8107679608916154,
+    "validation_search_sha256": "2da58f6130c6c48cfbd974454496f755faa7a04ecb977a2a3ee3218427be7422"
+  }
+}

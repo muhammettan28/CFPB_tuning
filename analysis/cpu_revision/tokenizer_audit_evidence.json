@@ -1,0 +1,30 @@
+[
+  {
+    "model": "qwen",
+    "tokenizer_path": "experiment_archive/outputs/qwen3_8b_qlora_pilot_5952287/best_adapter",
+    "transformers": "4.57.6",
+    "unique_raw500_inputs": 123551,
+    "inputs_exceeding_512_tokens": 0,
+    "truncation_side": "right",
+    "tokenizer_files": {
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "chat_template.jinja": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+      "tokenizer_config.json": "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0"
+    },
+    "coverage_limit": "Evaluation prompt serialization and 512-token IDs reproduced from archived tokenizer. Qwen tokenizer is from pilot, not final checkpoints; base-model tokenizer identity and exact SFT trainer completion/truncation are not independently certified."
+  },
+  {
+    "model": "llama",
+    "tokenizer_path": "experiment_archive/outputs/llama31_8b_fixed_protocol_seed42_5994012_0/best_adapter",
+    "transformers": "4.57.6",
+    "unique_raw500_inputs": 123551,
+    "inputs_exceeding_512_tokens": 0,
+    "truncation_side": "right",
+    "tokenizer_files": {
+      "tokenizer.json": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+      "chat_template.jinja": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+      "tokenizer_config.json": "a6c116761af9f371c68fd4a2da6e3cf6b3a4b41148f38eca4047aecfccdb6403"
+    },
+    "coverage_limit": "Evaluation prompt serialization and 512-token IDs reproduced from archived tokenizer. Qwen tokenizer is from pilot, not final checkpoints; base-model tokenizer identity and exact SFT trainer completion/truncation are not independently certified."
+  }
+]

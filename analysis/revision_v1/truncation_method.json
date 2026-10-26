@@ -1,0 +1,65 @@
+{
+  "data": "Archived predictions only. No newly evaluated 1000/1500-character or token-budget model.",
+  "pairing": "Within same sampling seed and balanced/imbalanced condition; same true label and normalized raw250 prefix; exactly one row per key on both sides. Ambiguous matches excluded before examining predictions.",
+  "identity_limit": "A unique prefix match is not a verified CFPB complaint ID. Results describe the matched-view subset, not the entire corpus or a prospective randomized ablation.",
+  "weighting": "Equal total weight per distinct (label, short normalized view, long normalized view) pair across repeated appearances. Connected short/long-view groups resampled together, labels ignored for clustering.",
+  "bootstrap_replicates": 10000,
+  "rng_seed": 20261020,
+  "internal_length_strata_limit": "Different complaints/class distributions form these strata; observed differences are not a causal estimate of truncation harm.",
+  "matches": [
+    {
+      "seed": 1,
+      "condition": "balanced",
+      "short_rows": 1000,
+      "long_rows": 1000,
+      "unambiguous_pairs": 998,
+      "ambiguous_short_rows": 2,
+      "ambiguous_long_rows": 2
+    },
+    {
+      "seed": 1,
+      "condition": "imbalanced",
+      "short_rows": 1000,
+      "long_rows": 1000,
+      "unambiguous_pairs": 994,
+      "ambiguous_short_rows": 6,
+      "ambiguous_long_rows": 6
+    },
+    {
+      "seed": 2,
+      "condition": "balanced",
+      "short_rows": 1000,
+      "long_rows": 1000,
+      "unambiguous_pairs": 1000,
+      "ambiguous_short_rows": 0,
+      "ambiguous_long_rows": 0
+    },
+    {
+      "seed": 2,
+      "condition": "imbalanced",
+      "short_rows": 1000,
+      "long_rows": 1000,
+      "unambiguous_pairs": 998,
+      "ambiguous_short_rows": 2,
+      "ambiguous_long_rows": 2
+    },
+    {
+      "seed": 3,
+      "condition": "balanced",
+      "short_rows": 1000,
+      "long_rows": 1000,
+      "unambiguous_pairs": 1000,
+      "ambiguous_short_rows": 0,
+      "ambiguous_long_rows": 0
+    },
+    {
+      "seed": 3,
+      "condition": "imbalanced",
+      "short_rows": 1000,
+      "long_rows": 1000,
+      "unambiguous_pairs": 996,
+      "ambiguous_short_rows": 4,
+      "ambiguous_long_rows": 4
+    }
+  ]
+}

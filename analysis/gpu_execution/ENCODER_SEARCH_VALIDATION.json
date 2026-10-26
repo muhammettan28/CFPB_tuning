@@ -1,0 +1,11 @@
+{
+  "independently_rescored_models": [
+    "bert",
+    "distilbert",
+    "roberta"
+  ],
+  "candidates_per_model": 6,
+  "frozen_selection_manifests_checked": true,
+  "final_test_used": false,
+  "passed": true
+}

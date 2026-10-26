@@ -1,0 +1,72 @@
+{
+  "rows": [
+    {
+      "input_key_file": "REVISION_PAPER/analysis/gpu_preparation/input_keys_bert.csv.gz",
+      "input_key_sha256": "da40bc369b28e3db0cc70f6f43e4ac944a0b3a066f74a678ab4f382925a81ae0",
+      "internal_rows": 15428,
+      "token_keys_spanning_multiple_frozen_groups": 0
+    },
+    {
+      "input_key_file": "REVISION_PAPER/analysis/gpu_preparation/input_keys_distilbert.csv.gz",
+      "input_key_sha256": "ce5ffdd493167ffebe44483e93738ad7c49bdd64523691646cd779ed16f9886e",
+      "internal_rows": 15428,
+      "token_keys_spanning_multiple_frozen_groups": 0
+    },
+    {
+      "input_key_file": "REVISION_PAPER/analysis/gpu_preparation/input_keys_llama.csv.gz",
+      "input_key_sha256": "540fe4e1a47394bc710589432d836c19ab5859b4a001973cb590f4d07d23ffca",
+      "internal_rows": 15428,
+      "token_keys_spanning_multiple_frozen_groups": 0
+    },
+    {
+      "input_key_file": "REVISION_PAPER/analysis/gpu_preparation/input_keys_llama_chars1500_tokens2048.csv.gz",
+      "input_key_sha256": "a01ae76dd0119a10a50628d31c2f79f7a114fee75a18489c66c285a9b9d473f7",
+      "internal_rows": 15428,
+      "token_keys_spanning_multiple_frozen_groups": 0
+    },
+    {
+      "input_key_file": "REVISION_PAPER/analysis/gpu_preparation/input_keys_llama_chars500_tokens2048.csv.gz",
+      "input_key_sha256": "8e3790df1d251d883a17ced372a87a9fd2a8df9c7491dc9302841602683c9568",
+      "internal_rows": 15428,
+      "token_keys_spanning_multiple_frozen_groups": 0
+    },
+    {
+      "input_key_file": "REVISION_PAPER/analysis/gpu_preparation/input_keys_llama_chars500_tokens512.csv.gz",
+      "input_key_sha256": "2467dadfbbd236058d77481328e95fbdd48fb8b71d9725be252b6aaea02ae3de",
+      "internal_rows": 15428,
+      "token_keys_spanning_multiple_frozen_groups": 0
+    },
+    {
+      "input_key_file": "REVISION_PAPER/analysis/gpu_preparation/input_keys_qwen.csv.gz",
+      "input_key_sha256": "9ccfab8f761cfe3827c95445da8927f3943f70da7e3944eb1fb96671fa731522",
+      "internal_rows": 15428,
+      "token_keys_spanning_multiple_frozen_groups": 0
+    },
+    {
+      "input_key_file": "REVISION_PAPER/analysis/gpu_preparation/input_keys_qwen_chars1500_tokens2048.csv.gz",
+      "input_key_sha256": "ed5e01ba5b266890036301f97f88acb9ba95ce080097d0b84c54047cd96ba894",
+      "internal_rows": 15428,
+      "token_keys_spanning_multiple_frozen_groups": 0
+    },
+    {
+      "input_key_file": "REVISION_PAPER/analysis/gpu_preparation/input_keys_qwen_chars500_tokens2048.csv.gz",
+      "input_key_sha256": "8f11d03629e3d5c289436f658c6b9c1d5ec8970adc200c51d4cb5c9cec08264a",
+      "internal_rows": 15428,
+      "token_keys_spanning_multiple_frozen_groups": 0
+    },
+    {
+      "input_key_file": "REVISION_PAPER/analysis/gpu_preparation/input_keys_qwen_chars500_tokens512.csv.gz",
+      "input_key_sha256": "f89e6b6b6da696d9a6d9d18b0e322c3426f85f2bb4f927f93631610cee70bb3b",
+      "internal_rows": 15428,
+      "token_keys_spanning_multiple_frozen_groups": 0
+    },
+    {
+      "input_key_file": "REVISION_PAPER/analysis/gpu_preparation/input_keys_roberta.csv.gz",
+      "input_key_sha256": "02dc4c5d20befe16e501adb21c0a933154eb1201917edd18e4508a51cdf48a7b",
+      "internal_rows": 15428,
+      "token_keys_spanning_multiple_frozen_groups": 0
+    }
+  ],
+  "frozen_group_manifest_sha256": "002beef9c188e8ac951703a9d859ee2991cfd9dbf653a10e441fec113c625446",
+  "all_frozen_groups_cover_actual_token_dependencies": true
+}

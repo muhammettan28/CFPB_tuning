@@ -1,0 +1,116 @@
+{
+  "python": "3.14.6",
+  "numpy": "2.4.6",
+  "pandas": "3.0.3",
+  "inputs_sha256": {
+    "dataset/complaints.csv": "3ac8059866a02ca5c9c11c1bf34d3e16d46967851e835d9272a5b2972ce109a0",
+    "dataset/splits/legacy_test_manifest.csv": "2dc9003c1c6ef8e8394361039adbeab1aa98ef2452be67d88a3a6cb8f159f0ef",
+    "dataset/splits/train.csv": "e7af1cbc48798944dccec8178fd99294ef4cc066756230fd8d42661c79f81fb6",
+    "dataset/splits/validation.csv": "8fe1d021c8a7d8974bcffa0fc3b311f8e669de0ebc182cbdbfeafe7a5017633d",
+    "dataset/splits/internal_test.csv": "720aa95f8bbb730c0db33c9761e56a8d7ecf61444cd363839483ec7a6ba8b747"
+  },
+  "provenance": {
+    "raw_rows": 162415,
+    "missing_required_rows": 10,
+    "usable_rows": 162405,
+    "excluded_legacy_rows": 8123,
+    "remaining_rows": 154282,
+    "splits": {
+      "train": {
+        "rows": 123427,
+        "unique_full_narratives": 95365
+      },
+      "validation": {
+        "rows": 15427,
+        "unique_full_narratives": 12063
+      },
+      "internal_test": {
+        "rows": 15428,
+        "unique_full_narratives": 12155
+      }
+    },
+    "split_rows_match_source_by_record_id_label_and_text": true,
+    "upstream_limit": "complaints.csv already has five mapped labels and preprocessed narratives. The original CFPB extraction, preprocessing and original-product mapping cannot be recovered from this file alone."
+  },
+  "legacy": {
+    "rows": 12000,
+    "unique_normalized_narratives": 5909,
+    "unique_label_narrative_pairs": 5909,
+    "conservative_prefix250_groups": 3919,
+    "group_definition": "Connected components sharing full normalized text OR normalized first 250 raw characters; NFKC/lowercase/whitespace normalization, label excluded. Conservative dependency grouping, not verified complaint identity."
+  },
+  "selections": [
+    {
+      "selection": "selected_train_seed42",
+      "rows": 10000,
+      "llama_evidence": "experiment_archive/outputs/llama31_8b_fixed_protocol_seed42_5994012_0/train_selection_manifest.csv",
+      "llama_manifest_matches_reconstruction": true,
+      "qwen_evidence": "Reconstructed from current natural_sample implementation, seed and Slurm protocol; final Qwen selection manifests absent. Not independently verified for archived final Qwen runs."
+    },
+    {
+      "selection": "selected_validation_seed42",
+      "rows": 2000,
+      "llama_evidence": "experiment_archive/outputs/llama31_8b_fixed_protocol_seed42_5994012_0/validation_selection_manifest.csv",
+      "llama_manifest_matches_reconstruction": true,
+      "qwen_evidence": "Reconstructed from current natural_sample implementation, seed and Slurm protocol; final Qwen selection manifests absent. Not independently verified for archived final Qwen runs."
+    },
+    {
+      "selection": "selected_train_seed43",
+      "rows": 10000,
+      "llama_evidence": "experiment_archive/outputs/llama31_8b_fixed_protocol_seed43_5994012_1/train_selection_manifest.csv",
+      "llama_manifest_matches_reconstruction": true,
+      "qwen_evidence": "Reconstructed from current natural_sample implementation, seed and Slurm protocol; final Qwen selection manifests absent. Not independently verified for archived final Qwen runs."
+    },
+    {
+      "selection": "selected_validation_seed43",
+      "rows": 2000,
+      "llama_evidence": "experiment_archive/outputs/llama31_8b_fixed_protocol_seed43_5994012_1/validation_selection_manifest.csv",
+      "llama_manifest_matches_reconstruction": true,
+      "qwen_evidence": "Reconstructed from current natural_sample implementation, seed and Slurm protocol; final Qwen selection manifests absent. Not independently verified for archived final Qwen runs."
+    },
+    {
+      "selection": "selected_train_seed44",
+      "rows": 10000,
+      "llama_evidence": "experiment_archive/outputs/llama31_8b_fixed_protocol_seed44_5994012_2/train_selection_manifest.csv",
+      "llama_manifest_matches_reconstruction": true,
+      "qwen_evidence": "Reconstructed from current natural_sample implementation, seed and Slurm protocol; final Qwen selection manifests absent. Not independently verified for archived final Qwen runs."
+    },
+    {
+      "selection": "selected_validation_seed44",
+      "rows": 2000,
+      "llama_evidence": "experiment_archive/outputs/llama31_8b_fixed_protocol_seed44_5994012_2/validation_selection_manifest.csv",
+      "llama_manifest_matches_reconstruction": true,
+      "qwen_evidence": "Reconstructed from current natural_sample implementation, seed and Slurm protocol; final Qwen selection manifests absent. Not independently verified for archived final Qwen runs."
+    }
+  ],
+  "tokenizers": [
+    {
+      "model": "qwen",
+      "tokenizer_path": "experiment_archive/outputs/qwen3_8b_qlora_pilot_5952287/best_adapter",
+      "transformers": "4.57.6",
+      "unique_raw500_inputs": 123551,
+      "inputs_exceeding_512_tokens": 0,
+      "truncation_side": "right",
+      "tokenizer_files": {
+        "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "chat_template.jinja": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+        "tokenizer_config.json": "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0"
+      },
+      "coverage_limit": "Evaluation prompt serialization and 512-token IDs reproduced from archived tokenizer. Qwen tokenizer is from pilot, not final checkpoints; base-model tokenizer identity and exact SFT trainer completion/truncation are not independently certified."
+    },
+    {
+      "model": "llama",
+      "tokenizer_path": "experiment_archive/outputs/llama31_8b_fixed_protocol_seed42_5994012_0/best_adapter",
+      "transformers": "4.57.6",
+      "unique_raw500_inputs": 123551,
+      "inputs_exceeding_512_tokens": 0,
+      "truncation_side": "right",
+      "tokenizer_files": {
+        "tokenizer.json": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+        "chat_template.jinja": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+        "tokenizer_config.json": "a6c116761af9f371c68fd4a2da6e3cf6b3a4b41148f38eca4047aecfccdb6403"
+      },
+      "coverage_limit": "Evaluation prompt serialization and 512-token IDs reproduced from archived tokenizer. Qwen tokenizer is from pilot, not final checkpoints; base-model tokenizer identity and exact SFT trainer completion/truncation are not independently certified."
+    }
+  ]
+}

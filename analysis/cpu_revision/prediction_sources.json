@@ -1,0 +1,938 @@
+[
+  {
+    "model": "Qwen3-8B",
+    "role": "internal",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_final_eval_base_zero_shot_5989218_0/internal_test/predictions.csv",
+    "rows": 15428,
+    "sha256": "eaed22156ce80ccd6b6744e3406ae1427f5c9c1bcecd18f1b802dcb7daec588a",
+    "alignment": "record_id + all labels"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "internal",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_final_eval_fine_tuned_seed42_5989218_1/internal_test/predictions.csv",
+    "rows": 15428,
+    "sha256": "882b033f036cec1901aff1f36ae0399face735fb3044b078fb15f45023b1a695",
+    "alignment": "record_id + all labels"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "internal",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_final_eval_fine_tuned_seed43_5989218_2/internal_test/predictions.csv",
+    "rows": 15428,
+    "sha256": "fd9a019f9a5ac30ef5e082bffe2acd93cc357f3a68d977aea2f933408929ed22",
+    "alignment": "record_id + all labels"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "internal",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_final_eval_fine_tuned_seed44_5989218_3/internal_test/predictions.csv",
+    "rows": 15428,
+    "sha256": "26cb0dea2e5635bbf20b21a7f6bee7bdbfba0c7c7160e8a3cc43f13cb44a0d10",
+    "alignment": "record_id + all labels"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/1_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "88d7a33b1b531606ef51a2be7b4a3b8c8eed1ac423211526520d3a7f17bfac34",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/1_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "bb7086f3415827af4abd10defa86e0ff03016063c9ad92b16b9158ae6e9cafa2",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/1_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "b435e64e0e26ac067c36be98ac33d08a212355e968e5f01488278e88a4bb97e5",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/1_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "e3fd8a85d28d2b2d01af581e2b279c8d3cc23b617d49095e5b43be4b947a6ef7",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/2_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "56bb78f194e076550e971907c56e29ba1571a7abf9f619b7d40a327efc94e8b9",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/2_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "c25047891b7c7bfa6b19d24f4e5f034c1f37b1a341cc38b618fa11cf5ed9b596",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/2_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "712893ba4b934e00945ef0bc43d801f73decaf5f4681d2362bf79015ad8b454e",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/2_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "c68d909d5e44d155f85a7685034796f7b4efd95e39937de579727765cbf9c4fc",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/3_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "ce3090cc7dab52f980f429a6a9ec18b46f2a3f8fe5015e52bb53111ac4b877b5",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/3_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "7ef4988ce0c2d431004c1585f97eae22ebb32d1e20ff8becebd7761a7a5942a9",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/3_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "b62fabc6e57730050af4e74fd0765c7b60a62797b5f49389657897965bea5805",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_base_zero_shot_5991305_0/legacy_subsets/3_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "8e9f63305190d5a7e7524a7ebe0e9b9c01d29a2e87a6e5a78e62d73d64c0f58f",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/1_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "a5862f836688d6515cc3080372778d021be186c8a1519d287aab66de144ed8fb",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/1_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "da94e9a40ec045382987def730ef6570f8b66cc360ef5eae024f31395a696547",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/1_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "029e135083c4187b531ab12a2fa0257aa28604bdac89ad7b74051b33d96b46ff",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/1_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "e9f7b8139312a391c5d61d5ca5fb771efca88795593c7402d91abff2b2763fc1",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/2_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "94529bd50d4da703156e651e4dfe94443c09775518fbde604c95fe68d9e6dfad",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/2_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "e091d515b8103ddf680833ddd1a1408a27627e81250b454733ec1141d5e76311",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/2_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "ceef2ce5760bb5e6123563b5c35dcc853aeb08447f3257c5c0119b02b10fbda9",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/2_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "f70b23ea98b4ba93efb673f5ccff7e2b1992a19515da74a1ba11dbb9fc2fb549",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/3_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "240338f7c829e65c59813f1122307f05e5cb4509221ae929c64ffcb2b00c1149",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/3_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "b19e805b505c6c7791012cbe94ebe0d604c69018957b0147e3676a5402036926",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/3_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "568a1d8d16ce7db6a60db929b4d87ec3edc4b34079236773fe0032dcd5474d8a",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed42_5991305_1/legacy_subsets/3_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "716af573d748cc8f2b201c3e54fcfb288c96c0dae023e257c67589a27a31a141",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/1_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "29353517087a4ee77f81150e87b287b17d3d91f5f59789493a23ba2abcc67e3d",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/1_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "f9e287885b52fd784d2a002fdad8ee0fa982178d10096e926fc4ea4980e6ee7b",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/1_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "f814f9e75b1f31280e1e0d7fa207a0403a49376c3d5407da73b075c6cd96b7d2",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/1_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "b3c0467aea8552b7bc9648e80e485f9c5bec0f544309ef908fa62f485b71303d",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/2_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "38db617ad5f64941cc445f10df50b9c269f5ebc3e0c0bba8c2cefba7e32c0de3",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/2_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "e6ed19e0c4c3c035f289f1b4b8467c953d9bc7c3d8d19284c5b8e867d31f4d53",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/2_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "1b8092155bb2a8f4949fc3aaec657f080735348d47bd337f7c3c0a6a509b6cb1",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/2_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "ace7640de69c143ef7e8304566b7c800f922730dd1bd0c6f5aefff5e16220d41",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/3_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "c0ef536a972b1b68bdf1cfb1248dd02491a27702c4caf2a01dd5f5f4ff209ccc",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/3_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "7f143f756c04fdef38624510d307507beb6fd6251cbd4acd8a9c9cc3ac6e9991",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/3_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "96c79c8ac40c83a4bb0098d4d6e375c185520d890bc10c46a984147fa70e343d",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed43_5991305_2/legacy_subsets/3_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "7a662ab98f0239f3682564aa1a1587f2882253e6dbed27659268b526423721cb",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/1_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "1e63cfb565ddb45bc509fbf92aada72156414d6b44f5ef1e6b2ac9147c80f924",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/1_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "7701fb6fb5aaddc131786de7e1563850f2b8297d9e7be1604f276cfed8197db0",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/1_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "e83c7a9d0103ddd87955a36290cf5ac8a9346fecad4b60250fac4ed2ad45c8e3",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/1_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "56ee55293d98b4bd9e5bf82e40ca2f54a4613c7788753b5355aef0c7644174df",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/2_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "8db8d10a637f5ce3c74463dc0a61875d00eb9b68dd4912554bf659992771bbc0",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/2_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "c3d8fc450e06550daa0fb7ece3098fd2ffc617e16b1470567a696e1c9021ad60",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/2_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "4325a298bc6564a2876a536c2c4adb8968f522cc593c7160cf50576145461cae",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/2_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "b24f1d2fa19b943538b626b28d59ed9442f327106b8999fcc9faac6afc433d55",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/3_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "d77d9acf824dd8281544d2c2dce52c8e3b309c45fa9ebdc11d9d3a3b65f7b3c5",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/3_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "58b8f9b3d60ec03c45445521340ca3297fe686879a1b009cb92b2d4ef2918d5a",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/3_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "f190878db0f2bde82bdd653d8a14f1860d60fa833f667ec8a0117028ab9db2df",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Qwen3-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/qwen3_8b_legacy_final_eval_fine_tuned_seed44_5991305_3/legacy_subsets/3_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "47d60f89f8ebb90f6bc83126bdc318978b3a207d553067dd34a55e016e643590",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "internal",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_final_eval_base_zero_shot_6001316_0/internal_test/predictions.csv",
+    "rows": 15428,
+    "sha256": "8f111a7159f9d3ecbf2174a6f7fc367ec4981befb694b229e8a68eb4b7367562",
+    "alignment": "record_id + all labels"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "internal",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_final_eval_fine_tuned_seed42_6001316_1/internal_test/predictions.csv",
+    "rows": 15428,
+    "sha256": "beb8c3a0db3a9cfae1dc603ec328b46482a7953b439ec9a24bd054fd3fa10338",
+    "alignment": "record_id + all labels"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "internal",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_final_eval_fine_tuned_seed43_6001316_2/internal_test/predictions.csv",
+    "rows": 15428,
+    "sha256": "1d32164a049a00ac9a445399172f95578a81df090576a3e0ec7c5bafb5082375",
+    "alignment": "record_id + all labels"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "internal",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_final_eval_fine_tuned_seed44_6001316_3/internal_test/predictions.csv",
+    "rows": 15428,
+    "sha256": "a07a1837ce8f4d6fb8c5671869e668caba06fe8e10824bd87def29359012db69",
+    "alignment": "record_id + all labels"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/1_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "9f871d6eb57f6df0780e45f1ccd94cbe8838ff68e178bd8c525b3071e8915d8e",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/1_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "22395595dfb9a64264371766a9f66b6fd5abdf5273837f5db73891f605d5f78c",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/1_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "34991ff046534074877ee46726a1e0d2202ac2d9e23199e138251d57bb3ea739",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/1_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "b69e55e3c07732b59983678e1512f36fdb1916d3a733e376a819d4fc5a250965",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/2_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "315561ad5f1e72b8e862fccbc32db17caf7ac7cc5da1be7693da9bfe0a723558",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/2_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "d214ddccc3b612fe73f8c889384ff0d422f68b7c8c9ca4b6783f55db5433ae86",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/2_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "5ff9bec6bc6cd9d54e5d3877a58c6c7572efce1636126af1b6fbe27fcf9d8b68",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/2_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "9b110e9c520d0a0eeacae5b43cdd1aa4af1ccd3e1f8e62a9ea898eca0a734df1",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/3_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "a639fca38145f8c8d6d8d3bb5a6e3fb2249f729bb4574ea81b59a1b1f0e004f0",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/3_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "b3b27dc97f815f821d56143def1f26ad90bacaf05a6c9d01852ba55a8151a257",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/3_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "f14674b9102f2f4f00d07eff7de9a8446d6582c57e9d92d17b7698b59aa48923",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "base_zero_shot",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_base_zero_shot_6006291_0/legacy_subsets/3_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "cf30f77dbd0b135c70402765174955379ff858d19070c08f7d181b51ac5623a3",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/1_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "c767062750bc22494809ab8061f8f972206e7429e9452b40f5563663c6ee797a",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/1_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "d04f6a85738e7d27894c279d7b3e519ccceab2f434284fd622bb74b059f86f11",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/1_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "411d2023369f0f4a4d546d6a7eb18d40ee9d8a705bc275f98cfe4b193b13e97d",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/1_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "66a9479620a06756bb88e3b2d0f7eff788da304ceace248e36032fedeb73cae0",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/2_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "015ef43583e3e3bb8489e8b5ae4456e1a77989f272585f7e7bb77af9d9232739",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/2_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "1b2c7e4b1e9403efc6bffa29aa39dbc31becb8df936ea8d1d21388ea7569c526",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/2_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "30f065ae1caf4217417088be08c221b6acf701735a228b5a361d180d53cfb94e",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/2_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "7bcca2b4371d741a6e539cdf67242ccb948ec1b7d5b4f840f550c951eb5b25af",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/3_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "7d8118e5271cf607f0e9db348a40de4f83cf31edc90ed6a743228617b3bf7ccc",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/3_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "17d30fac639028c1cafba7990afee3fd0079294331f05303182b5f97df6b08c3",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/3_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "22a25fa44d918468caa14613b353cc4089b241d60abcc10bbe26cf6392b60d08",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed42",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed42_6006291_1/legacy_subsets/3_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "3a45909a8fa8b4ba5c934dd232a23c38a9631004ec5b36c572864de5c2384a9c",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/1_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "b19e7a6d69505b2c1b7b974af0c07386a948aeecfa4076259259c21adf236ee6",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/1_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "25bd39dd5a89a9a4fbfec1be81cfb27eb82338ce706c26e9889b24a986b7843b",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/1_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "b548614be94e72011bcfb168e8332be2e4cf6fb90d18dc357adffb9b87c3ad9f",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/1_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "3038b16e8f60fd3a7da239cd1fee4cfb3d5500765e50aafed0730563c7150958",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/2_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "1b2c7940ae70fbad0e36efbf7aabe0acd5ea3d36bf7703a888e285063e1361b0",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/2_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "8b886a0ca880882914afe64aa848100de3d7d65634943791d9925cad7dd1ded9",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/2_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "49e54cc09adf3c56cc3a5be5ab1e7094764d3e5ebe0c17633373ebbab99609ff",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/2_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "85e582d861e895bd167af84fb34fd7c9c38e56d07de9daa624f32ca1ecab932f",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/3_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "50d123d4af53750f400461327f0d0ceeb84d9064c9f7802a7353201c5aeab41a",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/3_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "971eee9c009e367c888370c018886035065f1a18c0d864fa71c11faa6c96e63f",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/3_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "d160f39ab132c05345a48f166e3cadc7d99d050bc2f20ff9a84fb0680013c412",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed43",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed43_6006291_2/legacy_subsets/3_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "3670321dc25d9a6c87db5d78efdb88b43adc2cc1b506292de7bae25e5f9123e1",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/1_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "83421c3c04c3c4a112ad004408ad561ea970b27e03ff4c8677e3fba119adfbf5",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/1_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "5966e6f69e3c56ffcf4ed5754d72b6e7b0c0b89d431c77845673913624959967",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/1_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "910df61d6487a70e537e95f753790d02e96c34ade3c0b49168a586310dc3b287",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/1_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "327a51b1b0c10da65c147e6d7fe9a1edf56044bcaa1ec4077887a63c6c218863",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/2_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "b1b59b0a547210e98ed597e45bc1ee6c9ecd9f091b6addcde9d12f67319e839d",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/2_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "868b46bd3da601dbb610bde10ef1baaa4c99c4f59fbccea2a7270804eabb0de3",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/2_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "84e07a604aba1b6a881addf532a99409d7181c248c61051f61247e75a3c6c4ed",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/2_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "098f34798af1929e0d60c7a0e087aa45b4b1caa9517658c6b6b6123f46369929",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/3_subset_balanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "16c81a476a258178778f9e23978cafdea0d570a18625622635733ef8ab6ece9c",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/3_subset_balanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "e914cf8969f17bd39404289ed58fe1cd12db8011849506b1c2f919e456e1dcb0",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/3_subset_imbalanced_250/predictions.csv",
+    "rows": 1000,
+    "sha256": "42d4898d06cdf86561b8f1a2a8c0c6417d7b0ce370fc064d4f29ff1c0ee6aecc",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  },
+  {
+    "model": "Llama-3.1-8B",
+    "role": "legacy",
+    "variant": "fine_tuned_seed44",
+    "path": "experiment_archive/outputs/llama31_8b_legacy_final_eval_fine_tuned_seed44_6006291_3/legacy_subsets/3_subset_imbalanced_500/predictions.csv",
+    "rows": 1000,
+    "sha256": "9e35a42f25c6d39ac37fd08d5ef57981d2152f6f28e86364cbb31a0ec0e6b72e",
+    "alignment": "source file row order + row count + all labels; no record IDs stored"
+  }
+]

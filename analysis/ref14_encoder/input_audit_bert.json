@@ -1,0 +1,21 @@
+{
+  "artifact": {
+    "commit": "86b5e0934494bd15c9632b12f734a8a67f723594",
+    "repo_id": "google-bert/bert-base-uncased",
+    "snapshot": "/home/tan/.cache/huggingface/hub/models--google-bert--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594"
+  },
+  "clipped_rows": 1,
+  "configuration_sha256": "2def9919ab37abd189f9035304c967cf8ede8d80338bf7cf3435afbfd256da6d",
+  "keys_sha256": "bcfb5ac5200e03a57c67fa8726bba08bd1810a4b75e6f5c5ba05b23e6ea124a8",
+  "max_length": 128,
+  "model": "bert",
+  "parent_protocol_sha256": "89fd382208515e946ab2a941d07809cec8b9fc659d554048f008cf2dea225d0f",
+  "passed": true,
+  "rows": 39428,
+  "scope": "Actual 500-character input with reference token cap; no model/GPU load. Exact-token separation, not semantic independence.",
+  "separation_failures": [],
+  "token_keys_spanning_multiple_frozen_groups": {
+    "internal_test": 0,
+    "legacy": 0
+  }
+}

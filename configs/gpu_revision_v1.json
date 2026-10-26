@@ -1,0 +1,153 @@
+{
+  "artifact_policy": "Template is unresolved. Register actual locally available immutable snapshots; no auto-download. Exact model variant must be verified before execution; new pins do not recover historical identity.",
+  "encoder": {
+    "batch_size": 4,
+    "eval_batch_size": 16,
+    "gradient_accumulation_steps": 4,
+    "grid": [
+      {
+        "candidate_id": 1,
+        "epochs": 2,
+        "learning_rate": 2e-05
+      },
+      {
+        "candidate_id": 2,
+        "epochs": 3,
+        "learning_rate": 2e-05
+      },
+      {
+        "candidate_id": 3,
+        "epochs": 2,
+        "learning_rate": 3e-05
+      },
+      {
+        "candidate_id": 4,
+        "epochs": 3,
+        "learning_rate": 3e-05
+      },
+      {
+        "candidate_id": 5,
+        "epochs": 2,
+        "learning_rate": 5e-05
+      },
+      {
+        "candidate_id": 6,
+        "epochs": 3,
+        "learning_rate": 5e-05
+      }
+    ],
+    "max_length": 512,
+    "max_narrative_chars": 500,
+    "optimizer": "adamw_torch",
+    "refits": "Three actual fixed-data optimisation seeds; retain final epoch for the selected epoch budget.",
+    "scheduler": "linear",
+    "search_seed": 42,
+    "selection": "Final epoch validation macro-F1; ties within 1e-12 use smallest candidate_id. No test files read by search. Freeze winner before final refits.",
+    "warmup_ratio": 0.06,
+    "weight_decay": 0.01
+  },
+  "failure_policy": "Abort on hash/membership/audit mismatch. Do not silently change data, token caps, batch, search space or precision after failure; record a dated protocol amendment first.",
+  "generation": {
+    "attention_implementation": "sdpa",
+    "batch_size": 1,
+    "do_sample": false,
+    "enable_thinking": false,
+    "max_new_tokens": 32,
+    "precision": "NF4/double/FP16"
+  },
+  "hardware": "Unresolved until GPU available. Record GPU/driver/CUDA/torch and pip freeze; choose a compatible GPU environment before executing. CPU checks do not certify CUDA compatibility.",
+  "latency": {
+    "metrics": [
+      "generation_seconds",
+      "end_to_end_seconds",
+      "input_tokens",
+      "new_tokens"
+    ],
+    "order": "Per repetition use sha256(order_v1|repetition|record_id). Three repetitions within each fixed variant job; archive start/end GPU state. Separate model loads/jobs leave residual thermal/load drift; do not claim full randomised crossover control.",
+    "per_class": 20,
+    "repetitions": 3,
+    "sample_size": 100,
+    "selection": "Per class choose smallest sha256(latency_v1|record_id); never use predictions. Same IDs for all variants and all three length conditions.",
+    "summary": "Per variant/condition: mean, median, p95, requests/s from measured end-to-end time, output lengths; paired record-level differences using per-record repetition means. This is serial batch-1 throughput, not service capacity.",
+    "timing": "Wall clock with CUDA synchronization before/after generate; end-to-end adds tokenization/H2D/decode/regex. Model/tokenizer loading, warmup, disk I/O excluded. Batch=1, no concurrent benchmark; unmerged adapter, same base precision.",
+    "warmup_rows": 10
+  },
+  "long_input": {
+    "conditions": [
+      {
+        "chars": 500,
+        "name": "chars500_tokens512",
+        "tokens": 512
+      },
+      {
+        "chars": 500,
+        "name": "chars500_tokens2048",
+        "tokens": 2048
+      },
+      {
+        "chars": 1500,
+        "name": "chars1500_tokens2048",
+        "tokens": 2048
+      }
+    ],
+    "evaluation": "Same complete internal_test IDs; no retraining. 500/2048 is the token-cap control. Main comparison 500/2048 versus 1500/2048; separately report full narratives >500 chars. No legacy long text reconstruction.",
+    "length_audit": "Record requested/retained narrative characters, pre-cap token count, retained tokens and prompt hash. No silent claim that all requested text was visible.",
+    "uncertainty": "Observed macro-F1/weighted-F1/accuracy; 10000 paired label-blind group bootstrap with common multiplicities across conditions and repeats; seed/run SD separately. Reuse frozen internal groups."
+  },
+  "membership": "Use all frozen rows in original file order; no subsampling. Training shuffle may vary with optimisation seed.",
+  "models": {
+    "bert": {
+      "family": "encoder",
+      "repo_id": "google-bert/bert-base-uncased"
+    },
+    "distilbert": {
+      "family": "encoder",
+      "repo_id": "distilbert/distilbert-base-uncased"
+    },
+    "llama": {
+      "family": "llm",
+      "repo_id": "meta-llama/Llama-3.1-8B-Instruct"
+    },
+    "qwen": {
+      "family": "llm",
+      "repo_id": "Qwen/Qwen3-8B"
+    },
+    "roberta": {
+      "family": "encoder",
+      "repo_id": "FacebookAI/roberta-base"
+    }
+  },
+  "optimization_seeds": [
+    42,
+    43,
+    44
+  ],
+  "parent_protocol_sha256": "89fd382208515e946ab2a941d07809cec8b9fc659d554048f008cf2dea225d0f",
+  "prepared_date": "2026-10-20",
+  "qlora": {
+    "batch_size": 1,
+    "completion_only_loss": true,
+    "epochs": 2,
+    "eval_batch_size": 1,
+    "eval_steps": 100,
+    "gradient_accumulation_steps": 16,
+    "learning_rate": 0.0002,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "lora_r": 16,
+    "lr_scheduler": "cosine",
+    "max_length": 512,
+    "max_narrative_chars": 500,
+    "optimizer": "paged_adamw_8bit",
+    "quantization": "NF4/double/FP16",
+    "selection": "Best validation loss checkpoint within 2 epochs; fixed historical configuration, no new test-driven search.",
+    "target_modules": "all-linear",
+    "warmup_ratio": 0.03
+  },
+  "selection_seed": 42,
+  "serialization": "Render the chat template once; tokenize with add_special_tokens=False. Pretokenized SFT input_ids/completion_mask use that same prefix, and full targets must fit 512 tokens. This explicit no-duplicate-BOS policy is for new runs, not an asserted historical reconstruction.",
+  "status": "prepared_cpu_only_not_gpu_validated",
+  "train": "train_10000.csv",
+  "validation": "validation_2000.csv",
+  "version": "gpu_revision_v1"
+}

@@ -1,0 +1,27 @@
+{
+  "action": "qlora",
+  "completed": true,
+  "result": {
+    "best_checkpoint": "/home/tan/Documents/GitHub/CFPB_tuning/REVISION_PAPER/experiments/gpu_revision_v1/qlora/llama/seed_42/checkpoints/checkpoint-1100",
+    "validation_metrics": {
+      "epoch": 2.0,
+      "eval_entropy": 2.1773594247698784,
+      "eval_loss": 0.04561816528439522,
+      "eval_mean_token_accuracy": 0.9835945713222027,
+      "eval_num_tokens": 3327168.0,
+      "eval_runtime": 706.8694,
+      "eval_samples_per_second": 2.829,
+      "eval_steps_per_second": 2.829
+    }
+  },
+  "saved_model_files_sha256": {
+    "README.md": "e559bc40712eb05a9f4aea947369bf9a4789bcf590e341d43e0b2f5857cf32b6",
+    "adapter_config.json": "3f8ae82909479b3fb14475b1b9ee2d9b9336383a2c28a10ae7fec09708b7daba",
+    "adapter_model.safetensors": "095fc5b7cfac53843fa9c91d9f920a738f07daf59fe8fb30e73917ad9d42d18e",
+    "chat_template.jinja": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+    "special_tokens_map.json": "1b1835caa5b4d70acaa210fa222b0036f1882f9525c4660fd4810fb3e1e40ff8",
+    "tokenizer.json": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+    "tokenizer_config.json": "a6c116761af9f371c68fd4a2da6e3cf6b3a4b41148f38eca4047aecfccdb6403",
+    "training_args.bin": "5a48670382d9800dd893b95424d78272812e384869d1fc18ff2f7534f5c0457a"
+  }
+}

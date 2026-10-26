@@ -1,0 +1,2 @@
+# Machine-specific snapshot locations stay local.
+*.local.json

@@ -1,0 +1,13 @@
+source_file,credit_card,credit_reporting,debt_collection,mortgages_and_loans,retail_banking
+1_subset_balanced_250.csv,200,200,200,200,200
+1_subset_balanced_500.csv,200,200,200,200,200
+1_subset_imbalanced_250.csv,100,511,182,107,100
+1_subset_imbalanced_500.csv,100,511,182,107,100
+2_subset_balanced_250.csv,200,200,200,200,200
+2_subset_balanced_500.csv,200,200,200,200,200
+2_subset_imbalanced_250.csv,100,511,182,107,100
+2_subset_imbalanced_500.csv,100,511,182,107,100
+3_subset_balanced_250.csv,200,200,200,200,200
+3_subset_balanced_500.csv,200,200,200,200,200
+3_subset_imbalanced_250.csv,100,511,182,107,100
+3_subset_imbalanced_500.csv,100,511,182,107,100

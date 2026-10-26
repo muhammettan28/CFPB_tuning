@@ -1,0 +1,8 @@
+{
+  "rows": 162405,
+  "median_characters": 361.0,
+  "p90_characters": 1232.0,
+  "percent_at_most_250": 34.75016163295465,
+  "percent_at_most_500": 63.98140451340784,
+  "percent_at_most_1500": 92.98112742834273
+}

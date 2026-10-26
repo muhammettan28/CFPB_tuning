@@ -1,0 +1,13 @@
+{
+  "pages": 14,
+  "pdf_sha256": "1222ff39b61a7046bf9414274f14b3983b20ccbf861a0930cce95a8039fdbd5d",
+  "tex_sha256": "5a1f015b1bacc0f4f107a919dba64d7e00c5fa86248fc211eb5a0c588e436a22",
+  "pdflatex_success": true,
+  "overfull_boxes": 0,
+  "undefined_citations_or_references": 0,
+  "duplicate_hyperlink_destinations": 0,
+  "known_benign_warnings": "Journal template unused theorem-style warnings; two underfull bibliography lines.",
+  "visual_review": "All 14 pages reviewed in contact layout; full-page inspection of abstract, provenance/labels, archived CI, overlap figure, tuned baseline, truncation, error plot, limitations and references.",
+  "working_draft_and_pending_gpu_status_visible": true,
+  "citation_14_15_numbering_preserved": true
+}

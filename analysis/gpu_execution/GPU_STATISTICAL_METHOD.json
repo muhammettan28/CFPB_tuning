@@ -1,0 +1,27 @@
+{
+  "analysis_library_versions": {
+    "accelerate": null,
+    "bitsandbytes": null,
+    "datasets": null,
+    "pandas": "3.0.3",
+    "peft": null,
+    "scikit-learn": "1.9.0",
+    "torch": null,
+    "transformers": "4.57.6",
+    "trl": null
+  },
+  "bootstrap_replicates": 10000,
+  "internal": "Row-weighted frozen internal groups, observed point estimates; 19 variants share each group-bootstrap draw.",
+  "latency": "Three repeats averaged within record before group bootstrap; common group multiplicities across base/FT. Means/median/p95 remain conditional on observed hardware/job blocks.",
+  "legacy": "Equal total weight per (true label, normalized visible narrative); preserve all appearances in 3919 prefix/full dependency groups.",
+  "limits": [
+    "Retrospective previously inspected test; not new prospective evaluation.",
+    "Fixed-trained-model bootstrap excludes training/model-selection uncertainty.",
+    "Latency variants are separate job blocks, not a fully randomized crossover.",
+    "No deployment acceptability, regulatory readiness or independent-source generalization claim.",
+    "Archived and new runs differ in data allocation, pinned artifact evidence, explicit serialization and hardware; their score difference is not a causal estimate of leakage removal alone."
+  ],
+  "long_input": "Matched same-checkpoint conditions; all IDs and predefined >500-character cohort; token-cap control checked for equal predictions.",
+  "rng_seed": 20261020,
+  "seed": "Sample SD across three actual same-data optimisation refits; deterministic TF-IDF checks reported separately."
+}

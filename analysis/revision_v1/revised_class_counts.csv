@@ -1,0 +1,16 @@
+role,label,rows
+train,credit_reporting,65750
+train,debt_collection,17823
+train,mortgages_and_loans,14696
+train,credit_card,11891
+train,retail_banking,10342
+validation,credit_reporting,8267
+validation,debt_collection,2199
+validation,mortgages_and_loans,1837
+validation,credit_card,1524
+validation,retail_banking,1293
+internal_test,credit_reporting,8571
+internal_test,debt_collection,2244
+internal_test,mortgages_and_loans,1826
+internal_test,credit_card,1494
+internal_test,retail_banking,1293

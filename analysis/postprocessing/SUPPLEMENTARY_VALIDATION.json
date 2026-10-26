@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "date": "2026-10-26",
+  "pages": 19,
+  "all_pages_rendered": true,
+  "all_page_contact_sheets_visually_inspected": true,
+  "detailed_pages_inspected": [
+    7,
+    15,
+    17
+  ],
+  "no_overfull_boxes": true,
+  "no_undefined_citations_or_references": true,
+  "page_bounds_checked": true,
+  "rendered_evidence_directory": ".build/revision_paper/qa_layout/supplementary_material",
+  "supplementary_tex_sha256": "5bd1365a882a39a18baf898c86abb42893238dee866c9d4d4b27acfe2f4a7698",
+  "supplementary_pdf_sha256": "4bac485552a92fb02e90e63521f47855d2a406868fbc18db6551082024505d4c",
+  "tables": 33,
+  "stable_longtable_widths_and_labels": true,
+  "landscape_note": "Page 15 has /Rotate=90. Mixed Poppler coordinates checked against outer bounds; complete rendered landscape page inspected.",
+  "copyable_ascii_replay_command_verified": true,
+  "relocation_only_edit": true,
+  "visually_reviewed_changed_pages": [
+    17,
+    18
+  ],
+  "pixel_identical_to_pre_relocation_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    19
+  ]
+}

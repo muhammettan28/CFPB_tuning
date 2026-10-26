@@ -1,0 +1,141 @@
+\documentclass{elektr}
+\usepackage{amsfonts,amssymb,amsmath,amsgen,amsopn,amsbsy,theorem,graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{multirow,array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[pagewise]{lineno}
+\linenumbers
+\usepackage{float}
+\raggedbottom
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=1pt}
+\setlength{\textfloatsep}{6pt plus 1pt minus 2pt}
+\setlength{\floatsep}{5pt plus 1pt minus 2pt}
+\setlength{\intextsep}{6pt plus 1pt minus 2pt}
+\setlength{\abovecaptionskip}{3pt}
+\setlength{\belowcaptionskip}{2pt}
+\renewcommand{\arraystretch}{0.94}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=black,citecolor=blue}
+
+
+
+
+\yil{}
+\vol{}
+\fpage{}
+\lpage{}
+\doi{}
+
+\title{QLoRA Fine-Tuning for Consumer Complaint Classification}
+
+\author[Manuscript]{
+\rec{}
+\acc{}
+\finv{}
+}
+\makeatletter
+\gdef\@surnames{Turk J Elec Eng {\&} Comp Sci}
+\makeatother
+
+\input{elksty.tex}
+\setcounter{page}{1}
+
+\begin{document}
+\section{Related work}
+
+Classical consumer complaint classification has relied on sparse lexical features, support vector machines, logistic regression, and later transformer encoders. BERT-style models enabled strong supervised text classification by adapting contextual representations to task-specific labels \cite{devlin2019bert}; BERT, DistilBERT, and RoBERTa remain important supervised baselines for complaint categorisation \cite{devlin2019bert,sanh2019distilbert,liu2019roberta,sy2024beyondbert}. Complaint analytics has also been studied across food-industry categorisation, telecom complaint prediction, multicriteria complaint prioritisation, CFPB topic modelling, and financial-complaint interpretability, sentiment, cause, emotion, and severity analysis \cite{bozyigit2022foodcomplaints,gewaly2024telecomcomplaint,vairetti2024complaintpriority,raju2022cfpbtopic,das2024negative}. These studies show that supervised learning can be effective for complaint taxonomies, but they do not directly address how modern open-weight generative models should be adapted and evaluated for the same task.
+
+Recent work has made LLMs relevant to both complaint generation and complaint processing. Large-scale studies report that consumers increasingly use LLMs to draft clearer financial complaints \cite{shin2025adoption,liang2025widespread}, suggesting that complaint corpora are themselves being reshaped by generative AI. LLM-based frameworks have also been investigated for complaint categorisation and customer-service benchmarking \cite{yuan2024framework,li2025teleeval}. Two studies are particularly close to the present work and require separate comparisons.
+
+G\"ull\"u et al. \cite{gullu2025complaintllm} compare CNN, LSTM, BERT, RoBERTa, GPT-2, and Llama 3.1-8B on two datasets: 5,629 Comcast complaints with rating labels and a second dataset reported to contain 162,421 financial complaints in five product categories. The latter categories correspond to the financial taxonomy studied here. Thus, their contribution is not restricted to telecommunications, and the present work cannot be distinguished merely by applying Llama to financial complaints. Their method uses an 80/20 train/test division; Table~V of their paper specifies three training epochs, a 512-token maximum, AdamW, cross-entropy loss, and weighted metric averaging for the LLMs. A LoRA or 4-bit quantisation configuration, a paired zero-shot baseline for each adapted checkpoint, and a three-seed uncertainty summary are not described in that report. Absence of these details is treated as a reporting difference, not evidence that an undocumented procedure was not performed.
+
+Our distinction from G\"ull\"u et al. is the adaptation question and the explicit protocol: 4-bit NF4 LoRA adaptation with completion-only loss for JSON label generation, a fixed 10,000-example training budget, two 8B model families evaluated before and after adaptation in the same inference pipeline, and repeated fine-tuning seeds. Table~\ref{tab:gullu-positioning} summarises these differences. Their published financial-dataset F1 scores should not be ranked against our macro-F1 scores: metric averaging, training budgets, and test construction differ. Nor does their published row count establish exact record-level identity with our 162,415-row source file.
+
+\begin{table}[htbp]
+\caption{Protocol comparison with G\"ull\"u et al. \cite{gullu2025complaintllm}. This is a comparison of reported designs, not a cross-paper performance ranking. ``Not described'' refers only to the information available in that paper.}
+\label{tab:gullu-positioning}
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.40\linewidth}>{\raggedright\arraybackslash}p{0.40\linewidth}@{}}
+\hline
+\textbf{Aspect} & \textbf{G\"ull\"u et al.} & \textbf{Present study}\\
+\hline
+Task and data & Comcast rating classification and five-category financial complaints; financial dataset reported as 162,421 records. & Five-category financial complaints from a 162,415-row source file; no new corpus or taxonomy is claimed.\\
+Comparison & Supervised comparison of six architectures, including GPT-2 and Llama 3.1-8B. & Paired zero-shot versus QLoRA adaptation for Qwen3-8B and Llama 3.1-8B; TF-IDF and encoders as supervised comparators.\\
+Adaptation & LLM training with cross-entropy loss; LoRA and 4-bit settings not described. & Explicit 4-bit NF4 LoRA configuration and completion-only loss for generated JSON labels.\\
+Data allocation & 80/20 train/test division; separate validation selection and text-group overlap audits not described. & Model-visible conflicts are quarantined; fixed training/validation selections and evaluation records are retained across all new runs.\\
+Budgets & Three LLM epochs and a maximum of 512 tokens. & Two epochs on 10,000 selected training rows per seed; 500 narrative characters within a 512-token prompt budget.\\
+Reporting & Accuracy, precision, recall, and weighted F1; three-seed uncertainty summaries not described. & Accuracy, macro-F1, weighted F1, and results across three fine-tuning seeds; separate analysis of adaptation gains.\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Roumeliotis et al. \cite{roumeliotis2025think} address a different question: zero-shot classification with 14 standard and reasoning LLMs on a balanced 1,000-record CFPB-derived evaluation set. Their preprocessing removes narratives exceeding 500 characters, whereas the present protocol truncates narratives to a maximum of 500 characters and also evaluates the preserved 250/500-character legacy variants. Their study motivates the five-label JSON-prompt setting, but does not evaluate the paired change caused by task-specific QLoRA adaptation. Our additional model-family and seed comparisons therefore extend the evaluation question rather than claim the first use of this taxonomy or a directly comparable improvement over their published scores.
+
+PEFT provides a middle path between zero-shot inference and full fine-tuning. LoRA learns low-rank adapter matrices while freezing pretrained weights \cite{hu2022lora}, and QLoRA enables quantised LLM adaptation through 4-bit NormalFloat quantisation, double quantisation, and LoRA adapters \cite{dettmers2023qlora}. Other PEFT methods such as prefix tuning and $(IA)^3$ are also viable \cite{li2021prefix,liu2022fewshot}, but QLoRA was selected here for 4-bit adaptation of 8B-class instruction models on 16 GB GPUs. The empirical question is how much same-model adaptation changes classification under the stated budget and how those gains compare with lighter supervised alternatives. It also requires distinguishing source-text grouping from model-visible separation and accounting for overlap among legacy subsets. These are evaluation requirements for the present study, not claims of a new LoRA or QLoRA algorithm or of the absence of related fine-tuning work.
+
+\section{Materials and methods}
+\begin{thebibliography}{99}
+\setlength{\itemsep}{1pt}
+\setlength{\parsep}{0pt}
+
+\bibitem{devlin2019bert} Devlin J, Chang MW, Lee K, Toutanova K. BERT: pre-training of deep bidirectional transformers for language understanding. In: Proceedings of NAACL-HLT; Minneapolis, MN, USA; 2019. pp. 4171-4186.
+
+\bibitem{sanh2019distilbert} Sanh V, Debut L, Chaumond J, Wolf T. DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter. arXiv:1910.01108, 2019.
+
+\bibitem{liu2019roberta} Liu Y, Ott M, Goyal N, Du J, Joshi M et al. RoBERTa: a robustly optimized BERT pretraining approach. arXiv:1907.11692, 2019.
+
+\bibitem{sy2024beyondbert} Sy CY, Maceda LL, Canon MJP, Flores NM. Beyond BERT: exploring the efficacy of RoBERTa and ALBERT in supervised multiclass text classification. International Journal of Advanced Computer Science and Applications 2024; 15 (3). doi: 10.14569/IJACSA.2024.0150323.
+
+\bibitem{bozyigit2022foodcomplaints} Bozyiğit F, Doğan O, Kılınç D. Categorization of customer complaints in food industry using machine learning approaches. Journal of Intelligent Systems: Theory and Applications 2022; 5 (1): 85-91. doi: 10.38016/jista.954098.
+
+\bibitem{gewaly2024telecomcomplaint} Gewaly MM, Saeed MS, Ammar AM. Machine learning approach for complaint prediction in the telecom industry. In: 2024 Intelligent Methods, Systems, and Applications; 2024. pp. 12-17. doi: 10.1109/IMSA61967.2024.10652677.
+
+\bibitem{vairetti2024complaintpriority} Vairetti C, Aránguiz I, Maldonado S, Karmy JP, Leal A. Analytics-driven complaint prioritisation via deep learning and multicriteria decision-making. European Journal of Operational Research 2024; 312 (3): 1108-1118.
+
+\bibitem{raju2022cfpbtopic} Sangaraju VR, Bolla BK, Nayak DK, Kh J. Topic modelling on Consumer Financial Protection Bureau data: an approach using BERT based embeddings. arXiv:2205.07259, 2022.
+
+\bibitem{das2024negative} Das S, Singh A, Saha S, Maurya A. Negative review or complaint? Exploring interpretability in financial complaints. IEEE Transactions on Computational Social Systems 2024; 11 (3): 3606-3615. doi: 10.1109/TCSS.2023.3338357.
+
+\bibitem{shin2025adoption} Shin M, Kim J, Shin J. The adoption and efficacy of large language models: evidence from consumer complaints in the financial industry. arXiv:2311.16466, 2025.
+
+\bibitem{liang2025widespread} Liang W, Zhang Y, Codreanu M, Wang J, Cao H et al. The widespread adoption of large language model-assisted writing across society. arXiv:2502.09747, 2025.
+
+\bibitem{yuan2024framework} Yuan L, Ouyang X, Bai R, Zhu X, Zhou Y et al. A framework for categorizing complaint text via large language model. In: 2024 7th International Conference on Advanced Algorithms and Control Engineering; 2024. pp. 519-523. doi: 10.1109/ICAACE61206.2024.10549750.
+
+\bibitem{li2025teleeval} Li F, Wang Y, Xu Y, Wang S, Liang J et al. Performance evaluations of large language models for customer service. International Journal of Machine Learning and Cybernetics 2025; 16: 2997-3017. doi: 10.1007/s13042-024-02432-9.
+
+\bibitem{gullu2025complaintllm} Güllü M, Atagün E, Biroğul S, Barışçı N. Customer complaint classification with large language models. In: 2025 International Conference on Artificial Intelligence, Computer, Data Sciences and Applications; Antalya, Türkiye; 2025. pp. 1-6. doi: 10.1109/ACDSA65407.2025.11166338.
+
+\bibitem{roumeliotis2025think} Roumeliotis KI, Tselikas ND, Nasiopoulos DK. Think before you classify: the rise of reasoning large language models for consumer complaint detection and classification. Electronics 2025; 14: 1070. doi: 10.3390/electronics14061070.
+
+\bibitem{hu2022lora} Hu EJ, Shen Y, Wallis P, Allen-Zhu Z, Li Y et al. LoRA: low-rank adaptation of large language models. In: International Conference on Learning Representations; 2022.
+
+\bibitem{dettmers2023qlora} Dettmers T, Pagnoni A, Holtzman A, Zettlemoyer L. QLoRA: efficient finetuning of quantized LLMs. In: Advances in Neural Information Processing Systems; 2023.
+
+\bibitem{li2021prefix} Li XL, Liang P. Prefix-tuning: optimizing continuous prompts for generation. In: Proceedings of ACL-IJCNLP; 2021. pp. 4582-4597.
+
+\bibitem{liu2022fewshot} Liu H, Tam D, Muqeeth M, Mohta J, Huang T et al. Few-shot parameter-efficient fine-tuning is better and cheaper than in-context learning. In: Advances in Neural Information Processing Systems; 2022.
+
+\bibitem{cfpbdata} Consumer Financial Protection Bureau. Consumer complaint database. Website https://www.consumerfinance.gov/data-research/consumer-complaints/ [accessed 01 July 2026].
+
+\bibitem{yang2025qwen3} Yang A, Li A, Yang B, Zhang B, Hui B et al. Qwen3 technical report. arXiv:2505.09388, 2025.
+
+\bibitem{dubey2024llama} Grattafiori A, Dubey A, Jauhri A, Pandey A, Kadian A et al. The Llama 3 herd of models. arXiv:2407.21783, 2024.
+
+\bibitem{paszke2019pytorch} Paszke A, Gross S, Massa F, Lerer A, Bradbury J et al. PyTorch: an imperative style, high-performance deep learning library. In: Advances in Neural Information Processing Systems; 2019. pp. 8024-8035.
+
+\bibitem{wolf2020transformers} Wolf T, Debut L, Sanh V, Chaumond J, Delangue C et al. Transformers: state-of-the-art natural language processing. In: Proceedings of EMNLP: System Demonstrations; Online; 2020. pp. 38-45.
+
+\bibitem{mangrulkar2022peft} Mangrulkar S, Gugger S, Debut L, Belkada Y, Paul S et al. PEFT: state-of-the-art parameter-efficient fine-tuning methods. GitHub repository, 2022.
+
+\bibitem{tiwari2021complaints} Tiwari S. Consumer complaints dataset for NLP. Kaggle, 2021. Website https://www.kaggle.com/datasets/shashwatwork/consume-complaints-dataset-fo-nlp [project archive].
+
+\end{thebibliography}
+
+\end{document}

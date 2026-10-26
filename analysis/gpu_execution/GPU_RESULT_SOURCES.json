@@ -1,0 +1,1572 @@
+[
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/bert/search/candidate_01/validation_predictions.csv",
+    "sha256": "a4a26b465fb274fceba7c03d152f084c5d483c195e0298f41cc3a520e81655ef"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/bert/search/candidate_02/validation_predictions.csv",
+    "sha256": "a545c8bf5e2fbee14fdc34c248b1313b7bd3f378f399aa33654391b6c7a0136e"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/bert/search/candidate_03/validation_predictions.csv",
+    "sha256": "1e77fcb07e98e2c545d6ac5ee913af59a7f9c0aada80481408995e7adb0e8d78"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/bert/search/candidate_04/validation_predictions.csv",
+    "sha256": "75df015db5e28068fb188b70e05fb6e2f1686cc63424886c75793086e30e9e41"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/bert/search/candidate_05/validation_predictions.csv",
+    "sha256": "7fe666ed9ca54be977c370527da1f80cd3110f1e81548687da86fb91c3fcde02"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/bert/search/candidate_06/validation_predictions.csv",
+    "sha256": "088d4f6d22b9b014c6c328ea401a27d1bfacec2d355724d4496e27bff6e75f9d"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/bert/search/validation_search.json",
+    "sha256": "30a1418004793cc063802c51f35591cdeb39bde5aa819cd15eb6104c62e39e8b"
+  },
+  {
+    "kind": "encoder_selected_configuration",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/bert/search/selected_config.json",
+    "sha256": "7eb47e09f54ac4ddb78eee00a800d81a748c41ea3fecd7b91bc1b81ee4b2c772"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/distilbert/search/candidate_01/validation_predictions.csv",
+    "sha256": "d9d09e1e9e0a8be84cc11cef37b028253997c6feda5cac48b1303efcaf55daa7"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/distilbert/search/candidate_02/validation_predictions.csv",
+    "sha256": "38726e0e924e3bccd00eeac901a3071ec0ef5d2fc4bf9bf813cec97352bed1ca"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/distilbert/search/candidate_03/validation_predictions.csv",
+    "sha256": "9bd20cbb9a7fd427359a995cc40677cb91ed76472abf30398e4356328df6bd6c"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/distilbert/search/candidate_04/validation_predictions.csv",
+    "sha256": "d91b63747f559eab08f54328769f5cfd6ff8fb9761673bde7fdbbb5297456c5b"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/distilbert/search/candidate_05/validation_predictions.csv",
+    "sha256": "7c3618af1baf4a7b61247ca56faa453f4b6f0019ce626204004da80484b8ae8a"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/distilbert/search/candidate_06/validation_predictions.csv",
+    "sha256": "a94971ff768d670f1eaef971ecd6d87312a385639a331e7e89bdb4f6e2a3ed28"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/distilbert/search/validation_search.json",
+    "sha256": "9913d48973cad59aa2a74b815ca0646552f6c9d942b6f8a1b5f91bec220cdc02"
+  },
+  {
+    "kind": "encoder_selected_configuration",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/distilbert/search/selected_config.json",
+    "sha256": "2fa7676b78cb0f07afd70be2b4ed0aa7c53d95e00a13140eda04f503c43db348"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/roberta/search/candidate_01/validation_predictions.csv",
+    "sha256": "9aa7ebc857e0ad7ddf746d548482b835747c05a62c82d978f8d9ceb343e940cf"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/roberta/search/candidate_02/validation_predictions.csv",
+    "sha256": "43b2be9b701a79c14420ee43605d3525cbcb66a370807648b1b06eafde7eb311"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/roberta/search/candidate_03/validation_predictions.csv",
+    "sha256": "908ba6c258b34cf9979ea9d76f0b62e713b098a601ee616342372822d9191d3d"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/roberta/search/candidate_04/validation_predictions.csv",
+    "sha256": "2dcb81efde1c007a275b597a97a16d74afc89020f517ed5ef4129fce29a2b0ce"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/roberta/search/candidate_05/validation_predictions.csv",
+    "sha256": "7a0765d1390164807050b3d66e9a97ed5dc5f76ed7374665b903538c9743b822"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/roberta/search/candidate_06/validation_predictions.csv",
+    "sha256": "ac1d7db61e6d08fc4e084c115110cf2285a35624018d9c6d831dc481edd9e3ec"
+  },
+  {
+    "kind": "encoder_validation_search",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/roberta/search/validation_search.json",
+    "sha256": "2da58f6130c6c48cfbd974454496f755faa7a04ecb977a2a3ee3218427be7422"
+  },
+  {
+    "kind": "encoder_selected_configuration",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/encoder/roberta/search/selected_config.json",
+    "sha256": "8e7d104e216505d510a6acaa88b66b67ac62c58a5ba141a807a7d85cd27bce4d"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/internal_test_predictions.csv.gz",
+    "sha256": "979780a87154380a45b47660146e0a84871ece8ba1dad23a87b3e07f6a901837"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/internal_test_predictions.csv.gz",
+    "sha256": "fec903421b937cad8488fc399060839b6dc53d95a5dec4ad29433fc79cfd5fe0"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/internal_test_predictions.csv.gz",
+    "sha256": "252da80f0868d95f626ccc0bfa6ee2b47ac3319afd7f042ab8936eacd043bd41"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/internal_test_predictions.csv.gz",
+    "sha256": "ec10f266e0f74342433c288024f8e8899edbf77ce876c9ca9ef804c3f4638af0"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/internal_test_predictions.csv.gz",
+    "sha256": "46694c3f9eb8592ad326bb696488c99d0d7976abcd3bc0074c1edae584734ce9"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/internal_test_predictions.csv.gz",
+    "sha256": "ec9b1f1e8e5d6fe0ae26f847cc602dfb9ccb2e4ea941c191390c9056e2e00627"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/internal_test_predictions.csv.gz",
+    "sha256": "88b71fdc2095cccfd017d3549fe525bd69ba5a8fa95d77b3cc6a1decc83bfd4b"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/internal_test_predictions.csv.gz",
+    "sha256": "d2f3c8ef5aa1200868f978760fd33a785d2517833f0b0219fcd7a82b5e22054c"
+  },
+  {
+    "kind": "encoder_validation_inference_parity",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/validation_inference_parity.json",
+    "sha256": "7b41c7b8c7884956605de106c9e63fad1a57ba6b9c1e64a1f601a1f9d1d5f782"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/internal_test_predictions.csv.gz",
+    "sha256": "bc1fe44501940803772ec3a0325ccb113a14cc7b9f60fafff76d0572f9ad45f1"
+  },
+  {
+    "kind": "encoder_validation_inference_parity",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/validation_inference_parity.json",
+    "sha256": "8bd3c7e7f1c1816dff04c0dfc2f88d553fa801a60ee5a1a334fbef0cd53306ce"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/internal_test_predictions.csv.gz",
+    "sha256": "70afbf0627e1585bc9e0393a2256653896871b2e1bfcba47e4e47c71b2a103c5"
+  },
+  {
+    "kind": "encoder_validation_inference_parity",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/validation_inference_parity.json",
+    "sha256": "c525e180c0090ee879ab25654fca14c8dde421418c6077b3fb428add6bec2e53"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/internal_test_predictions.csv.gz",
+    "sha256": "f45ec25d4ef33ac89a2c24a898a7b752f19a5f2e3e9da693c41697b0dc1bf246"
+  },
+  {
+    "kind": "encoder_validation_inference_parity",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/validation_inference_parity.json",
+    "sha256": "febe8817341ac65ed3e3c79d459e990cff3a4ff6d3e3c5cdc17d84820c6c9d9a"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/internal_test_predictions.csv.gz",
+    "sha256": "6ca1a0785e7e87c2083fd2c5bc7643edc9611532f2d17b2b889687828ce0496f"
+  },
+  {
+    "kind": "encoder_validation_inference_parity",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/validation_inference_parity.json",
+    "sha256": "42d036f1f7e4256e96bbd86eda6263cab21c6b6ecd1d6676a09c95dd58cf1374"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/internal_test_predictions.csv.gz",
+    "sha256": "ee83bf1f76cd2ffd98d818e28127fa7bb16618b0d14cbd6633188358b8b4a691"
+  },
+  {
+    "kind": "encoder_validation_inference_parity",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/validation_inference_parity.json",
+    "sha256": "f8e69e3da77bee6cf993ecaff7010703cb6676112d9288e09b4986f89a82ce01"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/internal_test_predictions.csv.gz",
+    "sha256": "cdef2e42ac87fe44d2600c4ec0cc23c9b385e5b4186591922b3b8a82f4c20ae5"
+  },
+  {
+    "kind": "encoder_validation_inference_parity",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/validation_inference_parity.json",
+    "sha256": "d1d4ad8720fef8706bda96ee7dcda506f50f1e2802a7c00e2c301977b9ee3ded"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/internal_test_predictions.csv.gz",
+    "sha256": "0bacebb2efe071be46fae60b733f19406f5953e1eee430ebc57a9a6f8b68fe51"
+  },
+  {
+    "kind": "encoder_validation_inference_parity",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/validation_inference_parity.json",
+    "sha256": "6ca9371b5fb25ef73d8e5dbcbccf25f346e606e9d3882d4eb4d6f5982bce4e01"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/internal_test_predictions.csv.gz",
+    "sha256": "5b230fa10d6ef15c00c1079acecf5b300e419ff2c0fc8cac52eea42e2f2b6d2c"
+  },
+  {
+    "kind": "encoder_validation_inference_parity",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/validation_inference_parity.json",
+    "sha256": "73aefb9c341aeb83a0c0fb35c1f373c5da6630edb40814067e2be5db2d1deba5"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/internal_test_predictions.csv.gz",
+    "sha256": "d341bb19338c3472eb628eed2c0630fc8d777677aea9a93a376fb23c3b063a84"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_10000/seed_42/internal_test_predictions.csv.gz",
+    "sha256": "9c7bf6743a83eaf590439992c8cb3361e08dca3df2bd94d607bb8e87e009ff25"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_10000/seed_43/internal_test_predictions.csv.gz",
+    "sha256": "698921a99477006962558a5f1392de831b428b1dbf04040af613002494ea1ccc"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_10000/seed_44/internal_test_predictions.csv.gz",
+    "sha256": "9d3b5034c6e6104ed774de6e2eaedacb0b9eaceb67fb877fbf8c8dfe677de791"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_full/seed_42/internal_test_predictions.csv.gz",
+    "sha256": "68833ea3e1d63c365361d99ab538f045f39acf3e05f3af0597a9f406865eea59"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_full/seed_43/internal_test_predictions.csv.gz",
+    "sha256": "f51799923256ce25e3a21f78b17f3b3ff42253fa912f5d45af6124a635e5abfd"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_full/seed_44/internal_test_predictions.csv.gz",
+    "sha256": "14c24dc774347a60c758db386e65d13fcdc73dbb29bd16964197f439c47b786e"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "e92e9462db70352b1865dc4e59c946a382494f3304266652e3e0171ffa9e2b66"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "c9aa9570eac430880ae1d1b6f31b8e48eb66258c1685c96224db7b21e1e085d8"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "f0435d9a06f2067ec9cc01d0584b4675eb27a2a4ecc5835c6a6b342e6a985905"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "8f3900802d83287fc4ec640f68efaa2ebb45b73456344e5fdcad3ccf69ca7dab"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "14be05547223bd002b46dd2aba465dbc387aa22ec377fe242785053d034921c0"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "27c08b50848b738f01793628f9125d82047b57df1e3a2f07b7bcf85c4b7ee5c8"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "7c13576ef47789647199a70c6ec3f6878e493d48aaa1a5783a96eeda7e17cd74"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "bc5256266fa2984448e48d802cb788c48bc8fc2a71e69678f018bc979df165b3"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "f0e01ad2177ea732e85238efe53c4a9b290c5073f3e1fae4d0c598e3a5c50640"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "dffefa4b67e3e7e97b1f0895db230d22b998700bf9512ef9bcdeb7ac3a6b7273"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "4793a32c32e3f8258a3626b98cf0cf1fb1a444bb2c08f87d8be4013e1a914aa3"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "8976946309a0cec6afa8edc34e345922692ddc275468c30fbb2e6ee2a2a8a825"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "9e03fed0368221e70de3e007d350f3e2df2ea97d4f4e10bd7da9b107cfc92ca9"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "3570c36819a319fd1fffdfc643464977f23732bf327b106a88411ac9a273e453"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "3aa2482aa8c7911e2fb76e6966507e2b59050219456253448c20973981391d14"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "5e0f48084ad6f20bca30eb65398217cdacdc092e4763fb30ac2dc13d4f6628b3"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "8dbfddfa3fbb29ce1c51acdc5bb3cfe58234676c2895c42957479f367a3ad791"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "1f994b1b024d7babab271fe7c449a4f909577d69788ffd729dbe129be13a6893"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "68e037be0f6a5bac4e680a6250cd73fa58ba5c306f581ceb13a224e32a10ab85"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "ecd17118c3b27c525d6e7105366f15f80bb933fc62f240e91eba053b0f6f09e3"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "a25dbc6166c8e84d4be9b7162168a36dd3d24e14271d94a08942a5c233237608"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "457271496e0bdec39ca4398886323cc2fc1cbf644a87dc69813e84f719466a4c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "5ab8eb213429bce76f328f4a2fb7c142b34a4555eb0a65f2936385d232d7f624"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/42/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "63170a55119b4de6e66a8d462d58cbe3af65a74b28223dbb75beb2853d2223c9"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "251d3f09d70783397860a34d6f591987a0aa709c34abef39e66b1b8690735c56"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "398a2780bb2629d1e132362d2718e7cf9c37967b2c81ae047ec9c430105db637"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "5b27620e1cc94ab0d53d21fbe02fbe6b92b0b361920680e64c0adf526b693ceb"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "4968a81b1a30a4aed36f024417a6b95774df9dbf772e3a0a4f2404d3800bdb3a"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "c9e11fea13e7f87033184fd4b0f5ecad97dec9d90fd10837f20bfdebc232ea1c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "ca4b6a286ef1e5943d1cec1af1b8f496e427a5aabc6cb32c1facc9f3347284f6"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "17dd5e6c75a525aa5669161288dadc50d71506b2c5186f65fa693a559cc8917f"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "de7ced29a984152ce86277f0aa213dcf58b8d5027b933ed5b8b61f478086d341"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "d859b533c865146ccece20b8ddb4d9a94a5a967ff6a7e0b6ea4b7ed4870c7245"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "670a0c7c5d7b32277082c9296bdbabde7e7b3366702ddac630f455d5a52717f4"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "d68545f2f73d8b5de81c8e6f8b34b96e8803fbd9823f99253608427f6dcd1b8f"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/43/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "2a567e27b0a7c1b70f2afe03ae83bb7aef12b4116220c063b64fe8e1ab704821"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "59ae94274a19e678a8eceffea99ea608058bda687dcdc9081eb9d33ceac519d5"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "707770fcfa1f9d5642ba463eb3c65b8c5ebb2d6f19b2ce93ddb77bb1f6022cd2"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "7ff1dbe04c3632f31ba56ccf7452860d629842b457d87dd6b0b487476e9f053d"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "bf867b30fd8829ea2272cc3e55a6f832b051231461cdd5cc0ffac4debb921365"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "10cfbd93fb428df9016ceeff298d7eaac5921ce51e0bf82d46720b81cd2b818a"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "5592db7db601d16c24dadc2d3dc42cbde2901d30eaacb41d7bd843f1dff7af25"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "a928828d7a75f4acdd97a8f3c7e09b64f13548002df314e4ec728f0a8420e294"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "3dbb8c8b422372fdabf56c40d96c80e5c394f1b968740ac7dec95d9b726b753a"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "c66f5548565811c2c01fa6543de10efaa3a9a36ecfd69ef7e678ad6819bb4ca3"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "970bded4b6a7e32b7ccded0e678125bc19fbbfc4cefaa67a4543abb1db77167b"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "6417d95efdc1197b788cbe51358659aaf8637bb2404bbdf0f3d202caa041a6c3"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/qwen/44/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "5b02b37bdf4888c9d4c1a3f0f8c399a74d3b644a16ac0df289c3dc9bf8d9fbf8"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "d86d2307c695ce6eca7d81e1f613f1c19fd3201a5e553dc97c6b66bb0304682c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "54c4ca443fe31689ab78a58b565cbe72efe8e8c56b26f23f83046d52853ecb88"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "1cc11b8c2b5806ac195f9771cf9a382ddf6e2d4afe19b9d226e5ad739bf1c8c2"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "9cb05d176ed1e3308f0385100de6fdabc3841d4a5343c645772f96681680686c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "722e8fcbc1d3aca7b67e4ace8be681185986172814688024a1db525c9d67f6bd"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "6e0b4657d08437bbe9c4fe3ef6e6ed4f9706dc067432a2c27f8cf7c7588cb7a2"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "c8e715eede25352e2f9cc2debedaa5d711325cb593d768ec88f5bcefa41027f6"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "d23aa0a0e7ca73e8f901ac6692dca4f15319b6ee70f216e69da454b96ec459c9"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "0ef1d720334e660d833e8beb936ec22c2b5edd023b7ceb00ca0fa3e8a763e901"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "22025caca37078b93fc684ae3dc5922fa7e1d21ec4569d484e84272e19f7a4d2"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "cf0db57a0542c0743584c0f7fdaa5154bfd43a4b91f084263777d764304e08b3"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "0657f45ad3acf703a25d8d8a0f73c250684046f6b808b1a24e96fb1559de27e6"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "8b0d4e703788499c4958a09ce75ea98773c6f58241ae7eed7d138c79eda7c498"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "942dded64b305f695ed455ce1e6e5ae17ed650d4df3c77f7ce70bf65cb1540aa"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "6ed46fdd70fcbf2721a4bfd22940af6d500e2b07f26b1a76d06c9fb41dad9c21"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "232f32f0ec88d489170cbb06e581c93a4181f9d81d597f8e75e9f59efc66eedf"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "8428daefecaf3854b3a5fb3c53205481e226514907585b0e228865173a4c3d51"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "0f54a118b0435378ffc4ba6f5821754b24b9a6c88e3e1f6fe37c1ca813211875"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "fb1dbc254b17c17bc94d4731bdec1b7b800c532f0ba81dc36428cbcc857b37fc"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "5b87574ed281db3bc701091dfb55978435a7e98f287823aecd0227ca635415cf"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "a7863e1ab307e27690cf51b5ae4e10ec9882ba5980b063dd4b93eed838a88bfc"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "818f3c081ba2588c947166014412e2ce714f99f9665c24882e8c999fd0368eb0"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "1de083a708ea40da2f893b7b4b03ea8c0ce33fce0cf3567405f7ba50973e5d64"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/42/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "59d71d29627d205875d06ff70e88014de56df21fa1abb9e00a7101805a6ef98a"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "fdc719ff8135a7e6edef4eefa726fa2e6609fc3afd887844481ad49d01d2323f"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "6ee1f936b8ad710cc84d89428ac468ac49218f980819aec3bb479e334c81e302"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "73b2d03e662ab3287b301c2366c641b3120e745766268f2921d844c741cd22c9"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "21bf0f38374b73950fff029d257dc74193b9e23197a8d6f0fc513000a5511f94"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "7b5340286be47a746ec346f555f2c2e9dc88582b93c788214374262bb59ad1d0"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "05e7f6a4c934b4d889aeb6ab4aed72331b00d0c76a959eccb89e34b4489700de"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "1c9d30a37f58bd136137f9ef5d30508c508695c29511d1b7456f75ac5c1a4c3f"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "ffa5ffe24989445ce7e2d638b51a39f130f69dd4b844646e57af6bd25b693074"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "9ab13ed35929167fae4074e7b5d4527667c1672da448551a3e889c3e1d0aa4d6"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "eecf0f2cde7dd10e966c6b4865f4e0c8862aca9d11f380441073237f8194a1d8"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "2f757006eedbd542e45b9d1ec41a7276f4e62784b2324313c779e7497c758935"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/43/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "311a5cdb301e177917fc28b130b07a9926eb7ec3f9938f8fa545344e60328586"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "bc2b01960b6a1807ed5cbe28794230150bf88142cdaed44e810c1f3595e6555e"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "da0bde02d82e7a45d0fe1675806a83052bc412e81051e84b16b7d89fff5c2d4c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "8b25897922a00eb1085db05a4e3cc88af21b9f5974c380f5aedd87fc2e5bc95b"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "fed035cb3a4e19652dd18543b02c5638108462258932dfa0e977886f81ddfa7c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "936eb4dcdd549a77c24e1aaaee6f5e9f02797f12ef8ac854d00da1d29f8fe3ec"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "b2495a31856de168fa0f726e5cc9e1d692f2b143a2d7fcc94903da3c1d0cc4da"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "f4c84b537ade5c7efc8f658902c305c80b009d0fefdf0ec7ce0b9d4e6ccd3734"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "5d4172229fea8329fac5af8f95c76f071992f24c0d572878783e43a81b68b2ab"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "f2f40f92f8cd20ed0a1e722df53093381cd1bcb3f9fac34e1948ac36b17a1481"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "0cf2a01e38f85a4cf63c811e4c58e533651875b1bbc532867e403f445fd770a9"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "b88743e1ce33a41b554f289f2df3603fc9d04e91e798cef4cd9da82e4f124afd"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/llama/44/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "acc3b7e09fd7a092173a5c67c492a525c81e38ad9a00c5de67fea26e7f358cc1"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "9c32e253f68ca680b67a67601b5ff531bfffcac13dfe8f6280de5de965a63621"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "a5aa737e7285c5085643dd535a295e1a401dad1f65be01a14262c4522056e122"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "9c2bb6b85339b54dab6227da1b8a7cff6c33a8d6d0043eb0cc7248ca6d15bc72"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "8145a787f1650d468463f1547ecafa22266ec7dfe6197e0cc1bbd04ebc4aa395"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "f267e2c19d9465833d6db2f799cca9457cb8a6efb77283c0f5b6871283a6085c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "cc7313969a151992cb67f8393dc8d2837c04811f2859c14f01e8087446dce324"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "1ae9b34e38693961c2349955a530bd911ffd5792ce57f6f8f4a99a60dded288c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "ea03e211de772b69513bb089d9a638769031e438da4175acc927b066fa8fbb63"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "befae1fd79e07c76927c5a263fe458d5409d13b709da40c9a37516e5e5b1c354"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "56bb9b56844d490db471ab8bc5960befe671193aed4d484300297228da6610a8"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "15d3428b2c0297b9ebfa612a5a93fc2a5e04361043b34305d32ddea485af4a9b"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/42/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "58354c2e2524fd5371fe7f354ab51ec20aadda29289d828f14726ae097520f17"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "6792a38f9bdafd0259454795e86689feafb4578e050b0be8f8bf3ca2a33637f0"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "2c78bda8dd6ff8a58bb5fc9f1974dfa125bc9ba66dbb866442c20b5e5909da44"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "40d17330f076f0c9ca39c8b827149a28a269f1b0d29e42ae74228772dee49fdb"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "e130122f39ce4770d59ac14e267c12f088e74fce98bd055df35ad94285e9f302"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "06761f40732c89fdbc77d3f6579dd6147c14cd3b33520047326da9e2f7f223a6"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "c808c9bf43e97d98b23703a66cf682c455f26426ca8fdfec9aa31a673ee00e01"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "376da8a7b72e0c275c061bd2be573f1ffe144d79b51cc06067e4f989d65a5fa6"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "137b2cc730e09fb8db5f6fb633ae6cf4ac850cb78d8f7c082b96fb4ea15ebd1d"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "2394024cceaa60e10faa2c57b4c707bb0fff28c02532448dd5b80b6c66755ff2"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "0e5e88f8c7921e6aaaeb7958cf59e705ae74fda4037c001b351a69675ff35676"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "825ed1d65169d6cac37878c4630eae08495416c64e513259c46e39c16c8a29be"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/43/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "a6b1e805e8d3c46cdb797e3d97cfe4e53ed77cf69d9761eb6b5d36591172ca6b"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "707e1e6a2c9e8f7262100f4fa1801ba0f5fa22d0090f00ff8b1f7334ef36040e"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "60b360e1ff5eb50bfbe465e510b303f536684495234c54c77507bb01b8edc46a"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "f282c58f0d0c33e73973afac12cb99dbdfb6b2dc8bead4e8ed067f6333d7b78b"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "b4a9a3245b81578dd29f6bb090dd189d2dc5b14f289f661f3765e1b564eb0943"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "6595b66145cb82e0f4fa341989c2ded97cfe172b1fe487c8cb7e24fdf3a909ed"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "f23d4370f806fbd15f2df64d1d16e5aa5f5041857c613fcbd8b61bb6d29fc5f6"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "ace65430411145b59a7905c30e3ebdbe8e91b753ebaa97cab9028b3ed507a8af"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "28e0f99af6d13fc6e3dc688132c78eac43f9fd8782e4113ea68bd5c583629dd5"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "35460dae64be6968953130fd5c5a7636a5772b230cc10867fc15d87e47d7139a"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "164a5bad57cbd6726a9bffae971f878934f3192c39f8bf099a320b65252a8f78"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "9ff5dc23182a5d35738f967eae5e30173837ac71f91217431b1f5b7c51e70357"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/bert/44/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "c0c2d650284e3d8c4c6e834187fe47eb2816d7d6fa7f70ff8456d88a36703770"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "bccc5a4b7151a99271a74d2065aec6743db5d2e8376b3d87edef1c4ef9529f22"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "9c3eb7b40aecc24f807799d9bf0832757ef92e93e910bb31f53f63a7fe9bef20"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "7c1174c72b6d343c65943d3aab45e696c83abffbcdeb914117f79d722a678f71"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "70099d0c898924571e224009c5f206453538cecf8d390be1b3568ae843f6f24f"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "936cf24de71c2500a49029a762e4f5d4fb65adbe651f259ec555acb66d4b7d69"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "db84cd81c9c195a3ea90a8dacbbcf4f5e3c19e58fadc98b14a6e5db9183ef9b6"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "581f5f71d40e376c8edbd13739fd6db0ea9978d480dd791df4bf42db8f551d3e"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "7b288b1cf96b14d8c46bed8f5b6e2a0f6a108017fdda43bd752bc5f159f87a0f"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "5300bc03a03fe1a79f26eeb4cad45c928776127e13b9d14ea2b3d1593caaa8cb"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "4f40b79bb6014b499e7d70eaf2da875764aea770f0ae6054689427c671b7f1b1"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "3ecce1d2307951a6d20423424d08ae76815c3bcf9f0e8fe2b13e0e0218b0b331"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/42/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "b7389d8aee747937f7e972eaff67b8a4902ad010da7eb35abdbf29a34e30bc33"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "545cb879e9f0b53fba197f02848d92603dfef1beac0dd4e2a4bf91ec9b6b92d9"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "201822e3f90a531b24d044644f8146106230e0ef787550937a08bb99f6f38f85"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "e0281bd0ebe680dccf94555c7f7577761adb94ed034c491306ede6e7526d0272"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "d6f6f1565dca1002773d403a0d634d11c1514ee726811f775c4e08a740e8f963"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "976474bb60e7081753bb6b3e2978bb54b9eef421c2a60041044828f060532e3c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "477662fb222736836a43979c0f1aa14d59f9b96d01b80e5562690d39e39b9acf"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "9e51b1be14609bf655dafb72495efdc434e466d17bd95ef13e98c9b44aa2f749"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "2735a657b0828a974421fa7882c7fdd1a2782bf9b2617e112604f7e9dc7c9b9f"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "996241ea7ecba001b2786b15078ab1e0eaae495883c113d3f5cd54b78944eb68"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "0fc6413da1f6a304dadb8d53f17701359778740a57ea8e4d9367ccd21fa57c66"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "9126ef5f4aab9d7680ac74dfbffe7743e04ea9d8cb6f7cccc5aeffaf7b8e8744"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/43/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "ff54a737ffa04ef14629750ac363e52beeb071df19c85424f251fa032403a276"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "354260ca4fd6ea9e8d6156c6c20361fb65326143cc672f75a77dab5ed56fddb2"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "f8046f57b0dc5a14aa707520744b04f28dd33d5f7b4d531305345c1c3917d570"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "e1251998b1e8ef9b830d3e9597cf8cc3b8ce6215ceacaf8d169a534044227620"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "ca28f47d848eb14132ae505bea6aec8e7f4570de7cc201f1b2f129a95ce140c1"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "1b654fb2b2b0230df82692b422ee77122db5c83577c601eadab81744aff7f4ef"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "13c22ae8f1bbc7c10d93d4d9135c5189cffcc8e4071f53011e68bb23576c8c3c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "c003450448cd13ffbd8138ded63dc61037b73e72612915163bb06a422b3d11c9"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "1985b8a8cf3f518f1c98772054137e3b4ee2ff8bc8f92a56fce2ec90973038e0"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "ff5e7101932219248ada1910cfe270294ba93a5729935d0d28c1a1429b5b2be6"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "f8bed4690cd583d9b29fbf59a25dbf0f838406bc4447586986fed6fbdd9c8648"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "2976f3a6c8b4938b1f574bd54192ba048bf9f1caaf2306c9ade7907cba6edf6d"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/distilbert/44/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "f1f87e785c226ed8f1ec6415a6c21b683dabec6db8d74098eec9171305688de7"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "13cc50f68b3d103c0e36c25f3f86050202163cf22ca2a80262560939d979ed79"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "9bcdc405edb332621b7415e38ce04b392816f9a7b17b1e331d541170d9b79d39"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "094cbd752fa736bc73013e56bee45c07821c059beda02587d4ffe53f80603ef1"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "5dafb6368bcf80c44e2bd0324e64c6936a88aed5dbc380e67fa6729b5ba0c5cf"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "bcfe4e9dea9c91c436b6cf6f9bd04632368a36717a741e469583b1f5a519f2cb"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "6a9e59191d501f7217d0b32efc80235b5ae8befbdad8108a1bdfdc10b36a07e5"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "83be3eef6b9182793ee1ca892544c68bb710b23a8e0dc2a05a6591224a0d612c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "37a9eda847b83c372bcebd9d9a39ff1ec5a216b0642452f9db10a4ccbb975e6f"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "49c5bb8aae97171b1a6b8d01d657e8918c916ad7892af6410f7b2412217edaff"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "34574aa045bc3ccbb61fefd9ce44350b46046c6ed6a18d31bbaf7c508c0a64af"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "706dd69ee9b717c3af33278ffcee869424a1047e13afed31a00f4d6d1e5b1cbe"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/42/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "367a7bfeb1d167341104b0405af0adabb9b49629d8c8f935ed9cd8bb815485dc"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "36cb094fe09efabbfa500f6ee4d91b8adbad5307ba8231d8f228e70585b9c943"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "8420e6ff3e2dfb5b1e4f27aaf9b1b9372d73728d12fbc07ba4d457072ebfc7e4"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "dbd3d1012a5142b00c1e26fdaac83298b76cf81cc32d09fd6724347db14c80ff"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "dc8154a1d35c7d9de776e7e8cfec931fb0591e9b5f911450690433a496b845d7"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "d64d5d3b99ec514939fff6868240c7350b0e18ead0ce19aaf80600dda4216c3a"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "7da15ccf7c769562a0daf311cc925c85f3816a940666bf94ba920b34b18ef560"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "5031323a0d5385f206feba1c4e50e21d60831f34ee0361535366df0db349ee32"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "411a36045955710439db9f618185f201a42b773859fd9381dda89d9c81ec65ad"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "9644de73010b3e037e64438daf9883129d46ce880bd0468584840d9e30bef2ac"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "e2d5ed591e14032567e604ee022daf67d2bac64882718f10966764d6f8701f3e"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "4a5db65fc59ab436aac653c070fc9a1fe7e4e5ee37ae0a3e0185365e5befd126"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/43/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "4bb8e57c48982bdce37144cab90a2abcfba995e9a2a755ac921b3a01444b1c6f"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/1_subset_balanced_250_predictions.csv.gz",
+    "sha256": "785262f9b9a385558d8ba6a59011dfa21f9771fd26ce1a29aa71cd6b6005fd04"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/1_subset_balanced_500_predictions.csv.gz",
+    "sha256": "404beb132d3b29acc8dd41614d86c5bbc2a1c7af505f15c5e1d37bd43c1e5558"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/1_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "102233001ccac65c03612cc5886f04924d7a9969a762f9d223b3649d000e6115"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/1_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "7b742ba36f388b4f107a2e65e07d2ff61fe5fcf4daf594844bbebd7569d63288"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/2_subset_balanced_250_predictions.csv.gz",
+    "sha256": "5d0e6e01c0d00cc3614db59a26187fc1c517319eb7ea350729fac33c8ff18eb7"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/2_subset_balanced_500_predictions.csv.gz",
+    "sha256": "f0ebff62705a40efabf8a1ea2b7575591d74f77bd5c528ae537b7adb0becbb9b"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/2_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "1c22b5f03dd4a159aa1f832c0ff788b439ccd08eff6e35346e46cc98529a40d5"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/2_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "4b81ab0e8b697665be92c914076fe04ac751af35be3392eeed7b5c69182d3549"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/3_subset_balanced_250_predictions.csv.gz",
+    "sha256": "281174845a8b3b85423b3a950ad735945c4b19e7ae9ade0245d17b9fdd424be9"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/3_subset_balanced_500_predictions.csv.gz",
+    "sha256": "2ec902919ae3294f99ceb61d9bc9920421f23b1791e3239d228bb279b49b0dc4"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/3_subset_imbalanced_250_predictions.csv.gz",
+    "sha256": "b4a2ac917e176b9fbf9d283fbb83639caf7ebbe72a306011f471313cb9d1b706"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/evaluate/roberta/44/suite/3_subset_imbalanced_500_predictions.csv.gz",
+    "sha256": "58109c0017a85771b524d2991ffacf684e8a3ac98310610779d009540ee4d3ed"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_10000/seed_42/legacy_predictions.csv.gz",
+    "sha256": "b72a546b656f5ebc676d4f0dd2f702e2859caac1b4707b787a5b7059c95573d3"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_10000/seed_43/legacy_predictions.csv.gz",
+    "sha256": "556ccb1cbec657f51e8a746b720c8ddf0707d838698d28cb735e4b84b5f35c54"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_10000/seed_44/legacy_predictions.csv.gz",
+    "sha256": "871949af6a507f9b2f259b79523c8b9322c561d5370370d39101bc36c06134aa"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_full/seed_42/legacy_predictions.csv.gz",
+    "sha256": "4283a84b2559a59848f971b9d586b9b61388cb8882cfcede76b26173f93eab4f"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_full/seed_43/legacy_predictions.csv.gz",
+    "sha256": "db4393a745ab1a00ae05ce285b4f58a3cbc54327f79f565e16ddf8642df90d9e"
+  },
+  {
+    "kind": "existing_corrected_tfidf_prediction",
+    "path": "REVISION_PAPER/experiments/tfidf_revision_v1/budget_full/seed_44/legacy_predictions.csv.gz",
+    "sha256": "ed82630ac8caeb8b5baf61b4df8bf16966cd0a13fa9b1fa5468370d8261141e3"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/base/chars500_tokens512/internal_test_predictions.csv.gz",
+    "sha256": "9e1b31b6141346d8837bac22f3b009f028a41a21d6d97a6943bc3140e9c132db"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/base/chars500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "a0d62013c89981945edbe9dd762935e942de2ddaa272ca3490a4c8a92f9b72d8"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/base/chars1500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "773a350e6e8337e309faf0a37227d008549270a345005fe57df3f403c6089d8f"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/42/chars500_tokens512/internal_test_predictions.csv.gz",
+    "sha256": "a3026700868952335d5736fdadb216853766d080d64c3e1496eac18bab97827a"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/42/chars500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "1c81cd56a22cc4f7be7dadbc619ae43045ada5204989787efc05d05004884706"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/42/chars1500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "98d83c1b77cc920494c09d1d5c51135ce853a3c330ab0c7b69828fd1a26c1cb3"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/43/chars500_tokens512/internal_test_predictions.csv.gz",
+    "sha256": "bdb65a47f3d06e13bc8b91e1f08029299ba9c0058baaf09696b05bcfabd556cf"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/43/chars500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "768e4d356c9edcb94e2cd0e8276241453cfa5f9fcd4175a62d4a5f1025d0e0b4"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/43/chars1500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "38bf6a904c995c2efd88c68664c9425d7a539d27bef3cd17fa79e60f286cf204"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/44/chars500_tokens512/internal_test_predictions.csv.gz",
+    "sha256": "50261522b82db2f48292cee9efedaf040f17b3a05a774a9f10c4dc54274ca37c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/44/chars500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "1af9cdb16d8fb50ff783e3576d401db73987f2b0c9a8f79d3fbc8f4475780535"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/qwen/44/chars1500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "859fb8a4d5c9f7d473b8c44a6ebc6f1e90eea64f2f51f76722c7884f5ecd8e38"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/base/chars500_tokens512/internal_test_predictions.csv.gz",
+    "sha256": "14f30664be6a739e6c5a27761c7148d9a4968fb8adeee8106729a5370061a9f7"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/base/chars500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "ac2a1b59d7b467aa5a06e6aa0af8d959fb03547f935eb79a30445dad8be831ad"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/base/chars1500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "00fb8d3c87513cba64feee0da0548c8169c56a9f71408130735f79ba307abf7c"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/42/chars500_tokens512/internal_test_predictions.csv.gz",
+    "sha256": "1c02d5daf07e1e88712883331400ad914ea07cbff1e1c66f0e5e125b088b4819"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/42/chars500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "8aea9acc66673b8e5807265262b5cf2830b377869e70d4234a126152a65101e3"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/42/chars1500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "8edcea8dc230a3e7b64e913462b9152e4bd03ea22ca17e35df29469afa6b25bd"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/43/chars500_tokens512/internal_test_predictions.csv.gz",
+    "sha256": "f641066d104c974dad96286a4056eec022fb2b9b93f4293b83e306b6909e75bf"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/43/chars500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "92ab000419fb255cda51bfc9ed94a06ee32a446c2d9422794c104b56a827c4ea"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/43/chars1500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "3f264a69a3a5cacf6dc88e541f2d0a9d2a119121e40fe9a41c6bdc55785bd98e"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/44/chars500_tokens512/internal_test_predictions.csv.gz",
+    "sha256": "4893120b2598b0f18b257fd4f54327f7c569fd05892e01c624372a387e39d7d1"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/44/chars500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "a8c47bd67e329072a2f09d43cf78daa4aa586a346fa90ce59788e9d02c8b22be"
+  },
+  {
+    "kind": "new_gpu_prediction",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/evaluation/long-input/llama/44/chars1500_tokens2048/internal_test_predictions.csv.gz",
+    "sha256": "57a30cd2f6e3a45fcf1b570541db08ad8887de09ac91f09600063421154944e1"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/base/chars500_tokens512/latency_records.csv",
+    "sha256": "beced4a1664b7d7da9bc88b0cfe3fcd7ac91fe68ab8684af79922bceb9fd51ad"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/42/chars500_tokens512/latency_records.csv",
+    "sha256": "0099c7aa566e8c3e70df8cb0267db83f8d524a855022c9a0f1b178bed9bb28fc"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/43/chars500_tokens512/latency_records.csv",
+    "sha256": "7dd0a8774bd4f76ca61dbd1ef98556d148bdf8bb169f9eaacdfc65f8319cff31"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/44/chars500_tokens512/latency_records.csv",
+    "sha256": "a01d5d8ee3f38358ac66eba3ec130db4512c56dc6003098f28e1602b610d0f91"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/base/chars500_tokens2048/latency_records.csv",
+    "sha256": "a035409ee2e7d0472c91288e82c43f33e4d481c49a62e3731c380497f9e9a481"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/42/chars500_tokens2048/latency_records.csv",
+    "sha256": "d685546b7d44a06abb11b0ab1f4d40fa35696383370d6ca1f90476b0c3dcfd11"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/43/chars500_tokens2048/latency_records.csv",
+    "sha256": "196a17ee4b6989225c18ca7811959c61cba0913285b8016a254a411ea58b650a"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/44/chars500_tokens2048/latency_records.csv",
+    "sha256": "924ca8a30d428381b8b6fd9789d3bfa359b47508225896de9165ccaa71f709d4"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/base/chars1500_tokens2048/latency_records.csv",
+    "sha256": "1a1180441271dc9d4735c5688f640c02f5bdef601210a9146e79ced25297b067"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/42/chars1500_tokens2048/latency_records.csv",
+    "sha256": "9d198ffa0a68686c1dd044350f7bf7948edd074b0d7c23de0a19cc55004a5108"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/43/chars1500_tokens2048/latency_records.csv",
+    "sha256": "de33494101a6beabe212baa412e29f1b3714039b7e6eb6490e9c0f87bc966309"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/qwen/44/chars1500_tokens2048/latency_records.csv",
+    "sha256": "14f085077191fa2fd7b0843e7d5727bfb4afd6cb51e853b97d86e79bb96bc317"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/base/chars500_tokens512/latency_records.csv",
+    "sha256": "6d6d7ce9b15cde910b3b7e161d20a8cfd4898df2566f3d2fe8f8c0abe891963b"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/42/chars500_tokens512/latency_records.csv",
+    "sha256": "c4418bb1def5e417e69147b4073d7ec014b9f47dbcb665af8c50c863d3a389b5"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/43/chars500_tokens512/latency_records.csv",
+    "sha256": "bc062dcdc3cf523336d76bfee0db8b72107180632cb45fe90d7b2fcbc2967cc2"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/44/chars500_tokens512/latency_records.csv",
+    "sha256": "7692f2ae50f700dbc4ae213e2deeeca91784b1896a3935ce06688b56f901fca6"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/base/chars500_tokens2048/latency_records.csv",
+    "sha256": "1179788a01f947536c08ffe4e67ae0708e8c7fdd76b5b74890c4e557d4ecca4f"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/42/chars500_tokens2048/latency_records.csv",
+    "sha256": "bc176a2e6e944f213359caea6f1be52f065f9726086d1f5291971bc804d925dd"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/43/chars500_tokens2048/latency_records.csv",
+    "sha256": "10d365ffc3a9bb029c7719e383fe0c3512945e3005a2765d4564bf958fb13120"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/44/chars500_tokens2048/latency_records.csv",
+    "sha256": "3e8933b1f14ff387169e47d6653e92bc896e3491693c10cb48acc7765427e623"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/base/chars1500_tokens2048/latency_records.csv",
+    "sha256": "f0552d96fa5f3e90a9db5a76290a57956acda9b22410560c4f6bfcabf96df270"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/42/chars1500_tokens2048/latency_records.csv",
+    "sha256": "54e079bc35f287103084782375203788cb0809cdf3bc3bb5c2770a6d5ebd3dc9"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/43/chars1500_tokens2048/latency_records.csv",
+    "sha256": "2d831ba2735000b427814c1ebb30c5a8b21bf28de3c063bb7a91d2c2032b1540"
+  },
+  {
+    "kind": "controlled_latency",
+    "path": "REVISION_PAPER/experiments/gpu_revision_v1/latency/llama/44/chars1500_tokens2048/latency_records.csv",
+    "sha256": "fa3515beea6f7f61c601932e8fe02f23c322414712e89c522afc5367fb457d27"
+  }
+]

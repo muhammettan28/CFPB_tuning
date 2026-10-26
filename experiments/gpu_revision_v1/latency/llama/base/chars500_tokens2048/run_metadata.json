@@ -1,0 +1,49 @@
+{
+  "actual_train_rows": 10000,
+  "actual_validation_rows": 2000,
+  "arguments": {
+    "action": "latency",
+    "condition": "chars500_tokens2048",
+    "execute_gpu": true,
+    "model": "llama",
+    "registry": "/home/tan/Documents/GitHub/CFPB_tuning/REVISION_PAPER/configs/model_registry.local.json",
+    "resume_from_checkpoint": null,
+    "seed": 42,
+    "variant": "base"
+  },
+  "artifact": {
+    "commit": "0e9e39f249a16976918f6564b8830bc894c89659",
+    "repo_id": "meta-llama/Llama-3.1-8B-Instruct",
+    "snapshot": "/home/tan/.cache/huggingface/hub/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659"
+  },
+  "code_sha256": {
+    "audit_gpu_tokenizers.py": "86a5b1221c290de411779781912ed49c0456cda97e020963f21f706d55b786c8",
+    "revision_gpu_common.py": "3014dd487e45c5935d8d5c136548f6a06400e1e1a7fd05a2f9b57dee07423229",
+    "run_revision_gpu.py": "1bb8d627d02814fe784001173a699fb1adc043b5c909138394cabbdcf123aee9"
+  },
+  "cuda_runtime": "12.8",
+  "driver": "NVIDIA GeForce RTX 5060 Ti, 595.99.02, 16311 MiB",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "input_audit_sha256": "27d09b882e6eb307e5580f92dc6073642ce96084b54610d43fd381d253aa152b",
+  "optimization_seed": null,
+  "plan_sha256": "1fe25cdd571eee549060a362980a232fa56978021dc015d25823695086d1d0e2",
+  "protocol_sha256": "89fd382208515e946ab2a941d07809cec8b9fc659d554048f008cf2dea225d0f",
+  "python": "3.12.14",
+  "smoke_only": false,
+  "started_utc": "2026-10-24T02:16:09.545800+00:00",
+  "train_csv_sha256": "95a12b37581f02759bf439f12360956f46cfe01092f066fae93c0eae4739e19c",
+  "train_order_sha256": "412f180f4f634604d0947c8daaf2ad8c63bb61aa4158ff0de9b2211012ec27ea",
+  "validation_csv_sha256": "0c075284a7090e05b20165f161b41f40e5a3fdd8cd7591ce1dec0c72d9bff2d6",
+  "validation_order_sha256": "82784d8c61f862f2e6d5ad04046dc5997f4147f061bfb82918d4f16eb76b544f",
+  "versions": {
+    "accelerate": "1.10.1",
+    "bitsandbytes": "0.46.1",
+    "datasets": "4.0.0",
+    "pandas": "2.2.3",
+    "peft": "0.17.1",
+    "scikit-learn": "1.6.1",
+    "torch": "2.7.1+cu128",
+    "transformers": "4.57.6",
+    "trl": "0.23.1"
+  }
+}
