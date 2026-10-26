@@ -17,3 +17,26 @@ ARSIV
 ORJ_PAPER
 REVISION_PAPER
 Revision.odt
+
+# Generated build, log and temporary files are not research sources.
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.blg
+*.bbl
+*.toc
+*.synctex.gz
+*.tmp
+/REVISION_PAPER/build/
+
+# Retired planning/status documents must not return to version control.
+/METHODOLOGY_AND_ROADMAP.md
+/REVISION_PAPER/GPU_RUN_STATUS.md
+/REVISION_PAPER/REF14_BASELINE_STATUS.md
+/REVISION_PAPER/AUTO_POSTPROCESS_STATUS.md
+/REVISION_PAPER/AUTO_POSTPROCESS_TASK.md
+/REVISION_PAPER/GPU_NEXT_STEPS.md
+/REVISION_PAPER/SUPPLEMENTARY_PLAN.md
+/REVISION_PAPER/REVISION_PROGRESS.md
