@@ -7,7 +7,7 @@
   "numerical_source_files_checked": 9,
   "protected_originals_checked": 107,
   "protected_ORJ_PAPER_files": 84,
-  "compiled_response_locations_checked": 79,
+  "compiled_response_locations_checked": 80,
   "exact_request_units_checked": 15,
   "all_model_macro_f1_points_and_bounds_checked": [
     {
@@ -119,9 +119,12 @@
     "Intervals condition on fitted/selected models; no multiplicity correction",
     "Serial batch-one latency does not establish deployment acceptability or concurrent capacity"
   ],
-  "keyed_tables_checked": 35,
-  "keyed_rows_checked": 540,
-  "keyed_cells_checked": 3475,
+  "keyed_tables_checked": 36,
+  "keyed_rows_checked": 546,
+  "keyed_cells_checked": 3517,
   "wrong_row_negative_controls_passed": true,
-  "pdf_copyable_ascii_replay_command_checked": true
+  "pdf_copyable_ascii_replay_command_checked": true,
+  "historical_selection_conditions_checked": 6,
+  "restored_error_narrative_checked_against_raw_predictions": true,
+  "original_introduction_opening_preserved": true
 }

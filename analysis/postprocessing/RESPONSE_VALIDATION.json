@@ -1,14 +1,15 @@
 {
   "passed": true,
-  "date": "2026-10-25",
+  "date": "2026-10-26",
   "pages": 7,
   "request_units": 15,
-  "compiled_location_references": 79,
+  "compiled_location_references": 80,
   "exact_original_quotes_checked": true,
   "all_pages_rendered": true,
   "all_page_contact_sheets_visually_inspected": true,
   "detailed_pages_inspected": [
-    3,
+    5,
+    6,
     7
   ],
   "no_out_of_page_words": true,
@@ -16,8 +17,14 @@
   "no_undefined_references_or_citations": true,
   "external_access_open_explicit": true,
   "artifacts_sha256": {
-    "RESPONSE_TO_REVIEWERS.md": "5c843008ea41c6d190f0274e134f9741f172af27a1b6dd43d1e75963853a49f0",
-    "response_to_reviewers.tex": "5015052d8234b7a139a2bf71d4bb46786efec5aba4ca17afaa4ff740bed0acd6",
-    "response_to_reviewers.pdf": "5c291d0c3064e99f15f1925546cd5c2695fb9e79c802f557eddb2f87c617d370"
-  }
+    "RESPONSE_TO_REVIEWERS.md": "bcf3d8a0ccfb4880d68b2a4fa77a877e8b308076f280cd275d8ad23974ddabc6",
+    "response_to_reviewers.tex": "bb8628a1b2d279fa54818646fb337ed00df7e2b5480b67b0505c6b0d0a6d67f4",
+    "response_to_reviewers.pdf": "95e9048d9923f0a1bf11292ab5370fee784ccef99c3a276f4c8444bf417a82a3"
+  },
+  "no_undefined_citations_or_references": true,
+  "page_bounds_checked": true,
+  "rendered_evidence_directory": ".build/revision_paper/qa_content_restoration/response_to_reviewers",
+  "content_restoration_completed": true,
+  "response_tex_sha256": "bb8628a1b2d279fa54818646fb337ed00df7e2b5480b67b0505c6b0d0a6d67f4",
+  "response_pdf_sha256": "95e9048d9923f0a1bf11292ab5370fee784ccef99c3a276f4c8444bf417a82a3"
 }

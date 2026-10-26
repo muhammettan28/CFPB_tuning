@@ -49,14 +49,7 @@
 \citation{shin2025adoption,liang2025widespread}
 \citation{yuan2024framework,li2025teleeval}
 \citation{gullu2025complaintllm}
-\citation{gullu2025complaintllm}
-\citation{gullu2025complaintllm}
-\citation{roumeliotis2025think}
-\citation{hu2022lora}
-\citation{dettmers2023qlora}
-\citation{li2021prefix,liu2022fewshot}
 \@LN{35}{1}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Related work}{2}{section.2}\protected@file@percent }
 \@LN{36}{1}
 \@LN{37}{1}
 \@LN{38}{1}
@@ -71,6 +64,7 @@
 \@LN{47}{1}
 \@LN{48}{1}
 \@LN{49}{1}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related work}{2}{section.2}\protected@file@percent }
 \@LN{50}{1}
 \@LN{51}{1}
 \@LN{52}{1}
@@ -97,18 +91,21 @@
 \@LN{73}{1}
 \@LN{74}{1}
 \@LN{75}{1}
-\@LN{76}{1}
+\citation{gullu2025complaintllm}
+\citation{gullu2025complaintllm}
+\citation{roumeliotis2025think}
+\citation{hu2022lora}
+\citation{dettmers2023qlora}
+\citation{li2021prefix,liu2022fewshot}
 \citation{tiwari2021complaints,cfpbdata}
+\@LN{76}{2}
+\@LN{77}{2}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Protocol comparison with G\"ull\"u et al. \cite  {gullu2025complaintllm}. This is a comparison of reported designs, not a cross-paper performance ranking. ``Not described'' refers only to the information available in that paper.}}{3}{table.1}\protected@file@percent }
 \newlabel{tab:gullu-positioning}{{1}{3}{Protocol comparison with G\"ull\"u et al. \cite {gullu2025complaintllm}. This is a comparison of reported designs, not a cross-paper performance ranking. ``Not described'' refers only to the information available in that paper}{table.1}{}}
-\@LN{77}{2}
 \@LN{78}{2}
 \@LN{79}{2}
 \@LN{80}{2}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Materials and methods}{3}{section.3}\protected@file@percent }
 \@LN{81}{2}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Data provenance and preserved evaluation views}{3}{subsection.3.1}\protected@file@percent }
-\newlabel{sec:source}{{3.1}{3}{Data provenance and preserved evaluation views}{subsection.3.1}{}}
 \@LN{82}{2}
 \@LN{83}{2}
 \@LN{84}{2}
@@ -122,14 +119,13 @@
 \@LN{92}{2}
 \@LN{93}{2}
 \@LN{94}{2}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Materials and methods}{3}{section.3}\protected@file@percent }
 \@LN{95}{2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Data provenance and preserved evaluation views}{3}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:source}{{3.1}{3}{Data provenance and preserved evaluation views}{subsection.3.1}{}}
 \@LN{96}{2}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Model-visible separation and fixed selections}{3}{subsection.3.2}\protected@file@percent }
-\newlabel{sec:revised-data}{{3.2}{3}{Model-visible separation and fixed selections}{subsection.3.2}{}}
 \@LN{97}{2}
 \@LN{98}{2}
-\citation{yang2025qwen3}
-\citation{dubey2024llama}
 \@LN{99}{3}
 \@LN{100}{3}
 \@LN{101}{3}
@@ -137,13 +133,13 @@
 \@LN{103}{3}
 \@LN{104}{3}
 \@LN{105}{3}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Allocation before and after model-visible quarantine. Internal evaluation records are preserved.}}{4}{table.2}\protected@file@percent }
-\newlabel{tab:data-flow}{{2}{4}{Allocation before and after model-visible quarantine. Internal evaluation records are preserved}{table.2}{}}
 \@LN{106}{3}
 \@LN{107}{3}
 \@LN{108}{3}
 \@LN{109}{3}
 \@LN{110}{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Model-visible separation and fixed selections}{4}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:revised-data}{{3.2}{4}{Model-visible separation and fixed selections}{subsection.3.2}{}}
 \@LN{111}{3}
 \@LN{112}{3}
 \@LN{113}{3}
@@ -153,9 +149,9 @@
 \@LN{117}{3}
 \@LN{118}{3}
 \@LN{119}{3}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Allocation before and after model-visible quarantine. Internal evaluation records are preserved.}}{4}{table.2}\protected@file@percent }
+\newlabel{tab:data-flow}{{2}{4}{Allocation before and after model-visible quarantine. Internal evaluation records are preserved}{table.2}{}}
 \@LN{120}{3}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Pinned LLMs, prompting and QLoRA}{4}{subsection.3.3}\protected@file@percent }
-\newlabel{sec:llm}{{3.3}{4}{Pinned LLMs, prompting and QLoRA}{subsection.3.3}{}}
 \@LN{121}{3}
 \@LN{122}{3}
 \@LN{123}{3}
@@ -169,10 +165,14 @@
 \@LN{131}{3}
 \@LN{132}{3}
 \@LN{133}{3}
-\@LN{134}{3}
+\citation{yang2025qwen3}
+\citation{dubey2024llama}
 \citation{paszke2019pytorch}
 \citation{wolf2020transformers}
 \citation{mangrulkar2022peft}
+\@LN{134}{4}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Pinned LLMs, prompting and QLoRA}{5}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:llm}{{3.3}{5}{Pinned LLMs, prompting and QLoRA}{subsection.3.3}{}}
 \@LN{135}{4}
 \@LN{136}{4}
 \@LN{137}{4}
@@ -185,8 +185,6 @@
 \@LN{144}{4}
 \@LN{145}{4}
 \@LN{146}{4}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Validation-tuned supervised baselines}{5}{subsection.3.4}\protected@file@percent }
-\newlabel{sec:baselines}{{3.4}{5}{Validation-tuned supervised baselines}{subsection.3.4}{}}
 \@LN{147}{4}
 \@LN{148}{4}
 \@LN{149}{4}
@@ -208,10 +206,10 @@
 \@LN{165}{4}
 \@LN{166}{4}
 \@LN{167}{4}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Validation-tuned supervised baselines}{5}{subsection.3.4}\protected@file@percent }
+\newlabel{sec:baselines}{{3.4}{5}{Validation-tuned supervised baselines}{subsection.3.4}{}}
 \@LN{168}{4}
 \@LN{169}{4}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Metrics, dependence and uncertainty}{5}{subsection.3.5}\protected@file@percent }
-\newlabel{sec:statistics}{{3.5}{5}{Metrics, dependence and uncertainty}{subsection.3.5}{}}
 \@LN{170}{4}
 \@LN{171}{4}
 \@LN{172}{4}
@@ -226,8 +224,6 @@
 \@LN{181}{5}
 \@LN{182}{5}
 \@LN{183}{5}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Longer inputs and controlled latency}{6}{subsection.3.6}\protected@file@percent }
-\newlabel{sec:length-latency}{{3.6}{6}{Longer inputs and controlled latency}{subsection.3.6}{}}
 \@LN{184}{5}
 \@LN{185}{5}
 \@LN{186}{5}
@@ -235,6 +231,8 @@
 \@LN{188}{5}
 \@LN{189}{5}
 \@LN{190}{5}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Metrics, dependence and uncertainty}{6}{subsection.3.5}\protected@file@percent }
+\newlabel{sec:statistics}{{3.5}{6}{Metrics, dependence and uncertainty}{subsection.3.5}{}}
 \@LN{191}{5}
 \@LN{192}{5}
 \@LN{193}{5}
@@ -243,30 +241,23 @@
 \@LN{196}{5}
 \@LN{197}{5}
 \@LN{198}{5}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{6}{section.4}\protected@file@percent }
 \@LN{199}{5}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Corrected-data model comparison}{6}{subsection.4.1}\protected@file@percent }
-\newlabel{sec:main-results}{{4.1}{6}{Corrected-data model comparison}{subsection.4.1}{}}
 \@LN{200}{5}
 \@LN{201}{5}
 \@LN{202}{5}
 \@LN{203}{5}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Corrected-data internal test (15,428 rows). Macro-F1 brackets are 95\% paired-group intervals; SD is across three actual optimisation refits. Base systems have no adaptation rows. TF-IDF SD zero denotes deterministic checks. Full-data TF-IDF has a larger training budget.}}{7}{table.3}\protected@file@percent }
-\newlabel{tab:models}{{3}{7}{Corrected-data internal test (15,428 rows). Macro-F1 brackets are 95\% paired-group intervals; SD is across three actual optimisation refits. Base systems have no adaptation rows. TF-IDF SD zero denotes deterministic checks. Full-data TF-IDF has a larger training budget}{table.3}{}}
-\@LN{204}{6}
-\@LN{205}{6}
-\@LN{206}{6}
-\@LN{207}{6}
-\@LN{208}{6}
-\@LN{209}{6}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Internal macro-F1 paired differences, comparison minus reference. All intervals condition on fitted models. The final two rows are unequal-training-budget context.}}{7}{table.4}\protected@file@percent }
-\newlabel{tab:contrasts}{{4}{7}{Internal macro-F1 paired differences, comparison minus reference. All intervals condition on fitted models. The final two rows are unequal-training-budget context}{table.4}{}}
-\@LN{210}{6}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Legacy views, classes and output compliance}{7}{subsection.4.2}\protected@file@percent }
-\newlabel{sec:legacy-errors}{{4.2}{7}{Legacy views, classes and output compliance}{subsection.4.2}{}}
-\@LN{211}{6}
-\@LN{212}{6}
-\@LN{213}{6}
+\@LN{204}{5}
+\@LN{205}{5}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Longer inputs and controlled latency}{6}{subsection.3.6}\protected@file@percent }
+\newlabel{sec:length-latency}{{3.6}{6}{Longer inputs and controlled latency}{subsection.3.6}{}}
+\@LN{206}{5}
+\@LN{207}{5}
+\@LN{208}{5}
+\@LN{209}{5}
+\@LN{210}{5}
+\@LN{211}{5}
+\@LN{212}{5}
+\@LN{213}{5}
 \@LN{214}{6}
 \@LN{215}{6}
 \@LN{216}{6}
@@ -274,74 +265,79 @@
 \@LN{218}{6}
 \@LN{219}{6}
 \@LN{220}{6}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{7}{section.4}\protected@file@percent }
 \@LN{221}{6}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Corrected-data internal confusion fractions, normalised within true class. QLoRA matrices average the three refit count matrices before normalisation; performance metrics are means of separately scored runs. Class order and off-label counts are supplied in Supplementary Section S3.}}{8}{figure.1}\protected@file@percent }
-\newlabel{fig:corrected-confusion}{{1}{8}{Corrected-data internal confusion fractions, normalised within true class. QLoRA matrices average the three refit count matrices before normalisation; performance metrics are means of separately scored runs. Class order and off-label counts are supplied in Supplementary Section S3}{figure.1}{}}
-\@LN{222}{8}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Same-checkpoint longer-input results}{9}{subsection.4.3}\protected@file@percent }
-\newlabel{sec:long-results}{{4.3}{9}{Same-checkpoint longer-input results}{subsection.4.3}{}}
-\@LN{223}{8}
-\@LN{224}{8}
-\@LN{225}{8}
-\@LN{226}{8}
-\@LN{227}{8}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Macro-F1 change for 1,500 versus 500 characters, both with a 2,048-token cap. ``All'' includes 15,428 rows; $>500$ is the predefined 5,770-row cohort. QLoRA is the three-seed mean.}}{9}{table.5}\protected@file@percent }
-\newlabel{tab:long}{{5}{9}{Macro-F1 change for 1,500 versus 500 characters, both with a 2,048-token cap. ``All'' includes 15,428 rows; $>500$ is the predefined 5,770-row cohort. QLoRA is the three-seed mean}{table.5}{}}
-\@LN{228}{8}
-\@LN{229}{8}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Controlled inference cost and supplementary sensitivity}{9}{subsection.4.4}\protected@file@percent }
-\newlabel{sec:cost-results}{{4.4}{9}{Controlled inference cost and supplementary sensitivity}{subsection.4.4}{}}
-\@LN{230}{8}
-\@LN{231}{8}
-\@LN{232}{8}
-\@LN{233}{8}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Fresh-call end-to-end latency (seconds), 500 characters/512 tokens, RTX 5060 Ti. QLoRA mean averages the three variant means; paired intervals use within-ID repetition means.}}{9}{table.6}\protected@file@percent }
-\newlabel{tab:latency}{{6}{9}{Fresh-call end-to-end latency (seconds), 500 characters/512 tokens, RTX 5060 Ti. QLoRA mean averages the three variant means; paired intervals use within-ID repetition means}{table.6}{}}
-\@LN{234}{8}
-\@LN{235}{8}
-\@LN{236}{8}
-\@LN{237}{8}
-\@LN{238}{8}
-\@LN{239}{8}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{9}{section.5}\protected@file@percent }
-\newlabel{sec:discussion}{{5}{9}{Discussion}{section.5}{}}
-\@LN{240}{8}
-\@LN{241}{8}
-\@LN{242}{8}
-\@LN{243}{8}
-\@LN{244}{8}
-\@LN{245}{8}
-\@LN{246}{9}
-\@LN{247}{9}
-\@LN{248}{9}
-\@LN{249}{9}
-\@LN{250}{9}
-\@LN{251}{9}
-\@LN{252}{9}
-\@LN{253}{9}
-\@LN{254}{9}
-\@LN{255}{9}
-\@LN{256}{9}
-\@LN{257}{9}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations}{10}{section.6}\protected@file@percent }
-\newlabel{sec:limitations}{{6}{10}{Limitations}{section.6}{}}
-\@LN{258}{9}
-\@LN{259}{9}
-\@LN{260}{9}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Corrected-data model comparison}{7}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:main-results}{{4.1}{7}{Corrected-data model comparison}{subsection.4.1}{}}
+\@LN{222}{6}
+\@LN{223}{6}
+\@LN{224}{6}
+\@LN{225}{6}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Corrected-data internal test (15,428 rows). Macro-F1 brackets are 95\% paired-group intervals; SD is across three actual optimisation refits. Base systems have no adaptation rows. TF-IDF SD zero denotes deterministic checks. Full-data TF-IDF has a larger training budget.}}{7}{table.3}\protected@file@percent }
+\newlabel{tab:models}{{3}{7}{Corrected-data internal test (15,428 rows). Macro-F1 brackets are 95\% paired-group intervals; SD is across three actual optimisation refits. Base systems have no adaptation rows. TF-IDF SD zero denotes deterministic checks. Full-data TF-IDF has a larger training budget}{table.3}{}}
+\@LN{226}{6}
+\@LN{227}{6}
+\@LN{228}{6}
+\@LN{229}{6}
+\@LN{230}{6}
+\@LN{231}{6}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Internal macro-F1 paired differences, comparison minus reference. All intervals condition on fitted models. The final two rows are unequal-training-budget context.}}{8}{table.4}\protected@file@percent }
+\newlabel{tab:contrasts}{{4}{8}{Internal macro-F1 paired differences, comparison minus reference. All intervals condition on fitted models. The final two rows are unequal-training-budget context}{table.4}{}}
+\@LN{232}{7}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Legacy views, classes and output compliance}{8}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:legacy-errors}{{4.2}{8}{Legacy views, classes and output compliance}{subsection.4.2}{}}
+\@LN{233}{7}
+\@LN{234}{7}
+\@LN{235}{7}
+\@LN{236}{7}
+\@LN{237}{7}
+\@LN{238}{7}
+\@LN{239}{7}
+\@LN{240}{7}
+\@LN{241}{7}
+\@LN{242}{7}
+\@LN{243}{7}
+\@LN{244}{7}
+\@LN{245}{7}
+\@LN{246}{7}
+\@LN{247}{7}
+\@LN{248}{7}
+\@LN{249}{7}
+\@LN{250}{7}
+\@LN{251}{7}
+\@LN{252}{7}
+\@LN{253}{7}
+\@LN{254}{7}
+\@LN{255}{7}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Same-checkpoint longer-input results}{8}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:long-results}{{4.3}{8}{Same-checkpoint longer-input results}{subsection.4.3}{}}
+\@LN{256}{7}
+\@LN{257}{7}
+\@LN{258}{7}
+\@LN{259}{7}
+\@LN{260}{7}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Corrected-data internal confusion fractions, normalised within true class. QLoRA matrices average the three refit count matrices before normalisation; performance metrics are means of separately scored runs. Class order and off-label counts are supplied in Supplementary Section S3.}}{9}{figure.1}\protected@file@percent }
+\newlabel{fig:corrected-confusion}{{1}{9}{Corrected-data internal confusion fractions, normalised within true class. QLoRA matrices average the three refit count matrices before normalisation; performance metrics are means of separately scored runs. Class order and off-label counts are supplied in Supplementary Section S3}{figure.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Macro-F1 change for 1,500 versus 500 characters, both with a 2,048-token cap. ``All'' includes 15,428 rows; $>500$ is the predefined 5,770-row cohort. QLoRA is the three-seed mean.}}{10}{table.5}\protected@file@percent }
+\newlabel{tab:long}{{5}{10}{Macro-F1 change for 1,500 versus 500 characters, both with a 2,048-token cap. ``All'' includes 15,428 rows; $>500$ is the predefined 5,770-row cohort. QLoRA is the three-seed mean}{table.5}{}}
 \@LN{261}{9}
 \@LN{262}{9}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Controlled inference cost and supplementary sensitivity}{10}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:cost-results}{{4.4}{10}{Controlled inference cost and supplementary sensitivity}{subsection.4.4}{}}
 \@LN{263}{9}
 \@LN{264}{9}
 \@LN{265}{9}
 \@LN{266}{9}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Fresh-call end-to-end latency (seconds), 500 characters/512 tokens, RTX 5060 Ti. QLoRA mean averages the three variant means; paired intervals use within-ID repetition means.}}{10}{table.6}\protected@file@percent }
+\newlabel{tab:latency}{{6}{10}{Fresh-call end-to-end latency (seconds), 500 characters/512 tokens, RTX 5060 Ti. QLoRA mean averages the three variant means; paired intervals use within-ID repetition means}{table.6}{}}
 \@LN{267}{9}
 \@LN{268}{9}
 \@LN{269}{9}
 \@LN{270}{9}
 \@LN{271}{9}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{10}{section.7}\protected@file@percent }
-\newlabel{sec:conclusion}{{7}{10}{Conclusion}{section.7}{}}
 \@LN{272}{9}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{10}{section.5}\protected@file@percent }
+\newlabel{sec:discussion}{{5}{10}{Discussion}{section.5}{}}
 \@LN{273}{9}
 \@LN{274}{9}
 \@LN{275}{9}
@@ -351,22 +347,10 @@
 \@LN{279}{9}
 \@LN{280}{9}
 \@LN{281}{9}
-\bibcite{devlin2019bert}{{1}{}{{}}{{}}}
-\bibcite{sanh2019distilbert}{{2}{}{{}}{{}}}
-\bibcite{liu2019roberta}{{3}{}{{}}{{}}}
-\bibcite{sy2024beyondbert}{{4}{}{{}}{{}}}
-\bibcite{bozyigit2022foodcomplaints}{{5}{}{{}}{{}}}
-\bibcite{gewaly2024telecomcomplaint}{{6}{}{{}}{{}}}
-\bibcite{vairetti2024complaintpriority}{{7}{}{{}}{{}}}
-\bibcite{raju2022cfpbtopic}{{8}{}{{}}{{}}}
-\bibcite{das2024negative}{{9}{}{{}}{{}}}
-\bibcite{shin2025adoption}{{10}{}{{}}{{}}}
-\bibcite{liang2025widespread}{{11}{}{{}}{{}}}
-\bibcite{yuan2024framework}{{12}{}{{}}{{}}}
-\@LN{282}{10}
-\@LN{283}{10}
-\@LN{284}{10}
-\@LN{285}{10}
+\@LN{282}{9}
+\@LN{283}{9}
+\@LN{284}{9}
+\@LN{285}{9}
 \@LN{286}{10}
 \@LN{287}{10}
 \@LN{288}{10}
@@ -380,6 +364,8 @@
 \@LN{296}{10}
 \@LN{297}{10}
 \@LN{298}{10}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations}{11}{section.6}\protected@file@percent }
+\newlabel{sec:limitations}{{6}{11}{Limitations}{section.6}{}}
 \@LN{299}{10}
 \@LN{300}{10}
 \@LN{301}{10}
@@ -394,6 +380,8 @@
 \@LN{310}{10}
 \@LN{311}{10}
 \@LN{312}{10}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{11}{section.7}\protected@file@percent }
+\newlabel{sec:conclusion}{{7}{11}{Conclusion}{section.7}{}}
 \@LN{313}{10}
 \@LN{314}{10}
 \@LN{315}{10}
@@ -403,24 +391,20 @@
 \@LN{319}{10}
 \@LN{320}{10}
 \@LN{321}{10}
-\bibcite{li2025teleeval}{{13}{}{{}}{{}}}
-\bibcite{gullu2025complaintllm}{{14}{}{{}}{{}}}
-\bibcite{roumeliotis2025think}{{15}{}{{}}{{}}}
-\bibcite{hu2022lora}{{16}{}{{}}{{}}}
-\bibcite{dettmers2023qlora}{{17}{}{{}}{{}}}
-\bibcite{li2021prefix}{{18}{}{{}}{{}}}
-\bibcite{liu2022fewshot}{{19}{}{{}}{{}}}
-\bibcite{cfpbdata}{{20}{}{{}}{{}}}
-\bibcite{yang2025qwen3}{{21}{}{{}}{{}}}
-\bibcite{dubey2024llama}{{22}{}{{}}{{}}}
-\bibcite{paszke2019pytorch}{{23}{}{{}}{{}}}
-\bibcite{wolf2020transformers}{{24}{}{{}}{{}}}
-\bibcite{mangrulkar2022peft}{{25}{}{{}}{{}}}
-\bibcite{tiwari2021complaints}{{26}{}{{}}{{}}}
-\providecommand\NAT@force@numbers{}\NAT@force@numbers
-\@LN{322}{11}
-\@LN{323}{11}
-\@LN{324}{11}
+\@LN{322}{10}
+\@LN{323}{10}
+\@LN{324}{10}
+\bibcite{devlin2019bert}{{1}{}{{}}{{}}}
+\bibcite{sanh2019distilbert}{{2}{}{{}}{{}}}
+\bibcite{liu2019roberta}{{3}{}{{}}{{}}}
+\bibcite{sy2024beyondbert}{{4}{}{{}}{{}}}
+\bibcite{bozyigit2022foodcomplaints}{{5}{}{{}}{{}}}
+\bibcite{gewaly2024telecomcomplaint}{{6}{}{{}}{{}}}
+\bibcite{vairetti2024complaintpriority}{{7}{}{{}}{{}}}
+\bibcite{raju2022cfpbtopic}{{8}{}{{}}{{}}}
+\bibcite{das2024negative}{{9}{}{{}}{{}}}
+\bibcite{shin2025adoption}{{10}{}{{}}{{}}}
+\bibcite{liang2025widespread}{{11}{}{{}}{{}}}
 \@LN{325}{11}
 \@LN{326}{11}
 \@LN{327}{11}
@@ -448,4 +432,64 @@
 \@LN{349}{11}
 \@LN{350}{11}
 \@LN{351}{11}
-\gdef \@abspage@last{12}
+\@LN{352}{11}
+\@LN{353}{11}
+\@LN{354}{11}
+\@LN{355}{11}
+\@LN{356}{11}
+\@LN{357}{11}
+\@LN{358}{11}
+\@LN{359}{11}
+\@LN{360}{11}
+\@LN{361}{11}
+\bibcite{yuan2024framework}{{12}{}{{}}{{}}}
+\bibcite{li2025teleeval}{{13}{}{{}}{{}}}
+\bibcite{gullu2025complaintllm}{{14}{}{{}}{{}}}
+\bibcite{roumeliotis2025think}{{15}{}{{}}{{}}}
+\bibcite{hu2022lora}{{16}{}{{}}{{}}}
+\bibcite{dettmers2023qlora}{{17}{}{{}}{{}}}
+\bibcite{li2021prefix}{{18}{}{{}}{{}}}
+\bibcite{liu2022fewshot}{{19}{}{{}}{{}}}
+\bibcite{cfpbdata}{{20}{}{{}}{{}}}
+\bibcite{yang2025qwen3}{{21}{}{{}}{{}}}
+\bibcite{dubey2024llama}{{22}{}{{}}{{}}}
+\bibcite{paszke2019pytorch}{{23}{}{{}}{{}}}
+\bibcite{wolf2020transformers}{{24}{}{{}}{{}}}
+\bibcite{mangrulkar2022peft}{{25}{}{{}}{{}}}
+\bibcite{tiwari2021complaints}{{26}{}{{}}{{}}}
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
+\@LN{362}{12}
+\@LN{363}{12}
+\@LN{364}{12}
+\@LN{365}{12}
+\@LN{366}{12}
+\@LN{367}{12}
+\@LN{368}{12}
+\@LN{369}{12}
+\@LN{370}{12}
+\@LN{371}{12}
+\@LN{372}{12}
+\@LN{373}{12}
+\@LN{374}{12}
+\@LN{375}{12}
+\@LN{376}{12}
+\@LN{377}{12}
+\@LN{378}{12}
+\@LN{379}{12}
+\@LN{380}{12}
+\@LN{381}{12}
+\@LN{382}{12}
+\@LN{383}{12}
+\@LN{384}{12}
+\@LN{385}{12}
+\@LN{386}{12}
+\@LN{387}{12}
+\@LN{388}{12}
+\@LN{389}{12}
+\@LN{390}{12}
+\@LN{391}{12}
+\@LN{392}{12}
+\@LN{393}{12}
+\@LN{394}{12}
+\@LN{395}{12}
+\gdef \@abspage@last{13}

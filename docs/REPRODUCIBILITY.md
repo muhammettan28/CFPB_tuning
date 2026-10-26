@@ -15,11 +15,14 @@ and `analysis/ref14_encoder/`; sparse search records are under `experiments/`.
 
 ## Standalone CPU replay
 
-Follow the two commands in the root README. Replay verifies source hashes,
+Follow the commands in the root README. Replay verifies source hashes,
 recomputes complete tables from the saved predictions/timings, and compares
 numeric cells at absolute tolerance 1e-12, preserving row identities and order.
 It writes only a new output directory and does not fit/select models. The table
-audit independently checks model/condition/metric-specific cells. The original
+audit independently checks model/condition/metric-specific cells. The content
+check additionally reconstructs all four LLM confusion matrices from eight saved
+prediction files, verifies the restored historical Qwen selection conditions and
+checks the historical dataset descriptions on their original population. The original
 source data and earlier split files also remain available under `dataset/`.
 
 ## Historical paths and source identities

@@ -288,8 +288,8 @@ def write_final_crosswalk():
     final=project_path(PAPER, 'analysis/postprocessing/REVIEWER_COVERAGE_FINAL.json')
     final.write_text(json_text(report))
     md=['# Reviewer requests and final response locations','',
-        'This index refers to the completed revised documents. R1/R2 IDs are editorial tracking IDs, not original reviewer numbering. All original wording is retained below; the complete original text, including introductory comments, is in [the original extract](analysis/gpu_preparation/original_reviewer_comments.txt).','',
-        '[Full response letter](RESPONSE_TO_REVIEWERS.md) · [Machine-readable final coverage](analysis/postprocessing/REVIEWER_COVERAGE_FINAL.json)','',
+        'This index refers to the completed revised documents. R1/R2 IDs are editorial tracking IDs, not original reviewer numbering. All original wording is retained below; the complete original text, including introductory comments, is in [the original extract](../analysis/gpu_preparation/original_reviewer_comments.txt).','',
+        '[Full response letter](RESPONSE_TO_REVIEWERS.md) · [Machine-readable final coverage](../analysis/postprocessing/REVIEWER_COVERAGE_FINAL.json)','',
         'All planned experiments and the document audits are complete. Actual reviewer/public delivery and author approval remain submission steps. Unavailable pre-revision provenance is disclosed in the response and supplement; this index does not claim that it was recovered.']
     for r in records:
         md+=['', '## '+r['id'],'','> '+r['original_comment'],'',
@@ -323,7 +323,7 @@ def main():
         '',f'ODT SHA-256: `{report["source_sha256"]}`.', '',
         'R1/R2 IDs are our tracking IDs; the original comments were not numbered this way. `completed_cpu` closes only the stated sub-request; `prepared_pending_gpu` means results are not complete; `completed_gpu` requires the final validated GPU result report; `open` remains unresolved; `partial_historical_gap` means new identities are complete but historical identities remain missing. The final response lock protects completed prose from legacy regeneration.',
         '',f'Coverage: {len(r1)} R1 comments, {len(r2)} R2 request units, {report["subrequests"]} sub-requests. Introductory praise and the major-revision recommendation are preserved in the extracted source but are not action items.',
-        '', '[Full extracted original text](analysis/gpu_preparation/original_reviewer_comments.txt) · [Machine-readable audit](analysis/gpu_preparation/reviewer_comment_coverage.json) · [Response draft](RESPONSE_TO_REVIEWERS.md)']
+        '', '[Full extracted original text](../analysis/gpu_preparation/original_reviewer_comments.txt) · [Machine-readable audit](analysis/gpu_preparation/reviewer_comment_coverage.json) · [Response draft](RESPONSE_TO_REVIEWERS.md)']
     for record in records:
         md+=['',f'## {record["id"]}','', '> '+record['original_comment'],'',
              '| Sub-request | Status | Evidence | Remaining work / limitation |','| --- | --- | --- | --- |']

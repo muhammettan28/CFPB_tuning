@@ -32,13 +32,14 @@ From the repository root, using a fresh virtual environment:
 python -m pip install -r scripts/revision/requirements-cpu-revision.txt
 CUDA_VISIBLE_DEVICES='' python scripts/revision/replay_reviewer_results.py --output /tmp/cfpb-review-replay
 python scripts/revision/audit_document_rows.py --output /tmp/cfpb-review-table-cells.json
+python scripts/revision/verify_restored_document_content.py --output /tmp/cfpb-review-content.json
 ```
 
 The replay output directory must not already exist. No neural weights, local
 model registry, GPU, original-paper directory or source ODT is needed. Replay
 verifies 404 source hashes and recomputes eight complete result tables, including
-10,000-draw paired intervals. The table audit checks 35 table fragments, 540 rows
-and 3,475 cells against their corresponding evidence.
+10,000-draw paired intervals. The table audit checks 36 table fragments, 546 rows
+and 3,517 cells against their corresponding evidence.
 
 Neural weights, optimizer states, downloaded models and runtime caches stay local;
 predictions, numeric results, settings, validation search records and recorded

@@ -130,3 +130,4 @@
 !/revision_v1/truncation_pair_manifest.csv
 !/revision_v1/validation_2000_manifest.csv
 !/revision_v1/validation_manifest.csv
+!/postprocessing/RESTORED_CONTENT_VALIDATION.json

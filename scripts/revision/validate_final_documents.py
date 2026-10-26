@@ -35,6 +35,10 @@ def main():
     subprocess.run([sys.executable,str(project_path(PAPER, 'scripts/audit_document_rows.py')),
                     '--output',str(keyed_report)],check=True)
     keyed=read(keyed_report);assert keyed['passed']
+    restored_report=OUT/'RESTORED_CONTENT_VALIDATION.json'
+    subprocess.run([sys.executable,str(project_path(PAPER, 'scripts/verify_restored_document_content.py')),
+                    '--output',str(restored_report)],check=True)
+    restored=read(restored_report);assert restored['passed']
     metrics=pd.read_csv(project_path(PAPER, 'analysis/gpu_execution/corrected_model_metrics.csv'))
     contrasts=pd.read_csv(project_path(PAPER, 'analysis/gpu_execution/corrected_paired_contrasts.csv'))
     main=(project_path(PAPER, 'manuscript.tex')).read_text();sup=(project_path(PAPER, 'supplementary_material.tex')).read_text()
@@ -83,6 +87,9 @@ def main():
     report['keyed_cells_checked']=keyed['total_cells']
     report['wrong_row_negative_controls_passed']=keyed['row_swap_and_wrong_value_negative_controls_passed']
     report['pdf_copyable_ascii_replay_command_checked']=True
+    report['historical_selection_conditions_checked']=restored['historical_selection_conditions_checked']
+    report['restored_error_narrative_checked_against_raw_predictions']=True
+    report['original_introduction_opening_preserved']=True
     (OUT/'CROSS_DOCUMENT_VALIDATION.json').write_text(json.dumps(report,indent=2)+'\n')
     print('PASS: frozen evidence,',len(protected),'originals,',len(locations['references']),'locations, numerical/source/PDF checks')
 if __name__=='__main__':main()

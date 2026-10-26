@@ -175,10 +175,15 @@
       "table": "sup:historical-pairs",
       "rows": 4,
       "cells": 24
+    },
+    {
+      "table": "sup:historical-selection",
+      "rows": 6,
+      "cells": 42
     }
   ],
-  "total_rows": 540,
-  "total_cells": 3475,
+  "total_rows": 546,
+  "total_cells": 3517,
   "row_swap_and_wrong_value_negative_controls_passed": true,
   "supplement_table_labels": [
     "sup:data",
@@ -221,11 +226,12 @@
     "sup:artifact-map",
     "sup:protocol-hashes",
     "sup:historical-internal",
-    "sup:historical-ci"
+    "sup:historical-ci",
+    "sup:historical-selection"
   ],
   "documents_sha256": {
-    "manuscript.tex": "882b02d403ab583e9bd77745ba7a9d07bc47cd4278f5f39245526250a99b714e",
-    "supplementary_material.tex": "5bd1365a882a39a18baf898c86abb42893238dee866c9d4d4b27acfe2f4a7698"
+    "manuscript.tex": "b930cca96419606c38243d9667a1540b63d639cda1022f9a087cd2741a719339",
+    "supplementary_material.tex": "77d7628fd27d1b3f1befd20b34149f6e86576da663cbc6eda11b093611b9b509"
   },
   "scope": "Result/selection/count matrices checked cell by cell; narrative and static implementation tables require the separate source/reading audit."
 }

@@ -5,14 +5,14 @@
       "kind": "Section",
       "label": "sec:statistics",
       "number": "3.5",
-      "page": 5
+      "page": 6
     },
     {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:legacy-errors",
       "number": "4.2",
-      "page": 7
+      "page": 8
     },
     {
       "document": "supplementary_material",
@@ -47,7 +47,7 @@
       "kind": "Section",
       "label": "sec:revised-data",
       "number": "3.2",
-      "page": 3
+      "page": 4
     },
     {
       "document": "manuscript",
@@ -89,14 +89,14 @@
       "kind": "Section",
       "label": "sec:revised-data",
       "number": "3.2",
-      "page": 3
+      "page": 4
     },
     {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 10
+      "page": 11
     },
     {
       "document": "supplementary_material",
@@ -124,7 +124,7 @@
       "kind": "Section",
       "label": "sec:llm",
       "number": "3.3",
-      "page": 4
+      "page": 5
     },
     {
       "document": "supplementary_material",
@@ -173,7 +173,7 @@
       "kind": "Table",
       "label": "tab:contrasts",
       "number": "4",
-      "page": 7
+      "page": 8
     },
     {
       "document": "supplementary_material",
@@ -208,7 +208,7 @@
       "kind": "Section",
       "label": "sec:statistics",
       "number": "3.5",
-      "page": 5
+      "page": 6
     },
     {
       "document": "manuscript",
@@ -222,7 +222,7 @@
       "kind": "Table",
       "label": "tab:contrasts",
       "number": "4",
-      "page": 7
+      "page": 8
     },
     {
       "document": "supplementary_material",
@@ -271,14 +271,14 @@
       "kind": "Section",
       "label": "sec:discussion",
       "number": "5",
-      "page": 9
+      "page": 10
     },
     {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 10
+      "page": 11
     },
     {
       "document": "supplementary_material",
@@ -299,21 +299,21 @@
       "kind": "Table",
       "label": "tab:long",
       "number": "5",
-      "page": 9
+      "page": 10
     },
     {
       "document": "manuscript",
       "kind": "Table",
       "label": "tab:latency",
       "number": "6",
-      "page": 9
+      "page": 10
     },
     {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 10
+      "page": 11
     },
     {
       "document": "supplementary_material",
@@ -362,7 +362,7 @@
       "kind": "Section",
       "label": "sec:discussion",
       "number": "5",
-      "page": 9
+      "page": 10
     },
     {
       "document": "supplementary_material",
@@ -383,7 +383,7 @@
       "kind": "Section",
       "label": "sec:statistics",
       "number": "3.5",
-      "page": 5
+      "page": 6
     },
     {
       "document": "supplementary_material",
@@ -397,7 +397,7 @@
       "kind": "Section",
       "label": "sec:llm",
       "number": "3.3",
-      "page": 4
+      "page": 5
     },
     {
       "document": "manuscript",
@@ -411,7 +411,7 @@
       "kind": "Table",
       "label": "tab:long",
       "number": "5",
-      "page": 9
+      "page": 10
     },
     {
       "document": "supplementary_material",
@@ -428,11 +428,18 @@
       "page": 16
     },
     {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:historical-selection",
+      "number": "S34",
+      "page": 19
+    },
+    {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:statistics",
       "number": "3.5",
-      "page": 5
+      "page": 6
     },
     {
       "document": "supplementary_material",
@@ -460,28 +467,28 @@
       "kind": "Section",
       "label": "sec:llm",
       "number": "3.3",
-      "page": 4
+      "page": 5
     },
     {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:long-results",
       "number": "4.3",
-      "page": 9
+      "page": 8
     },
     {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:cost-results",
       "number": "4.4",
-      "page": 9
+      "page": 10
     },
     {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 10
+      "page": 11
     },
     {
       "document": "supplementary_material",
@@ -509,28 +516,28 @@
       "kind": "Table",
       "label": "tab:contrasts",
       "number": "4",
-      "page": 7
+      "page": 8
     },
     {
       "document": "manuscript",
       "kind": "Table",
       "label": "tab:latency",
       "number": "6",
-      "page": 9
+      "page": 10
     },
     {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:discussion",
       "number": "5",
-      "page": 9
+      "page": 10
     },
     {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:conclusion",
       "number": "7",
-      "page": 10
+      "page": 11
     },
     {
       "document": "supplementary_material",
@@ -551,12 +558,12 @@
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 10
+      "page": 11
     }
   ],
   "source_sha256": {
-    "manuscript": "4e17aa4f31dbe423028913a21539cf5f1450956ee276dd110db291b8e8d8e82d",
-    "supplementary_material": "9a7f9d2a4e817d1a4fdf6d6c630e27f7b68c710dfbf6a630529968e264bc7da8"
+    "manuscript": "833f33cf7a37577df324602ce7c87becff94d965b28453a635b9b92ac3f8ee21",
+    "supplementary_material": "d696a3be56bc63b42d5a8ceacd6251aabe794a9e8fe791cfc6dff7aef697253e"
   },
   "units": 15,
   "original_requests_quoted": true

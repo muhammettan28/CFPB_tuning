@@ -14,6 +14,7 @@ from sklearn.metrics import accuracy_score, f1_score
 from revision_gpu_common import PAPER, DATA, EXP, LABELS, sha_file, load_frame
 from analyze_corrected_gpu_results import targets
 from analyze_ref14_baselines import predictions
+from restored_content_evidence import historical_protocol_rows
 
 NAMES = dict(qwen_base='Qwen3 base', qwen_ft='Qwen3 QLoRA', llama_base='Llama 3.1 base',
              llama_ft='Llama 3.1 QLoRA', bert='BERT', distilbert='DistilBERT', roberta='RoBERTa',
@@ -148,6 +149,7 @@ def main():
     check('sup:historical-strata',rows)
     old=pd.read_csv(project_path(PAPER, 'analysis/revision_v1/paired_truncation_metrics.csv'))
     check('sup:historical-pairs', [[r.model,'Base' if r.variant=='base_zero_shot' else 'FT mean',r.unique_pairs,f(r.short_point),f(r.long_point),interval(r.gain,r.gain_low,r.gain_high)] for r in old.loc[old.cohort.eq('changed_input_only')&old.metric.eq('macro_f1')].itertuples()])
+    check('sup:historical-selection', [[r['condition'],r['sampling'],f"{r['learning_rate']:.0e}",r['rank'],r['epochs'],f(r['macro_f1']),f(r['debt_f1'])] for r in historical_protocol_rows()])
     # Guard the checker itself: row swaps must fail even if all numbers are present.
     probe=[['A','0.1'],['B','0.2']]
     for bad in [probe[::-1],[['A','0.2'],['B','0.1']]]:

@@ -8,6 +8,7 @@ import numpy as np
 from sklearn.metrics import accuracy_score,f1_score
 from finalize_revision_documents import OUT,NAMES,CLASS_NAMES,esc,f,ci,row,metric_frame
 from revision_gpu_common import PAPER,ROOT,DATA,EXP,LABELS,load_frame,sha_file
+from restored_content_evidence import historical_protocol_rows
 
 
 def read(path):return json.loads(Path(path).read_text())
@@ -40,7 +41,7 @@ def main():
 \begin{document}
 \begin{center}{\Large\bfseries Supplementary material}\\[5pt]
 {\large QLoRA Fine-Tuning for Consumer Complaint Classification}\\[5pt]
-Experiments completed: 24 October 2026; document audit: 25 October 2026
+Experiments completed: 24 October 2026; document audit: 26 October 2026
 \end{center}
 This supplement reports the completed corrected-data study and its predeclared reference-parameter sensitivity. Numbers are derived from saved predictions and validation artifacts; no new training or test-based model selection was performed during document preparation. Historical evidence is explicitly identified. The separate reproducibility archive supplies machine-readable files; external reviewer/public access remains an author submission task.
 \tableofcontents
@@ -48,6 +49,8 @@ This supplement reports the completed corrected-data study and its predeclared r
 ''']
     lines += [section('Data provenance, fixed selections and visible-input checks','sup:data'),r'''
 The local source ZIP has 162,421 rows; the working file retains its first 162,415 rows identically. The six absent trailing records have the placeholder narrative \texttt{name}. Ten records with missing required fields are removed, leaving 162,405 usable rows. The earlier 8,123-row legacy-related exclusion produces the original 154,282-row partitioning pool. Quarantine subsequently removes 2,925 train and 307 validation rows while preserving evaluation. These operations document the local archive, not the unavailable original CFPB-to-Kaggle preprocessing or product aggregation.
+
+The earlier exclusion records comprise 4,990 exact normalised-text matches, 3,096 250-character prefix matches, 23 additional narrative-group members and 14 cross-label prefix matches. These are the recorded historical removal reasons; the separate model-visible audit motivated the subsequent quarantine.
 
 Labels are inherited by identity. Their code order is retail\_banking, credit\_reporting, credit\_card, mortgages\_and\_loans, debt\_collection. Connected components use full normalisation, 500-character and reconstructed tokenizer representations, with a conservative 250-character legacy prefix guard. They represent text dependencies, not verified complaint IDs. No semantic/paraphrase independence guarantee follows.
 ''']
@@ -287,6 +290,20 @@ Archived runs used the original allocation and selected data that varied with se
 \input{tables/table_revision_archived_ci.tex}\end{tabular}\end{table}
 
 The internal historical sensitivity removes whole components touching original training or validation, leaving 14,826 of 15,428 rows. The conservative legacy sensitivity leaves 11,986 of 12,000 appearances. These post-hoc filters cannot undo training/model selection and are not substitutes for the corrected-data experiment. The final full-data sparse macro-F1 of 0.8476 is independently recalculated from the retained predictions; implementation-audit details remain in the machine-readable evidence.
+''']
+    lines += [r'''
+\subsection{Origin of the transferred QLoRA protocol}
+Qwen3-8B was the primary model in the earlier, limited validation-based protocol selection. The six archived conditions below reproduce the original selection record. They compare natural/balanced sampling, two learning rates, ranks 8/16 and one/two epochs; this was not an exhaustive hyperparameter search. Natural sampling with two epochs, learning rate $2\times10^{-4}$ and rank 16 had the highest reported validation macro-F1. The same selected settings were then applied to Llama without separate family-specific optimisation and were retained for the corrected-data refits.
+
+These validation scores precede model-visible quarantine. They document the origin of the fixed configuration, not a new corrected-data validation search, an independent test result, or evidence of optimality. They are excluded from the corrected-data model ranking. Run identities and source hashes remain available in the archived search and second-stage CSVs.
+''']
+    historical=historical_protocol_rows()
+    lines += [table('Earlier Qwen validation conditions underlying the transferred protocol. Scores are historical, before model-visible quarantine; they are not corrected-data results.',
+        'sup:historical-selection',['Condition','Sampling','LR','Rank','Epochs','Macro-F1','Debt F1'],
+        [[r['condition'],r['sampling'],f"{r['learning_rate']:.0e}",r['rank'],r['epochs'],f(r['macro_f1']),f(r['debt_f1'])] for r in historical],
+        'llrrrrr')]
+    lines += [r'''
+For continuity with the original dataset description, the historical 154,282-row pool contained 85,537 credit-reporting records (55.44\%), 22,503 debt-collection records (14.59\%), 18,367 mortgage/loan records (11.90\%), 14,943 card records (9.69\%) and 12,932 banking records (8.38\%). Its median narrative length was 365 characters and its 90th percentile was 1,261; 63.01\% fit within 500 characters. These statistics use the pre-quarantine partitioning pool. The 63.98\% coverage in the main text instead describes all 162,405 usable source records. Current retained/selected class counts are in Table~\ref{sup:classes}; the populations must not be interchanged.
 
 \subsection{Validation scope}
 The completed main-study audit checks all 88 GPU stages, actual fitting memberships, the three independently rescored encoder searches, 19 main variants in both views, all same-checkpoint length and controlled-latency files, and 107 protected originals. The reference audit checks all 12 extra stages, six actual refits, six reload parity tests and independent point metrics. Small hardware/API smoke fits (32 train/8 validation; two optimiser steps) are excluded from scientific results. Frozen prediction checks and tests support the reported computations, but do not establish prospective generalisation, semantic independence, an optimal prompt/budget, operational acceptability or regulatory readiness. The readable documents and local archive require final author review and actual reviewer-access arrangements before submission.

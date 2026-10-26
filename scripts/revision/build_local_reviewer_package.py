@@ -4,6 +4,8 @@ from project_paths import project_path
 import argparse
 import hashlib
 import json
+import re
+import subprocess
 import zipfile
 from pathlib import Path
 
@@ -51,6 +53,7 @@ sha256sum -c MANIFEST.sha256
 python -m pip install -r scripts/revision/requirements-cpu-revision.txt
 CUDA_VISIBLE_DEVICES='' python scripts/revision/replay_reviewer_results.py --output /tmp/cfpb-review-replay
 python scripts/revision/audit_document_rows.py --output /tmp/cfpb-review-table-cells.json
+python scripts/revision/verify_restored_document_content.py --output /tmp/cfpb-review-content.json
 ```
 
 The replay output directory must not exist. Replay checks 404 source hashes and
@@ -78,6 +81,14 @@ author approval are separate submission steps. No upload or message is claimed.
 The package's own SHA-256 and final delivery-readiness receipt are stored outside
 this ZIP to avoid self-referencing hashes. Cleanup date: 26 October 2026.
 """
+    pages={stem:int(re.search(r'Pages:\s+(\d+)',subprocess.check_output(
+        ['pdfinfo',str(ROOT/'REVISION_PAPER'/f'{stem}.pdf')],text=True)).group(1))
+        for stem in ['manuscript','supplementary_material','response_to_reviewers']}
+    supplement_tables=len(re.findall(r'\\begin\{(?:longtable|table)\}',(ROOT/'REVISION_PAPER/supplementary_material.tex').read_text()))
+    # Derive publication sizes from the current PDFs instead of retaining draft counts.
+    readme=readme.replace('(12 pages)',f"({pages['manuscript']} pages)")
+    readme=readme.replace('33 tables (19 pages)',f"{supplement_tables} tables ({pages['supplementary_material']} pages)")
+    readme=readme.replace('(7 pages)',f"({pages['response_to_reviewers']} pages)")
     (DEST/'README.md').write_text(readme)
     files=set()
     retired={'GPU_RUN_STATUS.md','REF14_BASELINE_STATUS.md','AUTO_POSTPROCESS_STATUS.md',
@@ -170,6 +181,7 @@ this ZIP to avoid self-referencing hashes. Cleanup date: 26 October 2026.
             add(post/name)
         add(post/'KEYED_TABLE_VALIDATION.json')
         add(post/'REVIEWER_COVERAGE_FINAL.json')
+        add(post/'RESTORED_CONTENT_VALIDATION.json')
     members={str(p.relative_to(ROOT)):p for p in sorted(files)}
     manifest={name:file_sha(path) for name,path in members.items()}
     members.pop('README.md',None)

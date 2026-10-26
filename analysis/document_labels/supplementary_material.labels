@@ -279,5 +279,16 @@
 \newlabel{sup:historical-internal}{{S32}{18}{Historical internal results, trained before quarantine. FT is mean plus/minus sample SD; these are not corrected-data scores}{table.32}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S33}{\ignorespaces Historical point/interval reconciliation. These observed points share the archived estimator, without asserting that old training exposure is repaired.}}{18}{table.33}\protected@file@percent }
 \newlabel{sup:historical-ci}{{S33}{18}{Historical point/interval reconciliation. These observed points share the archived estimator, without asserting that old training exposure is repaired}{table.33}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {S8.3}Validation scope}{19}{subsection.8.3}\protected@file@percent }
+\gdef \LT@xxx {\LT@entry 
+    {4}{75.05156pt}\LT@entry 
+    {1}{45.51402pt}\LT@entry 
+    {4}{29.07283pt}\LT@entry 
+    {1}{29.45401pt}\LT@entry 
+    {1}{37.2141pt}\LT@entry 
+    {1}{47.20277pt}\LT@entry 
+    {1}{37.6613pt}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {S8.3}Origin of the transferred QLoRA protocol}{19}{subsection.8.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {S34}{Earlier Qwen validation conditions underlying the transferred protocol. Scores are historical, before model-visible quarantine; they are not corrected-data results.}}{19}{table.34}\protected@file@percent }
+\newlabel{sup:historical-selection}{{S34}{19}{Earlier Qwen validation conditions underlying the transferred protocol. Scores are historical, before model-visible quarantine; they are not corrected-data results}{table.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {S8.4}Validation scope}{19}{subsection.8.4}\protected@file@percent }
 \gdef \@abspage@last{19}
