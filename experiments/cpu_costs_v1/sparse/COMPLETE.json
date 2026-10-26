@@ -1,0 +1,8 @@
+{
+  "completed": true,
+  "cpu_only": true,
+  "part": "sparse",
+  "records": 600,
+  "script_sha256": "dd122ad75ff23b89ef7ee66e65911f411e7d285608423e3551f5e992adfcdccc",
+  "record_sha256": "23efd82d572a79d0b3a848cf07cd0529dbf77da9d3218bb22e52a23cafef22e0"
+}

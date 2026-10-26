@@ -1,0 +1,9 @@
+{
+  "dataset/revision_v1/internal_test.csv": "720aa95f8bbb730c0db33c9761e56a8d7ecf61444cd363839483ec7a6ba8b747",
+  "dataset/revision_v1/validation_2000.csv": "0c075284a7090e05b20165f161b41f40e5a3fdd8cd7591ce1dec0c72d9bff2d6",
+  "analysis/gpu_preparation/latency_sample_manifest.csv": "71d853d29f0158fcafca509527ad32214e3b7eab46911b7522cd731055bba0f2",
+  "analysis/gpu_preparation/latency_warmup_manifest.csv": "024b5d2fcda9dd06dbed710f6dd0676232c991ca6edd9baa7cbf3b1a53914332",
+  "experiments/gpu_revision_v1/encoder/bert/seed_42/model/model.safetensors": "cb1dcb602005152742161351caf3df46d2a3230096e9056beed1901bfc503f33",
+  "experiments/gpu_revision_v1/encoder/distilbert/seed_42/model/model.safetensors": "1f9db1939b7154affd58697b028e9cf5851b8c316174c4555f718ea4b3cb45b6",
+  "experiments/gpu_revision_v1/encoder/roberta/seed_42/model/model.safetensors": "1b822139cc91b0844ae992af0fe44c26c601628f286af2f789b57ee82c9c0183"
+}

@@ -1,0 +1,101 @@
+{
+  "base_comparisons": [
+    {
+      "model": "qwen",
+      "rows": 15428,
+      "identical_record_ids_and_labels": true,
+      "auxiliary_base_macro_f1": 0.6294270491763002,
+      "primary_base_macro_f1": 0.6295281946417624,
+      "differing_predictions": 15,
+      "auxiliary_debt_to_reporting": 1235,
+      "primary_debt_to_reporting": 1232,
+      "auxiliary_banking_to_card": 561,
+      "primary_banking_to_card": 562,
+      "sources": [
+        {
+          "path": "experiment_archive/outputs/qwen3_8b_final_eval_base_zero_shot_5989218_0/internal_test/predictions.csv",
+          "sha256": "eaed22156ce80ccd6b6744e3406ae1427f5c9c1bcecd18f1b802dcb7daec588a"
+        },
+        {
+          "path": "experiments/gpu_revision_v1/evaluation/evaluate/qwen/base/suite/internal_test_predictions.csv.gz",
+          "sha256": "979780a87154380a45b47660146e0a84871ece8ba1dad23a87b3e07f6a901837"
+        }
+      ]
+    },
+    {
+      "model": "llama",
+      "rows": 15428,
+      "identical_record_ids_and_labels": true,
+      "auxiliary_base_macro_f1": 0.6189009626894825,
+      "primary_base_macro_f1": 0.6246792424955949,
+      "differing_predictions": 1102,
+      "auxiliary_debt_to_reporting": 1401,
+      "primary_debt_to_reporting": 1167,
+      "auxiliary_banking_to_card": 333,
+      "primary_banking_to_card": 263,
+      "sources": [
+        {
+          "path": "experiment_archive/outputs/llama31_8b_final_eval_base_zero_shot_6001316_0/internal_test/predictions.csv",
+          "sha256": "8f111a7159f9d3ecbf2174a6f7fc367ec4981befb694b229e8a68eb4b7367562"
+        },
+        {
+          "path": "experiments/gpu_revision_v1/evaluation/evaluate/llama/base/suite/internal_test_predictions.csv.gz",
+          "sha256": "46694c3f9eb8592ad326bb696488c99d0d7976abcd3bc0074c1edae584734ce9"
+        }
+      ]
+    }
+  ],
+  "adapted_comparisons": [
+    {
+      "model": "qwen",
+      "auxiliary_point": 0.8350411930366824,
+      "primary_point": 0.8330575361647293,
+      "difference": -0.001983656871953121
+    },
+    {
+      "model": "llama",
+      "auxiliary_point": 0.8378444376360955,
+      "primary_point": 0.8401540683378957,
+      "difference": 0.002309630701800236
+    }
+  ],
+  "filtered_auxiliary_results": [
+    {
+      "model": "Qwen3-8B",
+      "analysis": "internal_conservative_clean",
+      "metric": "macro_f1",
+      "rows": 14826,
+      "groups": 11892,
+      "bootstrap_replicates": 10000,
+      "base_point": 0.6290451319743366,
+      "base_low": 0.6178895224514617,
+      "base_high": 0.6400501241009421,
+      "ft_seed_mean_point": 0.8353029153573669,
+      "ft_low": 0.826471380828623,
+      "ft_high": 0.8429905022997013,
+      "paired_gain_point": 0.2062577833830302,
+      "gain_low": 0.1958706405336338,
+      "gain_high": 0.2164267286707906,
+      "ft_seed_sd_ddof1": 0.0015162053577265
+    },
+    {
+      "model": "Llama-3.1-8B",
+      "analysis": "internal_conservative_clean",
+      "metric": "macro_f1",
+      "rows": 14826,
+      "groups": 11892,
+      "bootstrap_replicates": 10000,
+      "base_point": 0.6190146523535304,
+      "base_low": 0.6082077675575459,
+      "base_high": 0.6295405363034289,
+      "ft_seed_mean_point": 0.8381396211067734,
+      "ft_low": 0.8293602459833138,
+      "ft_high": 0.8460511708833217,
+      "paired_gain_point": 0.219124968753243,
+      "gain_low": 0.2094362061803256,
+      "gain_high": 0.2289465827196235,
+      "ft_seed_sd_ddof1": 0.0025521048595029
+    }
+  ],
+  "interpretation": "Descriptive cross-implementation differences; membership, serialization, artifact identities and hardware are not held fixed. This is not a causal overlap-removal ablation."
+}

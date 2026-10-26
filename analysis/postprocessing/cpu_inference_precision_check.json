@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "sample_rows": 100,
+  "cpu_fp32_vs_saved_gpu_fp16_prediction_differences": {
+    "bert": 0,
+    "distilbert": 0,
+    "roberta": 0
+  },
+  "scope": "Descriptive CPU timing uses seed-42 checkpoints and does not replace primary GPU-scored metrics."
+}

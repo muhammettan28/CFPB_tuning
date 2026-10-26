@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "neural_inference_performed": false,
+  "scope": "Reconstruction of the two source-code tokenisation paths with the primary pinned tokenizers; unavailable auxiliary upstream model identity is not reconstructed. This is not an accuracy ablation.",
+  "paths": [
+    {
+      "model": "qwen",
+      "pinned_commit": "b968826d9c46dd6066d109eabc6255188de91218",
+      "default_token_count": 94,
+      "explicit_token_count": 94,
+      "bos_token_id": null,
+      "default_leading_bos": 0,
+      "explicit_leading_bos": 0,
+      "identical_token_ids": true
+    },
+    {
+      "model": "llama",
+      "pinned_commit": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "default_token_count": 113,
+      "explicit_token_count": 112,
+      "bos_token_id": 128000,
+      "default_leading_bos": 2,
+      "explicit_leading_bos": 1,
+      "identical_token_ids": false
+    }
+  ],
+  "code_sources": {
+    "scripts/evaluate_adapter.py": "c41fde404c832c5e3cf1ef5d0654adf59b4ea3a381b596c9ed1b5682272774a7",
+    "scripts/revision/revision_gpu_common.py": "239916b15316dc1453c0760183c8af9c36f32956a03bfedc6fead8820d21cb74"
+  }
+}

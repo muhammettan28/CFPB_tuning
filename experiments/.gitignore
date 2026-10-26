@@ -2018,3 +2018,7 @@
 !/tfidf_revision_v1/budget_full/selected_vectorizer.joblib
 !/tfidf_revision_v1/budget_full/validation_search.csv
 !/tfidf_revision_v1/environment.json
+
+# Fixed-configuration CPU timing evidence; no neural weights.
+!/cpu_costs_v1/**/*.csv
+!/cpu_costs_v1/**/*.json

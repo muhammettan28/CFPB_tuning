@@ -1,0 +1,8 @@
+{
+  "completed": true,
+  "cpu_only": true,
+  "part": "encoders",
+  "records": 900,
+  "script_sha256": "dd122ad75ff23b89ef7ee66e65911f411e7d285608423e3551f5e992adfcdccc",
+  "record_sha256": "3719bdf1095b6fb39493cffa516a1c9105f468a079a5038aced5e65015a5bd88"
+}

@@ -1,44 +1,37 @@
 {
   "passed": true,
   "date": "2026-10-26",
-  "pages": 7,
+  "pages": 8,
   "request_units": 15,
-  "compiled_location_references": 80,
+  "compiled_location_references": 88,
   "exact_original_quotes_checked": true,
   "all_pages_rendered": true,
   "all_page_contact_sheets_visually_inspected": true,
   "detailed_pages_inspected": [
     1,
     2,
-    7
+    5,
+    8
   ],
   "no_out_of_page_words": true,
   "no_overfull_boxes": true,
   "no_undefined_references_or_citations": true,
   "external_access_open_explicit": false,
   "artifacts_sha256": {
-    "RESPONSE_TO_REVIEWERS.md": "ceb5b2ffe2ad0e0fa54795dc8919166faf124dfe5c0bb30332b838a6a927fb64",
-    "response_to_reviewers.tex": "208073898a534f2005fc1cc7cfa41265fe28e52c83b5a38e20d2eb5a100101a9",
-    "response_to_reviewers.pdf": "74752a1c9b6e19a5609e57c2ff9ecf2fe82acc74c9c692a86974f3237cc83bb2"
+    "RESPONSE_TO_REVIEWERS.md": "a66f3a08f9665a53bd19327c2b3180c522096fbf3a8f6369b6e77909849a97a6",
+    "response_to_reviewers.tex": "06c09014110fa019da687cc67726c37a85036b177ea7f6a33206854c2db39f1b",
+    "response_to_reviewers.pdf": "693ed2c83d170a16494a93490b578b804d5366177789e0891c0b5f1924ee1813"
   },
   "no_undefined_citations_or_references": true,
   "page_bounds_checked": true,
-  "rendered_evidence_directory": ".build/revision_paper/qa_public_access/response_to_reviewers",
+  "rendered_evidence_directory": ".build/revision_paper/qa_claude_feedback/response_to_reviewers",
   "content_restoration_completed": true,
-  "response_tex_sha256": "208073898a534f2005fc1cc7cfa41265fe28e52c83b5a38e20d2eb5a100101a9",
-  "response_pdf_sha256": "74752a1c9b6e19a5609e57c2ff9ecf2fe82acc74c9c692a86974f3237cc83bb2",
+  "response_tex_sha256": "06c09014110fa019da687cc67726c37a85036b177ea7f6a33206854c2db39f1b",
+  "response_pdf_sha256": "693ed2c83d170a16494a93490b578b804d5366177789e0891c0b5f1924ee1813",
   "standalone_publication_narrative_checked": true,
   "all_changed_pages_visually_checked": true,
   "internal_workflow_notes_absent": true,
   "public_repository_hyperlink_present": true,
-  "visually_reviewed_changed_pages": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7
-  ],
-  "unchanged_pages_visual_qa_carried_forward": []
+  "claude_feedback_document_review_completed": true,
+  "first_reviewer_probability_math_typesetting_checked": true
 }

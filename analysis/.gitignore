@@ -131,3 +131,14 @@
 !/revision_v1/validation_2000_manifest.csv
 !/revision_v1/validation_manifest.csv
 !/postprocessing/RESTORED_CONTENT_VALIDATION.json
+
+# Additional paired comparisons and directly recorded computational costs.
+!/postprocessing/qlora_encoder_contrasts.csv
+!/postprocessing/computational_costs.csv
+!/postprocessing/cpu_latency_summary.csv
+!/postprocessing/training_runtime_evidence.json
+!/postprocessing/training_search_runtime_evidence.json
+!/postprocessing/protocol_comparison_evidence.json
+!/postprocessing/tokenization_path_audit.json
+!/postprocessing/cpu_inference_precision_check.json
+!/postprocessing/COMPARISON_EXTENSION_VALIDATION.json

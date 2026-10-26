@@ -1,0 +1,14 @@
+{
+  "dataset/revision_v1/internal_test.csv": "720aa95f8bbb730c0db33c9761e56a8d7ecf61444cd363839483ec7a6ba8b747",
+  "dataset/revision_v1/validation_2000.csv": "0c075284a7090e05b20165f161b41f40e5a3fdd8cd7591ce1dec0c72d9bff2d6",
+  "analysis/gpu_preparation/latency_sample_manifest.csv": "71d853d29f0158fcafca509527ad32214e3b7eab46911b7522cd731055bba0f2",
+  "analysis/gpu_preparation/latency_warmup_manifest.csv": "024b5d2fcda9dd06dbed710f6dd0676232c991ca6edd9baa7cbf3b1a53914332",
+  "dataset/revision_v1/train_10000.csv": "95a12b37581f02759bf439f12360956f46cfe01092f066fae93c0eae4739e19c",
+  "experiments/tfidf_revision_v1/budget_10000/selected_config.json": "8b8d580466f51085990b0f29b1dda377ffa3fa6e6994314734d68b4c49293bfd",
+  "experiments/tfidf_revision_v1/budget_10000/seed_42/classifier.joblib": "ce86b4bd06282e8a03f90d1d8a0a251e48cf987e2a69ea9a3f8b12f15b0f9847",
+  "experiments/tfidf_revision_v1/budget_10000/selected_vectorizer.joblib": "6a912eafae3271970d516b076a88c6bdca6e6568367fcf193c321cbc21b0c600",
+  "dataset/revision_v1/train.csv": "08659ca8f1d863e9818e23ed4319ce755fc56e33dbf0710b515ffff06795a124",
+  "experiments/tfidf_revision_v1/budget_full/selected_config.json": "e794b8df01ad33a2f442c37cc37659e86647b2a525ae8f91c109e16196bdd8d7",
+  "experiments/tfidf_revision_v1/budget_full/seed_42/classifier.joblib": "e147227d043516905bd4b5ba77bab46b0a015b28f66f1662fdeb10613be7099c",
+  "experiments/tfidf_revision_v1/budget_full/selected_vectorizer.joblib": "8d249416883b32745e0cbad11535bc33fc2c9b0346b3e113e159fecce0af680e"
+}

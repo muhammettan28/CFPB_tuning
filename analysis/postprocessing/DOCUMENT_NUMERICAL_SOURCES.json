@@ -34,5 +34,37 @@
   {
     "path": "REVISION_PAPER/analysis/ref14_encoder/validation_metrics.csv",
     "sha256": "52e8b144d642e2edc042a6edc4e66267dc6b54f740a355b72f5ae321e03cf9ec"
+  },
+  {
+    "path": "analysis/postprocessing/qlora_encoder_contrasts.csv",
+    "sha256": "4f2224cc03e2158f7c595a5b3ba001b07b0c9fb5411a0c43e631959b4fcf0990"
+  },
+  {
+    "path": "analysis/postprocessing/computational_costs.csv",
+    "sha256": "c19118ff5a4af1812c99e483f1208fc13e32cebeee0657003bf9cf943bd4d80c"
+  },
+  {
+    "path": "analysis/postprocessing/cpu_latency_summary.csv",
+    "sha256": "39a9b3a3de6af16f9163a87b69659e2a1d351dc60f6d46e02e8a91b0e82745b3"
+  },
+  {
+    "path": "analysis/postprocessing/training_runtime_evidence.json",
+    "sha256": "0c1ff45062433247fd85d33310a01ef8dcadcfc6bd8070fbe756328d9fc31b6f"
+  },
+  {
+    "path": "analysis/postprocessing/training_search_runtime_evidence.json",
+    "sha256": "3becb50053d9d3f6dcfa253b0b5a8ca74ff6ff59a01620155e8d9d6ab035c49f"
+  },
+  {
+    "path": "analysis/postprocessing/protocol_comparison_evidence.json",
+    "sha256": "ac4703478fb92173c362745d9f4f2ffaff5455d3de66f0360ad0ccd2462894cb"
+  },
+  {
+    "path": "analysis/postprocessing/tokenization_path_audit.json",
+    "sha256": "f26c5c0bdb2975b310cf8e3036f0d089c62f4228ab047cd8cfb5977f2bf4711e"
+  },
+  {
+    "path": "analysis/postprocessing/cpu_inference_precision_check.json",
+    "sha256": "4e70cb91c13ac2a11d874e98be018987a0b0a18dba0b1aff6be2f47004250bf5"
   }
 ]

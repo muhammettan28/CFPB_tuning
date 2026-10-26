@@ -40,6 +40,10 @@ def main():
     subprocess.run([sys.executable,str(project_path(PAPER, 'scripts/verify_restored_document_content.py')),
                     '--output',str(restored_report)],check=True)
     restored=read(restored_report);assert restored['passed']
+    extension_report=OUT/'COMPARISON_EXTENSION_VALIDATION.json'
+    subprocess.run([sys.executable,str(ROOT/'scripts/revision/verify_comparison_evidence.py'),
+                    '--output',str(extension_report)],check=True)
+    extension=read(extension_report);assert extension['passed']
     metrics=pd.read_csv(project_path(PAPER, 'analysis/gpu_execution/corrected_model_metrics.csv'))
     contrasts=pd.read_csv(project_path(PAPER, 'analysis/gpu_execution/corrected_paired_contrasts.csv'))
     main=(project_path(PAPER, 'manuscript.tex')).read_text();sup=(project_path(PAPER, 'supplementary_material.tex')).read_text()
@@ -93,6 +97,8 @@ def main():
     report['historical_selection_conditions_checked']=restored['historical_selection_conditions_checked']
     report['restored_error_narrative_checked_against_raw_predictions']=True
     report['original_introduction_opening_preserved']=True
+    report['additional_QLoRA_encoder_cost_and_protocol_evidence_verified']=True
+    report['cpu_baseline_timed_calls_checked']=extension['cpu_timed_calls_verified']
     (OUT/'CROSS_DOCUMENT_VALIDATION.json').write_text(json.dumps(report,indent=2)+'\n')
     print('PASS: frozen evidence,',len(protected),'originals,',len(locations['references']),'locations, numerical/source/PDF checks')
 if __name__=='__main__':main()

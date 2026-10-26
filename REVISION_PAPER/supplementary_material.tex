@@ -205,7 +205,7 @@ You are an AI assistant specializing in consumer complaint classification. Class
 Displayed prompt line wraps are typographical; the source string and rendered templates in the retained code determine actual serialization. Exact-input memoisation is used only in deterministic LLM prediction generation. Identity includes token IDs/masks, immutable base and fitted-weight hashes, generation settings, runner/cache code hashes, library versions, hardware and driver. All appearances, labels and row metadata remain in prediction tables. Labels and row identities are not cache keys. Latency and warmups always make fresh GPU calls. The two 500-character token-cap control settings have identical encoded inputs and may reuse replies; they are not independent inference replicates.
 
 \subsection{Encoder selection and fresh refits}
-Main BERT, DistilBERT and RoBERTa use 500 characters and a 512-token cap, physical batch 4/accumulation 4, evaluation batch 16, FP16, AdamW, weight decay 0.01, linear scheduling and warmup 0.06. Search seed is 42. Each candidate is evaluated at its final epoch; the globally highest validation macro-F1 wins, with the smallest candidate ID for ties within $10^{-12}$. Three fresh refits use the selected configuration. Test inference is blocked unless all 2,000 reloaded validation predictions exactly match their Trainer predictions.
+Main BERT, DistilBERT and RoBERTa use 500 characters and a 512-token cap, physical batch 4/accumulation 4, evaluation batch 16, FP16, AdamW, weight decay 0.01, linear scheduling and warmup 0.06. Search seed is 42. Each candidate is evaluated at its final epoch; the globally highest validation macro-F1 wins, with the smallest candidate ID for ties within $10^{-12}$. The selected DistilBERT and RoBERTa conditions are at the upper tested learning rate ($5\times10^{-5}$) and epoch count (three). Scores outside that grid are unknown; the search is not a global-optimisation claim. Three fresh refits use the selected configuration. Test inference is blocked unless all 2,000 reloaded validation predictions exactly match their Trainer predictions.
 
 
 \Needspace{8\baselineskip}
@@ -560,6 +560,18 @@ benchmark & TF-IDF/LR 10k & DistilBERT & 0.0023 & [-0.0080, 0.0128] \\
 benchmark & TF-IDF/LR 10k & RoBERTa & 0.0056 & [-0.0046, 0.0161] \\
 benchmark & TF-IDF/LR full & Qwen3 QLoRA & -0.0136 & [-0.0239, -0.0032] \\
 benchmark & TF-IDF/LR full & Llama 3.1 QLoRA & -0.0075 & [-0.0176, 0.0030] \\
+internal & BERT & Qwen3 QLoRA & 0.0212 & [0.0160, 0.0264] \\
+internal & BERT & Llama 3.1 QLoRA & 0.0283 & [0.0230, 0.0335] \\
+internal & DistilBERT & Qwen3 QLoRA & 0.0227 & [0.0175, 0.0278] \\
+internal & DistilBERT & Llama 3.1 QLoRA & 0.0297 & [0.0246, 0.0350] \\
+internal & RoBERTa & Qwen3 QLoRA & 0.0226 & [0.0175, 0.0276] \\
+internal & RoBERTa & Llama 3.1 QLoRA & 0.0297 & [0.0246, 0.0347] \\
+benchmark & BERT & Qwen3 QLoRA & 0.0274 & [0.0181, 0.0364] \\
+benchmark & BERT & Llama 3.1 QLoRA & 0.0336 & [0.0247, 0.0425] \\
+benchmark & DistilBERT & Qwen3 QLoRA & 0.0317 & [0.0227, 0.0408] \\
+benchmark & DistilBERT & Llama 3.1 QLoRA & 0.0378 & [0.0293, 0.0466] \\
+benchmark & RoBERTa & Qwen3 QLoRA & 0.0284 & [0.0197, 0.0374] \\
+benchmark & RoBERTa & Llama 3.1 QLoRA & 0.0346 & [0.0261, 0.0432] \\
 \end{longtable}
 }
 
@@ -1103,7 +1115,7 @@ Saved-prediction analysis can instead be repeated without neural weights, a GPU 
 python scripts/revision/replay_reviewer_results.py \
   --output /tmp/cfpb-review-replay
 \end{Verbatim}
-The output directory must not exist. This checks frozen data and source hashes, recomputes all main/reference metrics, seed scores, paired intervals, length sensitivity and latency summaries, and compares eight full result tables to reference CSVs at absolute tolerance $10^{-12}$. It writes replay outputs to a separate directory. It does not rerun neural inference or recover unavailable provenance. The replay verifies the supplied result inputs and does not require the manuscript preparation files.
+The output directory must not exist. This checks frozen data and source hashes, recomputes all main/reference metrics, seed scores, paired intervals, length sensitivity and latency summaries, and compares nine full result tables to reference CSVs at absolute tolerance $10^{-12}$. It writes replay outputs to a separate directory. It does not rerun neural inference or recover unavailable provenance. The replay verifies the supplied result inputs and does not require the manuscript preparation files.
 
 Source hashes identify the analysed files; upstream CFPB-to-Kaggle preprocessing and product aggregation are unavailable. Auxiliary fits lack some immutable upstream identities and complete fitted Qwen artifacts, limiting their reconstruction. Primary-comparison identities are listed in Table~\ref{sup:pins}. Execution metadata can contain absolute machine paths.
 
@@ -1156,6 +1168,8 @@ Reference plan & \nolinkurl{2def9919ab37abd189f9035304c967cf8ede8d80338bf7cf3435
 
 
 \subsection{Auxiliary data-overlap analysis}
+The auxiliary inference code tokenises an already rendered chat template with default special-token insertion. The primary pipeline uses \texttt{add\_special\_tokens=False}. A CPU reconstruction with the pinned primary tokenizers produces two leading BOS tokens under the default Llama path and one under the explicit path; the two Qwen paths have identical token IDs for the audited prompt. This identifies a serialization difference, rather than an isolated accuracy ablation. Auxiliary upstream model identities are incomplete, and hardware and quantised numerical execution also differ between the implementations.
+
 Auxiliary models fitted under full-normalised-narrative grouping support a diagnostic analysis of dependence under truncated inputs. Their fitting selections vary with seed, so sample SD combines selection and optimisation variation. At 500 characters, 192 shared unique training inputs are associated with 584 internal-test rows; the three Llama fitting selections expose 383/375/390 test rows. These models therefore have model-visible training/evaluation overlap. Their scores are excluded from the primary comparison. Complete fitted Qwen artifacts and immutable upstream identities for these auxiliary models are unavailable. Differences from the primary comparison also involve membership, serialization, model identities and hardware, so they do not isolate the effect of overlap handling.
 \begin{table}[H]\centering\small
 \caption{Internal results for auxiliary models with model-visible overlap. FT is mean plus/minus sample SD across fits with varying selections; these scores are excluded from the primary comparison.}\label{sup:historical-internal}
@@ -1166,11 +1180,11 @@ Auxiliary models fitted under full-normalised-narrative grouping support a diagn
 \begin{tabular}{llrrr}\toprule Model & Metric & Base & FT mean & Paired gain\\\midrule
 \input{tables/table_revision_archived_ci.tex}\end{tabular}\end{table}
 
-The auxiliary internal sensitivity excludes whole components touching the fitting or validation records, leaving 14,826 of 15,428 rows. The conservative benchmark sensitivity leaves 11,986 of 12,000 appearances. These evaluation filters do not remove fitting/selection exposure and do not validate the primary comparison. The final full-data sparse macro-F1 of 0.8476 is independently recalculated from the retained predictions; implementation-audit details remain in the machine-readable evidence.
+The auxiliary internal sensitivity excludes whole components touching the fitting or validation records, leaving 14,826 of 15,428 rows. The conservative benchmark sensitivity leaves 11,986 of 12,000 appearances. These evaluation filters do not remove fitting/selection exposure and do not validate the primary comparison. Within the 14,826-row internal subset, base/adapted macro-F1 is 0.6290/0.8353 for Qwen and 0.6190/0.8381 for Llama. The adapted-model intervals are [0.8265, 0.8430] and [0.8294, 0.8461]; these remain conditional estimates for the auxiliary models. The final full-data sparse macro-F1 of 0.8476 is independently recalculated from the retained predictions; implementation-audit details remain in the machine-readable evidence.
 
 
 \subsection{Configuration screening for the shared QLoRA settings}
-Qwen3-8B configuration screening compares six conditions on the full-text-grouped allocation: natural/balanced sampling, two learning rates, ranks 8/16 and one/two epochs. This limited comparison is not an exhaustive hyperparameter search. Natural sampling with two epochs, learning rate $2\times10^{-4}$ and rank 16 has the highest recorded validation macro-F1. The primary model comparison uses these fixed settings for both Qwen and Llama, without separate family-specific optimisation.
+Qwen3-8B configuration screening compares six conditions on the full-text-grouped allocation: natural/balanced sampling, two learning rates, ranks 8/16 and one/two epochs. This limited comparison is not an exhaustive hyperparameter search. Natural sampling with two epochs, learning rate $2\times10^{-4}$ and rank 16 has the highest recorded validation macro-F1. The primary model comparison uses these fixed settings for both Qwen and Llama, without separate family-specific optimisation. The sparse and encoder baselines instead receive their stated validation searches on the common fitting allocation. This asymmetry gives those baselines an explicit tuning opportunity; it does not quantify how different search budgets would change the ranking.
 
 The screening fits use the full-text-grouped candidate allocation, whose model-visible overlap is quantified in Section S8.2. Their scores describe configuration screening rather than independent test performance or an optimal configuration. They are excluded from the primary model ranking. Run identities and source hashes identify all six conditions in the search-summary CSVs.
 
@@ -1202,4 +1216,57 @@ The 154,282-row partitioning pool contains 85,537 credit-reporting records (55.4
 
 \subsection{Validation scope}
 Execution verification checks all 88 main-study stages, actual fitting memberships, the three independently rescored encoder searches, 19 main variants in both views, all same-checkpoint length and controlled-latency files, and source-integrity manifests. The reference audit checks all 12 extra stages, six actual refits, six reload parity tests and independent point metrics. Small hardware/API smoke fits (32 train/8 validation; two optimiser steps) are excluded from scientific results. Frozen prediction checks and tests support the reported computations, but do not establish prospective generalisation, semantic independence, an optimal prompt/budget, operational acceptability or regulatory readiness. The reproducibility package provides the source hashes, selections and recorded outputs for the stated verification scope.
+
+
+\subsection{Computational cost and CPU baseline timings}
+Table~\ref{sup:training-costs} reports implementation-specific training wall times. QLoRA runtimes include in-training validation/checkpointing; encoder Trainer runtimes exclude the separate final validation call. Means use three refits for each neural method. Sparse times are fresh fixed-configuration, seed-42 vectoriser-plus-classifier fits on the CPU; all 15,428 predictions match the retained sparse models. Data loading and validation are outside the sparse fitting timer. Encoder search totals sum the six recorded training phases and exclude setup, validation and I/O. Sparse search totals are the recorded full search wall times. QLoRA settings are fixed for the primary comparison, so no primary-allocation search time is reported. Device-hours below are elapsed wall hours on the named device, rather than measured GPU busy-hours or energy.
+
+
+\Needspace{8\baselineskip}
+{\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}llrrr@{}}
+\caption{Recorded neural training and measured sparse training times. Fit hours are per refit; search hours use the stated method-specific timing boundaries. A dash denotes fixed QLoRA settings, not a measured zero search cost.}\label{sup:training-costs}\\
+\toprule
+System & Fits & Fit device & Mean fit hours & Search hours \\
+\midrule\endfirsthead
+\multicolumn{5}{l}{\small Table \thetable\ continued}\\
+\toprule
+System & Fits & Fit device & Mean fit hours & Search hours \\
+\midrule\endhead
+\bottomrule\endfoot
+Qwen3 QLoRA & 3 & RTX 5060 Ti & 6.9612 & --- \\
+Llama 3.1 QLoRA & 3 & RTX 5060 Ti & 7.1541 & --- \\
+BERT & 3 & RTX 5060 Ti & 0.0427 & 0.2160 \\
+DistilBERT & 3 & RTX 5060 Ti & 0.0254 & 0.1239 \\
+RoBERTa & 3 & RTX 5060 Ti & 0.0453 & 0.2307 \\
+TF-IDF/LR 10k & 1 & CPU & 0.0004 & 0.0218 \\
+TF-IDF/LR full & 1 & CPU & 0.0134 & 0.3217 \\
+\end{longtable}
+}
+
+CPU inference uses Intel(R) Core(TM) i7-14700F, four threads, batch one, ten validation warmups and the same 100 internal IDs and three hash-defined repetition orders as the LLM latency study. Each encoder uses its seed-42 checkpoint in FP32; the sparse classifiers use float64 features and their fixed selected configurations. End-to-end time includes tokenisation/vectorisation, classification and label extraction; loading, warmup and I/O are excluded. The CPU is not reserved exclusively, and measured load averages are retained. The raw 300 calls per system, environment and source hashes are supplied under \path{experiments/cpu_costs_v1/}. These device/precision-specific timings are descriptive implementation costs; they are not same-device architecture comparisons or service-capacity estimates.
+
+
+\Needspace{8\baselineskip}
+{\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}lrrrr@{}}
+\caption{Four-thread CPU end-to-end inference on the matched latency cohort (milliseconds). Each row has 300 fresh calls. Median and p95 are empirical call quantiles.}\label{sup:cpu-latency}\\
+\toprule
+System & Calls & Mean ms & Median ms & p95 ms \\
+\midrule\endfirsthead
+\multicolumn{5}{l}{\small Table \thetable\ continued}\\
+\toprule
+System & Calls & Mean ms & Median ms & p95 ms \\
+\midrule\endhead
+\bottomrule\endfoot
+BERT & 300 & 39.678 & 42.432 & 75.221 \\
+DistilBERT & 300 & 19.511 & 21.117 & 32.631 \\
+RoBERTa & 300 & 35.820 & 40.846 & 48.113 \\
+TF-IDF/LR 10k & 300 & 0.380 & 0.344 & 0.501 \\
+TF-IDF/LR full & 300 & 0.293 & 0.298 & 0.328 \\
+\end{longtable}
+}
+
 \end{document}

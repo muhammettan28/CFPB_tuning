@@ -1,0 +1,280 @@
+[
+  {
+    "system": "qwen_ft",
+    "seed": 42,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 25154.9366,
+    "source": "experiments/gpu_revision_v1/qlora/qwen/seed_42/checkpoints/trainer_state.json",
+    "source_sha256": "2af7c0e2c0fb51532d55770d19fc751a6c444bb63c5ddbd4cf0a51b6da6d7af1",
+    "recorded_training_metrics": {
+      "epoch": 2.0,
+      "step": 1250,
+      "total_flos": 1.3557616579479552e+17,
+      "train_loss": 0.04583363847732544,
+      "train_runtime": 25154.9366,
+      "train_samples_per_second": 0.795,
+      "train_steps_per_second": 0.05
+    }
+  },
+  {
+    "system": "qwen_ft",
+    "seed": 43,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 25008.3116,
+    "source": "experiments/gpu_revision_v1/qlora/qwen/seed_43/checkpoints/trainer_state.json",
+    "source_sha256": "5180ea4ccc6ef00590fe959c79974d0657dca10fb78e6fde1d6df82ece9c5597",
+    "recorded_training_metrics": {
+      "epoch": 2.0,
+      "step": 1250,
+      "total_flos": 1.3557616579479552e+17,
+      "train_loss": 0.04658364684581757,
+      "train_runtime": 25008.3116,
+      "train_samples_per_second": 0.8,
+      "train_steps_per_second": 0.05
+    }
+  },
+  {
+    "system": "qwen_ft",
+    "seed": 44,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 25018.0494,
+    "source": "experiments/gpu_revision_v1/qlora/qwen/seed_44/checkpoints/trainer_state.json",
+    "source_sha256": "d6542304efa997a5ab1e74a4b46a7e316709735fb3fdf8f05ca60ffcb6569bb3",
+    "recorded_training_metrics": {
+      "epoch": 2.0,
+      "step": 1250,
+      "total_flos": 1.3557616579479552e+17,
+      "train_loss": 0.0455765408039093,
+      "train_runtime": 25018.0494,
+      "train_samples_per_second": 0.799,
+      "train_steps_per_second": 0.05
+    }
+  },
+  {
+    "system": "llama_ft",
+    "seed": 42,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 25871.6877,
+    "source": "experiments/gpu_revision_v1/qlora/llama/seed_42/checkpoints/trainer_state.json",
+    "source_sha256": "b2367394c46ebf1b6bc369bc9759ded5601f60a254f92c7b6972fd98ab7d0196",
+    "recorded_training_metrics": {
+      "epoch": 2.0,
+      "step": 1250,
+      "total_flos": 1.506581805095977e+17,
+      "train_loss": 0.04631747413873673,
+      "train_runtime": 25871.6877,
+      "train_samples_per_second": 0.773,
+      "train_steps_per_second": 0.048
+    }
+  },
+  {
+    "system": "llama_ft",
+    "seed": 43,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 25685.7645,
+    "source": "experiments/gpu_revision_v1/qlora/llama/seed_43/checkpoints/trainer_state.json",
+    "source_sha256": "7b6cf74dba364e8af49418243370b7e7a71113e592ecacc22f64f55f12ed9325",
+    "recorded_training_metrics": {
+      "epoch": 2.0,
+      "step": 1250,
+      "total_flos": 1.506581805095977e+17,
+      "train_loss": 0.04695572233200073,
+      "train_runtime": 25685.7645,
+      "train_samples_per_second": 0.779,
+      "train_steps_per_second": 0.049
+    }
+  },
+  {
+    "system": "llama_ft",
+    "seed": 44,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 25706.7928,
+    "source": "experiments/gpu_revision_v1/qlora/llama/seed_44/checkpoints/trainer_state.json",
+    "source_sha256": "c82c65669eb9192a0a0c5b359ae3a98855db773b39fff056f08d993773b89b42",
+    "recorded_training_metrics": {
+      "epoch": 2.0,
+      "step": 1250,
+      "total_flos": 1.506581805095977e+17,
+      "train_loss": 0.0459443372964859,
+      "train_runtime": 25706.7928,
+      "train_samples_per_second": 0.778,
+      "train_steps_per_second": 0.049
+    }
+  },
+  {
+    "system": "bert",
+    "seed": 42,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 154.7762,
+    "source": "analysis/gpu_execution/logs/encoder-refit__bert__42__main.log",
+    "source_sha256": "455ebe5a8b098256fd9642ae051784dfbaf2a41cb05aa6a9669939c736a80b28",
+    "recorded_training_metrics": {
+      "train_runtime": 154.7762,
+      "train_samples_per_second": 193.828,
+      "train_steps_per_second": 12.114,
+      "train_loss": 0.47607117462158205,
+      "epoch": 3.0
+    }
+  },
+  {
+    "system": "bert",
+    "seed": 43,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 152.2382,
+    "source": "analysis/gpu_execution/logs/encoder-refit__bert__43__main.log",
+    "source_sha256": "06dd729d65ae2ead130705f5b4f1e126b87e7b84107e81a5669dfd71e94eefbc",
+    "recorded_training_metrics": {
+      "train_runtime": 152.2382,
+      "train_samples_per_second": 197.06,
+      "train_steps_per_second": 12.316,
+      "train_loss": 0.4737079798380534,
+      "epoch": 3.0
+    }
+  },
+  {
+    "system": "bert",
+    "seed": 44,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 154.3058,
+    "source": "analysis/gpu_execution/logs/encoder-refit__bert__44__main.log",
+    "source_sha256": "89e7ed94636d14c5e47e80a9bd2447f667a6c0def16c3d0a3df3a93a767f6714",
+    "recorded_training_metrics": {
+      "train_runtime": 154.3058,
+      "train_samples_per_second": 194.419,
+      "train_steps_per_second": 12.151,
+      "train_loss": 0.47636431884765623,
+      "epoch": 3.0
+    }
+  },
+  {
+    "system": "distilbert",
+    "seed": 42,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 91.4763,
+    "source": "analysis/gpu_execution/logs/encoder-refit__distilbert__42__main.log",
+    "source_sha256": "734b80dd3f6b3c76a82581f5002a62fa9f591f8809b8836ad22bd99111a6a71d",
+    "recorded_training_metrics": {
+      "train_runtime": 91.4763,
+      "train_samples_per_second": 327.954,
+      "train_steps_per_second": 20.497,
+      "train_loss": 0.4322340357462565,
+      "epoch": 3.0
+    }
+  },
+  {
+    "system": "distilbert",
+    "seed": 43,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 91.7244,
+    "source": "analysis/gpu_execution/logs/encoder-refit__distilbert__43__main.log",
+    "source_sha256": "694c67476d22452a376e99fed299b1495c206bce7067d82eb443d2aa0aa3a8f1",
+    "recorded_training_metrics": {
+      "train_runtime": 91.7244,
+      "train_samples_per_second": 327.067,
+      "train_steps_per_second": 20.442,
+      "train_loss": 0.457446240234375,
+      "epoch": 3.0
+    }
+  },
+  {
+    "system": "distilbert",
+    "seed": 44,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 91.6429,
+    "source": "analysis/gpu_execution/logs/encoder-refit__distilbert__44__main.log",
+    "source_sha256": "b8c62e5c320d336fbf9a132468618b221e982daf3b06fe445b34bea869d56bb5",
+    "recorded_training_metrics": {
+      "train_runtime": 91.6429,
+      "train_samples_per_second": 327.358,
+      "train_steps_per_second": 20.46,
+      "train_loss": 0.4396853151957194,
+      "epoch": 3.0
+    }
+  },
+  {
+    "system": "roberta",
+    "seed": 42,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 167.0352,
+    "source": "analysis/gpu_execution/logs/encoder-refit__roberta__42__main.log",
+    "source_sha256": "f5473010fa3c910a45562e5e1da4ba45aeff2845dc305240a971b04a6e7b2b03",
+    "recorded_training_metrics": {
+      "train_runtime": 167.0352,
+      "train_samples_per_second": 179.603,
+      "train_steps_per_second": 11.225,
+      "train_loss": 0.49630136464436847,
+      "epoch": 3.0
+    }
+  },
+  {
+    "system": "roberta",
+    "seed": 43,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 161.7421,
+    "source": "analysis/gpu_execution/logs/encoder-refit__roberta__43__main.log",
+    "source_sha256": "02eb4662f5c0155921ede983ec20c6a84340747a7c28c54974ac0ed7242d12ce",
+    "recorded_training_metrics": {
+      "train_runtime": 161.7421,
+      "train_samples_per_second": 185.48,
+      "train_steps_per_second": 11.593,
+      "train_loss": 0.4941305877685547,
+      "epoch": 3.0
+    }
+  },
+  {
+    "system": "roberta",
+    "seed": 44,
+    "train_rows": 10000,
+    "device": "RTX 5060 Ti",
+    "training_seconds": 159.9997,
+    "source": "analysis/gpu_execution/logs/encoder-refit__roberta__44__main.log",
+    "source_sha256": "9e96747ce2fc0189a8713b9cf675221ad8da3420b481bbe12b587fb731e6af23",
+    "recorded_training_metrics": {
+      "train_runtime": 159.9997,
+      "train_samples_per_second": 187.5,
+      "train_steps_per_second": 11.719,
+      "train_loss": 0.47527676798502605,
+      "epoch": 3.0
+    }
+  },
+  {
+    "system": "tfidf_10000",
+    "seed": 42,
+    "train_rows": 10000,
+    "device": "CPU",
+    "training_seconds": 1.5900509231723845,
+    "source": "experiments/cpu_costs_v1/sparse/training_records.csv",
+    "source_sha256": "ddcd133ed55b22984fa2ff49260ca2f79bdaae4422d473ed9a452af7519f06e9",
+    "recorded_training_metrics": {
+      "scope": "Fresh vectorizer fit_transform plus fixed selected classifier fit; validation/search/loading excluded",
+      "prediction_parity_rows": 15428
+    }
+  },
+  {
+    "system": "tfidf_full",
+    "seed": 42,
+    "train_rows": 120502,
+    "device": "CPU",
+    "training_seconds": 48.187061190838,
+    "source": "experiments/cpu_costs_v1/sparse/training_records.csv",
+    "source_sha256": "ddcd133ed55b22984fa2ff49260ca2f79bdaae4422d473ed9a452af7519f06e9",
+    "recorded_training_metrics": {
+      "scope": "Fresh vectorizer fit_transform plus fixed selected classifier fit; validation/search/loading excluded",
+      "prediction_parity_rows": 15428
+    }
+  }
+]

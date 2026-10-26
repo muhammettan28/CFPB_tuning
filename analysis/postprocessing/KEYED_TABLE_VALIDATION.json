@@ -33,13 +33,13 @@
     },
     {
       "table": "sup:contrasts",
-      "rows": 18,
-      "cells": 90
+      "rows": 30,
+      "cells": 150
     },
     {
       "table": "internal_contrasts.tex",
-      "rows": 9,
-      "cells": 36
+      "rows": 15,
+      "cells": 60
     },
     {
       "table": "sup:class-metrics",
@@ -180,10 +180,25 @@
       "table": "sup:historical-selection",
       "rows": 6,
       "cells": 42
+    },
+    {
+      "table": "computational_costs.tex",
+      "rows": 7,
+      "cells": 35
+    },
+    {
+      "table": "sup:training-costs",
+      "rows": 7,
+      "cells": 35
+    },
+    {
+      "table": "sup:cpu-latency",
+      "rows": 5,
+      "cells": 25
     }
   ],
-  "total_rows": 546,
-  "total_cells": 3517,
+  "total_rows": 583,
+  "total_cells": 3696,
   "row_swap_and_wrong_value_negative_controls_passed": true,
   "supplement_table_labels": [
     "sup:data",
@@ -227,11 +242,13 @@
     "sup:protocol-hashes",
     "sup:historical-internal",
     "sup:historical-ci",
-    "sup:historical-selection"
+    "sup:historical-selection",
+    "sup:training-costs",
+    "sup:cpu-latency"
   ],
   "documents_sha256": {
-    "manuscript.tex": "a3bab3a66c2c2ba9ca853926e5e1b72ac3fd9b7c66886de5a0bb63dadc26fc18",
-    "supplementary_material.tex": "b1ab2df529eedefa4e5f7a90601bd67f66c5308a033ede6e05f8dae67108508b"
+    "manuscript.tex": "b52eca1fde0d3d1517457deb9ce81dc2cb49d4d278c04259ac3799205b4f672e",
+    "supplementary_material.tex": "ace5f0f971d78786abe9218804993af1546a8e6c7358aee1cc671675aa8c35cb"
   },
   "scope": "Result/selection/count matrices checked cell by cell; narrative and static implementation tables require the separate source/reading audit."
 }

@@ -54,10 +54,11 @@ python -m pip install -r scripts/revision/requirements-cpu-revision.txt
 CUDA_VISIBLE_DEVICES='' python scripts/revision/replay_reviewer_results.py --output /tmp/cfpb-review-replay
 python scripts/revision/audit_document_rows.py --output /tmp/cfpb-review-table-cells.json
 python scripts/revision/verify_restored_document_content.py --output /tmp/cfpb-review-content.json
+python scripts/revision/verify_comparison_evidence.py --output /tmp/cfpb-review-comparisons.json
 ```
 
 The replay output directory must not exist. Replay checks 404 source hashes and
-recomputes eight full result tables, including 10,000-draw paired intervals, seed
+recomputes nine full result tables, including 10,000-draw paired intervals, seed
 scores, length effects and latency. It checks row identities/order and all numeric
 cells at absolute tolerance 1e-12. No GPU, neural weights, local model registry,
 original-paper directory or source ODT is needed. Table auditing checks the
@@ -182,6 +183,10 @@ this ZIP to avoid self-referencing hashes. Cleanup date: 26 October 2026.
         add(post/'KEYED_TABLE_VALIDATION.json')
         add(post/'REVIEWER_COVERAGE_FINAL.json')
         add(post/'RESTORED_CONTENT_VALIDATION.json')
+        for name in ['qlora_encoder_contrasts.csv','computational_costs.csv','cpu_latency_summary.csv','training_runtime_evidence.json','training_search_runtime_evidence.json','protocol_comparison_evidence.json','tokenization_path_audit.json','cpu_inference_precision_check.json','COMPARISON_EXTENSION_VALIDATION.json']:
+            add(post/name)
+        for p in (ROOT/'experiments/cpu_costs_v1').rglob('*'):
+            if p.suffix in {'.csv','.json'}:add(p)
     members={str(p.relative_to(ROOT)):p for p in sorted(files)}
     manifest={name:file_sha(path) for name,path in members.items()}
     members.pop('README.md',None)

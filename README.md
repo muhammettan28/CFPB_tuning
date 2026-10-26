@@ -9,6 +9,7 @@ evidence and are not part of the corrected-data ranking.
 | --- | --- |
 | `REVISION_PAPER/` | Revised manuscript, supplement, reviewer responses, LaTeX sources and their table/figure assets |
 | `experiments/gpu_revision_v1/` | Main encoder searches/refits, QLoRA runs, final predictions, length sensitivity and controlled latency |
+| `experiments/cpu_costs_v1/` | Raw CPU baseline latency calls, selected sparse fit timings, environment and source hashes |
 | `experiments/ref14_encoder_v1/` | Separate reference [14] encoder-parameter sensitivity |
 | `experiments/tfidf_revision_v1/` | Both sparse training budgets, all 48 candidates per budget, fitted sparse objects and predictions |
 | `analysis/` | Result tables, statistical comparisons, data/tokenizer audits and frozen selection manifests |
@@ -33,13 +34,14 @@ python -m pip install -r scripts/revision/requirements-cpu-revision.txt
 CUDA_VISIBLE_DEVICES='' python scripts/revision/replay_reviewer_results.py --output /tmp/cfpb-review-replay
 python scripts/revision/audit_document_rows.py --output /tmp/cfpb-review-table-cells.json
 python scripts/revision/verify_restored_document_content.py --output /tmp/cfpb-review-content.json
+python scripts/revision/verify_comparison_evidence.py --output /tmp/cfpb-review-comparisons.json
 ```
 
 The replay output directory must not already exist. No neural weights, local
 model registry, GPU, original-paper directory or source ODT is needed. Replay
-verifies 404 source hashes and recomputes eight complete result tables, including
-10,000-draw paired intervals. The table audit checks 36 table fragments, 546 rows
-and 3,517 cells against their corresponding evidence.
+verifies 404 source hashes and recomputes nine complete result tables, including
+10,000-draw paired intervals. The table audit checks 39 table fragments, 583 rows
+and 3,696 cells against their corresponding evidence.
 
 Neural weights, optimizer states, downloaded models and runtime caches stay local;
 predictions, numeric results, settings, validation search records and recorded

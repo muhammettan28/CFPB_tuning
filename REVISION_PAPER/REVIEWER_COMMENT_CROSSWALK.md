@@ -12,7 +12,7 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R1.1 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Manuscript Section 3.5 (p. 6); Manuscript Section 4.2 (p. 8); Supplementary material Section S4 (p. 10); Supplementary material Table S17 (p. 11); Supplementary material Table S18 (p. 11); Supplementary material Table S13 (p. 9).
+**Changes and locations:** Manuscript Section 3.5 (p. 6); Manuscript Section 4.2 (p. 8); Supplementary material Section S4 (p. 11); Supplementary material Table S17 (p. 11); Supplementary material Table S18 (p. 11); Supplementary material Table S13 (p. 9).
 
 ## R1.2
 
@@ -20,7 +20,7 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R1.2 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Manuscript Section 3.2 (p. 4); Manuscript Table 2 (p. 4); Supplementary material Section S1 (p. 2); Supplementary material Table S3 (p. 2); Supplementary material Section S7 (p. 16).
+**Changes and locations:** Manuscript Section 3.2 (p. 4); Manuscript Table 2 (p. 4); Supplementary material Section S1 (p. 2); Supplementary material Table S3 (p. 2); Supplementary material Section S7 (p. 16); Supplementary material Section S8 (p. 17).
 
 ## R1.3
 
@@ -28,7 +28,7 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R1.3 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Manuscript Section 3.1 (p. 3); Manuscript Section 3.2 (p. 4); Manuscript Section 6 (p. 10); Supplementary material Section S1 (p. 2); Supplementary material Table S16 (p. 11); Supplementary material Section S8 (p. 17).
+**Changes and locations:** Manuscript Section 3.1 (p. 3); Manuscript Section 3.2 (p. 4); Manuscript Section 6 (p. 11); Supplementary material Section S1 (p. 2); Supplementary material Table S16 (p. 11); Supplementary material Section S8 (p. 17).
 
 ## R1.4
 
@@ -36,7 +36,7 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R1.4 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Manuscript Section 3.3 (p. 5); Supplementary material Table S4 (p. 3); Supplementary material Table S5 (p. 3); Supplementary material Table S6 (p. 4); Supplementary material Section S8 (p. 17).
+**Changes and locations:** Manuscript Section 3.3 (p. 4); Supplementary material Table S4 (p. 3); Supplementary material Table S5 (p. 3); Supplementary material Table S6 (p. 4); Supplementary material Section S8 (p. 17).
 
 ## R1.5
 
@@ -44,7 +44,7 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R1.5 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Manuscript Section 3.4 (p. 5); Manuscript Table 3 (p. 7); Manuscript Table 4 (p. 7); Supplementary material Table S7 (p. 4); Supplementary material Table S8 (p. 5); Supplementary material Section S7 (p. 16); Supplementary material Table S28 (p. 16).
+**Changes and locations:** Manuscript Section 3.4 (p. 5); Manuscript Table 3 (p. 7); Manuscript Table 4 (p. 7); Supplementary material Table S7 (p. 4); Supplementary material Table S8 (p. 5); Supplementary material Table S13 (p. 9); Supplementary material Section S7 (p. 16); Supplementary material Table S28 (p. 16).
 
 ## R1.6
 
@@ -60,7 +60,7 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R1.7 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Manuscript Table 1 (p. 3); Manuscript Section 3.1 (p. 3); Manuscript Section 5 (p. 10); Manuscript Section 6 (p. 10); Supplementary material Section S7 (p. 16).
+**Changes and locations:** Manuscript Table 1 (p. 3); Manuscript Section 3.1 (p. 3); Manuscript Section 5 (p. 10); Manuscript Section 6 (p. 11); Supplementary material Section S7 (p. 16).
 
 ## R1.8
 
@@ -68,7 +68,7 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R1.8 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Manuscript Section 3.6 (p. 6); Manuscript Table 5 (p. 9); Manuscript Table 6 (p. 10); Manuscript Section 6 (p. 10); Supplementary material Section S5 (p. 12); Supplementary material Table S23 (p. 13); Supplementary material Table S24 (p. 14); Supplementary material Section S6 (p. 14); Supplementary material Table S26 (p. 15).
+**Changes and locations:** Manuscript Section 3.6 (p. 6); Manuscript Table 5 (p. 9); Manuscript Table 6 (p. 10); Manuscript Table 7 (p. 10); Manuscript Section 6 (p. 11); Supplementary material Section S5 (p. 12); Supplementary material Table S23 (p. 14); Supplementary material Table S24 (p. 14); Supplementary material Section S6 (p. 14); Supplementary material Table S26 (p. 15); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20).
 
 ## R2.1
 
@@ -84,7 +84,7 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R2.2 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Manuscript Section 3.1 (p. 3); Manuscript Section 3.5 (p. 6); Supplementary material Section S4 (p. 10).
+**Changes and locations:** Manuscript Section 3.1 (p. 3); Manuscript Section 3.5 (p. 6); Supplementary material Section S4 (p. 11).
 
 ## R2.3
 
@@ -92,7 +92,7 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R2.3 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Manuscript Section 3.3 (p. 5); Manuscript Section 3.4 (p. 5); Manuscript Table 5 (p. 9); Supplementary material Section S2 (p. 3); Supplementary material Section S7 (p. 16); Supplementary material Table S34 (p. 19).
+**Changes and locations:** Manuscript Section 3.3 (p. 4); Manuscript Section 3.4 (p. 5); Manuscript Table 5 (p. 9); Supplementary material Section S2 (p. 3); Supplementary material Section S7 (p. 16); Supplementary material Table S34 (p. 19).
 
 ## R2.4
 
@@ -108,7 +108,7 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R2.5 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Manuscript Section 3.3 (p. 5); Manuscript Section 4.3 (p. 8); Manuscript Section 4.4 (p. 8); Manuscript Section 6 (p. 10); Supplementary material Table S15 (p. 10); Supplementary material Section S6 (p. 14).
+**Changes and locations:** Manuscript Section 3.3 (p. 4); Manuscript Section 4.3 (p. 8); Manuscript Section 4.4 (p. 8); Manuscript Section 6 (p. 11); Supplementary material Table S15 (p. 10); Supplementary material Section S6 (p. 14).
 
 ## R2.6
 
@@ -116,7 +116,7 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R2.6 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Manuscript Table 3 (p. 7); Manuscript Table 4 (p. 7); Manuscript Table 6 (p. 10); Manuscript Section 5 (p. 10); Manuscript Section 7 (p. 11).
+**Changes and locations:** Manuscript Table 3 (p. 7); Manuscript Table 4 (p. 7); Manuscript Table 6 (p. 10); Manuscript Table 7 (p. 10); Manuscript Section 5 (p. 10); Manuscript Section 7 (p. 11); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20).
 
 ## R2.7
 
@@ -124,4 +124,4 @@ Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The re
 
 **Response:** see R2.7 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Supplementary material Section S8 (p. 17); Supplementary material Table S30 (p. 17); Manuscript Section 6 (p. 10).
+**Changes and locations:** Supplementary material Section S8 (p. 17); Supplementary material Table S30 (p. 17); Manuscript Section 6 (p. 11).

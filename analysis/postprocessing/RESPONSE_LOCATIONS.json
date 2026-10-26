@@ -19,7 +19,7 @@
       "kind": "Section",
       "label": "sup:legacy",
       "number": "S4",
-      "page": 10
+      "page": 11
     },
     {
       "document": "supplementary_material",
@@ -78,6 +78,13 @@
       "page": 16
     },
     {
+      "document": "supplementary_material",
+      "kind": "Section",
+      "label": "sup:reproducibility",
+      "number": "S8",
+      "page": 17
+    },
+    {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:source",
@@ -96,7 +103,7 @@
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 10
+      "page": 11
     },
     {
       "document": "supplementary_material",
@@ -124,7 +131,7 @@
       "kind": "Section",
       "label": "sec:llm",
       "number": "3.3",
-      "page": 5
+      "page": 4
     },
     {
       "document": "supplementary_material",
@@ -188,6 +195,13 @@
       "label": "sup:tfidf-search",
       "number": "S8",
       "page": 5
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:contrasts",
+      "number": "S13",
+      "page": 9
     },
     {
       "document": "supplementary_material",
@@ -278,7 +292,7 @@
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 10
+      "page": 11
     },
     {
       "document": "supplementary_material",
@@ -310,10 +324,17 @@
     },
     {
       "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:compute-cost",
+      "number": "7",
+      "page": 10
+    },
+    {
+      "document": "manuscript",
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 10
+      "page": 11
     },
     {
       "document": "supplementary_material",
@@ -327,7 +348,7 @@
       "kind": "Table",
       "label": "sup:historical-strata",
       "number": "S23",
-      "page": 13
+      "page": 14
     },
     {
       "document": "supplementary_material",
@@ -349,6 +370,20 @@
       "label": "sup:latency-all",
       "number": "S26",
       "page": 15
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:training-costs",
+      "number": "S35",
+      "page": 20
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:cpu-latency",
+      "number": "S36",
+      "page": 20
     },
     {
       "document": "manuscript",
@@ -390,14 +425,14 @@
       "kind": "Section",
       "label": "sup:legacy",
       "number": "S4",
-      "page": 10
+      "page": 11
     },
     {
       "document": "manuscript",
       "kind": "Section",
       "label": "sec:llm",
       "number": "3.3",
-      "page": 5
+      "page": 4
     },
     {
       "document": "manuscript",
@@ -467,7 +502,7 @@
       "kind": "Section",
       "label": "sec:llm",
       "number": "3.3",
-      "page": 5
+      "page": 4
     },
     {
       "document": "manuscript",
@@ -488,7 +523,7 @@
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 10
+      "page": 11
     },
     {
       "document": "supplementary_material",
@@ -527,6 +562,13 @@
     },
     {
       "document": "manuscript",
+      "kind": "Table",
+      "label": "tab:compute-cost",
+      "number": "7",
+      "page": 10
+    },
+    {
+      "document": "manuscript",
       "kind": "Section",
       "label": "sec:discussion",
       "number": "5",
@@ -538,6 +580,20 @@
       "label": "sec:conclusion",
       "number": "7",
       "page": 11
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:training-costs",
+      "number": "S35",
+      "page": 20
+    },
+    {
+      "document": "supplementary_material",
+      "kind": "Table",
+      "label": "sup:cpu-latency",
+      "number": "S36",
+      "page": 20
     },
     {
       "document": "supplementary_material",
@@ -558,12 +614,12 @@
       "kind": "Section",
       "label": "sec:limitations",
       "number": "6",
-      "page": 10
+      "page": 11
     }
   ],
   "source_sha256": {
-    "manuscript": "5e90c0d156fd8fa37c23c0416e08ddddd6f84f5138d1eabaed885fae636b22fd",
-    "supplementary_material": "92925ff2c4697f87712dcc97a5b6543ad0c3d753b87ac36864b8829f05436daf"
+    "manuscript": "c24012a7a0f0cc26b22a3467fdc66cefaf30880c661e0a2cc09211546ebc921a",
+    "supplementary_material": "b9a44d23ae280e6252ab762bd6c27c385b9bc89b99aec31129c4c44ab98ad3d9"
   },
   "units": 15,
   "original_requests_quoted": true

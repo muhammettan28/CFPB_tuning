@@ -15,6 +15,7 @@ import pandas as pd
 from threadpoolctl import threadpool_limits
 import analyze_corrected_gpu_results as core
 import analyze_ref14_baselines as extra
+from comparison_extensions import encoder_contrasts
 from revision_gpu_common import ROOT, PAPER, verify_data, sha_file
 
 
@@ -75,6 +76,8 @@ def main():
         (latency, 'controlled_latency_summary.csv'), (paired, 'controlled_latency_paired.csv')]]
     comparisons += [compare(values, project_path(PAPER, 'analysis/ref14_encoder', name)) for values, name in [
         (refrows, 'model_metrics.csv'), (refcontrasts, 'paired_contrasts.csv')]]
+    comparisons.append(compare(encoder_contrasts(output),
+        project_path(PAPER, 'analysis/postprocessing/qlora_encoder_contrasts.csv')))
     report = {'passed': True, 'cpu_only': True, 'neural_weights_required': False,
               'original_paper_required': False, 'fitting_performed': False,
               'source_files_hash_checked': len(checked), 'comparisons': comparisons,

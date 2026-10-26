@@ -126,8 +126,6 @@
     {1}{64.38562pt}}
 \@writefile{lot}{\contentsline {table}{\numberline {S15}{Observed off-label outputs among 15,428 internal predictions. Compliance is not constrained decoding.}}{10}{table.15}\protected@file@percent }
 \newlabel{sup:off-label}{{S15}{10}{Observed off-label outputs among 15,428 internal predictions. Compliance is not constrained decoding}{table.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {S4}Benchmark overlaps and per-view descriptions}{10}{section.4}\protected@file@percent }
-\newlabel{sup:legacy}{{S4}{10}{Benchmark overlaps and per-view descriptions}{section.4}{}}
 \gdef \LT@xvi {\LT@entry 
     {1}{14.40399pt}\LT@entry 
     {1}{39.9943pt}\LT@entry 
@@ -162,20 +160,20 @@
     {4}{23.94398pt}\LT@entry 
     {4}{19.958pt}\LT@entry 
     {4}{19.94398pt}}
-\gdef \LT@xix {\LT@entry 
-    {1}{13.55002pt}\LT@entry 
-    {1}{52.20094pt}\LT@entry 
-    {1}{64.88695pt}\LT@entry 
-    {1}{63.88425pt}\LT@entry 
-    {1}{72.57025pt}}
+\@writefile{toc}{\contentsline {section}{\numberline {S4}Benchmark overlaps and per-view descriptions}{11}{section.4}\protected@file@percent }
+\newlabel{sup:legacy}{{S4}{11}{Benchmark overlaps and per-view descriptions}{section.4}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S16}{Benchmark file key. ID order matches both overlap matrices. Imbalanced counts are credit reporting/debt/loans/card/banking; sampling code is unavailable.}}{11}{table.16}\protected@file@percent }
 \newlabel{sup:legacy-key}{{S16}{11}{Benchmark file key. ID order matches both overlap matrices. Imbalanced counts are credit reporting/debt/loans/card/banking; sampling code is unavailable}{table.16}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S17}{Normalised narrative overlap. Counts are shared unique inputs; diagonals count within-file unique inputs. Row fractions and Jaccard matrices are in the archive.}}{11}{table.17}\protected@file@percent }
 \newlabel{sup:legacy_overlap_narrative_counts}{{S17}{11}{Normalised narrative overlap. Counts are shared unique inputs; diagonals count within-file unique inputs. Row fractions and Jaccard matrices are in the archive}{table.17}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S18}{Normalised label--narrative-unit overlap. Counts are shared unique inputs; diagonals count within-file unique inputs. Row fractions and Jaccard matrices are in the archive.}}{11}{table.18}\protected@file@percent }
 \newlabel{sup:legacy_overlap_label_narrative_counts}{{S18}{11}{Normalised label--narrative-unit overlap. Counts are shared unique inputs; diagonals count within-file unique inputs. Row fractions and Jaccard matrices are in the archive}{table.18}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {S19}{Per-file macro-F1: llm. Multi-seed columns are means. Descriptive scores are not independent replicates or the unique-unit aggregate.}}{11}{table.19}\protected@file@percent }
-\newlabel{sup:legacy-llm}{{S19}{11}{Per-file macro-F1: llm. Multi-seed columns are means. Descriptive scores are not independent replicates or the unique-unit aggregate}{table.19}{}}
+\gdef \LT@xix {\LT@entry 
+    {1}{13.55002pt}\LT@entry 
+    {1}{52.20094pt}\LT@entry 
+    {1}{64.88695pt}\LT@entry 
+    {1}{63.88425pt}\LT@entry 
+    {1}{72.57025pt}}
 \gdef \LT@xx {\LT@entry 
     {1}{13.55002pt}\LT@entry 
     {4}{31.61118pt}\LT@entry 
@@ -190,6 +188,8 @@
     {1}{45.27599pt}\LT@entry 
     {1}{47.20277pt}\LT@entry 
     {1}{55.52153pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {S19}{Per-file macro-F1: llm. Multi-seed columns are means. Descriptive scores are not independent replicates or the unique-unit aggregate.}}{12}{table.19}\protected@file@percent }
+\newlabel{sup:legacy-llm}{{S19}{12}{Per-file macro-F1: llm. Multi-seed columns are means. Descriptive scores are not independent replicates or the unique-unit aggregate}{table.19}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S20}{Per-file macro-F1: baseline. Multi-seed columns are means. Descriptive scores are not independent replicates or the unique-unit aggregate.}}{12}{table.20}\protected@file@percent }
 \newlabel{sup:legacy-baseline}{{S20}{12}{Per-file macro-F1: baseline. Multi-seed columns are means. Descriptive scores are not independent replicates or the unique-unit aggregate}{table.20}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {S5}Input-length conditions, cohorts and sensitivity analyses}{12}{section.5}\protected@file@percent }
@@ -206,14 +206,14 @@
 \@writefile{lot}{\contentsline {table}{\numberline {S22}{Paired C minus B changes for all metrics and both predefined cohorts.}}{13}{table.22}\protected@file@percent }
 \newlabel{sup:length-effects}{{S22}{13}{Paired C minus B changes for all metrics and both predefined cohorts}{table.22}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {S5.1}Auxiliary length-stratum and matched-view analyses}{13}{subsection.5.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {S23}{\ignorespaces Auxiliary-model internal macro-F1 by full narrative length. Inputs are capped at 500 characters; model-visible overlap limits interpretation.}}{13}{table.23}\protected@file@percent }
-\newlabel{sup:historical-strata}{{S23}{13}{Auxiliary-model internal macro-F1 by full narrative length. Inputs are capped at 500 characters; model-visible overlap limits interpretation}{table.23}{}}
 \gdef \LT@xxiii {\LT@entry 
     {1}{29.18294pt}\LT@entry 
     {1}{48.08353pt}\LT@entry 
     {4}{52.79997pt}\LT@entry 
     {1}{48.24191pt}\LT@entry 
     {4}{66.18085pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {S23}{\ignorespaces Auxiliary-model internal macro-F1 by full narrative length. Inputs are capped at 500 characters; model-visible overlap limits interpretation.}}{14}{table.23}\protected@file@percent }
+\newlabel{sup:historical-strata}{{S23}{14}{Auxiliary-model internal macro-F1 by full narrative length. Inputs are capped at 500 characters; model-visible overlap limits interpretation}{table.23}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S24}{\ignorespaces Auxiliary-model 250/500-character matched-view results, unique-pair weighted. The source cohort and fitted models differ from the controlled B/C comparison.}}{14}{table.24}\protected@file@percent }
 \newlabel{sup:historical-pairs}{{S24}{14}{Auxiliary-model 250/500-character matched-view results, unique-pair weighted. The source cohort and fitted models differ from the controlled B/C comparison}{table.24}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {S6}Controlled latency and measurement limitations}{14}{section.6}\protected@file@percent }
@@ -291,4 +291,21 @@
 \@writefile{lot}{\contentsline {table}{\numberline {S34}{Qwen configuration-screening conditions on the full-text-grouped allocation. Validation scores are auxiliary selection evidence, not primary-comparison test estimates.}}{19}{table.34}\protected@file@percent }
 \newlabel{sup:historical-selection}{{S34}{19}{Qwen configuration-screening conditions on the full-text-grouped allocation. Validation scores are auxiliary selection evidence, not primary-comparison test estimates}{table.34}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {S8.4}Validation scope}{19}{subsection.8.4}\protected@file@percent }
-\gdef \@abspage@last{19}
+\@writefile{toc}{\contentsline {subsection}{\numberline {S8.5}Computational cost and CPU baseline timings}{19}{subsection.8.5}\protected@file@percent }
+\gdef \LT@xxxi {\LT@entry 
+    {4}{78.63806pt}\LT@entry 
+    {1}{23.85266pt}\LT@entry 
+    {4}{61.57025pt}\LT@entry 
+    {1}{67.42877pt}\LT@entry 
+    {1}{55.7425pt}}
+\gdef \LT@xxxii {\LT@entry 
+    {4}{70.67157pt}\LT@entry 
+    {1}{28.09315pt}\LT@entry 
+    {1}{44.79643pt}\LT@entry 
+    {1}{52.50494pt}\LT@entry 
+    {1}{32.82896pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {S35}{Recorded neural training and measured sparse training times. Fit hours are per refit; search hours use the stated method-specific timing boundaries. A dash denotes fixed QLoRA settings, not a measured zero search cost.}}{20}{table.35}\protected@file@percent }
+\newlabel{sup:training-costs}{{S35}{20}{Recorded neural training and measured sparse training times. Fit hours are per refit; search hours use the stated method-specific timing boundaries. A dash denotes fixed QLoRA settings, not a measured zero search cost}{table.35}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S36}{Four-thread CPU end-to-end inference on the matched latency cohort (milliseconds). Each row has 300 fresh calls. Median and p95 are empirical call quantiles.}}{20}{table.36}\protected@file@percent }
+\newlabel{sup:cpu-latency}{{S36}{20}{Four-thread CPU end-to-end inference on the matched latency cohort (milliseconds). Each row has 300 fresh calls. Median and p95 are empirical call quantiles}{table.36}{}}
+\gdef \@abspage@last{20}

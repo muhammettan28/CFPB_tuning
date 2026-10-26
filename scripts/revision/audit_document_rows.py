@@ -67,7 +67,9 @@ def main():
         seeds = pd.read_csv(RESULT/'corrected_per_seed_metrics.csv')
         seeds = seeds.loc[seeds.role.eq(role)].pivot(index='variant', columns='metric', values='value')
         check('sup:seeds-'+role, [[v, f(r.accuracy), f(r.macro_f1), f(r.weighted_f1)] for v, r in seeds.iterrows()])
-    c = pd.read_csv(RESULT/'corrected_paired_contrasts.csv'); c = c.loc[c.metric.eq('macro_f1')]
+    c = pd.concat([pd.read_csv(RESULT/'corrected_paired_contrasts.csv'),
+                   pd.read_csv(POST/'qlora_encoder_contrasts.csv')],ignore_index=True)
+    c = c.loc[c.metric.eq('macro_f1')]
     check('sup:contrasts', [[r.role, NAMES[r.reference], NAMES[r.comparison], f(r.paired_difference), ci(r)] for r in c.itertuples()])
     check('internal_contrasts.tex', [[NAMES[r.reference], NAMES[r.comparison], f(r.paired_difference), ci(r)] for r in c.loc[c.role.eq('internal')].itertuples()])
     classes = pd.read_csv(POST/'corrected_class_metrics.csv')
@@ -152,6 +154,15 @@ def main():
     old=pd.read_csv(project_path(PAPER, 'analysis/revision_v1/paired_truncation_metrics.csv'))
     check('sup:historical-pairs', [[r.model,'Base' if r.variant=='base_zero_shot' else 'FT mean',r.unique_pairs,f(r.short_point),f(r.long_point),interval(r.gain,r.gain_low,r.gain_high)] for r in old.loc[old.cohort.eq('changed_input_only')&old.metric.eq('macro_f1')].itertuples()])
     check('sup:historical-selection', [[r['condition'],r['sampling'],f"{r['learning_rate']:.0e}",r['rank'],r['epochs'],f(r['macro_f1']),f(r['debt_f1'])] for r in historical_protocol_rows()])
+    costs = pd.read_csv(POST/'computational_costs.csv')
+    check('computational_costs.tex', [[NAMES[r.system],f'{r.mean_fit_minutes:.2f}',
+          'CPU' if r.training_device=='CPU' else 'GPU',f'{r.mean_e2e_ms:.2f}',
+          'CPU' if r.inference_device=='CPU' else 'GPU'] for r in costs.itertuples()])
+    check('sup:training-costs', [[NAMES[r.system],r.fit_runs,
+          'CPU' if r.training_device=='CPU' else 'RTX 5060 Ti',f'{r.mean_fit_device_hours:.4f}',
+          '---' if pd.isna(r.search_seconds) else f'{r.search_seconds/3600:.4f}'] for r in costs.itertuples()])
+    latency = pd.read_csv(POST/'cpu_latency_summary.csv')
+    check('sup:cpu-latency', [[NAMES[r.system],r.calls,f'{r.mean_ms:.3f}',f'{r.median_ms:.3f}',f'{r.p95_ms:.3f}'] for r in latency.itertuples()])
     # Guard the checker itself: row swaps must fail even if all numbers are present.
     probe=[['A','0.1'],['B','0.2']]
     for bad in [probe[::-1],[['A','0.2'],['B','0.1']]]:

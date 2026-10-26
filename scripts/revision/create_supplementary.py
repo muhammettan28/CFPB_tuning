@@ -6,7 +6,7 @@ import json
 import pandas as pd
 import numpy as np
 from sklearn.metrics import accuracy_score,f1_score
-from finalize_revision_documents import OUT,NAMES,CLASS_NAMES,esc,f,ci,row,metric_frame
+from finalize_revision_documents import OUT,NAMES,CLASS_NAMES,esc,f,ci,row,metric_frame,macro_contrasts
 from revision_gpu_common import PAPER,ROOT,DATA,EXP,LABELS,load_frame,sha_file
 from restored_content_evidence import historical_protocol_rows
 from publication_language import publication_terms
@@ -108,7 +108,7 @@ All neural runs use locally cached, immutable Hugging Face snapshots. Weight fil
 Displayed prompt line wraps are typographical; the source string and rendered templates in the retained code determine actual serialization. Exact-input memoisation is used only in deterministic LLM prediction generation. Identity includes token IDs/masks, immutable base and fitted-weight hashes, generation settings, runner/cache code hashes, library versions, hardware and driver. All appearances, labels and row metadata remain in prediction tables. Labels and row identities are not cache keys. Latency and warmups always make fresh GPU calls. The two 500-character token-cap control settings have identical encoded inputs and may reuse replies; they are not independent inference replicates.
 
 \subsection{Encoder selection and fresh refits}
-Main BERT, DistilBERT and RoBERTa use 500 characters and a 512-token cap, physical batch 4/accumulation 4, evaluation batch 16, FP16, AdamW, weight decay 0.01, linear scheduling and warmup 0.06. Search seed is 42. Each candidate is evaluated at its final epoch; the globally highest validation macro-F1 wins, with the smallest candidate ID for ties within $10^{-12}$. Three fresh refits use the selected configuration. Test inference is blocked unless all 2,000 reloaded validation predictions exactly match their Trainer predictions.
+Main BERT, DistilBERT and RoBERTa use 500 characters and a 512-token cap, physical batch 4/accumulation 4, evaluation batch 16, FP16, AdamW, weight decay 0.01, linear scheduling and warmup 0.06. Search seed is 42. Each candidate is evaluated at its final epoch; the globally highest validation macro-F1 wins, with the smallest candidate ID for ties within $10^{-12}$. The selected DistilBERT and RoBERTa conditions are at the upper tested learning rate ($5\times10^{-5}$) and epoch count (three). Scores outside that grid are unknown; the search is not a global-optimisation claim. Three fresh refits use the selected configuration. Test inference is blocked unless all 2,000 reloaded validation predictions exactly match their Trainer predictions.
 ''']
     rows=[]
     for model in ['bert','distilbert','roberta']:
@@ -146,7 +146,7 @@ More explicitly, let $C_{gs}$ be the weighted confusion counts of group $g$ for 
         pivot=seed.loc[seed.role.eq(role)].pivot(index='variant',columns='metric',values='value')
         lines += [table('Individual '+role+' checkpoint scores. Each TF-IDF row represents three identical deterministic fits.','sup:seeds-'+role,
             ['Variant','Accuracy','Macro-F1','Weighted F1'],[[esc(i),f(r.accuracy),f(r.macro_f1),f(r.weighted_f1)] for i,r in pivot.iterrows()],'lrrr')]
-    contrast=pd.read_csv(project_path(PAPER, 'analysis/gpu_execution/corrected_paired_contrasts.csv'))
+    contrast=macro_contrasts()
     lines += [table(r'All main macro-F1 paired contrasts, comparison minus reference. Full-data TF-IDF comparisons have unequal training budgets. The internal Llama-versus-full-data upper bound is $+6.8\times10^{-6}$ before rounding, so that interval includes zero.','sup:contrasts',
         ['View','Reference','Comparison','Difference',r'95\% CI'],
         [[r.role,NAMES[r.reference],NAMES[r.comparison],f(r.paired_difference),ci(r.low,r.high)] for r in contrast.loc[contrast.metric.eq('macro_f1')].itertuples(index=False)],'lllrr')]
@@ -265,7 +265,7 @@ Saved-prediction analysis can instead be repeated without neural weights, a GPU 
 python scripts/revision/replay_reviewer_results.py \
   --output /tmp/cfpb-review-replay
 \end{Verbatim}
-The output directory must not exist. This checks frozen data and source hashes, recomputes all main/reference metrics, seed scores, paired intervals, length sensitivity and latency summaries, and compares eight full result tables to reference CSVs at absolute tolerance $10^{-12}$. It writes replay outputs to a separate directory. It does not rerun neural inference or recover unavailable provenance. The replay verifies the supplied result inputs and does not require the manuscript preparation files.
+The output directory must not exist. This checks frozen data and source hashes, recomputes all main/reference metrics, seed scores, paired intervals, length sensitivity and latency summaries, and compares nine full result tables to reference CSVs at absolute tolerance $10^{-12}$. It writes replay outputs to a separate directory. It does not rerun neural inference or recover unavailable provenance. The replay verifies the supplied result inputs and does not require the manuscript preparation files.
 
 Source hashes identify the analysed files; upstream CFPB-to-Kaggle preprocessing and product aggregation are unavailable. Auxiliary fits lack some immutable upstream identities and complete fitted Qwen artifacts, limiting their reconstruction. Primary-comparison identities are listed in Table~\ref{sup:pins}. Execution metadata can contain absolute machine paths.
 ''']
@@ -280,6 +280,8 @@ Source hashes identify the analysed files; upstream CFPB-to-Kaggle preprocessing
     lines += [table('Frozen protocol SHA-256 values.','sup:protocol-hashes',['Artifact','SHA-256'],[[name,r'\nolinkurl{'+digest+'}'] for name,digest in hashes],'p{35mm}p{122mm}')]
     lines += [r'''
 \subsection{Auxiliary data-overlap analysis}
+The auxiliary inference code tokenises an already rendered chat template with default special-token insertion. The primary pipeline uses \texttt{add\_special\_tokens=False}. A CPU reconstruction with the pinned primary tokenizers produces two leading BOS tokens under the default Llama path and one under the explicit path; the two Qwen paths have identical token IDs for the audited prompt. This identifies a serialization difference, rather than an isolated accuracy ablation. Auxiliary upstream model identities are incomplete, and hardware and quantised numerical execution also differ between the implementations.
+
 Auxiliary models fitted under full-normalised-narrative grouping support a diagnostic analysis of dependence under truncated inputs. Their fitting selections vary with seed, so sample SD combines selection and optimisation variation. At 500 characters, 192 shared unique training inputs are associated with 584 internal-test rows; the three Llama fitting selections expose 383/375/390 test rows. These models therefore have model-visible training/evaluation overlap. Their scores are excluded from the primary comparison. Complete fitted Qwen artifacts and immutable upstream identities for these auxiliary models are unavailable. Differences from the primary comparison also involve membership, serialization, model identities and hardware, so they do not isolate the effect of overlap handling.
 \begin{table}[H]\centering\small
 \caption{Internal results for auxiliary models with model-visible overlap. FT is mean plus/minus sample SD across fits with varying selections; these scores are excluded from the primary comparison.}\label{sup:historical-internal}
@@ -290,11 +292,11 @@ Auxiliary models fitted under full-normalised-narrative grouping support a diagn
 \begin{tabular}{llrrr}\toprule Model & Metric & Base & FT mean & Paired gain\\\midrule
 \input{tables/table_revision_archived_ci.tex}\end{tabular}\end{table}
 
-The auxiliary internal sensitivity excludes whole components touching the fitting or validation records, leaving 14,826 of 15,428 rows. The conservative legacy sensitivity leaves 11,986 of 12,000 appearances. These evaluation filters do not remove fitting/selection exposure and do not validate the primary comparison. The final full-data sparse macro-F1 of 0.8476 is independently recalculated from the retained predictions; implementation-audit details remain in the machine-readable evidence.
+The auxiliary internal sensitivity excludes whole components touching the fitting or validation records, leaving 14,826 of 15,428 rows. The conservative legacy sensitivity leaves 11,986 of 12,000 appearances. These evaluation filters do not remove fitting/selection exposure and do not validate the primary comparison. Within the 14,826-row internal subset, base/adapted macro-F1 is 0.6290/0.8353 for Qwen and 0.6190/0.8381 for Llama. The adapted-model intervals are [0.8265, 0.8430] and [0.8294, 0.8461]; these remain conditional estimates for the auxiliary models. The final full-data sparse macro-F1 of 0.8476 is independently recalculated from the retained predictions; implementation-audit details remain in the machine-readable evidence.
 ''']
     lines += [r'''
 \subsection{Configuration screening for the shared QLoRA settings}
-Qwen3-8B configuration screening compares six conditions on the full-text-grouped allocation: natural/balanced sampling, two learning rates, ranks 8/16 and one/two epochs. This limited comparison is not an exhaustive hyperparameter search. Natural sampling with two epochs, learning rate $2\times10^{-4}$ and rank 16 has the highest recorded validation macro-F1. The primary model comparison uses these fixed settings for both Qwen and Llama, without separate family-specific optimisation.
+Qwen3-8B configuration screening compares six conditions on the full-text-grouped allocation: natural/balanced sampling, two learning rates, ranks 8/16 and one/two epochs. This limited comparison is not an exhaustive hyperparameter search. Natural sampling with two epochs, learning rate $2\times10^{-4}$ and rank 16 has the highest recorded validation macro-F1. The primary model comparison uses these fixed settings for both Qwen and Llama, without separate family-specific optimisation. The sparse and encoder baselines instead receive their stated validation searches on the common fitting allocation. This asymmetry gives those baselines an explicit tuning opportunity; it does not quantify how different search budgets would change the ranking.
 
 The screening fits use the full-text-grouped candidate allocation, whose model-visible overlap is quantified in Section S8.2. Their scores describe configuration screening rather than independent test performance or an optimal configuration. They are excluded from the primary model ranking. Run identities and source hashes identify all six conditions in the search-summary CSVs.
 ''']
@@ -310,6 +312,19 @@ The 154,282-row partitioning pool contains 85,537 credit-reporting records (55.4
 Execution verification checks all 88 main-study stages, actual fitting memberships, the three independently rescored encoder searches, 19 main variants in both views, all same-checkpoint length and controlled-latency files, and source-integrity manifests. The reference audit checks all 12 extra stages, six actual refits, six reload parity tests and independent point metrics. Small hardware/API smoke fits (32 train/8 validation; two optimiser steps) are excluded from scientific results. Frozen prediction checks and tests support the reported computations, but do not establish prospective generalisation, semantic independence, an optimal prompt/budget, operational acceptability or regulatory readiness. The reproducibility package provides the source hashes, selections and recorded outputs for the stated verification scope.
 \end{document}
 ''']
+    lines[-1]=lines[-1].replace(r'\end{document}','')
+    lines += [r'''\subsection{Computational cost and CPU baseline timings}
+Table~\ref{sup:training-costs} reports implementation-specific training wall times. QLoRA runtimes include in-training validation/checkpointing; encoder Trainer runtimes exclude the separate final validation call. Means use three refits for each neural method. Sparse times are fresh fixed-configuration, seed-42 vectoriser-plus-classifier fits on the CPU; all 15,428 predictions match the retained sparse models. Data loading and validation are outside the sparse fitting timer. Encoder search totals sum the six recorded training phases and exclude setup, validation and I/O. Sparse search totals are the recorded full search wall times. QLoRA settings are fixed for the primary comparison, so no primary-allocation search time is reported. Device-hours below are elapsed wall hours on the named device, rather than measured GPU busy-hours or energy.
+''']
+    costs=pd.read_csv(OUT/'computational_costs.csv')
+    rows=[[NAMES[r.system],r.fit_runs,'CPU' if r.training_device=='CPU' else 'RTX 5060 Ti',f'{r.mean_fit_device_hours:.4f}', '---' if pd.isna(r.search_seconds) else f'{r.search_seconds/3600:.4f}'] for r in costs.itertuples(index=False)]
+    lines += [table('Recorded neural training and measured sparse training times. Fit hours are per refit; search hours use the stated method-specific timing boundaries. A dash denotes fixed QLoRA settings, not a measured zero search cost.','sup:training-costs',['System','Fits','Fit device','Mean fit hours','Search hours'],rows,'llrrr')]
+    env=read(ROOT/'experiments/cpu_costs_v1/encoders/environment.json')
+    lines += [r'''CPU inference uses '''+esc(env['cpu'])+r''', four threads, batch one, ten validation warmups and the same 100 internal IDs and three hash-defined repetition orders as the LLM latency study. Each encoder uses its seed-42 checkpoint in FP32; the sparse classifiers use float64 features and their fixed selected configurations. End-to-end time includes tokenisation/vectorisation, classification and label extraction; loading, warmup and I/O are excluded. The CPU is not reserved exclusively, and measured load averages are retained. The raw 300 calls per system, environment and source hashes are supplied under \path{experiments/cpu_costs_v1/}. These device/precision-specific timings are descriptive implementation costs; they are not same-device architecture comparisons or service-capacity estimates.
+''']
+    frame=pd.read_csv(OUT/'cpu_latency_summary.csv')
+    lines += [table('Four-thread CPU end-to-end inference on the matched latency cohort (milliseconds). Each row has 300 fresh calls. Median and p95 are empirical call quantiles.','sup:cpu-latency',['System','Calls','Mean ms','Median ms','p95 ms'],[[NAMES[r.system],r.calls,f'{r.mean_ms:.3f}',f'{r.median_ms:.3f}',f'{r.p95_ms:.3f}'] for r in frame.itertuples(index=False)],'lrrrr')]
+    lines += [r'\end{document}']
     (project_path(PAPER, 'supplementary_material.tex')).write_text(publication_terms('\n'.join(lines)))
     print('Supplementary source written with all completed main and reference-condition evidence.')
 

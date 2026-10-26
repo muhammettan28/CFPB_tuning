@@ -1,0 +1,146 @@
+{
+  "bert": {
+    "source": "analysis/gpu_execution/logs/encoder-search__bert__base__main.log",
+    "source_sha256": "a4125658d2c3fc1d19c2921ab0d78fb4b8e6a40ab67b58776227ba027880f403",
+    "candidate_training_records": [
+      {
+        "train_runtime": 102.7107,
+        "train_samples_per_second": 194.722,
+        "train_steps_per_second": 12.17,
+        "train_loss": 0.5514712493896484,
+        "epoch": 2.0
+      },
+      {
+        "train_runtime": 155.4628,
+        "train_samples_per_second": 192.972,
+        "train_steps_per_second": 12.061,
+        "train_loss": 0.476075466410319,
+        "epoch": 3.0
+      },
+      {
+        "train_runtime": 104.3251,
+        "train_samples_per_second": 191.708,
+        "train_steps_per_second": 11.982,
+        "train_loss": 0.519639956665039,
+        "epoch": 2.0
+      },
+      {
+        "train_runtime": 157.5657,
+        "train_samples_per_second": 190.397,
+        "train_steps_per_second": 11.9,
+        "train_loss": 0.44847809041341147,
+        "epoch": 3.0
+      },
+      {
+        "train_runtime": 103.2927,
+        "train_samples_per_second": 193.624,
+        "train_steps_per_second": 12.102,
+        "train_loss": 0.5203138130187989,
+        "epoch": 2.0
+      },
+      {
+        "train_runtime": 154.4148,
+        "train_samples_per_second": 194.282,
+        "train_steps_per_second": 12.143,
+        "train_loss": 0.44888437779744467,
+        "epoch": 3.0
+      }
+    ]
+  },
+  "distilbert": {
+    "source": "analysis/gpu_execution/logs/encoder-search__distilbert__base__main.log",
+    "source_sha256": "34588a3d5bfd46bac7128f05ae4e3c50ca010e8b1bfda7d1398b5779370bc616",
+    "candidate_training_records": [
+      {
+        "train_runtime": 58.6225,
+        "train_samples_per_second": 341.166,
+        "train_steps_per_second": 21.323,
+        "train_loss": 0.574271061706543,
+        "epoch": 2.0
+      },
+      {
+        "train_runtime": 88.2084,
+        "train_samples_per_second": 340.104,
+        "train_steps_per_second": 21.256,
+        "train_loss": 0.4925371215820312,
+        "epoch": 3.0
+      },
+      {
+        "train_runtime": 59.9073,
+        "train_samples_per_second": 333.849,
+        "train_steps_per_second": 20.866,
+        "train_loss": 0.5359828430175781,
+        "epoch": 2.0
+      },
+      {
+        "train_runtime": 90.6269,
+        "train_samples_per_second": 331.028,
+        "train_steps_per_second": 20.689,
+        "train_loss": 0.4573155212402344,
+        "epoch": 3.0
+      },
+      {
+        "train_runtime": 59.7674,
+        "train_samples_per_second": 334.631,
+        "train_steps_per_second": 20.914,
+        "train_loss": 0.5197359588623047,
+        "epoch": 2.0
+      },
+      {
+        "train_runtime": 88.8799,
+        "train_samples_per_second": 337.534,
+        "train_steps_per_second": 21.096,
+        "train_loss": 0.4322340357462565,
+        "epoch": 3.0
+      }
+    ]
+  },
+  "roberta": {
+    "source": "analysis/gpu_execution/logs/encoder-search__roberta__base__main.log",
+    "source_sha256": "375d4929e2e86c85ba8877bf1cd6e46fa42fa98dcde333fa16e91eb36900cc51",
+    "candidate_training_records": [
+      {
+        "train_runtime": 107.8778,
+        "train_samples_per_second": 185.395,
+        "train_steps_per_second": 11.587,
+        "train_loss": 0.5649667526245117,
+        "epoch": 2.0
+      },
+      {
+        "train_runtime": 160.2938,
+        "train_samples_per_second": 187.156,
+        "train_steps_per_second": 11.697,
+        "train_loss": 0.5011364112854004,
+        "epoch": 3.0
+      },
+      {
+        "train_runtime": 107.5752,
+        "train_samples_per_second": 185.916,
+        "train_steps_per_second": 11.62,
+        "train_loss": 0.5474703338623047,
+        "epoch": 2.0
+      },
+      {
+        "train_runtime": 170.0111,
+        "train_samples_per_second": 176.459,
+        "train_steps_per_second": 11.029,
+        "train_loss": 0.5018281890869141,
+        "epoch": 3.0
+      },
+      {
+        "train_runtime": 113.7455,
+        "train_samples_per_second": 175.831,
+        "train_steps_per_second": 10.989,
+        "train_loss": 0.5450526077270508,
+        "epoch": 2.0
+      },
+      {
+        "train_runtime": 170.8694,
+        "train_samples_per_second": 175.573,
+        "train_steps_per_second": 10.973,
+        "train_loss": 0.49630136464436847,
+        "epoch": 3.0
+      }
+    ]
+  }
+}

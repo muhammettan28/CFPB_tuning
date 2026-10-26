@@ -5,34 +5,22 @@
   "all_pages_rendered": true,
   "all_page_contact_sheets_visually_inspected": true,
   "detailed_pages_inspected": [
-    11
+    1,
+    7,
+    10,
+    11,
+    12
   ],
   "no_overfull_boxes": true,
   "no_undefined_citations_or_references": true,
   "page_bounds_checked": true,
-  "rendered_evidence_directory": ".build/revision_paper/qa_public_access/manuscript",
-  "manuscript_tex_sha256": "a3bab3a66c2c2ba9ca853926e5e1b72ac3fd9b7c66886de5a0bb63dadc26fc18",
-  "manuscript_pdf_sha256": "3f7b4b3a9c7e9c9cbc4f33fdc66ef3220d4f12b4dafb648e61bbc0756aabe3da",
+  "rendered_evidence_directory": ".build/revision_paper/qa_claude_feedback/manuscript",
+  "manuscript_tex_sha256": "b52eca1fde0d3d1517457deb9ce81dc2cb49d4d278c04259ac3799205b4f672e",
+  "manuscript_pdf_sha256": "f57b84ba5afa28077f90f5d96ab4b746adda76222a669bd3db88a61e13a48745",
   "content_restoration_completed": true,
   "standalone_publication_narrative_checked": true,
   "all_changed_pages_visually_checked": true,
   "internal_workflow_notes_absent": true,
   "public_repository_hyperlink_present": true,
-  "visually_reviewed_changed_pages": [
-    11
-  ],
-  "unchanged_pages_visual_qa_carried_forward": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    12,
-    13
-  ]
+  "claude_feedback_document_review_completed": true
 }

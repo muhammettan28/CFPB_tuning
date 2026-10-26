@@ -1,22 +1,24 @@
 {
   "passed": true,
   "date": "2026-10-26",
-  "pages": 19,
+  "pages": 20,
   "all_pages_rendered": true,
   "all_page_contact_sheets_visually_inspected": true,
   "detailed_pages_inspected": [
-    17,
-    18
+    9,
+    18,
+    19,
+    20
   ],
   "no_overfull_boxes": true,
   "no_undefined_citations_or_references": true,
   "page_bounds_checked": true,
-  "rendered_evidence_directory": ".build/revision_paper/qa_public_access/supplementary_material",
-  "supplementary_tex_sha256": "b1ab2df529eedefa4e5f7a90601bd67f66c5308a033ede6e05f8dae67108508b",
-  "supplementary_pdf_sha256": "804fe4bb3bc58ba78ef95fe50fcfd8eaacf601dd88adfb089159d8903c765501",
-  "tables": 34,
+  "rendered_evidence_directory": ".build/revision_paper/qa_claude_feedback/supplementary_material",
+  "supplementary_tex_sha256": "ace5f0f971d78786abe9218804993af1546a8e6c7358aee1cc671675aa8c35cb",
+  "supplementary_pdf_sha256": "9d74efd39be4dd3271dbe774635994173a68a09fe32d16b403c770321736ac84",
+  "tables": 36,
   "stable_longtable_widths_and_labels": true,
-  "landscape_note": "Page 15 has /Rotate=90. Mixed Poppler coordinates checked against outer bounds; complete rendered landscape page inspected.",
+  "landscape_note": "Page 15 has /Rotate=90; full rotated rendering checked.",
   "copyable_ascii_replay_command_verified": true,
   "relocation_only_edit": false,
   "content_restoration_completed": true,
@@ -24,27 +26,5 @@
   "all_changed_pages_visually_checked": true,
   "internal_workflow_notes_absent": true,
   "public_repository_hyperlink_present": true,
-  "visually_reviewed_changed_pages": [
-    17,
-    18
-  ],
-  "unchanged_pages_visual_qa_carried_forward": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    19
-  ]
+  "claude_feedback_document_review_completed": true
 }

@@ -69,3 +69,27 @@ limitations stated in the manuscript and response. No new model execution was
 performed to reorganise these files. The reproducibility repository is
 https://github.com/muhammettan28/CFPB_tuning; experiment records are under its root
 `experiments/` directory.
+
+## Additional comparisons and implementation costs
+
+The ninth replayed table is `analysis/postprocessing/qlora_encoder_contrasts.csv`.
+It compares the means of all three QLoRA refits with all three encoder refits
+within each original joint 19-variant group-bootstrap draw. The eight existing
+main/reference result CSVs and their input predictions remain unchanged.
+
+`experiments/cpu_costs_v1/` records 1,500 CPU baseline timing calls on the fixed
+100-record latency cohort, with four threads, ten validation warmups and three
+repetitions. Encoder timings use FP32 seed-42 checkpoints; they do not replace
+the primary GPU FP16 accuracy results. Sparse fit timings include a fresh
+vectorizer and selected classifier fit; all internal predictions match the
+retained sparse models. Neural training times are exported from Trainer runtime
+records; encoder search totals sum training phases, whereas sparse search totals
+cover the complete recorded search. Device/precision/timer scopes are stated in
+the supplementary cost tables. These are implementation costs, not a same-device
+architecture benchmark or energy measurement.
+
+`verify_comparison_evidence.py` reconstructs the cost summaries from the supplied
+raw calls and training excerpts and checks the zero-shot protocol comparisons.
+It requires no neural weights or GPU. `build_comparison_evidence.py` can rebuild
+these derived summaries using a freshly replayed bootstrap directory; it consumes
+the supplied training excerpts when the author's verbose runtime logs are absent.

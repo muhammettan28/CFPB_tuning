@@ -1,0 +1,3 @@
+system,seed,train_rows,training_seconds,device,scope,prediction_parity_rows
+tfidf_10000,42,10000,1.5900509231723845,CPU,Fresh vectorizer fit_transform plus fixed selected classifier fit; validation/search/loading excluded,15428
+tfidf_full,42,120502,48.187061190837994,CPU,Fresh vectorizer fit_transform plus fixed selected classifier fit; validation/search/loading excluded,15428
