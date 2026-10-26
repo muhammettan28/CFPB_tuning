@@ -13,14 +13,14 @@
   "keyed_tables_checked": 36,
   "keyed_rows_checked": 546,
   "keyed_cells_checked": 3517,
-  "cpu_tests_run": 48,
-  "cpu_tests_passed": 48,
+  "cpu_tests_run": 50,
+  "cpu_tests_passed": 50,
   "response_regeneration_from_git_only_checkout_byte_identical": true,
   "original_source_ODT_or_original_paper_required_for_standalone_replay": false,
   "local_model_registry_required_for_standalone_replay": false,
   "neural_weights_required_for_standalone_replay": false,
   "main_manuscript_and_reviewer_response_unchanged": false,
-  "supplement_changes": "Publication narrative states data allocations, fitting scope and limitations directly, without manuscript-version chronology; all 34 tables and numerical results retained.",
+  "supplement_changes": "Public repository link and CPU replay instructions added; draft delivery notes removed. All 34 tables and numerical results preserved.",
   "original_code_snapshots_preserved": "experiments/provenance/layout_before_2026_10_26/",
   "old_input_audits_rewritten": false,
   "fresh_execution_code_requires_new_CPU_tokenizer_audit": true,
@@ -30,5 +30,7 @@
   "external_reviewer_access_verified": false,
   "publication_documents_updated_after_relocation": true,
   "subsequent_document_validation": "analysis/postprocessing/RESTORED_CONTENT_VALIDATION.json",
-  "publication_narrative_history_removed": true
+  "publication_narrative_history_removed": true,
+  "public_repository_url": "https://github.com/muhammettan28/CFPB_tuning",
+  "public_repository_exists_verified": true
 }

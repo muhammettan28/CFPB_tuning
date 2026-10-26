@@ -124,6 +124,7 @@
   "keyed_cells_checked": 3517,
   "wrong_row_negative_controls_passed": true,
   "pdf_copyable_ascii_replay_command_checked": true,
+  "internal_workflow_notes_absent_from_all_documents": true,
   "historical_selection_conditions_checked": 6,
   "restored_error_narrative_checked_against_raw_predictions": true,
   "original_introduction_opening_preserved": true

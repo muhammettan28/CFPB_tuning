@@ -8,6 +8,7 @@ from revision_gpu_common import ROOT,PAPER,sha_file
 from auto_postprocess_after_experiments import verify_evidence,readiness
 from prepare_reviewer_crosswalk import extract,final_response_protected
 from revision_document_paths import compiled_artifact
+from publication_language import internal_workflow_hits
 
 OUT=project_path(PAPER, 'analysis/postprocessing')
 def read(p):return json.loads(p.read_text())
@@ -65,6 +66,7 @@ def main():
     # The source row identities, rounded values and separate CI/SD estimates are checked;
     # independent source-prediction metric checks are in the completed scientific validation.
     for text in [main,sup,response]:
+        assert not internal_workflow_hits(text),internal_workflow_hits(text)
         for pattern in ['TODO','TBD','INSERT HERE','see pending','[final section]']:
             assert pattern not in text,pattern
     for stem in ['manuscript','supplementary_material','response_to_reviewers']:
@@ -87,6 +89,7 @@ def main():
     report['keyed_cells_checked']=keyed['total_cells']
     report['wrong_row_negative_controls_passed']=keyed['row_swap_and_wrong_value_negative_controls_passed']
     report['pdf_copyable_ascii_replay_command_checked']=True
+    report['internal_workflow_notes_absent_from_all_documents']=True
     report['historical_selection_conditions_checked']=restored['historical_selection_conditions_checked']
     report['restored_error_narrative_checked_against_raw_predictions']=True
     report['original_introduction_opening_preserved']=True

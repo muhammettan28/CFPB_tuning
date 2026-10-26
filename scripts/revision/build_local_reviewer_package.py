@@ -76,8 +76,8 @@ rerun training/inference, original tokenizer audits or upstream data collection.
 Data/model licenses remain those of their sources. Upstream preprocessing and
 unrecovered pre-revision checkpoint identities remain disclosed limitations. Some
 execution metadata retain original local paths; this is not an anonymity certificate.
-This package has been prepared locally; external delivery/public access and final
-author approval are separate submission steps. No upload or message is claimed.
+The code, data selections and experiment evidence are also shared in the repository
+https://github.com/muhammettan28/CFPB_tuning. This ZIP supplies a hash-verified snapshot.
 The package's own SHA-256 and final delivery-readiness receipt are stored outside
 this ZIP to avoid self-referencing hashes. Cleanup date: 26 October 2026.
 """

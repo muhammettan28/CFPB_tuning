@@ -274,23 +274,27 @@ def write_final_crosswalk():
     source,original,r1,r2=extract()
     response=(project_path(PAPER, 'RESPONSE_TO_REVIEWERS.md')).read_text()
     blocks=re.split(r'(?=^### R[12]\.\d+)',response,flags=re.M)[1:]
+    access_path=ROOT/'analysis/repository_layout/PUBLIC_REPOSITORY_ACCESS.json'
+    access=json.loads(access_path.read_text()) if access_path.exists() else {}
+    access_verified=access.get('published_evidence_complete') is True
     records=[]
     for block,quote in zip(blocks,r1+r2):
         ident=re.match(r'### (R[12]\.\d+)',block).group(1)
         assert '> '+quote in block
         locations=block.split('**Changes and locations.** ',1)[1].strip().split('\n\n## Reviewer',1)[0]
         records.append({'id':ident,'original_comment':quote,'locations':locations,
-            'status':'documented_with_delivery_open' if ident in {'R1.3','R2.7'} else 'addressed_with_stated_limits'})
+            'status':('addressed_public_repository' if access_verified else 'public_link_documented_pending_sync') if ident in {'R1.3','R2.7'} else 'addressed_with_stated_limits'})
     assert len(records)==15
     report={'source':str(source.relative_to(ROOT)),'source_sha256':sha_file(source),
             'response_sha256':sha_file(project_path(PAPER, 'RESPONSE_TO_REVIEWERS.md')),'requests':records,
-            'request_units':15,'reviewer_access_delivered':False}
+            'request_units':15,'reviewer_access_delivered':access_verified,
+            'public_repository_url':'https://github.com/muhammettan28/CFPB_tuning'}
     final=project_path(PAPER, 'analysis/postprocessing/REVIEWER_COVERAGE_FINAL.json')
     final.write_text(json_text(report))
     md=['# Reviewer requests and final response locations','',
         'This index refers to the completed revised documents. R1/R2 IDs are editorial tracking IDs, not original reviewer numbering. All original wording is retained below; the complete original text, including introductory comments, is in [the original extract](../analysis/gpu_preparation/original_reviewer_comments.txt).','',
         '[Full response letter](RESPONSE_TO_REVIEWERS.md) · [Machine-readable final coverage](../analysis/postprocessing/REVIEWER_COVERAGE_FINAL.json)','',
-        'All planned experiments and the document audits are complete. Actual reviewer/public delivery and author approval remain submission steps. Unavailable pre-revision provenance is disclosed in the response and supplement; this index does not claim that it was recovered.']
+        'Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The responses describe the completed analyses and their scientific limitations; each entry below links the reviewer comment to the corresponding document locations.']
     for r in records:
         md+=['', '## '+r['id'],'','> '+r['original_comment'],'',
              '**Response:** see '+r['id']+' in [the response letter](RESPONSE_TO_REVIEWERS.md).',

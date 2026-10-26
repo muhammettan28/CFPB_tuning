@@ -1,7 +1,7 @@
 {
   "passed": true,
   "date": "2026-10-26",
-  "pages": 8,
+  "pages": 7,
   "request_units": 15,
   "compiled_location_references": 80,
   "exact_original_quotes_checked": true,
@@ -9,24 +9,36 @@
   "all_page_contact_sheets_visually_inspected": true,
   "detailed_pages_inspected": [
     1,
-    6,
-    7,
-    8
+    2,
+    7
   ],
   "no_out_of_page_words": true,
   "no_overfull_boxes": true,
   "no_undefined_references_or_citations": true,
-  "external_access_open_explicit": true,
+  "external_access_open_explicit": false,
   "artifacts_sha256": {
-    "RESPONSE_TO_REVIEWERS.md": "d7b5c583d86e45f508fb147cb5b306f85f7002634b0934bab4138e1d4b0eff82",
-    "response_to_reviewers.tex": "f1d21b6d51522680e306cbd79c0c2b1d91c413518f725030681ad7bfedd2603e",
-    "response_to_reviewers.pdf": "851aab66a8b900cc6264f47e1a89837b0416fec7d3ffc93053c692c8da5394bb"
+    "RESPONSE_TO_REVIEWERS.md": "ceb5b2ffe2ad0e0fa54795dc8919166faf124dfe5c0bb30332b838a6a927fb64",
+    "response_to_reviewers.tex": "208073898a534f2005fc1cc7cfa41265fe28e52c83b5a38e20d2eb5a100101a9",
+    "response_to_reviewers.pdf": "74752a1c9b6e19a5609e57c2ff9ecf2fe82acc74c9c692a86974f3237cc83bb2"
   },
   "no_undefined_citations_or_references": true,
   "page_bounds_checked": true,
-  "rendered_evidence_directory": ".build/revision_paper/qa_standalone/response_to_reviewers",
+  "rendered_evidence_directory": ".build/revision_paper/qa_public_access/response_to_reviewers",
   "content_restoration_completed": true,
-  "response_tex_sha256": "f1d21b6d51522680e306cbd79c0c2b1d91c413518f725030681ad7bfedd2603e",
-  "response_pdf_sha256": "851aab66a8b900cc6264f47e1a89837b0416fec7d3ffc93053c692c8da5394bb",
-  "standalone_publication_narrative_checked": true
+  "response_tex_sha256": "208073898a534f2005fc1cc7cfa41265fe28e52c83b5a38e20d2eb5a100101a9",
+  "response_pdf_sha256": "74752a1c9b6e19a5609e57c2ff9ecf2fe82acc74c9c692a86974f3237cc83bb2",
+  "standalone_publication_narrative_checked": true,
+  "all_changed_pages_visually_checked": true,
+  "internal_workflow_notes_absent": true,
+  "public_repository_hyperlink_present": true,
+  "visually_reviewed_changed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "unchanged_pages_visual_qa_carried_forward": []
 }

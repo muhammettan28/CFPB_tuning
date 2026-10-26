@@ -551,7 +551,7 @@
       "kind": "Table",
       "label": "sup:artifact-map",
       "number": "S30",
-      "page": 18
+      "page": 17
     },
     {
       "document": "manuscript",
@@ -562,8 +562,8 @@
     }
   ],
   "source_sha256": {
-    "manuscript": "fd0abd2580b5f152230688986ede12bd5d6d11a210fd9efb26f73fbf9f46f707",
-    "supplementary_material": "90acca2515982533e07f85525d87c627681da6cd6a32651c13d8148e8eb2f876"
+    "manuscript": "5e90c0d156fd8fa37c23c0416e08ddddd6f84f5138d1eabaed885fae636b22fd",
+    "supplementary_material": "92925ff2c4697f87712dcc97a5b6543ad0c3d753b87ac36864b8829f05436daf"
   },
   "units": 15,
   "original_requests_quoted": true

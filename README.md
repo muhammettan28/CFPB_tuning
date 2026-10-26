@@ -47,5 +47,7 @@ code/environment evidence are included. Replaying saved results does not rerun
 training. Retired work/status files and author-only revision logs are excluded.
 The original paper is preserved separately and unchanged in local `ORJ_PAPER/`.
 
-Access depends on the repository's visibility and reviewer permissions. A local
-commit or a locally generated ZIP does not grant external access by itself.
+Code, data selections, configurations, saved predictions and results are shared at
+https://github.com/muhammettan28/CFPB_tuning. Start with the root
+[`experiments/`](experiments/) directory for experiment records and the commands above
+for CPU verification.

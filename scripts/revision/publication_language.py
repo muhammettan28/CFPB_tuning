@@ -34,3 +34,21 @@ def editorial_history_hits(tex):
     ]
     return [{'pattern': pattern, 'text': m.group(0)}
             for pattern in patterns for m in re.finditer(pattern, prose, re.I)]
+
+
+def internal_workflow_hits(tex):
+    """Keep author-only preparation notes out of publication and response text."""
+    prose = '\n'.join(visible_parts(tex)[::2])
+    patterns = [
+        r'\blocal author[ -]review version\b',
+        r'\bit has not been submitted\b',
+        r'\b(?:actual )?(?:external )?reviewer/public access (?:still )?(?:needs|must)\b',
+        r'\bno external access mechanism\b',
+        r'\bthe author must arrange\b',
+        r'\bauthor submission tasks\b',
+        r'\bkept this part of the request explicitly open\b',
+        r'\bprivate repository\b',
+        r'\bwithout narrating changes between manuscript versions\b',
+    ]
+    return [{'pattern': pattern, 'text': m.group(0)}
+            for pattern in patterns for m in re.finditer(pattern, prose, re.I)]

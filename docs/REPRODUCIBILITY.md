@@ -66,5 +66,6 @@ temporary status/plan files, draft packages and third-party literature are not
 part of the Git/reviewer evidence set. They remain local when already present.
 Unavailable upstream preprocessing and historical model identities remain the
 limitations stated in the manuscript and response. No new model execution was
-performed to reorganise these files. Repository access must be arranged for the
-actual reviewers under the journal's requirements.
+performed to reorganise these files. The reproducibility repository is
+https://github.com/muhammettan28/CFPB_tuning; experiment records are under its root
+`experiments/` directory.

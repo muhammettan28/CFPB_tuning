@@ -4,7 +4,7 @@ This index refers to the completed revised documents. R1/R2 IDs are editorial tr
 
 [Full response letter](RESPONSE_TO_REVIEWERS.md) · [Machine-readable final coverage](../analysis/postprocessing/REVIEWER_COVERAGE_FINAL.json)
 
-All planned experiments and the document audits are complete. Actual reviewer/public delivery and author approval remain submission steps. Unavailable pre-revision provenance is disclosed in the response and supplement; this index does not claim that it was recovered.
+Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The responses describe the completed analyses and their scientific limitations; each entry below links the reviewer comment to the corresponding document locations.
 
 ## R1.1
 
@@ -124,4 +124,4 @@ All planned experiments and the document audits are complete. Actual reviewer/pu
 
 **Response:** see R2.7 in [the response letter](RESPONSE_TO_REVIEWERS.md).
 
-**Changes and locations:** Supplementary material Section S8 (p. 17); Supplementary material Table S30 (p. 18); Manuscript Section 6 (p. 10).
+**Changes and locations:** Supplementary material Section S8 (p. 17); Supplementary material Table S30 (p. 17); Manuscript Section 6 (p. 10).

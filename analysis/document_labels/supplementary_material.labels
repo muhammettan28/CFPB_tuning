@@ -259,19 +259,19 @@
     {1}{45.27599pt}\LT@entry 
     {1}{47.20277pt}\LT@entry 
     {1}{55.52153pt}}
+\gdef \LT@xxviii {\LT@entry 
+    {1}{151.95433pt}\LT@entry 
+    {1}{302.75394pt}}
 \@writefile{lot}{\contentsline {table}{\numberline {S29}{Every supplementary refit, with the same benchmark unique-input weighting.}}{17}{table.29}\protected@file@percent }
 \newlabel{sup:ref14-seeds}{{S29}{17}{Every supplementary refit, with the same benchmark unique-input weighting}{table.29}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {S8}Reproducibility and auxiliary protocol analyses}{17}{section.8}\protected@file@percent }
 \newlabel{sup:reproducibility}{{S8}{17}{Reproducibility and auxiliary protocol analyses}{section.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {S8.1}Artifact map and verification}{17}{subsection.8.1}\protected@file@percent }
-\gdef \LT@xxviii {\LT@entry 
-    {1}{151.95433pt}\LT@entry 
-    {1}{302.75394pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {S30}{Key paths relative to the repository root. Complete filename/hash lists are machine-readable.}}{17}{table.30}\protected@file@percent }
+\newlabel{sup:artifact-map}{{S30}{17}{Key paths relative to the repository root. Complete filename/hash lists are machine-readable}{table.30}{}}
 \gdef \LT@xxix {\LT@entry 
     {1}{103.58464pt}\LT@entry 
     {1}{351.12361pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {S30}{Key paths relative to the repository root. Complete filename/hash lists are machine-readable.}}{18}{table.30}\protected@file@percent }
-\newlabel{sup:artifact-map}{{S30}{18}{Key paths relative to the repository root. Complete filename/hash lists are machine-readable}{table.30}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {S31}{Frozen protocol SHA-256 values.}}{18}{table.31}\protected@file@percent }
 \newlabel{sup:protocol-hashes}{{S31}{18}{Frozen protocol SHA-256 values}{table.31}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {S8.2}Auxiliary data-overlap analysis}{18}{subsection.8.2}\protected@file@percent }

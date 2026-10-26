@@ -230,8 +230,8 @@
     "sup:historical-selection"
   ],
   "documents_sha256": {
-    "manuscript.tex": "5f87748c6c89966eb4ebbf5f2b23de382f04acfde586d8adbc2d5137f80b0db9",
-    "supplementary_material.tex": "3330e76ab7e5efb2a401e3f4ce954daba90a19b3efc083e5d143dfac794c1d05"
+    "manuscript.tex": "a3bab3a66c2c2ba9ca853926e5e1b72ac3fd9b7c66886de5a0bb63dadc26fc18",
+    "supplementary_material.tex": "b1ab2df529eedefa4e5f7a90601bd67f66c5308a033ede6e05f8dae67108508b"
   },
   "scope": "Result/selection/count matrices checked cell by cell; narrative and static implementation tables require the separate source/reading audit."
 }

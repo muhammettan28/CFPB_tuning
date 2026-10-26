@@ -1,5 +1,5 @@
 import unittest
-from publication_language import editorial_history_hits, publication_terms
+from publication_language import editorial_history_hits, publication_terms, internal_workflow_hits
 
 
 class PublicationLanguageTests(unittest.TestCase):
@@ -28,6 +28,19 @@ class PublicationLanguageTests(unittest.TestCase):
         self.assertIn('Benchmark views; benchmark &', actual)
         self.assertIn(r'\label{sup:legacy}', actual)
         self.assertIn(r'\path{dataset/legacy_subsets/}', actual)
+
+    def test_internal_delivery_notes_are_rejected_even_in_the_response_letter(self):
+        for text in ['This is the local author-review version.',
+                     'It has not been submitted.',
+                     'No external access mechanism has been arranged.',
+                     'The author must arrange access.',
+                     'The evidence is maintained in a private repository.']:
+            self.assertTrue(internal_workflow_hits(text), text)
+
+    def test_scientific_limitations_and_reviewer_change_explanations_are_allowed(self):
+        self.assertFalse(internal_workflow_hits(
+            'We added a public repository link. Upstream preprocessing is unavailable. '
+            'The auxiliary fits lack complete fitted weights.'))
 
 
 if __name__ == '__main__':
