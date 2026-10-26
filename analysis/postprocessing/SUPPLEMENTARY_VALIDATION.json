@@ -13,7 +13,7 @@
   "no_overfull_boxes": true,
   "no_undefined_citations_or_references": true,
   "page_bounds_checked": true,
-  "rendered_evidence_directory": ".build/revision_paper/qa_claude_feedback/supplementary_material",
+  "rendered_evidence_directory": ".build/revision_paper/qa_claude_ready/supplementary_material",
   "supplementary_tex_sha256": "ace5f0f971d78786abe9218804993af1546a8e6c7358aee1cc671675aa8c35cb",
   "supplementary_pdf_sha256": "9d74efd39be4dd3271dbe774635994173a68a09fe32d16b403c770321736ac84",
   "tables": 36,
@@ -26,5 +26,27 @@
   "all_changed_pages_visually_checked": true,
   "internal_workflow_notes_absent": true,
   "public_repository_hyperlink_present": true,
-  "claude_feedback_document_review_completed": true
+  "claude_feedback_document_review_completed": true,
+  "visual_qa_carried_forward_for_pixel_identical_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ]
 }

@@ -14,13 +14,28 @@
   "no_overfull_boxes": true,
   "no_undefined_citations_or_references": true,
   "page_bounds_checked": true,
-  "rendered_evidence_directory": ".build/revision_paper/qa_claude_feedback/manuscript",
-  "manuscript_tex_sha256": "b52eca1fde0d3d1517457deb9ce81dc2cb49d4d278c04259ac3799205b4f672e",
-  "manuscript_pdf_sha256": "f57b84ba5afa28077f90f5d96ab4b746adda76222a669bd3db88a61e13a48745",
+  "rendered_evidence_directory": ".build/revision_paper/qa_claude_ready/manuscript",
+  "manuscript_tex_sha256": "9a6b5e6e13c4b7f100ef91a7adac2e2b88a58439ba251773e03f240d7878ce50",
+  "manuscript_pdf_sha256": "123bfd5544ff339df9a62d32477b4768b54403f425df58fee1a6c601629d82ae",
   "content_restoration_completed": true,
   "standalone_publication_narrative_checked": true,
   "all_changed_pages_visually_checked": true,
   "internal_workflow_notes_absent": true,
   "public_repository_hyperlink_present": true,
-  "claude_feedback_document_review_completed": true
+  "claude_feedback_document_review_completed": true,
+  "visual_qa_carried_forward_for_pixel_identical_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ]
 }

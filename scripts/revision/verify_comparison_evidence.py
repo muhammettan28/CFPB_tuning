@@ -54,6 +54,10 @@ def main():
     for value in ['1,401','1,167','333','263','0.6189','0.6247','V100','RTX 5060 Ti']:
         assert value in response,value
     assert response.count('\n- ')==5
+    for row in current['adapted_comparisons']:
+        assert f"{row['difference']:+.6f}" in response
+    response_tex=(ROOT/'REVISION_PAPER/response_to_reviewers.tex').read_text()
+    assert r'\(2^{-12}\)' in response_tex
     report={'passed':True,'cpu_only':True,'new_gpu_execution':False,'cpu_timed_calls_verified':calls,
             'training_runtime_records_verified':len(records),'cost_tables_reconstructed':True,
             'all_test_ids_and_labels_unchanged_for_base_comparison':True,'zero_shot_counts_reconstructed_from_predictions':True,

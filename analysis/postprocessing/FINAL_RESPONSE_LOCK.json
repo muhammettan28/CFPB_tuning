@@ -2,8 +2,8 @@
   "final_local_author_review_version": true,
   "date": "2026-10-26",
   "artifacts_sha256": {
-    "RESPONSE_TO_REVIEWERS.md": "a66f3a08f9665a53bd19327c2b3180c522096fbf3a8f6369b6e77909849a97a6",
-    "response_to_reviewers.tex": "06c09014110fa019da687cc67726c37a85036b177ea7f6a33206854c2db39f1b",
-    "response_to_reviewers.pdf": "693ed2c83d170a16494a93490b578b804d5366177789e0891c0b5f1924ee1813"
+    "RESPONSE_TO_REVIEWERS.md": "224facd3ae1c678380830b4b492c386778d5464d8820cc387a9de11ca066739f",
+    "response_to_reviewers.tex": "a785e3f60357a6f491150ba92559a70b76066eefb0c0682557884ee7ae0290aa",
+    "response_to_reviewers.pdf": "a220ce851557ed1bfa753bebf9c08159b7e5590ce19403120a3ad60c9f8b5f1d"
   }
 }

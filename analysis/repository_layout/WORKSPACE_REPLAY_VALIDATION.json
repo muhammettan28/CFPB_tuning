@@ -69,6 +69,14 @@
       "numeric_cells": 48,
       "identity_and_order_match": true,
       "absolute_tolerance": 1e-12
+    },
+    {
+      "source": "analysis/postprocessing/qlora_encoder_contrasts.csv",
+      "sha256": "4f2224cc03e2158f7c595a5b3ba001b07b0c9fb5411a0c43e631959b4fcf0990",
+      "rows": 36,
+      "numeric_cells": 108,
+      "identity_and_order_match": true,
+      "absolute_tolerance": 1e-12
     }
   ],
   "scope": "Saved-prediction/timing replay, not model execution or recovery of historical provenance."
