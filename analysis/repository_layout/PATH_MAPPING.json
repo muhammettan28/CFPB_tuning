@@ -11,5 +11,7 @@
   "REVISION_PAPER/literature": "literature",
   "REVISION_PAPER/REVISION_LOG.md": "docs/revision_history/REVISION_LOG.md",
   "REVISION_PAPER/TWO_PASS_REVIEW.md": "docs/revision_history/TWO_PASS_REVIEW.md",
-  "REVISION_PAPER/README.md": "docs/revision_history/PREVIOUS_REVISION_GUIDE.md"
+  "REVISION_PAPER/README.md": "docs/revision_history/PREVIOUS_REVISION_GUIDE.md",
+  "REVISION_PAPER/protocols/GPU_EXPERIMENT_PROTOCOL.md": "experiments/provenance/execution_plans/GPU_EXPERIMENT_PROTOCOL.md",
+  "REVISION_PAPER/protocols/REF14_BASELINE_PROTOCOL.md": "experiments/provenance/execution_plans/REF14_BASELINE_PROTOCOL.md"
 }

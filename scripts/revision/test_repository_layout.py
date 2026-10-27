@@ -34,6 +34,18 @@ class RepositoryLayoutTests(unittest.TestCase):
                                 ('audit_code_sha256', 'audit_gpu_tokenizers.py')]:
                 self.assertEqual(hashlib.sha256((base/'scripts'/name).read_bytes()).hexdigest(), audit[field])
 
+    def test_recorded_plans_resolve_to_identical_execution_time_bytes(self):
+        frozen = json.loads((ROOT/'analysis/repository_layout/FROZEN_ARTIFACTS.json').read_text())
+        plans = [row for row in frozen if row['recorded_path'].startswith('REVISION_PAPER/protocols/')]
+        self.assertEqual(len(plans), 2)
+        for row in plans:
+            archived = project_path(row['recorded_path'])
+            self.assertEqual(archived, ROOT/row['current_path'])
+            self.assertEqual(hashlib.sha256(archived.read_bytes()).hexdigest(), row['sha256'])
+            current = ROOT/'protocols'/archived.name
+            self.assertNotEqual(current, archived)
+            self.assertTrue(current.is_file())
+
     def test_paper_directory_contains_only_publication_sources_and_responses(self):
         allowed = {'.tex', '.pdf', '.md', '.cls', '.eps', '.png'}
         responses = {'RESPONSE_TO_REVIEWERS.md', 'REVIEWER_COMMENT_CROSSWALK.md'}

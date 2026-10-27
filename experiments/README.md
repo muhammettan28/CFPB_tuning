@@ -1,10 +1,10 @@
 # Experiment records
 
-- `gpu_revision_v1/`: corrected-data main study; 500 narrative characters and a 512-token ceiling for the principal neural comparison. Separate long-input and serial-latency conditions retain their own subdirectories.
+- `gpu_revision_v1/`: main study with overlap-screened fitting data; 500 narrative characters and a 512-token ceiling for the principal neural comparison. Separate long-input and serial-latency conditions retain their own subdirectories.
 - `ref14_encoder_v1/`: separately declared BERT/RoBERTa parameter sensitivity from reference [14], not the main baseline or an exact replication.
 - `tfidf_revision_v1/`: validation search and fixed-seed checks at both the matched 10,000-row and full retained 120,502-row training budgets.
 - `cpu_costs_v1/`: four-thread CPU inference timings for sparse/encoder baselines on the fixed 100-record cohort, selected sparse fit times, source hashes and environment; accuracy results from the main GPU protocol are preserved.
-- `provenance/`: pre-relocation source snapshots needed to interpret original code hashes. Use maintained entry points under `scripts/revision/`.
+- `provenance/`: execution-time source snapshots for verifying recorded code hashes. Use maintained entry points under `scripts/revision/`.
 
 Per-run metadata, actual fitting selections, validation and final predictions,
 metrics, completion records, configurations and available trainer histories are

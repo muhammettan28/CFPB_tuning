@@ -289,7 +289,7 @@ def write_final_crosswalk():
     final=project_path(PAPER, 'analysis/postprocessing/REVIEWER_COVERAGE_FINAL.json')
     final.write_text(json_text(report))
     md=['# Reviewer requests and final response locations','',
-        'This index refers to the completed revised documents. R1/R2 IDs are editorial tracking IDs, not original reviewer numbering. All original wording is retained below; the complete original text, including introductory comments, is in [the original extract](../analysis/gpu_preparation/original_reviewer_comments.txt).','',
+        'Each of the 15 comments below links to its response and the relevant manuscript or supplementary locations. R1/R2 labels identify comments in this response letter. The original wording is retained; introductory comments are included in [the complete reviewer text](../analysis/gpu_preparation/original_reviewer_comments.txt).','',
         '[Full response letter](RESPONSE_TO_REVIEWERS.md) · [Machine-readable final coverage](../analysis/postprocessing/REVIEWER_COVERAGE_FINAL.json)','',
         'Reproducibility repository: https://github.com/muhammettan28/CFPB_tuning. The responses describe the completed analyses and their scientific limitations; each entry below links the reviewer comment to the corresponding document locations.']
     for r in records:

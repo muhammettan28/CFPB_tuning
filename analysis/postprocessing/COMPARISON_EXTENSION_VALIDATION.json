@@ -9,6 +9,7 @@
   "zero_shot_counts_reconstructed_from_predictions": true,
   "tokenisation_path_audit_checked": true,
   "descriptive_adapted_changes_below_0_003": true,
+  "document_checks_performed": true,
   "equivalence_not_inferred_from_zero_containing_interval": true,
   "five_item_response_summary_present": true,
   "publication_revision_chronology_absent": true,

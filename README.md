@@ -1,9 +1,9 @@
-# Consumer complaint classification: QLoRA revision
+# Consumer complaint classification with QLoRA
 
 Completed experiments, saved predictions and search records
 for five-category CFPB complaint classification are organised below. Main and
-reference-parameter studies are reported separately; older results are historical
-evidence and are not part of the corrected-data ranking.
+reference-parameter studies are reported separately. Auxiliary analyses specify
+their fitting populations and are excluded from the primary model ranking.
 
 | Directory | Contents |
 | --- | --- |
@@ -15,13 +15,13 @@ evidence and are not part of the corrected-data ranking.
 | `dataset/` | Original data/splits and corrected `revision_v1/` selections/evaluation data |
 | `configs/` | Frozen plans, signatures and model-registry template |
 | `scripts/revision/` | Revision experiment execution, analysis, verification and document-generation tools |
-| `protocols/` | Original written experiment protocols, preserved as historical records |
-| `experiment_archive/` | Saved predictions and execution evidence used for historical-only analyses |
+| `protocols/` | Written experiment protocols |
+| `experiment_archive/` | Saved predictions and execution evidence for auxiliary analyses |
 | `scripts/`, `CLASSIC_TEST/`, `slurm_files/` | Original preparation, training, baseline and TRUBA utilities |
 
 Start with [`experiments/`](experiments/) for experiment records and
 [`analysis/`](analysis/) for numerical results. [Reproducibility instructions](docs/REPRODUCIBILITY.md)
-explain the current paths and the preserved paths recorded in older metadata.
+explain the commands, evidence locations and recorded source paths.
 
 ## Check the reported results on CPU
 
@@ -36,18 +36,13 @@ python scripts/revision/verify_comparison_evidence.py --output /tmp/cfpb-review-
 The replay output directory must not already exist. No neural weights, local
 model registry, GPU, original-paper directory or source ODT is needed. Replay
 verifies 404 source hashes and recomputes nine complete result tables, including
-10,000-draw paired intervals. The table audit checks 39 table fragments, 583 rows
-and 3,696 cells against their corresponding evidence when the local publication
-sources are available; this author-only check is separate from the commands above.
+10,000-draw paired intervals. The comparison check independently reconstructs
+the implementation costs and zero-shot protocol comparisons.
 
 Neural weights, optimizer states, downloaded models and runtime caches stay local;
 predictions, numeric results, settings, validation search records and recorded
 code/environment evidence are included. Replaying saved results does not rerun
-training. Retired work/status files and author-only revision logs are excluded.
-The original paper is preserved separately and unchanged in local `ORJ_PAPER/`.
-Manuscript, supplement, reviewer responses and their LaTeX assets stay in local
-`REVISION_PAPER/`, which is excluded from Git. The public CPU checks above do not
-require either paper directory.
+training. Manuscript preparation files are not needed for these checks.
 
 Code, data selections, configurations, saved predictions and results are shared at
 https://github.com/muhammettan28/CFPB_tuning. Start with the root

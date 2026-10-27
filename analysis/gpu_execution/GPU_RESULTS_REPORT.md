@@ -1,8 +1,6 @@
-# Corrected-data GPU study — results and evidence
+# Main model comparison: results and evidence
 
-Completed local experiment analysis: 2026-10-24.
-
-All systems below use the frozen corrected data. Base LLMs have no adaptation budget; full-data TF-IDF uses a larger budget and is contextual. Checkpoint provenance and actual source/config versions are retained per run.
+All systems below use the fixed, overlap-screened allocation. Base LLMs have no adaptation budget; full-data TF-IDF uses a larger budget and is contextual. Checkpoint provenance and actual source/config versions are retained per run.
 
 ## Internal test macro-F1
 
@@ -20,7 +18,7 @@ All systems below use the frozen corrected data. Base LLMs have no adaptation bu
 
 ## What is recorded
 
-- `corrected_model_metrics.csv`: internal and unique-input-weighted legacy point estimates, intervals and run SD.
+- `corrected_model_metrics.csv`: internal and unique-input-weighted benchmark point estimates, intervals and run SD.
 - `corrected_paired_contrasts.csv`: within-model adaptation and matched-10k TF-IDF comparisons, with paired intervals. Full-data contrasts are explicitly unequal-budget context.
 - `corrected_long_input.csv`: matched inference-length effects and token-cap control; no longer-context retraining claim.
 - `controlled_latency_summary.csv` / `controlled_latency_paired.csv`: synchronized real calls, all 100 IDs and three repetitions; cache bypassed.
@@ -28,10 +26,10 @@ All systems below use the frozen corrected data. Base LLMs have no adaptation bu
 
 ## Interpretation limits
 
-- Retrospective previously inspected test; not new prospective evaluation.
+- Retrospective evaluation on previously inspected records; prospective generalisation is not established.
 - Fixed-trained-model bootstrap excludes training/model-selection uncertainty.
 - Latency variants are separate job blocks, not a fully randomized crossover.
 - No deployment acceptability, regulatory readiness or independent-source generalization claim.
-- Archived and new runs differ in data allocation, pinned artifact evidence, explicit serialization and hardware; their score difference is not a causal estimate of leakage removal alone.
+- Auxiliary and primary experiments differ in data allocation, model identities, serialization and hardware; their score difference does not isolate the effect of overlap screening.
 
-Archived results remain historical and are not substituted for the corrected-data scores. Manuscript integration/rendering and final author review remain separate from completing these experiments. No reviewer/public upload was performed.
+Code, data selections, configurations and saved predictions are available at https://github.com/muhammettan28/CFPB_tuning. CPU verification commands are documented in the root README and docs/REPRODUCIBILITY.md.

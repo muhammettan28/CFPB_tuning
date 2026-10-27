@@ -28,59 +28,58 @@ def main(author_review=False, package_name=None):
     assert gpu_complete
     for name in ['MANUSCRIPT_VALIDATION.json','SUPPLEMENTARY_VALIDATION.json','RESPONSE_VALIDATION.json','CROSS_DOCUMENT_VALIDATION.json']:
         assert json.loads((project_path(ROOT, 'analysis/postprocessing', name)).read_text())['passed'],name
-    readme="""# Consumer complaint classification — revised documents and reproducibility package
+    readme="""# Consumer complaint classification: documents and reproducibility evidence
 
-Start with the three current documents under REVISION_PAPER:
-- manuscript.pdf: revised manuscript (12 pages).
-- supplementary_material.pdf: S1–S8, 33 tables (19 pages).
-- response_to_reviewers.pdf: 15 original request units with document locations (7 pages).
-Editable TeX/Markdown sources and the final reviewer-comment index are included.
-The pre-experiment written protocols are under protocols; the
-executed settings and immutable model identities are in the configs and run metadata.
+The three documents are under REVISION_PAPER:
+- manuscript.pdf: manuscript (12 pages).
+- supplementary_material.pdf: S1-S8, 33 tables (19 pages).
+- response_to_reviewers.pdf: point-by-point responses to 15 comments (7 pages).
+Editable sources and a reviewer-comment location index are included.
 
-The package contains the primary and reference-parameter experiments. The primary
-comparison uses 500 narrative characters / 512 tokens. Reference [14]'s RoBERTa
-100-token setting is a separate sensitivity. Full-data TF-IDF uses a larger training
-budget. Auxiliary fits in the supplement specify their data allocations and dependence
-limitations and are excluded from the primary model ranking. Points, paired intervals and seed SD differ.
+The experiment evidence is under experiments/, with statistical results in
+analysis/, data selections in dataset/, recorded settings in configs/ and
+execution/verification tools in scripts/revision/. The main comparison uses
+500 narrative characters and a 512-token cap. Reference [14] conditions are
+reported separately; full-data TF-IDF uses a larger labelled training budget.
+Auxiliary analyses specify their fitting populations and dependence limitations.
 
 ## Verify and replay on CPU
 
-From the extracted archive root, verify all files:
+From the extracted archive root:
 
 ```bash
 sha256sum -c MANIFEST.sha256
 python -m pip install -r scripts/revision/requirements-cpu-revision.txt
 CUDA_VISIBLE_DEVICES='' python scripts/revision/replay_reviewer_results.py --output /tmp/cfpb-review-replay
+python scripts/revision/verify_comparison_evidence.py --include-documents --output /tmp/cfpb-review-comparisons.json
 python scripts/revision/audit_document_rows.py --output /tmp/cfpb-review-table-cells.json
 python scripts/revision/verify_restored_document_content.py --output /tmp/cfpb-review-content.json
-python scripts/revision/verify_comparison_evidence.py --output /tmp/cfpb-review-comparisons.json
 ```
 
-The replay output directory must not exist. Replay checks 404 source hashes and
-recomputes nine full result tables, including 10,000-draw paired intervals, seed
-scores, length effects and latency. It checks row identities/order and all numeric
-cells at absolute tolerance 1e-12. No GPU, neural weights, local model registry,
-original-paper directory or source ODT is needed. Table auditing checks the
-model/condition/metric-specific cells rather than searching for numbers anywhere.
-The response generator reads the archived original comments and compiled labels
-under analysis/document_labels when the author's source ODT is absent.
+The replay output directory must not already exist. Replay checks 404 source
+hashes and recomputes nine complete result tables, including 10,000-draw paired
+intervals, seed scores, length effects and latency. It compares row identities,
+row order and numeric cells at absolute tolerance 1e-12. No GPU, neural weights
+or model registry are required. Document checks use the publication sources
+included in this archive; public-repository replay works without them.
 
-The archive contains source/derived data, fixed selections, actual search records,
-configurations, predictions, controlled latency records and statistical evidence.
-Neural weights, optimizer states, third-party papers, old draft packages, temporary
-status/plan files and internal drafting logs are omitted. Repeating model execution
-requires the exact recorded snapshots and a separate checkout with empty experiment
-output directories; completed outputs are protected from overwrite. Replay does not
-rerun training/inference, original tokenizer audits or upstream data collection.
+The archive includes fixed selections, actual search records, predictions,
+timing calls, configurations and code/environment evidence. Neural weights and
+optimizer states must be obtained or regenerated separately. Repeating neural
+execution requires the exact recorded base-model snapshots and a separate
+checkout with empty experiment output directories. Completed outputs are
+protected against overwrite. Replay verifies saved results rather than repeating
+training, inference or upstream data collection.
 
-Data/model licenses remain those of their sources. Upstream preprocessing and
-unrecovered pre-revision checkpoint identities remain disclosed limitations. Some
-execution metadata retain original local paths; this is not an anonymity certificate.
-The code, data selections and experiment evidence are also shared in the repository
-https://github.com/muhammettan28/CFPB_tuning. This ZIP supplies a hash-verified snapshot.
-The package's own SHA-256 and final delivery-readiness receipt are stored outside
-this ZIP to avoid self-referencing hashes. Cleanup date: 26 October 2026.
+Data and model licences remain those of their sources. Upstream preprocessing
+and some auxiliary-model identities are unavailable; the documents state these
+limits separately from the recorded primary-model identities. Device-specific
+timing boundaries and the conditional scope of the statistical intervals are
+reported explicitly.
+
+Code, data selections and experiment evidence are available at
+https://github.com/muhammettan28/CFPB_tuning. See docs/REPRODUCIBILITY.md for the
+full verification instructions and recorded-path mapping.
 """
     pages={stem:int(re.search(r'Pages:\s+(\d+)',subprocess.check_output(
         ['pdfinfo',str(ROOT/'REVISION_PAPER'/f'{stem}.pdf')],text=True)).group(1))

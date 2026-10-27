@@ -339,18 +339,18 @@ The longer-input comparison changes inference text only; the models were trained
 \section{Conclusion}
 \label{sec:conclusion}
 QLoRA raises internal macro-F1 by about 0.20 for two 8B model families under a fixed 10,000-example training budget. Both adapted models outperform the matched-data sparse and encoder baselines, and substantially improve debt-collection recall. The adapters also benefit from longer inference text despite being trained with 500-character inputs. Llama QLoRA approaches the observed full-data sparse score using about one twelfth of its training labels, at a higher computational cost. Together, the matched-data comparisons, class-level results and measured costs support a practical choice: sparse classifiers offer an efficient default, while QLoRA can provide stronger fixed-budget classification when an adapted generative model fits the intended workflow.
-\section*{Acknowledgment and/or disclaimers, if any}
+\section*{Acknowledgments}
 The authors acknowledge the TRUBA ARF infrastructure operated by T\"UB\.{I}TAK ULAKB\.{I}M for computational resources supporting configuration screening and auxiliary analyses. The primary model comparison uses a local RTX 5060 Ti 16 GB.
 
-\section*{Declaration of Generative AI and AI-assisted technologies, if any}
+\section*{Declaration of Generative AI and AI-assisted technologies}
 AI-assisted tools supported analysis-code preparation, literature comparison, wording and LaTeX formatting. Numerical results come from recorded computations and independently checked prediction files. The authors retain responsibility for source verification, interpretation, final review and the submitted manuscript.
 
 \section*{Data availability statement}
 The source data derive from the CFPB complaint database and the processed Kaggle resource attributed to Tiwari \cite{cfpbdata,tiwari2021complaints}. Source/derived data, fixed selections, code, configurations, model identities, validation and final predictions, and statistical evidence are provided in the reproducibility repository at \url{https://github.com/muhammettan28/CFPB_tuning}. Supplementary Section S8 describes its contents and the CPU result-verification procedure. The repository excludes third-party literature and neural-model weights. Limitations concerning upstream preprocessing and auxiliary-model reconstruction are documented in Supplementary Section S8.
 
-\section*{Funding, if any}
+\section*{Funding}
 The authors received no specific funding for this study.
-\section*{Conflict of interest, if any}
+\section*{Conflict of interest}
 The authors declare no conflict of interest.
 
 @@BIBLIOGRAPHY@@

@@ -322,25 +322,25 @@ def main():
         'seed':'Sample SD across three actual same-data optimisation refits; deterministic TF-IDF checks reported separately.',
         'long_input':'Matched same-checkpoint conditions; all IDs and predefined >500-character cohort; token-cap control checked for equal predictions.',
         'latency':'Three repeats averaged within record before group bootstrap; common group multiplicities across base/FT. Means/median/p95 remain conditional on observed hardware/job blocks.',
-        'limits':['Retrospective previously inspected test; not new prospective evaluation.','Fixed-trained-model bootstrap excludes training/model-selection uncertainty.','Latency variants are separate job blocks, not a fully randomized crossover.','No deployment acceptability, regulatory readiness or independent-source generalization claim.']}
-    method['limits'].append('Archived and new runs differ in data allocation, pinned artifact evidence, explicit serialization and hardware; their score difference is not a causal estimate of leakage removal alone.')
+        'limits':['Retrospective evaluation on previously inspected records; prospective generalisation is not established.','Fixed-trained-model bootstrap excludes training/model-selection uncertainty.','Latency variants are separate job blocks, not a fully randomized crossover.','No deployment acceptability, regulatory readiness or independent-source generalization claim.']}
+    method['limits'].append('Auxiliary and primary experiments differ in data allocation, model identities, serialization and hardware; their score difference does not isolate the effect of overlap screening.')
     (OUT/'GPU_STATISTICAL_METHOD.json').write_text(json_text(method))
     today=datetime.now(ZoneInfo('Europe/Istanbul')).date().isoformat()
-    lines=['# Corrected-data GPU study — results and evidence','',f'Completed local experiment analysis: {today}.',
-        '', 'All systems below use the frozen corrected data. Base LLMs have no adaptation budget; full-data TF-IDF uses a larger budget and is contextual. Checkpoint provenance and actual source/config versions are retained per run.',
+    lines=['# Main model comparison: results and evidence',
+        '', 'All systems below use the fixed, overlap-screened allocation. Base LLMs have no adaptation budget; full-data TF-IDF uses a larger budget and is contextual. Checkpoint provenance and actual source/config versions are retained per run.',
         '', '## Internal test macro-F1','', '| Model | Train rows | Macro-F1 | 95% paired-group CI | Run SD |','| --- | ---: | ---: | --- | ---: |']
     for r in estimates.loc[estimates.role.eq('internal') & estimates.metric.eq('macro_f1')].itertuples(index=False):
         sd='—' if pd.isna(r.seed_sd_ddof1) else f'{r.seed_sd_ddof1:.4f}'
         lines.append(f'| {r.name} | {r.train_rows:,} | {r.point:.4f} | [{r.low:.4f}, {r.high:.4f}] | {sd} |')
     lines += ['', '## What is recorded','',
-        '- `corrected_model_metrics.csv`: internal and unique-input-weighted legacy point estimates, intervals and run SD.',
+        '- `corrected_model_metrics.csv`: internal and unique-input-weighted benchmark point estimates, intervals and run SD.',
         '- `corrected_paired_contrasts.csv`: within-model adaptation and matched-10k TF-IDF comparisons, with paired intervals. Full-data contrasts are explicitly unequal-budget context.',
         '- `corrected_long_input.csv`: matched inference-length effects and token-cap control; no longer-context retraining claim.',
         '- `controlled_latency_summary.csv` / `controlled_latency_paired.csv`: synchronized real calls, all 100 IDs and three repetitions; cache bypassed.',
         '- `GPU_RESULT_SOURCES.json`: SHA-256 evidence for every prediction and latency source.',
         '', '## Interpretation limits','']
     lines += ['- '+x for x in method['limits']]
-    lines += ['', 'Archived results remain historical and are not substituted for the corrected-data scores. Manuscript integration/rendering and final author review remain separate from completing these experiments. No reviewer/public upload was performed.']
+    lines += ['', 'Code, data selections, configurations and saved predictions are available at https://github.com/muhammettan28/CFPB_tuning. CPU verification commands are documented in the root README and docs/REPRODUCIBILITY.md.']
     (OUT/'GPU_RESULTS_REPORT.md').write_text('\n'.join(lines)+'\n')
     validation={'date':today,'all_88_gpu_jobs_complete':True,'prediction_sources_checked':len(source_by_path),
         'all_fitting_budgets_manifests_verified':True,'encoder_validation_searches_independently_rescored':3,

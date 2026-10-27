@@ -10,6 +10,8 @@ PAPER = ROOT / 'REVISION_PAPER'
 BUILD = ROOT / '.build/revision_paper'
 LABELS = ROOT / 'analysis/document_labels'
 PATH_MAPPING = {
+    'REVISION_PAPER/protocols/GPU_EXPERIMENT_PROTOCOL.md': 'experiments/provenance/execution_plans/GPU_EXPERIMENT_PROTOCOL.md',
+    'REVISION_PAPER/protocols/REF14_BASELINE_PROTOCOL.md': 'experiments/provenance/execution_plans/REF14_BASELINE_PROTOCOL.md',
     'REVISION_PAPER/experiments': 'experiments',
     'REVISION_PAPER/analysis': 'analysis',
     'REVISION_PAPER/configs': 'configs',

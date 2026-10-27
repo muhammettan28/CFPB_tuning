@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "date": "2026-10-26",
+  "date": "2026-10-27",
   "pages": 8,
   "request_units": 15,
   "compiled_location_references": 88,
@@ -11,7 +11,9 @@
     1,
     2,
     3,
-    5,
+    4,
+    6,
+    7,
     8
   ],
   "no_out_of_page_words": true,
@@ -19,16 +21,16 @@
   "no_undefined_references_or_citations": true,
   "external_access_open_explicit": false,
   "artifacts_sha256": {
-    "RESPONSE_TO_REVIEWERS.md": "224facd3ae1c678380830b4b492c386778d5464d8820cc387a9de11ca066739f",
-    "response_to_reviewers.tex": "a785e3f60357a6f491150ba92559a70b76066eefb0c0682557884ee7ae0290aa",
-    "response_to_reviewers.pdf": "a220ce851557ed1bfa753bebf9c08159b7e5590ce19403120a3ad60c9f8b5f1d"
+    "RESPONSE_TO_REVIEWERS.md": "b517ec35f456dcb78886f6c0369e4ea4484cb507ff869900aec196ff281ab23b",
+    "response_to_reviewers.tex": "c2cab344edb42b68cce54e2855aac2341ec99a6598edbc853ba7818b1ad5515d",
+    "response_to_reviewers.pdf": "18abc59e5ac3407d819dee858c236c64c22a21229b3b585eb07a7dd690fdd08e"
   },
   "no_undefined_citations_or_references": true,
   "page_bounds_checked": true,
-  "rendered_evidence_directory": ".build/revision_paper/qa_claude_ready/response_to_reviewers",
+  "rendered_evidence_directory": ".build/revision_paper/qa_editorial_20261027/response_to_reviewers",
   "content_restoration_completed": true,
-  "response_tex_sha256": "a785e3f60357a6f491150ba92559a70b76066eefb0c0682557884ee7ae0290aa",
-  "response_pdf_sha256": "a220ce851557ed1bfa753bebf9c08159b7e5590ce19403120a3ad60c9f8b5f1d",
+  "response_tex_sha256": "c2cab344edb42b68cce54e2855aac2341ec99a6598edbc853ba7818b1ad5515d",
+  "response_pdf_sha256": "18abc59e5ac3407d819dee858c236c64c22a21229b3b585eb07a7dd690fdd08e",
   "standalone_publication_narrative_checked": true,
   "all_changed_pages_visually_checked": true,
   "internal_workflow_notes_absent": true,
@@ -36,11 +38,7 @@
   "claude_feedback_document_review_completed": true,
   "first_reviewer_probability_math_typesetting_checked": true,
   "visual_qa_carried_forward_for_pixel_identical_pages": [
-    1,
-    4,
-    5,
-    6,
-    7,
-    8
-  ]
+    5
+  ],
+  "editorial_meta_text_audit_passed": true
 }

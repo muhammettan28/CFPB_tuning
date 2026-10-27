@@ -2020,5 +2020,6 @@
 !/tfidf_revision_v1/environment.json
 
 # Fixed-configuration CPU timing evidence; no neural weights.
+!/provenance/execution_plans/*.md
 !/cpu_costs_v1/**/*.csv
 !/cpu_costs_v1/**/*.json

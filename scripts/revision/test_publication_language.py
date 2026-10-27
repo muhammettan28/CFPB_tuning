@@ -37,10 +37,20 @@ class PublicationLanguageTests(unittest.TestCase):
                      'The evidence is maintained in a private repository.']:
             self.assertTrue(internal_workflow_hits(text), text)
 
+    def test_obsolete_access_statements_and_template_prompts_are_rejected(self):
+        for text in ['No reviewer/public upload was performed.',
+                     'Manuscript integration/rendering and final author review remain separate.',
+                     'Cleanup date: 26 October 2026.',
+                     'The final delivery-readiness receipt is outside the ZIP.',
+                     r'\section*{Funding, if any}',
+                     r'\section*{Declaration of Generative AI and AI-assisted technologies, if any}']:
+            self.assertTrue(internal_workflow_hits(text), text)
+
     def test_scientific_limitations_and_reviewer_change_explanations_are_allowed(self):
         self.assertFalse(internal_workflow_hits(
             'We added a public repository link. Upstream preprocessing is unavailable. '
-            'The auxiliary fits lack complete fitted weights.'))
+            'The auxiliary fits lack complete fitted weights. '
+            'AI-assisted tools supported wording and LaTeX formatting.'))
 
 
 if __name__ == '__main__':

@@ -1,101 +1,112 @@
-# Reproducing the revision results
+# Reproducing the reported results
 
-Run commands from the project root. `experiments/`, `analysis/`, `configs/`,
-`protocols/`, and `scripts/revision/` contain the public reproducibility evidence.
-Corrected data are in `dataset/revision_v1/`. Publication sources/PDFs, reviewer
-responses and their LaTeX assets are kept locally in the Git-ignored
-`REVISION_PAPER/` directory; they are not required for the public CPU checks.
+The repository provides data selections, configurations, validation searches,
+saved predictions, timing records and analysis code for five-category CFPB
+complaint classification. Run the commands below from the repository root.
 
-The main study completed 88 stages, including five small API/hardware smoke
-checks. Encoder search stages each contain six candidates. The separate reference
-sensitivity completed 12 stages (six actual refits and six evaluation stages).
-All scientific predictions, observed metrics, search candidates, selected settings,
-seed records and latency samples are retained. Smoke fits are excluded from
-scientific results. Machine-readable results are in `analysis/gpu_execution/`
-and `analysis/ref14_encoder/`; sparse search records are under `experiments/`.
+## Evidence locations
 
-## Standalone CPU replay
+| Evidence | Location |
+| --- | --- |
+| Data, partitions and fixed selections | `dataset/revision_v1/` |
+| Main neural searches, refits and predictions | `experiments/gpu_revision_v1/` |
+| TF-IDF/Logistic Regression searches and predictions | `experiments/tfidf_revision_v1/` |
+| Reference [14] encoder-parameter sensitivity | `experiments/ref14_encoder_v1/` |
+| CPU baseline timing calls and sparse fit timings | `experiments/cpu_costs_v1/` |
+| Main metrics, paired intervals and source manifests | `analysis/gpu_execution/` |
+| Reference-setting metrics and paired intervals | `analysis/ref14_encoder/` |
+| QLoRA-versus-encoder contrasts and cost summaries | `analysis/postprocessing/` |
+| Recorded settings and model identities | `configs/` and per-run metadata |
+| Execution and verification tools | `scripts/revision/` |
 
-Follow the commands in the root README. Replay verifies source hashes,
-recomputes complete tables from the saved predictions/timings, and compares
-numeric cells at absolute tolerance 1e-12, preserving row identities and order.
-It writes only a new output directory and does not fit/select models. The original
-source data and earlier split files also remain available under `dataset/`.
+The main neural comparison uses the same 10,000 training and 2,000 validation
+records across model families, with optimisation seeds 42/43/44. Full-data TF-IDF
+uses 120,502 training records. Reference [14] settings form a separate sensitivity
+analysis; they do not replace the main encoder baselines.
 
-The author-only `audit_document_rows.py` and `verify_restored_document_content.py`
-checks require the local publication sources. The first checks
-model/condition/metric-specific table cells; the second additionally reconstructs
-the four LLM confusion matrices, verifies historical Qwen selection conditions
-and checks historical dataset descriptions on their original population. These
-document checks are separate from the public saved-result replay.
+## Verify the results on CPU
 
-## Historical paths and source identities
+Use a fresh virtual environment:
 
-Files were reorganised on 26 October 2026. Frozen protocol/configuration JSON,
-run metadata, selection files, prediction files and their recorded SHA-256 values
-were not rewritten. They may therefore contain `REVISION_PAPER/experiments/`,
-`REVISION_PAPER/analysis/`, `REVISION_PAPER/configs/`,
-`REVISION_PAPER/data/revision_v1/`, and `REVISION_PAPER/scripts/`.
-`scripts/revision/project_paths.py` translates these to `experiments/`,
-`analysis/`, `configs/`, `dataset/revision_v1/`, and `scripts/revision/` when reading
-historical evidence. It also resolves the original protocol hash-map keys.
+```bash
+python -m pip install -r scripts/revision/requirements-cpu-revision.txt
+CUDA_VISIBLE_DEVICES='' python scripts/revision/replay_reviewer_results.py --output /tmp/cfpb-review-replay
+python scripts/revision/verify_comparison_evidence.py --output /tmp/cfpb-review-comparisons.json
+```
 
-The written protocols are preserved verbatim; their old example commands are
-historical. Current equivalents use `python scripts/revision/run_revision_gpu.py`
-and `--registry configs/model_registry.local.json`. The complete mapping is
-recorded in `analysis/repository_layout/PATH_MAPPING.json`. Original pre-move
-tool sources and their hashes are preserved in `experiments/provenance/` and
-must be read as historical evidence, rather than used as current entry points.
-Compiled document label evidence for standalone response-location generation is
-in `analysis/document_labels/`; new LaTeX build files stay in `.build/` locally.
+The replay output directory must not already exist. No GPU, neural weights,
+model registry or manuscript files are required. Replay verifies 404 source
+hashes and recomputes nine complete result tables from the supplied predictions
+and timings, including 10,000-draw paired group-bootstrap intervals. It compares
+row identities, row order and numeric cells with the recorded tables at absolute
+tolerance 1e-12, and writes results to the specified output directory. It does not
+fit or select models, or rerun inference.
 
-## Model execution
+The second command checks 1,500 raw CPU timing calls, 17 fitting-time records,
+cost summaries and the zero-shot protocol comparisons. Paired intervals condition
+on the fitted models and fixed selections; they do not include training or
+model-selection uncertainty. Evaluation is retrospective and source-related.
 
-Saved-result replay needs no model downloads. Repeating training/inference
-requires the exact recorded base-model commits, the recorded GPU environment,
-and a separate execution checkout with empty experiment output directories.
-Local model-registry paths are deliberately omitted; fill in the template.
-The execution scripts reject completed outputs and modified audited input code.
-Because the maintained tools changed paths during relocation, before fitting in
-that separate checkout run a fresh CPU tokenizer audit for each model using
-`python scripts/revision/run_revision_gpu.py audit --model MODEL --registry
-configs/model_registry.local.json`. Preserve the original audit files first:
-the archived runs refer to their original hashes. This is a new audit of the
-current execution code, not a replacement of historical run evidence. Reference
-sensitivity also requires its separately recorded shorter-cap audit. Do not run
-a new audit in this evidence checkout, where it would replace existing reports.
+## Recorded paths and source integrity
 
-Neural weights, optimizer/RNG states, memoisation databases, downloaded models,
-temporary status/plan files, draft packages and third-party literature are not
-part of the Git/reviewer evidence set. They remain local when already present.
-Unavailable upstream preprocessing and historical model identities remain the
-limitations stated in the manuscript and response. No new model execution was
-performed to reorganise these files. The reproducibility repository is
-https://github.com/muhammettan28/CFPB_tuning; experiment records are under its root
-`experiments/` directory.
+Manifests retain the paths and SHA-256 values recorded during execution.
+`scripts/revision/project_paths.py` resolves recorded paths to the current
+repository layout, including `REVISION_PAPER/experiments/` to `experiments/`
+and `REVISION_PAPER/data/revision_v1/` to `dataset/revision_v1/`. The complete
+mapping is in `analysis/repository_layout/PATH_MAPPING.json`. These recorded
+prefixes do not require a local `REVISION_PAPER/` directory for result replay.
 
-## Additional comparisons and implementation costs
+Execution-time source snapshots are preserved in `experiments/provenance/` so
+that recorded code hashes remain verifiable. Use the maintained entry points in
+`scripts/revision/` to run commands. Written protocols in `protocols/` and per-run
+metadata document the experimental conditions; their recorded path prefixes are
+resolved as above.
+Execution-time plan bytes are preserved in
+`experiments/provenance/execution_plans/`; the method descriptions in `protocols/`
+are separate from those source-identity records.
 
-The ninth replayed table is `analysis/postprocessing/qlora_encoder_contrasts.csv`.
-It compares the means of all three QLoRA refits with all three encoder refits
-within each original joint 19-variant group-bootstrap draw. The eight existing
-main/reference result CSVs and their input predictions remain unchanged.
+## Repeat model execution
 
-`experiments/cpu_costs_v1/` records 1,500 CPU baseline timing calls on the fixed
-100-record latency cohort, with four threads, ten validation warmups and three
-repetitions. Encoder timings use FP32 seed-42 checkpoints; they do not replace
-the primary GPU FP16 accuracy results. Sparse fit timings include a fresh
-vectorizer and selected classifier fit; all internal predictions match the
-retained sparse models. Neural training times are exported from Trainer runtime
-records; encoder search totals sum training phases, whereas sparse search totals
-cover the complete recorded search. Device/precision/timer scopes are stated in
-the supplementary cost tables. These are implementation costs, not a same-device
-architecture benchmark or energy measurement.
+Training and neural inference require the exact recorded base-model snapshots
+and execution environment. Neural weights, optimizer states, downloaded models
+and runtime caches are excluded from the repository. Model identities and
+software/hardware versions are recorded in the configurations and per-run files.
+Data and model licences remain those of their sources.
 
-`verify_comparison_evidence.py` reconstructs the cost summaries from the supplied
-raw calls and training excerpts and checks the zero-shot protocol comparisons.
-It requires no neural weights, GPU or publication files. Authors can add
-`--include-documents` to check the local manuscript and reviewer-response claims;
-that option requires `REVISION_PAPER/`. `build_comparison_evidence.py` can rebuild
-these derived summaries using a freshly replayed bootstrap directory; it consumes
-the supplied training excerpts when the author's verbose runtime logs are absent.
+Use a separate execution checkout with empty experiment output directories and
+fill in `configs/model_registry.template.json` as
+`configs/model_registry.local.json`. Completed outputs and audited input code
+are protected against overwrite or unverified changes. In that separate
+checkout, preserve the supplied tokenizer-audit evidence before generating the
+audit for the execution code:
+
+```bash
+python scripts/revision/run_revision_gpu.py audit --model MODEL --registry configs/model_registry.local.json
+```
+
+Replace `MODEL` with the configured model key. Reference-setting execution also
+requires its corresponding token-cap audit. Keep the evidence checkout intact;
+the supplied audit files identify the inputs used in the reported experiments.
+
+## Interpretation of implementation costs
+
+CPU timings use a fixed, balanced 100-record cohort, four threads, ten validation
+warmups and three repetitions. Encoder timing uses seed-42 FP32 checkpoints;
+the primary encoder accuracy results use GPU FP16 predictions. Sparse fitting
+times cover a fresh vectorizer and selected classifier fit, with all 15,428
+internal predictions checked against the retained sparse models.
+
+Neural training times come from recorded Trainer runtimes. Encoder search totals
+sum training phases, whereas sparse search totals cover the complete recorded
+search. Device, precision and timer boundaries are reported separately. These
+measurements describe implementation costs; they do not establish a same-device
+architecture ranking, energy consumption or concurrent-service capacity.
+
+## Provenance limitations
+
+Source hashes identify the supplied data, not the unavailable upstream
+CFPB-to-Kaggle preprocessing, product aggregation or sampling implementation.
+Some auxiliary fits lack immutable upstream model identities and complete fitted
+weights, limiting their reconstruction. The primary model identities are recorded
+separately. Exact-input checks and conservative text groups do not establish
+semantic independence or prospective generalisation.

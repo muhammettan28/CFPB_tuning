@@ -49,6 +49,10 @@ def internal_workflow_hits(tex):
         r'\bkept this part of the request explicitly open\b',
         r'\bprivate repository\b',
         r'\bwithout narrating changes between manuscript versions\b',
+        r'\bno reviewer/public upload was performed\b',
+        r'\bfinal author review remain(?:s)? separate\b',
+        r'\b(?:cleanup date|delivery-readiness receipt|completed local experiment analysis|local completion date)\b',
+        r'\b(?:acknowledgment and/or disclaimers|funding|conflict of interest|AI-assisted technologies), if any\b',
     ]
     return [{'pattern': pattern, 'text': m.group(0)}
             for pattern in patterns for m in re.finditer(pattern, prose, re.I)]

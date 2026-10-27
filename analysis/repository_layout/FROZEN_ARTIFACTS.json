@@ -9951,12 +9951,12 @@
   },
   {
     "recorded_path": "REVISION_PAPER/protocols/GPU_EXPERIMENT_PROTOCOL.md",
-    "current_path": "protocols/GPU_EXPERIMENT_PROTOCOL.md",
+    "current_path": "experiments/provenance/execution_plans/GPU_EXPERIMENT_PROTOCOL.md",
     "sha256": "0f7f6b9464fb7d957ef81f49ca0ca5729bc6781cf8921e28964c8180a7bad412"
   },
   {
     "recorded_path": "REVISION_PAPER/protocols/REF14_BASELINE_PROTOCOL.md",
-    "current_path": "protocols/REF14_BASELINE_PROTOCOL.md",
+    "current_path": "experiments/provenance/execution_plans/REF14_BASELINE_PROTOCOL.md",
     "sha256": "7741ed7b924719bc7485e33809fb50adcb22a714330c0f922b85cc2364ab44c8"
   },
   {

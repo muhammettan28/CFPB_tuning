@@ -1,21 +1,19 @@
 {
   "passed": true,
-  "date": "2026-10-26",
+  "date": "2026-10-27",
   "pages": 20,
   "all_pages_rendered": true,
   "all_page_contact_sheets_visually_inspected": true,
   "detailed_pages_inspected": [
-    9,
-    18,
     19,
     20
   ],
   "no_overfull_boxes": true,
   "no_undefined_citations_or_references": true,
   "page_bounds_checked": true,
-  "rendered_evidence_directory": ".build/revision_paper/qa_claude_ready/supplementary_material",
-  "supplementary_tex_sha256": "ace5f0f971d78786abe9218804993af1546a8e6c7358aee1cc671675aa8c35cb",
-  "supplementary_pdf_sha256": "9d74efd39be4dd3271dbe774635994173a68a09fe32d16b403c770321736ac84",
+  "rendered_evidence_directory": ".build/revision_paper/qa_editorial_20261027/supplementary_material",
+  "supplementary_tex_sha256": "e078be955578f6984b6061ddcf295821a628350dc46c1c46535e8a0d17c89ee0",
+  "supplementary_pdf_sha256": "74055e8537e4012ca65478e85069aea8162168679bfb149ac88308a59f60c033",
   "tables": 36,
   "stable_longtable_widths_and_labels": true,
   "landscape_note": "Page 15 has /Rotate=90; full rotated rendering checked.",
@@ -45,8 +43,7 @@
     15,
     16,
     17,
-    18,
-    19,
-    20
-  ]
+    18
+  ],
+  "editorial_meta_text_audit_passed": true
 }

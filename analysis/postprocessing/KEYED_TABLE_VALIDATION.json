@@ -247,8 +247,8 @@
     "sup:cpu-latency"
   ],
   "documents_sha256": {
-    "manuscript.tex": "9a6b5e6e13c4b7f100ef91a7adac2e2b88a58439ba251773e03f240d7878ce50",
-    "supplementary_material.tex": "ace5f0f971d78786abe9218804993af1546a8e6c7358aee1cc671675aa8c35cb"
+    "manuscript.tex": "f0a56f586a44c9d7da2dc53d87aa99111260968b731641c95039eaa8e1c6f585",
+    "supplementary_material.tex": "e078be955578f6984b6061ddcf295821a628350dc46c1c46535e8a0d17c89ee0"
   },
   "scope": "Result/selection/count matrices checked cell by cell; narrative and static implementation tables require the separate source/reading audit."
 }

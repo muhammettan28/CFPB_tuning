@@ -108,14 +108,14 @@ def main():
     pd.DataFrame(contrasts).to_csv(OUT/'paired_contrasts.csv',index=False)
     pd.DataFrame(validation).to_csv(OUT/'validation_metrics.csv',index=False)
     today=datetime.now(ZoneInfo('Europe/Istanbul')).date().isoformat()
-    lines=['# Reference [14] encoder-parameter sensitivity','',f'Local completion date: {today}.',
-        '', 'BERT/RoBERTa parameters in Tables III–IV were specified before supplementary final predictions. All six three-epoch refits use the same frozen 10,000 training and 2,000 validation examples. The published learning rates and epochs were already the main validation winners; the added conditions change physical batch to 16 (accumulation 1) and token limits to 128/100. Their joint effect is measured, not attributed to an individual hyperparameter.',
+    lines=['# Reference [14] encoder-parameter sensitivity',
+        '', 'BERT/RoBERTa parameters in Tables III–IV were specified before supplementary final predictions. All six three-epoch refits use the same frozen 10,000 training and 2,000 validation examples. The published learning rates and epochs match the main validation winners; the reference conditions use physical batch to 16 (accumulation 1) and token limits to 128/100. Their joint effect is measured, not attributed to an individual hyperparameter.',
         '', 'This is a parameter-sensitivity extension, not an exact reproduction of the paper. We retain 500-character inputs, corrected split, pinned checkpoints, PyTorch/FP16 and the main warmup/weight-decay/scheduler settings. Source Table IV reports TensorFlow for RoBERTa. The source uses another split and preprocessing. All conditions are reported without selecting a replacement baseline on test scores.',
         '', '| Evaluation | Model | Setting | Macro-F1 | 95% group-bootstrap CI | Run SD |',
         '| --- | --- | --- | ---: | --- | ---: |']
     for r in frame.loc[frame.metric.eq('macro_f1')].itertuples(index=False):
         lines.append(f'| {r.role} | {r.model} | {r.setting} | {r.point:.4f} | [{r.low:.4f}, {r.high:.4f}] | {r.seed_sd_ddof1:.4f} |')
-    lines += ['', 'Intervals share 10,000 frozen-group bootstrap draws across original and added predictions. Legacy views receive the same unique-normalized-input weights as in the core analysis. Run SD is reported separately; the intervals condition on fitted checkpoints and exclude training/model-selection uncertainty. Evaluation is retrospective, not a new unseen prospective test. Read paired_contrasts.csv for reference-setting minus main-setting intervals. No numerical superiority over the published paper is inferred.']
+    lines += ['', 'Intervals share 10,000 frozen-group bootstrap draws across main-setting and reference-setting predictions. Benchmark views receive the same unique-normalized-input weights as in the core analysis. Run SD is reported separately; the intervals condition on fitted checkpoints and exclude training/model-selection uncertainty. Evaluation is retrospective, not a new unseen prospective test. Read paired_contrasts.csv for reference-setting minus main-setting intervals. No numerical superiority over the published paper is inferred.']
     (OUT/'RESULTS_REPORT.md').write_text('\n'.join(lines)+'\n')
     sources={r['path']:r for r in core.SOURCES}
     (OUT/'RESULT_SOURCES.json').write_text(json_text(list(sources.values())))

@@ -1,8 +1,6 @@
 # Reference [14] encoder-parameter sensitivity
 
-Local completion date: 2026-10-24.
-
-BERT/RoBERTa parameters in Tables III–IV were specified before supplementary final predictions. All six three-epoch refits use the same frozen 10,000 training and 2,000 validation examples. The published learning rates and epochs were already the main validation winners; the added conditions change physical batch to 16 (accumulation 1) and token limits to 128/100. Their joint effect is measured, not attributed to an individual hyperparameter.
+BERT/RoBERTa parameters in Tables III–IV were specified before supplementary final predictions. All six three-epoch refits use the same frozen 10,000 training and 2,000 validation examples. The published learning rates and epochs match the main validation winners; the reference conditions use physical batch to 16 (accumulation 1) and token limits to 128/100. Their joint effect is measured, not attributed to an individual hyperparameter.
 
 This is a parameter-sensitivity extension, not an exact reproduction of the paper. We retain 500-character inputs, corrected split, pinned checkpoints, PyTorch/FP16 and the main warmup/weight-decay/scheduler settings. Source Table IV reports TensorFlow for RoBERTa. The source uses another split and preprocessing. All conditions are reported without selecting a replacement baseline on test scores.
 
@@ -17,4 +15,4 @@ This is a parameter-sensitivity extension, not an exact reproduction of the pape
 | legacy | roberta | main | 0.7926 | [0.7800, 0.8046] | 0.0042 |
 | legacy | roberta | ref14 | 0.7900 | [0.7771, 0.8021] | 0.0020 |
 
-Intervals share 10,000 frozen-group bootstrap draws across original and added predictions. Legacy views receive the same unique-normalized-input weights as in the core analysis. Run SD is reported separately; the intervals condition on fitted checkpoints and exclude training/model-selection uncertainty. Evaluation is retrospective, not a new unseen prospective test. Read paired_contrasts.csv for reference-setting minus main-setting intervals. No numerical superiority over the published paper is inferred.
+Intervals share 10,000 frozen-group bootstrap draws across main-setting and reference-setting predictions. Benchmark views receive the same unique-normalized-input weights as in the core analysis. Run SD is reported separately; the intervals condition on fitted checkpoints and exclude training/model-selection uncertainty. Evaluation is retrospective, not a new unseen prospective test. Read paired_contrasts.csv for reference-setting minus main-setting intervals. No numerical superiority over the published paper is inferred.
