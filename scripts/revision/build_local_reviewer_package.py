@@ -35,6 +35,10 @@ The three documents are under REVISION_PAPER:
 - supplementary_material.pdf: S1-S8, 33 tables (19 pages).
 - response_to_reviewers.pdf: point-by-point responses to 15 comments (7 pages).
 Editable sources and a reviewer-comment location index are included.
+The independently compilable tracked.tex/tracked.pdf shows word-level additions
+and deletions relative to the submitted manuscript. Changed tables and figures
+are shown as complete objects. manuscript.tex/manuscript.pdf is the clean version;
+all response-letter locations refer to that clean manuscript and the supplement.
 
 The experiment evidence is under experiments/, with statistical results in
 analysis/, data selections in dataset/, recorded settings in configs/ and
@@ -105,7 +109,7 @@ full verification instructions and recorded-path mapping.
             if path.suffix=='.md' and path.name not in {'GPU_RESULTS_REPORT.md','RESULTS_REPORT.md'}:return
             if path.name.endswith('_build_final.txt'):return
         files.add(path)
-    for name in ['manuscript.tex','manuscript.pdf','supplementary_material.tex','supplementary_material.pdf','response_to_reviewers.tex','response_to_reviewers.pdf','elektr.cls','elksty.tex','elk-creative.eps','elk-creative-eps-converted-to.pdf','RESPONSE_TO_REVIEWERS.md','REVIEWER_COMMENT_CROSSWALK.md']:
+    for name in ['manuscript.tex','manuscript.pdf','tracked.tex','tracked.pdf','supplementary_material.tex','supplementary_material.pdf','response_to_reviewers.tex','response_to_reviewers.pdf','elektr.cls','elksty.tex','elk-creative.eps','elk-creative-eps-converted-to.pdf','RESPONSE_TO_REVIEWERS.md','REVIEWER_COMMENT_CROSSWALK.md']:
         add(project_path(ROOT, 'REVISION_PAPER', name))
     for p in (project_path(ROOT, 'protocols')).glob('*.md'):add(p)
     add(project_path(ROOT, 'templates/revision_paper/manuscript_baseline.tex'))
@@ -161,7 +165,7 @@ full verification instructions and recorded-path mapping.
         for p in marker.parent.rglob('*'):
             if p.suffix in {'.csv','.gz','.json','.txt','.py','.sha256'}:add(p)
     for p in (project_path(ROOT, 'REVISION_PAPER/figures')).glob('*'):
-        if p.name in {'corrected_confusion_matrices.pdf','corrected_confusion_matrices.png'}:add(p)
+        if p.name in {'corrected_confusion_matrices.pdf','corrected_confusion_matrices.png','tracked_original_internal_confusion_matrices.pdf'}:add(p)
     for p in EXP.rglob('*'):
         if p.suffix in {'.csv','.json','.sha256','.gz','.joblib'}:add(p)
     for entry in json.loads((OUT/'prediction_sources.json').read_text()):
