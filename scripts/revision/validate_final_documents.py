@@ -42,7 +42,7 @@ def main():
     restored=read(restored_report);assert restored['passed']
     extension_report=OUT/'COMPARISON_EXTENSION_VALIDATION.json'
     subprocess.run([sys.executable,str(ROOT/'scripts/revision/verify_comparison_evidence.py'),
-                    '--output',str(extension_report)],check=True)
+                    '--include-documents','--output',str(extension_report)],check=True)
     extension=read(extension_report);assert extension['passed']
     metrics=pd.read_csv(project_path(PAPER, 'analysis/gpu_execution/corrected_model_metrics.csv'))
     contrasts=pd.read_csv(project_path(PAPER, 'analysis/gpu_execution/corrected_paired_contrasts.csv'))

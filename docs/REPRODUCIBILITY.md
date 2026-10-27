@@ -1,9 +1,10 @@
 # Reproducing the revision results
 
 Run commands from the project root. `experiments/`, `analysis/`, `configs/`,
-`protocols/`, and `scripts/revision/` are siblings of `REVISION_PAPER/`.
-Corrected data are in `dataset/revision_v1/`. The paper directory contains only
-publication sources/PDFs, reviewer responses and required LaTeX assets.
+`protocols/`, and `scripts/revision/` contain the public reproducibility evidence.
+Corrected data are in `dataset/revision_v1/`. Publication sources/PDFs, reviewer
+responses and their LaTeX assets are kept locally in the Git-ignored
+`REVISION_PAPER/` directory; they are not required for the public CPU checks.
 
 The main study completed 88 stages, including five small API/hardware smoke
 checks. Encoder search stages each contain six candidates. The separate reference
@@ -18,12 +19,15 @@ and `analysis/ref14_encoder/`; sparse search records are under `experiments/`.
 Follow the commands in the root README. Replay verifies source hashes,
 recomputes complete tables from the saved predictions/timings, and compares
 numeric cells at absolute tolerance 1e-12, preserving row identities and order.
-It writes only a new output directory and does not fit/select models. The table
-audit independently checks model/condition/metric-specific cells. The content
-check additionally reconstructs all four LLM confusion matrices from eight saved
-prediction files, verifies the restored historical Qwen selection conditions and
-checks the historical dataset descriptions on their original population. The original
+It writes only a new output directory and does not fit/select models. The original
 source data and earlier split files also remain available under `dataset/`.
+
+The author-only `audit_document_rows.py` and `verify_restored_document_content.py`
+checks require the local publication sources. The first checks
+model/condition/metric-specific table cells; the second additionally reconstructs
+the four LLM confusion matrices, verifies historical Qwen selection conditions
+and checks historical dataset descriptions on their original population. These
+document checks are separate from the public saved-result replay.
 
 ## Historical paths and source identities
 
@@ -90,6 +94,8 @@ architecture benchmark or energy measurement.
 
 `verify_comparison_evidence.py` reconstructs the cost summaries from the supplied
 raw calls and training excerpts and checks the zero-shot protocol comparisons.
-It requires no neural weights or GPU. `build_comparison_evidence.py` can rebuild
+It requires no neural weights, GPU or publication files. Authors can add
+`--include-documents` to check the local manuscript and reviewer-response claims;
+that option requires `REVISION_PAPER/`. `build_comparison_evidence.py` can rebuild
 these derived summaries using a freshly replayed bootstrap directory; it consumes
 the supplied training excerpts when the author's verbose runtime logs are absent.
