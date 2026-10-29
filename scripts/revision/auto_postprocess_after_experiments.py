@@ -73,8 +73,11 @@ def finished():
     if info.get('uploaded') is not False or info.get('author_final_review_pending') is not True:
         return False,'final_review_or_upload_state_inconsistent'
     required_paths={f'REVISION_PAPER/{name}' for name in ['manuscript.tex','manuscript.pdf',
-        'supplementary_material.tex','supplementary_material.pdf','RESPONSE_TO_REVIEWERS.md',
+        'supplementary_material.tex','supplementary_material.pdf',
         'response_to_reviewers.tex','response_to_reviewers.pdf']}
+    # The editable TeX letter is canonical; Markdown is an optional export.
+    if (ROOT/'REVISION_PAPER/RESPONSE_TO_REVIEWERS.md').is_file():
+        required_paths.add('REVISION_PAPER/RESPONSE_TO_REVIEWERS.md')
     artifacts=info.get('artifacts_sha256',{})
     if not required_paths.issubset(artifacts) or not any(name.endswith('.zip') for name in artifacts):
         return False,'required_deliverable_hashes_missing'

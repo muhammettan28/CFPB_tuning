@@ -16,7 +16,7 @@ def main():
                         help='Also check claims in the local, Git-ignored publication sources.')
     args=parser.parse_args()
     if args.include_documents:
-        required=['manuscript.tex','supplementary_material.tex','RESPONSE_TO_REVIEWERS.md','response_to_reviewers.tex']
+        required=['manuscript.tex','supplementary_material.tex','response_to_reviewers.tex']
         missing=[name for name in required if not (ROOT/'REVISION_PAPER'/name).is_file()]
         if missing:parser.error('--include-documents requires local REVISION_PAPER files: '+', '.join(missing))
     source_hashes={};calls=0
@@ -57,12 +57,12 @@ def main():
     if args.include_documents:
         for stem in ['manuscript','supplementary_material']:
             text=(ROOT/'REVISION_PAPER'/f'{stem}.tex').read_text();assert not editorial_history_hits(text);assert not internal_workflow_hits(text)
-        main=(ROOT/'REVISION_PAPER/manuscript.tex').read_text();response=(ROOT/'REVISION_PAPER/RESPONSE_TO_REVIEWERS.md').read_text()
+        main=(ROOT/'REVISION_PAPER/manuscript.tex').read_text();response=(ROOT/'REVISION_PAPER/response_to_reviewers.tex').read_text()
         assert '63.98\\%' in main and '63.01\\%' in main and '\\cite{cfpbdata,tiwari2021complaints}' in main
         assert 'statistical equivalence or non-inferiority' in main
         for value in ['1,401','1,167','333','263','0.6189','0.6247','V100','RTX 5060 Ti']:
             assert value in response,value
-        assert response.count('\n- ')==5
+        assert response.count('\n'+r'\item ')==5
         for row in current['adapted_comparisons']:
             assert f"{row['difference']:+.6f}" in response
         response_tex=(ROOT/'REVISION_PAPER/response_to_reviewers.tex').read_text()

@@ -52,6 +52,19 @@ class PublicationLanguageTests(unittest.TestCase):
             'The auxiliary fits lack complete fitted weights. '
             'AI-assisted tools supported wording and LaTeX formatting.'))
 
+    def test_assistant_fragments_and_unfilled_placeholders_are_rejected(self):
+        for text in ['As an AI language model, I cannot verify this.',
+                     'Here is the revised manuscript.',
+                     'INSERT HERE', 'AUTHOR NAME', 'TODO: add the source',
+                     'contentReference[oaicite:1]', 'turn3search2']:
+            self.assertTrue(internal_workflow_hits(text), text)
+
+    def test_actual_data_placeholders_and_model_names_are_scientific_text(self):
+        self.assertFalse(internal_workflow_hits(
+            'Six source rows contain only the placeholder narrative name. '
+            'The related work compares GPT-2 and Llama models. '
+            'AI-assisted tools supported analysis-code preparation.'))
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

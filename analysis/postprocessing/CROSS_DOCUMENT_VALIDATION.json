@@ -1,13 +1,13 @@
 {
   "passed": true,
-  "date": "2026-10-26",
+  "date": "2026-10-29",
   "main_gpu_stages": 88,
   "reference_gpu_stages": 12,
   "source_hashes_verified": true,
   "numerical_source_files_checked": 17,
   "protected_originals_checked": 107,
   "protected_ORJ_PAPER_files": 84,
-  "compiled_response_locations_checked": 88,
+  "compiled_response_locations_checked": 100,
   "exact_request_units_checked": 15,
   "all_model_macro_f1_points_and_bounds_checked": [
     {
@@ -124,5 +124,7 @@
   "restored_error_narrative_checked_against_raw_predictions": true,
   "original_introduction_opening_preserved": true,
   "additional_QLoRA_encoder_cost_and_protocol_evidence_verified": true,
-  "cpu_baseline_timed_calls_checked": 1500
+  "cpu_baseline_timed_calls_checked": 1500,
+  "canonical_response_source": "response_to_reviewers.tex",
+  "clean_and_tracked_location_pages_verified": true
 }

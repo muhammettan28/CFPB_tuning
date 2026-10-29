@@ -2,6 +2,8 @@
 """Check frozen scientific evidence and final numerical/reference consistency, without fitting."""
 from project_paths import project_path
 from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
 import json,re,subprocess,sys
 import pandas as pd
 from revision_gpu_common import ROOT,PAPER,sha_file
@@ -23,13 +25,21 @@ def main():
         assert sha_file(project_path(PAPER, stem+'.pdf'))==d[pdfkey]
     assert read(OUT/'RESPONSE_VALIDATION.json')['passed'] and final_response_protected()
     locations=read(OUT/'RESPONSE_LOCATIONS.json')
-    for doc,digest in locations['source_sha256'].items():assert sha_file(compiled_artifact(doc,'.aux'))==digest
-    for entry in locations['references']:
-        pattern=r'\\newlabel\{'+re.escape(entry['label'])+r'\}\{\{'+re.escape(entry['number'])+r'\}\{'+str(entry['page'])+r'\}'
-        assert re.search(pattern,compiled_artifact(entry['document'],'.aux').read_text()),entry
-    _,_,r1,r2=extract();response=(project_path(PAPER, 'RESPONSE_TO_REVIEWERS.md')).read_text()
-    for quote in r1+r2:assert '> '+quote in response
-    assert len(re.findall(r'^### R[12]\.\d+',response,re.M))==15
+    if locations.get('schema') == 'rendered_pdf_locations_v2':
+        from refresh_response_locations import validate
+        validate(locations)
+    else:
+        for doc,digest in locations['source_sha256'].items():assert sha_file(compiled_artifact(doc,'.aux'))==digest
+        for entry in locations['references']:
+            pattern=r'\\newlabel\{'+re.escape(entry['label'])+r'\}\{\{'+re.escape(entry['number'])+r'\}\{'+str(entry['page'])+r'\}'
+            assert re.search(pattern,compiled_artifact(entry['document'],'.aux').read_text()),entry
+    _,_,r1,r2=extract()
+    # The editable LaTeX letter is canonical; its optional Markdown export may
+    # have been removed when organising the submission directory.
+    response=(project_path(PAPER, 'response_to_reviewers.tex')).read_text()
+    from create_final_response import escape
+    for quote in r1+r2:assert r'\begin{quote}\small '+escape(quote)+r'\end{quote}' in response
+    assert len(re.findall(r'\\subsection\*\{R[12]\.\d+',response))==15
     # Check cells in their model/condition/metric rows; mere presence of a number
     # elsewhere in a document cannot establish a correct table association.
     keyed_report=OUT/'KEYED_TABLE_VALIDATION.json'
@@ -87,7 +97,7 @@ def main():
     assert '–output' not in pdf_text
     protected=read(project_path(PAPER, 'analysis/revision_v1/source_integrity_before.json'))
     report={'passed':True,'date':'2026-10-24','main_gpu_stages':88,'reference_gpu_stages':12,'source_hashes_verified':True,'numerical_source_files_checked':len(numerical),'protected_originals_checked':len(protected),'protected_ORJ_PAPER_files':sum(k.startswith('ORJ_PAPER/') for k in protected),'compiled_response_locations_checked':len(locations['references']),'exact_request_units_checked':15,'all_model_macro_f1_points_and_bounds_checked':point_checks,'main_internal_contrasts_checked':True,'long_input_table_checked':True,'latency_response_checked':True,'document_pdf_hashes_match_visual_qa':True,'no_placeholders_or_unresolved_tex_references':True,'legacy_response_generators_preserve_final':True,'irrecoverable_limitations':['Upstream CFPB-to-Kaggle preprocessing/product aggregation and original sampling implementation unavailable','Historical immutable upstream identities/final Qwen artifacts unavailable','Retrospective source-related evaluation, conservative text groups do not guarantee semantic independence','Intervals condition on fitted/selected models; no multiplicity correction','Serial batch-one latency does not establish deployment acceptability or concurrent capacity']}
-    report['date']='2026-10-26'
+    report['date']=datetime.now(ZoneInfo('Europe/Istanbul')).date().isoformat()
     report['keyed_tables_checked']=len(keyed['tables'])
     report['keyed_rows_checked']=keyed['total_rows']
     report['keyed_cells_checked']=keyed['total_cells']

@@ -21,7 +21,6 @@ def main(author_review=False, package_name=None):
     # Keep the old call signature for analysis scripts, but never rebuild a draft ZIP.
     author_review=True
     assert (STUDY/'FINAL_CPU_VALIDATION.json').is_file()
-    assert (STUDY/'PDF_VALIDATION.json').is_file()
     DEST.mkdir(exist_ok=True)
     gpu_validation=json.loads((project_path(ROOT, 'analysis/gpu_execution/GPU_RESULT_VALIDATION.json')).read_text())
     gpu_complete=gpu_validation.get('gpu_experiments_completed',False)
@@ -39,8 +38,9 @@ The independently compilable tracked.tex/tracked.pdf contains the current
 manuscript, with added or replaced text highlighted in yellow relative to the
 submitted manuscript. Deleted text is omitted. Changed tables have a yellow
 background and replacement figures have highlighted captions.
-manuscript.tex/manuscript.pdf is the clean version; all response-letter locations
-refer to that clean manuscript and the supplement.
+manuscript.tex/manuscript.pdf is the clean version. The response letter identifies
+both clean and tracked manuscript page numbers; supplementary locations refer
+to the supplementary material.
 
 The experiment evidence is under experiments/, with statistical results in
 analysis/, data selections in dataset/, recorded settings in configs/ and
@@ -101,7 +101,9 @@ full verification instructions and recorded-path mapping.
         'AUTO_POSTPROCESS_TASK.md','GPU_NEXT_STEPS.md','SUPPLEMENTARY_PLAN.md','REVISION_PROGRESS.md',
         'REVISION_LOG.md','TWO_PASS_REVIEW.md','reviewer_comment_coverage.json','POSTPROCESS_VALIDATION.json',
         'EXECUTION_QUEUE.json','ollama_inventory_user_reported_2026-10-20.json','commands_dry_run.txt',
-        'GPU_SMOKE_VALIDATION.json','PADDING_FIX_RESTART_2026-10-24.json'}
+        'GPU_SMOKE_VALIDATION.json','PADDING_FIX_RESTART_2026-10-24.json',
+        'CPU_PREPARATION_VALIDATION.json','REF14_VALIDATION.json',
+        'REF14_MANUSCRIPT_CHANGES.diff','PDF_VALIDATION.json'}
     def add(path):
         if not path.is_file():return
         relative=path.relative_to(ROOT)

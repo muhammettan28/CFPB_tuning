@@ -63,3 +63,9 @@ logs/
 REVISION_PAPER.zip
 scripts/revision/build_tracked_manuscript.py
 scripts/revision/build_local_reviewer_package.py
+
+# Retired preparation-only author reports.
+/analysis/gpu_preparation/CPU_PREPARATION_VALIDATION.json
+/analysis/literature/REF14_VALIDATION.json
+/analysis/literature/REF14_MANUSCRIPT_CHANGES.diff
+/analysis/revision_v1/PDF_VALIDATION.json

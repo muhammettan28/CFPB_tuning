@@ -63,7 +63,7 @@ Adapted-model macro-F1 changes from 0.8350 to 0.8331 for Qwen and 0.8378 to 0.84
 \usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
 \usepackage[margin=24mm]{geometry}\usepackage{lmodern,enumitem,xurl,hyperref,needspace}
 \hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue,pdftitle={Response to reviewers: QLoRA complaint classification}}
-\setlength{\emergencystretch}{3em}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{3em}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
 \begin{document}
 \begin{center}{\Large\bfseries Response to reviewers}\\[5pt]QLoRA Fine-Tuning for Consumer Complaint Classification\end{center}
 ''',escape(intro),r'\begin{itemize}']+[r'\item '+escape(item) for item in summary]+[r'\end{itemize}']
@@ -78,7 +78,18 @@ Adapted-model macro-F1 changes from 0.8350 to 0.8331 for Qwen and 0.8378 to 0.84
     (project_path(PAPER, 'RESPONSE_TO_REVIEWERS.md')).write_text('\n'.join(md)+'\n')
     (project_path(PAPER, 'response_to_reviewers.tex')).write_text('\n'.join(tex)+'\n')
     (project_path(PAPER, 'analysis/postprocessing/RESPONSE_LOCATIONS.json')).write_text(json.dumps({'references':refs,'source_sha256':{x:sha_file(compiled_artifact(x,'.aux')) for x in ['manuscript','supplementary_material']},'units':15,'original_requests_quoted':True},indent=2)+'\n')
-    print('Wrote 15 responses using',len(refs),'compiled document locations')
+    # Verify the actual PDFs and distinguish clean/tracked pagination. Also keep
+    # the optional Markdown export consistent with the canonical LaTeX letter.
+    from refresh_response_locations import refresh, CONVENTION
+    report = refresh(project_path(PAPER, 'response_to_reviewers.tex'))
+    markdown = project_path(PAPER, 'RESPONSE_TO_REVIEWERS.md')
+    content = markdown.read_text().replace(
+        'All document locations refer to the clean manuscript and supplementary material.', CONVENTION)
+    for change in report['changes']:
+        content = content.replace('**Changes and locations.** '+change['before'],
+                                  '**Changes and locations.** '+change['after'])
+    markdown.write_text(content)
+    print('Wrote 15 responses using',len(report['references']),'PDF-verified document locations')
 
 def escape(s):
     s=s.replace('2⁻¹²','POWERTWOMARKER')

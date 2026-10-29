@@ -40,6 +40,11 @@ def internal_workflow_hits(tex):
     """Keep author-only preparation notes out of publication and response text."""
     prose = '\n'.join(visible_parts(tex)[::2])
     patterns = [
+        r'\b(?:TODO|TBD|FIXME|INSERT HERE|YOUR NAME|AUTHOR NAME|AFFILIATION HERE)\b',
+        r'\bas an (?:AI|artificial intelligence)(?: language model)?\b',
+        r'\bas a (?:large )?language model\b',
+        r'\b(?:here is|below is) (?:the |your )?(?:revised|rewritten|updated) (?:text|manuscript|response)\b',
+        r'(?:contentReference\[oaicite:|:codex-file-citation\{|\bturn\d+(?:search|view|file)\d+\b)',
         r'\blocal author[ -]review version\b',
         r'\bit has not been submitted\b',
         r'\b(?:actual )?(?:external )?reviewer/public access (?:still )?(?:needs|must)\b',
