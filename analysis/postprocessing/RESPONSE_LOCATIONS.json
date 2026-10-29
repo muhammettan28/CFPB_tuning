@@ -295,14 +295,14 @@
         {
           "document": "manuscript",
           "page": 12,
-          "line": 6,
-          "matched_line": "2    Data availability statement"
+          "line": 8,
+          "matched_line": "4    Data availability statement"
         },
         {
           "document": "tracked",
           "page": 12,
-          "line": 38,
-          "matched_line": "26   Data availability statement"
+          "line": 39,
+          "matched_line": "28   Data availability statement"
         }
       ]
     },
@@ -1883,14 +1883,14 @@
         {
           "document": "manuscript",
           "page": 12,
-          "line": 6,
-          "matched_line": "2    Data availability statement"
+          "line": 8,
+          "matched_line": "4    Data availability statement"
         },
         {
           "document": "tracked",
           "page": 12,
-          "line": 38,
-          "matched_line": "26   Data availability statement"
+          "line": 39,
+          "matched_line": "28   Data availability statement"
         }
       ]
     },
@@ -2005,8 +2005,8 @@
     }
   ],
   "source_pdf_sha256": {
-    "manuscript": "5dc75fb5c493c8ec752c5509b7f9d2ebf24044cf5b864eaf2f4efff41a859ccc",
-    "tracked": "23e4e1be1bf020e74b4b91ba306156cc46e4a195fd0182925726b167dc2f1d8f",
+    "manuscript": "71a9c5c4dd72ccb5a5952db758ebdecf64d35ee055075d1b6c6cecaf7bd4eefd",
+    "tracked": "ecca9eef64a4d12ed300191809db4db0e038119449d4af2cb49ebeb0a873a09e",
     "supplementary_material": "74055e8537e4012ca65478e85069aea8162168679bfb149ac88308a59f60c033"
   },
   "response_arguments_and_quotes_unchanged": true,

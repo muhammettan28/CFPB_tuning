@@ -124,7 +124,5 @@
   "restored_error_narrative_checked_against_raw_predictions": true,
   "original_introduction_opening_preserved": true,
   "additional_QLoRA_encoder_cost_and_protocol_evidence_verified": true,
-  "cpu_baseline_timed_calls_checked": 1500,
-  "canonical_response_source": "response_to_reviewers.tex",
-  "clean_and_tracked_location_pages_verified": true
+  "cpu_baseline_timed_calls_checked": 1500
 }
