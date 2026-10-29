@@ -35,10 +35,12 @@ The three documents are under REVISION_PAPER:
 - supplementary_material.pdf: S1-S8, 33 tables (19 pages).
 - response_to_reviewers.pdf: point-by-point responses to 15 comments (7 pages).
 Editable sources and a reviewer-comment location index are included.
-The independently compilable tracked.tex/tracked.pdf shows word-level additions
-and deletions relative to the submitted manuscript. Changed tables and figures
-are shown as complete objects. manuscript.tex/manuscript.pdf is the clean version;
-all response-letter locations refer to that clean manuscript and the supplement.
+The independently compilable tracked.tex/tracked.pdf contains the current
+manuscript, with added or replaced text highlighted in yellow relative to the
+submitted manuscript. Deleted text is omitted. Changed tables have a yellow
+background and replacement figures have highlighted captions.
+manuscript.tex/manuscript.pdf is the clean version; all response-letter locations
+refer to that clean manuscript and the supplement.
 
 The experiment evidence is under experiments/, with statistical results in
 analysis/, data selections in dataset/, recorded settings in configs/ and
@@ -165,7 +167,7 @@ full verification instructions and recorded-path mapping.
         for p in marker.parent.rglob('*'):
             if p.suffix in {'.csv','.gz','.json','.txt','.py','.sha256'}:add(p)
     for p in (project_path(ROOT, 'REVISION_PAPER/figures')).glob('*'):
-        if p.name in {'corrected_confusion_matrices.pdf','corrected_confusion_matrices.png','tracked_original_internal_confusion_matrices.pdf'}:add(p)
+        if p.name in {'corrected_confusion_matrices.pdf','corrected_confusion_matrices.png'}:add(p)
     for p in EXP.rglob('*'):
         if p.suffix in {'.csv','.json','.sha256','.gz','.joblib'}:add(p)
     for entry in json.loads((OUT/'prediction_sources.json').read_text()):

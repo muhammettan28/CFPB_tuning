@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Build an independent tracked manuscript from submitted and clean LaTeX sources.
 
-Text uses latexdiff word markup. Changed floats are kept as complete objects so
-different table schemas cannot be interleaved. Original files are read-only.
+Only the current manuscript is displayed. Added or replaced text is highlighted
+in yellow; deleted content is omitted. Original and clean files are read-only.
 """
 from __future__ import annotations
 
@@ -60,51 +60,54 @@ def canonical_body(text):
     return re.sub(r'\s+', '', text)
 
 
+def unwrap_highlights(text):
+    "Remove only our one-argument markup, retaining nested LaTeX verbatim."
+    token = r'\TrackedHighlight{'
+    while token in text:
+        start = text.index(token)
+        pos, depth = start + len(token), 1
+        while depth:
+            if pos >= len(text):
+                raise ValueError('Unbalanced highlight argument')
+            if text[pos] == '\\':
+                pos += 2
+                continue
+            if text[pos] == '{':
+                depth += 1
+            elif text[pos] == '}':
+                depth -= 1
+            pos += 1
+        content = text[start+len(token):pos-1]
+        text = text[:start]+content+text[pos:]
+    return text.replace(r'\rowcolors{1}{TrackedYellow}{TrackedYellow}', '')
+
+
 def build(original, clean, output, work):
     if output in {original, clean} or output.is_relative_to(original.parent) or work.is_relative_to(original.parent):
         raise ValueError('Original sources are read-only; tracked output must be separate from both manuscripts')
     original_hash, clean_hash = digest(original), digest(clean)
-    old = flatten(original)
-    new = flatten(clean)
+    old, new = flatten(original), flatten(clean)
     normal_title = lambda text: re.sub(r'\\begin\{document\}\s*\\maketitle\s*',
                                       lambda _: '\\begin{document}\n\\maketitle\n\n', text)
     old, new = normal_title(old), normal_title(new)
-    baseline = work/'baseline'
-    baseline.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(original, baseline/'manuscript.tex')
-    for name in ['elektr.cls', 'elksty.tex', 'elk-creative.eps',
-                 'elk-creative-eps-converted-to.pdf']:
-        shutil.copy2(original.parent/name, baseline/name)
-    for directory in ['tables', 'figures']:
-        (baseline/directory).mkdir(exist_ok=True)
-        for path in (original.parent/directory).glob('*'):
-            if path.suffix in {'.tex', '.pdf', '.png'}:
-                shutil.copy2(path, baseline/directory/path.name)
-    compile_tex(baseline/'manuscript.tex', baseline)
-    labels = {key: number for key, number, _ in LABEL.findall((baseline/'manuscript.aux').read_text())}
-    # Deleted references retain submitted numbers without unresolved/deleted labels.
-    old = re.sub(r'\\ref\{([^}]+)\}', lambda m: labels[m.group(1)], old)
-    assets = []
-    def graphic(match):
-        path = original.parent/match.group(2)
-        if not path.suffix:
-            path = path.with_suffix('.pdf')
-        dest = output.parent/'figures'/('tracked_original_'+path.name)
-        dest.parent.mkdir(exist_ok=True)
-        shutil.copy2(path, dest)
-        assets.append(str(dest.relative_to(output.parent)))
-        return r'\includegraphics'+(match.group(1) or '')+'{'+str(dest.relative_to(output.parent))+'}'
-    old = re.sub(r'\\includegraphics(\[[^]]*\])?\{([^}]+)\}', graphic, old)
-    blocks = {}
-    counts = {}
+    work.mkdir(parents=True, exist_ok=True)
+    blocks, identities, counts = {}, {}, {}
+    # Float schemas are compared as complete objects. Only current objects survive
+    # acceptance, so deleted tables, captions and graphics never reach the PDF.
     for role, text in [('Old', old), ('New', new)]:
         def atom(match):
-            ident = 'F'+''.join(chr(65+int(n)) for n in str(len(blocks)))
-            token = r'\Tracked'+role+'Float{'+ident+'}'
-            blocks[token] = (role, match.group(1), match.group(0))
+            block = match.group(0)
+            identity = re.sub(r'\s+', '', block)
+            if identity not in identities:
+                ident = 'F'+''.join(chr(65+int(n)) for n in str(len(identities)))
+                identities[identity] = r'\TrackedFloat{'+ident+'}'
+            token = identities[identity]
+            if token not in blocks:
+                blocks[token] = {'kind': match.group(1), 'block': block, 'roles': set()}
+            blocks[token]['roles'].add(role)
             return '\n\n'+token+'\n\n'
         text = FLOAT.sub(atom, text)
-        counts[role] = sum(value[0] == role for value in blocks.values())
+        counts[role] = len(FLOAT.findall(old if role == 'Old' else new))
         (work/(role.lower()+'_atomic.tex')).write_text(text)
     run = subprocess.run(['latexdiff', '--type=UNDERLINE', '--subtype=SAFE',
                           '--graphics-markup=none', '--math-markup=0',
@@ -112,62 +115,83 @@ def build(original, clean, output, work):
                           str(work/'old_atomic.tex'), str(work/'new_atomic.tex')],
                          capture_output=True, text=True, check=True)
     (work/'latexdiff_stderr.txt').write_text(run.stderr)
-    tracked = run.stdout
-    for token, (role, kind, block) in blocks.items():
-        if tracked.count(token) != 1:
-            raise RuntimeError('Opaque object lost or duplicated: '+token)
-        if role == 'Old':
-            tracked = tracked.replace('%DIFDELCMD < '+token, token)
-            label = re.search(r'\\label\{([^}]+)\}', block)
-            number = labels[label.group(1)] if label else '?'
-            block = re.sub(r'\\label\{[^}]+\}', '', block)
-            block = block.replace(r'\caption{', r'\TrackedDeletedCaption{'+kind.title()+'}{'+number+'}{')
-        color = 'red' if role == 'Old' else 'blue'
-        block = re.sub(r'(\\begin\{(?:table|figure)\}(?:\[[^]]*\])?)',
-                       lambda m: m.group(1)+r'\color{'+color+'}', block, count=1)
-        tracked = tracked.replace(token, block)
-    # latexdiff rolls back a deleted section counter, but LaTeX also resets its
-    # subsection counter. Use non-numbered review headings for deleted headings
-    # so current sections retain the clean manuscript's numbering.
-    tracked = re.sub(
-        r'\\(section|subsection)\{\\DIFdel\{([^{}]*)\}\}(?:\s|%DIFAUXCMD[^\n]*\n)*'
-        r'\\addtocounter\{\1\}\{-1\}%DIFAUXCMD',
-        lambda m: r'\TrackedDeletedHeading{'+m.group(1)+'}{'+m.group(2)+'}', tracked)
-    preamble = r'''
-% Review markings do not affect the independently maintained clean manuscript.
-\hypersetup{hypertexnames=false,pdftitle={QLoRA Fine-Tuning for Consumer Complaint Classification -- Tracked changes}}
-\newcommand{\TrackedDeletedCaption}[3]{\par\smallskip\noindent\textbf{Submitted #1 #2 (deleted).} #3\par\smallskip}
-\newcommand{\TrackedDeletedHeading}[2]{\par\medskip\noindent\textbf{\textcolor{red}{\sout{#2}}}\par\nobreak\smallskip}
-\setlength{\emergencystretch}{4em}
+    # Preserve additions under our own name while latexrevise discards every
+    # deletion and all diff scaffolding. Start from the clean preamble below.
+    marked = re.sub(r'\\DIFadd(?:FL)?\{', lambda _: r'\TrackedHighlight{', run.stdout)
+    accepted_run = subprocess.run(['latexrevise', '--accept'], input=marked,
+                                 capture_output=True, text=True, check=True)
+    (work/'latexrevise_stderr.txt').write_text(accepted_run.stderr)
+    accepted = accepted_run.stdout
+    body = accepted.split(r'\begin{document}', 1)[1].split(r'\end{document}', 1)[0]
+    changed_objects = 0
+    for token, obj in blocks.items():
+        if 'New' not in obj['roles']:
+            if token in body:
+                raise RuntimeError('Deleted object survived acceptance: '+token)
+            continue
+        if body.count(token) != 1:
+            raise RuntimeError('Current object lost or duplicated: '+token)
+        block = obj['block']
+        if obj['roles'] == {'New'}:
+            changed_objects += 1
+            # Caption highlighting remains readable, and tables use background
+            # colour without changing their contents, widths or row spacing.
+            block = block.replace(r'\caption{', r'\caption{\TrackedHighlight{', 1)
+            # Find the caption's balanced closing brace (not nested \cite etc.).
+            start = block.index(r'\caption{')+len(r'\caption{\TrackedHighlight{')
+            pos, depth = start, 1
+            while depth:
+                if block[pos] == '\\':
+                    pos += 2
+                    continue
+                if block[pos] == '{': depth += 1
+                elif block[pos] == '}': depth -= 1
+                pos += 1
+            block = block[:pos]+'}'+block[pos:]
+            if obj['kind'] == 'table':
+                block = re.sub(r'(\\begin\{table\}(?:\[[^]]*\])?)',
+                               lambda m: m.group(1)+'\n'+r'\rowcolors{1}{TrackedYellow}{TrackedYellow}', block, count=1)
+        body = body.replace(token, block)
+    preamble = new.split(r'\begin{document}', 1)[0]
+    preamble += r'''
+% Current manuscript only: yellow denotes added or replaced material.
+% Deleted text and all deletion markup are deliberately omitted.
+\let\TrackedMathUnderline\ul
+\let\ul\relax
+\usepackage{soul,colortbl}
+\let\ul\TrackedMathUnderline
+\definecolor{TrackedYellow}{RGB}{255,245,128}
+\sethlcolor{TrackedYellow}
+\makeatletter
+\def\SOUL@hlpreamble{\setul{}{2.2ex}\let\SOUL@stcolor\SOUL@hlcolor\SOUL@stpreamble}
+\makeatother
+\DeclareRobustCommand{\TrackedHighlight}[1]{\hl{#1}}
+\soulregister\cite7
+\soulregister\ref7
+\soulregister\texttt7
+\soulregister\textbf7
+\soulregister\emph7
+\soulregister\textit7
+\soulregister\url7
+\pdfstringdefDisableCommands{\def\TrackedHighlight#1{#1}}
+\hypersetup{pdftitle={QLoRA Fine-Tuning for Consumer Complaint Classification -- Highlighted changes}}
 '''
-    tracked = tracked.replace(r'\begin{document}', preamble+'\n'+r'\begin{document}', 1)
-    legend = r'''
-% TRACKED-LEGEND-BEGIN
-\begingroup\small\noindent
-\textbf{Tracked changes.} \DIFadd{Blue underlined text is added};
-\DIFdel{red struck-through text is deleted}. Unmarked text is retained.
-Blue tables and figure captions identify added or replacement objects;
-red objects labelled ``Submitted ... (deleted)'' retain the submitted content.
-Locations in the response letter refer to the clean manuscript.
-\par\endgroup\medskip
-% TRACKED-LEGEND-END
-'''
-    tracked = tracked.replace(r'\maketitle', r'\maketitle'+'\n'+legend, 1)
+    tracked = preamble+r'\begin{document}'+body+r'\end{document}'+'\n'
+    projection = unwrap_highlights(tracked)
+    (work/'accepted_projection.tex').write_text(projection)
+    if canonical_body(projection) != canonical_body(new):
+        raise RuntimeError('Removing yellow highlights does not recover the complete clean manuscript')
+    if re.search(r'\\DIF(?:add|del)|\\sout|TrackedOld|TrackedDeleted', body):
+        raise RuntimeError('Deleted text or diff markup survived acceptance')
     output.write_text(tracked)
-    projection_input = re.sub(r'% TRACKED-LEGEND-BEGIN.*?% TRACKED-LEGEND-END',
-                              '', tracked, flags=re.S)
-    accepted = subprocess.run(['latexrevise', '--accept'], input=projection_input,
-                             capture_output=True, text=True, check=True).stdout
-    (work/'accepted_projection.tex').write_text(accepted)
-    if canonical_body(accepted) != canonical_body(new):
-        raise RuntimeError('Accepting changes does not recover the complete clean manuscript')
     assert digest(original) == original_hash and digest(clean) == clean_hash
     return {'original_tex_sha256': original_hash, 'clean_tex_sha256': clean_hash,
             'tracked_tex_sha256': digest(output), 'original_objects': counts['Old'],
-            'current_objects': counts['New'], 'original_graphic_assets': assets,
+            'current_objects': counts['New'], 'highlighted_current_objects': changed_objects,
+            'original_graphic_assets': [], 'displayed_deletions': 0,
+            'presentation': 'current manuscript only; yellow highlights on added or replaced material',
             'accepted_projection_matches_clean_body': True,
-            'markup_additions': tracked.count(r'\DIFadd{'),
-            'markup_deletions': tracked.count(r'\DIFdel{')}
+            'highlighted_text_spans': body.count(r'\TrackedHighlight{')}
 
 
 def main():

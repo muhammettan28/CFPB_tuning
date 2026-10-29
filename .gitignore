@@ -60,3 +60,6 @@ logs/
 **/GPU_NEXT_STEPS.md
 **/SUPPLEMENTARY_PLAN.md
 **/REVISION_PROGRESS.md
+REVISION_PAPER.zip
+scripts/revision/build_tracked_manuscript.py
+scripts/revision/build_local_reviewer_package.py
