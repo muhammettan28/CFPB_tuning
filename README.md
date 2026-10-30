@@ -14,7 +14,7 @@ their fitting populations and are excluded from the primary model ranking.
 | `analysis/` | Result tables, statistical comparisons, data/tokenizer audits and frozen selection manifests |
 | `dataset/` | Original data/splits and corrected `revision_v1/` selections/evaluation data |
 | `configs/` | Frozen plans, signatures and model-registry template |
-| `scripts/revision/` | Revision experiment execution, analysis, verification and document-generation tools |
+| `scripts/revision/` | Experiment execution, analysis and result-verification tools |
 | `protocols/` | Written experiment protocols |
 | `experiment_archive/` | Saved predictions and execution evidence for auxiliary analyses |
 | `scripts/`, `CLASSIC_TEST/`, `slurm_files/` | Original preparation, training, baseline and TRUBA utilities |
@@ -30,7 +30,7 @@ From the repository root, using a fresh virtual environment:
 ```bash
 python -m pip install -r scripts/revision/requirements-cpu-revision.txt
 CUDA_VISIBLE_DEVICES='' python scripts/revision/replay_reviewer_results.py --output /tmp/cfpb-review-replay
-python scripts/revision/verify_comparison_evidence.py --output /tmp/cfpb-review-comparisons.json
+python scripts/revision/verify_results.py --output /tmp/cfpb-review-comparisons.json
 ```
 
 The replay output directory must not already exist. No neural weights, local

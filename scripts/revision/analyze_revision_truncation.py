@@ -10,7 +10,6 @@ from threadpoolctl import threadpool_limits
 from prepare_revision_protocol import ROOT, DATA, STUDY
 from audit_revision_data import OUT, NORM, sha, dependency_groups
 from analyze_archived_predictions import load_predictions, SPECS, encode, group_confusions, paired_cluster_bootstrap, METRICS
-from build_revision_analysis import tex_rows, interval
 
 
 def match_views(legacy):
@@ -67,19 +66,6 @@ def main():
                          'groups':len(cm),'short_point':short[k],'long_point':long[k],'gain':long[k]-short[k],
                          'gain_low':low[k],'gain_high':high[k]})
     f=pd.DataFrame(results);f.to_csv(STUDY/'paired_truncation_metrics.csv',index=False)
-    rows=[]
-    for r in f.loc[f.cohort.eq('changed_input_only') & f.metric.eq('macro_f1')].itertuples():
-        rows.append([r.model,'Base' if r.variant=='base_zero_shot' else 'FT mean',r.unique_pairs,
-                     f'{r.short_point:.4f}',f'{r.long_point:.4f}',interval(r.gain,r.gain_low,r.gain_high)])
-    tex_rows('table_revision_paired_truncation.tex',rows)
-    strata=pd.read_csv(OUT/'descriptive_truncation_strata.csv')
-    rows=[]
-    for (model,stratum),subset in strata.loc[strata.role.eq('internal')].groupby(['model','stratum'],sort=False):
-        base=subset.loc[subset.variant.eq('base_zero_shot')].iloc[0]
-        ft=subset.loc[~subset.variant.eq('base_zero_shot')]
-        label={'<=250_chars':r'$\leq250$','251-500_chars':'251--500','>500_chars':r'$>500$'}[stratum]
-        rows.append([model,label,int(base.rows),f'{base.macro_f1:.4f}',f'{ft.macro_f1.mean():.4f}'])
-    tex_rows('table_revision_length_strata.tex',rows)
     (STUDY/'truncation_method.json').write_text(json.dumps({
         'data':'Archived predictions only. No newly evaluated 1000/1500-character or token-budget model.',
         'pairing':'Within same sampling seed and balanced/imbalanced condition; same true label and normalized raw250 prefix; exactly one row per key on both sides. Ambiguous matches excluded before examining predictions.',

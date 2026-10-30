@@ -31,7 +31,7 @@ Use a fresh virtual environment:
 ```bash
 python -m pip install -r scripts/revision/requirements-cpu-revision.txt
 CUDA_VISIBLE_DEVICES='' python scripts/revision/replay_reviewer_results.py --output /tmp/cfpb-review-replay
-python scripts/revision/verify_comparison_evidence.py --output /tmp/cfpb-review-comparisons.json
+python scripts/revision/verify_results.py --output /tmp/cfpb-review-comparisons.json
 ```
 
 The replay output directory must not already exist. No GPU, neural weights,

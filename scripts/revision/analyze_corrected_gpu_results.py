@@ -280,14 +280,6 @@ def latency_results(internal):
     return summaries,paired
 
 
-def table_tex(frame,filename):
-    rows=[]
-    for r in frame.itertuples(index=False):
-        sd='---' if pd.isna(r.seed_sd_ddof1) else f'{r.seed_sd_ddof1:.4f}'
-        name=r.name.replace('_',r'\_')
-        rows.append(f'{name} & {r.train_rows:,} & {r.point:.4f} & [{r.low:.4f}, {r.high:.4f}] & {sd} '+r'\\')
-    (project_path(PAPER, 'tables', filename)).write_text('\n'.join(rows)+'\n'+r'\hline'+'\n')
-
 
 def main():
     OUT.mkdir(parents=True,exist_ok=True);verify_data(include_final=True)
@@ -311,8 +303,6 @@ def main():
     pd.DataFrame(long).to_csv(OUT/'corrected_long_input.csv',index=False)
     pd.DataFrame(latency).to_csv(OUT/'controlled_latency_summary.csv',index=False)
     pd.DataFrame(latency_paired).to_csv(OUT/'controlled_latency_paired.csv',index=False)
-    table_tex(estimates.loc[estimates.role.eq('internal') & estimates.metric.eq('macro_f1')],'table_corrected_internal_macro.tex')
-    table_tex(estimates.loc[estimates.role.eq('legacy') & estimates.metric.eq('macro_f1')],'table_corrected_legacy_macro.tex')
     source_by_path={r['path']:r for r in SOURCES}
     (OUT/'GPU_RESULT_SOURCES.json').write_text(json_text(list(source_by_path.values())))
     method={'bootstrap_replicates':REPLICATES,'rng_seed':RNG_SEED,
@@ -347,12 +337,8 @@ def main():
         'protected_original_files_unchanged':len(original),
         'sklearn_point_checks':'all 19 variants in both roles within 1e-12','bootstrap_replicates':REPLICATES,
         'protocol_sha256':PROTOCOL_SHA,'plan_sha256':sha_file(CONFIG),'gpu_experiments_completed':True,
-        'manuscript_final_review_completed':False,'uploaded':False}
+        'analysis_completed':True}
     (OUT/'GPU_RESULT_VALIDATION.json').write_text(json_text(validation))
-    from prepare_reviewer_crosswalk import main as update_responses
-    update_responses()
-    from build_local_reviewer_package import main as update_package
-    update_package()
     print('Validated corrected GPU predictions, paired uncertainty, long-input conditions and controlled latency. Report written.',flush=True)
 
 

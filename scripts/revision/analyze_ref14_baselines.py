@@ -124,12 +124,6 @@ def main():
         'protected_original_files_unchanged':len(protected),'configuration_sha256':sha_file(CONFIG_EXTRA),
         'analysis_code_sha256':sha_file(__file__),'analysis_library_versions':versions(),
         'point_metrics_independently_verified':True,'uploaded':False}))
-    with (project_path(PAPER, 'REVISION_LOG.md')).open('a') as f:
-        f.write(f'\n## Ref [14] ek encoder deneyleri — otomatik tamamlanma ({today})\n\nBERT/RoBERTa kaynak tablo ayarlarıyla altı gerçek refit ve altı evaluation tamamlandı; üyelik, inference eşliği, metrikler ve orijinal dosya bütünlüğü doğrulandı. Sonuçlar: [RESULTS_REPORT.md](analysis/ref14_encoder/RESULTS_REPORT.md), paired_contrasts.csv ve RESULT_VALIDATION.json. Birebir replikasyon veya test üzerinden baseline seçimi değildir.\n')
-    from prepare_reviewer_crosswalk import main as responses
-    responses()
-    from build_local_reviewer_package import main as package
-    package()
     print('Reference-parameter sensitivity completed and independently checked.',flush=True)
 
 
