@@ -7,22 +7,20 @@
   "exact_original_quotes_checked": true,
   "all_pages_rendered": true,
   "all_page_contact_sheets_visually_inspected": true,
-  "detailed_pages_inspected": [
-    8
-  ],
+  "detailed_pages_inspected": [],
   "no_out_of_page_words": true,
   "no_overfull_boxes": true,
   "no_undefined_references_or_citations": true,
   "artifacts_sha256": {
-    "response_to_reviewers.tex": "b118cdb287186439b6df7fccab3752dd90f1b99366d69ab5772a98ee1896a32a",
-    "response_to_reviewers.pdf": "5f4535466d8677986e4661c339836860fc479cd9b011e099a0c3ebdf8bd13bcd"
+    "response_to_reviewers.tex": "b2cd3059d155bace83fcccd644aea9e952ed1c81f8c1c4c5cc570e2dbaa996e5",
+    "response_to_reviewers.pdf": "c72dbcd4d360a85b5187d07172ad99d44285b2ad7360a0bb53db2c7fa1f11b6a"
   },
   "no_undefined_citations_or_references": true,
   "page_bounds_checked": true,
-  "rendered_evidence_directory": ".build/revision_paper/qa_advisor_locations_final_20261029",
+  "rendered_evidence_directory": ".build/revision_paper/qa_publication_format_final_20261029/response_to_reviewers",
   "content_restoration_completed": true,
-  "response_tex_sha256": "b118cdb287186439b6df7fccab3752dd90f1b99366d69ab5772a98ee1896a32a",
-  "response_pdf_sha256": "5f4535466d8677986e4661c339836860fc479cd9b011e099a0c3ebdf8bd13bcd",
+  "response_tex_sha256": "b2cd3059d155bace83fcccd644aea9e952ed1c81f8c1c4c5cc570e2dbaa996e5",
+  "response_pdf_sha256": "c72dbcd4d360a85b5187d07172ad99d44285b2ad7360a0bb53db2c7fa1f11b6a",
   "standalone_publication_narrative_checked": true,
   "all_changed_pages_visually_checked": true,
   "internal_workflow_notes_absent": true,
@@ -32,5 +30,6 @@
   "editorial_meta_text_audit_passed": true,
   "clean_tracked_guidance_and_extended_experiment_acknowledgment_present": true,
   "canonical_response_source": "response_to_reviewers.tex",
-  "both_clean_and_tracked_pages_checked": true
+  "both_clean_and_tracked_pages_checked": true,
+  "publication_title_sentence_case": true
 }

@@ -1,19 +1,19 @@
 {
   "passed": true,
-  "date": "2026-10-27",
+  "date": "2026-10-29",
   "pages": 20,
   "all_pages_rendered": true,
   "all_page_contact_sheets_visually_inspected": true,
   "detailed_pages_inspected": [
-    19,
-    20
+    1,
+    15
   ],
   "no_overfull_boxes": true,
   "no_undefined_citations_or_references": true,
   "page_bounds_checked": true,
-  "rendered_evidence_directory": ".build/revision_paper/qa_editorial_20261027/supplementary_material",
-  "supplementary_tex_sha256": "e078be955578f6984b6061ddcf295821a628350dc46c1c46535e8a0d17c89ee0",
-  "supplementary_pdf_sha256": "74055e8537e4012ca65478e85069aea8162168679bfb149ac88308a59f60c033",
+  "rendered_evidence_directory": ".build/revision_paper/qa_publication_format_final_20261029/supplementary_material",
+  "supplementary_tex_sha256": "ec02bfe5dde6d07bc783a5d44ba5f87d927e48655564e5345d8d3d6556dc1e5a",
+  "supplementary_pdf_sha256": "134144709e3684a06a43b67719a4a4d6f9171bc7143194905d9045bcb2136373",
   "tables": 36,
   "stable_longtable_widths_and_labels": true,
   "landscape_note": "Page 15 has /Rotate=90; full rotated rendering checked.",
@@ -24,25 +24,7 @@
   "all_changed_pages_visually_checked": true,
   "internal_workflow_notes_absent": true,
   "public_repository_hyperlink_present": true,
-  "visual_qa_carried_forward_for_pixel_identical_pages": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18
-  ],
-  "editorial_meta_text_audit_passed": true
+  "visual_qa_carried_forward_for_pixel_identical_pages": [],
+  "editorial_meta_text_audit_passed": true,
+  "publication_title_sentence_case": true
 }

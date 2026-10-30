@@ -17,55 +17,55 @@
     },
     {
       "id": "R1.3",
-      "locations": "Manuscript Section 3.1 (clean/tracked p. 3); Manuscript Section 3.2 (clean/tracked p. 4); Manuscript Section 6 (clean/tracked p. 11); Manuscript Data availability statement (clean/tracked p. 12); Supplementary material Section S1 (p. 2); Supplementary material Table S16 (p. 11); Supplementary material Section S8 (p. 17).",
+      "locations": "Manuscript Section 3.1 (clean/tracked p. 4); Manuscript Section 3.2 (clean/tracked p. 4); Manuscript Section 6 (clean/tracked p. 11); Manuscript Data availability statement (clean/tracked p. 12); Supplementary material Section S1 (p. 2); Supplementary material Table S16 (p. 11); Supplementary material Section S8 (p. 17).",
       "original_comment": "Reproducibility: Explain how the 162,415 rows were derived, give the label mapping and subset construction, and release code, manifests and predictions to reviewers.",
       "status": "public_repository_link_provided"
     },
     {
       "id": "R1.4",
-      "locations": "Manuscript Section 3.3 (clean/tracked p. 4); Supplementary material Table S4 (p. 3); Supplementary material Table S5 (p. 3); Supplementary material Table S6 (p. 4); Supplementary material Section S8 (p. 17).",
+      "locations": "Manuscript Section 3.3 (clean/tracked p. 5); Supplementary material Table S4 (p. 3); Supplementary material Table S5 (p. 3); Supplementary material Table S6 (p. 4); Supplementary material Section S8 (p. 17).",
       "original_comment": "Implementation details: State the Qwen3 thinking setting, checkpoint IDs, full QLoRA configuration and library versions.",
       "status": "addressed_with_stated_limits"
     },
     {
       "id": "R1.5",
-      "locations": "Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean p. 7; tracked p. 8); Supplementary material Table S7 (p. 4); Supplementary material Table S8 (p. 5); Supplementary material Table S13 (p. 9); Supplementary material Section S7 (p. 16); Supplementary material Table S28 (p. 16).",
+      "locations": "Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean/tracked p. 8); Supplementary material Table S7 (p. 4); Supplementary material Table S8 (p. 5); Supplementary material Table S13 (p. 9); Supplementary material Section S7 (p. 16); Supplementary material Table S28 (p. 16).",
       "original_comment": "Baselines: Tune the encoders and TF-IDF comparably (three seeds, validation search), and compare in one table with uncertainty. Margins over TF-IDF are small.",
       "status": "addressed_with_stated_limits"
     },
     {
       "id": "R1.6",
-      "locations": "Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean p. 7; tracked p. 8); Supplementary material Section S3 (p. 6); Supplementary material Table S11 (p. 8); Supplementary material Table S32 (p. 18); Supplementary material Table S33 (p. 18).",
+      "locations": "Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean/tracked p. 8); Supplementary material Section S3 (p. 6); Supplementary material Table S11 (p. 8); Supplementary material Table S32 (p. 18); Supplementary material Table S33 (p. 18).",
       "original_comment": "Bootstrap: Use a paired, group-level bootstrap with more replicates, report seed variation separately, and reconcile Tables 2 and 3.",
       "status": "addressed_with_stated_limits"
     },
     {
       "id": "R1.7",
-      "locations": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 3.1 (clean/tracked p. 3); Manuscript Section 5 (clean/tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S7 (p. 16).",
+      "locations": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 3.1 (clean/tracked p. 4); Manuscript Section 5 (clean p. 11; tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S7 (p. 16).",
       "original_comment": "Contribution and claims: Compare explicitly with [14] and [15], and remove or test claims about reuse, “external” benchmark and robustness.",
       "status": "addressed_with_stated_limits"
     },
     {
       "id": "R1.8",
-      "locations": "Manuscript Section 3.6 (clean/tracked p. 6); Manuscript Section 4.3 (clean p. 8; tracked p. 10); Manuscript Section 4.4 (clean p. 8; tracked p. 10); Manuscript Table 5 (clean p. 9; tracked p. 10); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean p. 10; tracked p. 11); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S5 (p. 12); Supplementary material Table S23 (p. 14); Supplementary material Table S24 (p. 14); Supplementary material Section S6 (p. 14); Supplementary material Table S26 (p. 15); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20).",
+      "locations": "Manuscript Section 3.6 (clean/tracked p. 6); Manuscript Section 4.3 (clean/tracked p. 10); Manuscript Table 5 (clean/tracked p. 10); Manuscript Section 4.4 (clean/tracked p. 10); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean/tracked p. 11); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S5 (p. 12); Supplementary material Table S23 (p. 14); Supplementary material Table S24 (p. 14); Supplementary material Section S6 (p. 14); Supplementary material Table S26 (p. 15); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20).",
       "original_comment": "Truncation and deployment: Report results by truncation and add a longer-context experiment. Control the latency measurements and avoid claiming acceptability or regulatory readiness.",
       "status": "addressed_with_stated_limits"
     },
     {
       "id": "R2.1",
-      "locations": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 5 (clean/tracked p. 10); Supplementary material Section S7 (p. 16).",
+      "locations": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 5 (clean p. 11; tracked p. 10); Supplementary material Section S7 (p. 16).",
       "original_comment": "The authors should strengthen the positioning against closely related recent studies, especially Reference [14], and clarify the distinction between the proposed approach and prior LLM-based complaint classification methods.",
       "status": "addressed_with_stated_limits"
     },
     {
       "id": "R2.2",
-      "locations": "Manuscript Section 3.1 (clean/tracked p. 3); Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Section 4.2 (clean/tracked p. 8); Supplementary material Section S4 (p. 11).",
+      "locations": "Manuscript Section 3.1 (clean/tracked p. 4); Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Section 4.2 (clean/tracked p. 8); Supplementary material Section S4 (p. 11).",
       "original_comment": "The term “external benchmark” should be reconsidered because the benchmark originates from the same CFPB data source.",
       "status": "addressed_with_stated_limits"
     },
     {
       "id": "R2.3",
-      "locations": "Manuscript Section 3.3 (clean/tracked p. 4); Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Section 4.3 (clean p. 8; tracked p. 10); Manuscript Table 5 (clean p. 9; tracked p. 10); Supplementary material Section S2 (p. 3); Supplementary material Section S7 (p. 16); Supplementary material Table S34 (p. 19).",
+      "locations": "Manuscript Section 3.3 (clean/tracked p. 5); Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Section 4.3 (clean/tracked p. 10); Manuscript Table 5 (clean/tracked p. 10); Supplementary material Section S2 (p. 3); Supplementary material Section S7 (p. 16); Supplementary material Table S34 (p. 19).",
       "original_comment": "The manuscript would also benefit from a more complete description of the QLoRA and inference configurations and clearer justification of the 500-character truncation and 10,000-example training budget.",
       "status": "addressed_with_stated_limits"
     },
@@ -77,13 +77,13 @@
     },
     {
       "id": "R2.5",
-      "locations": "Manuscript Section 3.3 (clean/tracked p. 4); Manuscript Section 4.2 (clean/tracked p. 8); Manuscript Section 4.3 (clean p. 8; tracked p. 10); Manuscript Section 4.4 (clean p. 8; tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Table S15 (p. 10); Supplementary material Section S6 (p. 14).",
+      "locations": "Manuscript Section 3.3 (clean/tracked p. 5); Manuscript Section 4.2 (clean/tracked p. 8); Manuscript Section 4.3 (clean/tracked p. 10); Manuscript Section 4.4 (clean/tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Table S15 (p. 10); Supplementary material Section S6 (p. 14).",
       "original_comment": "Claims concerning constrained decoding, robustness, and deployment should also be moderated where appropriate.",
       "status": "addressed_with_stated_limits"
     },
     {
       "id": "R2.6",
-      "locations": "Manuscript Abstract (clean/tracked p. 1); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean p. 7; tracked p. 8); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean p. 10; tracked p. 11); Manuscript Section 5 (clean/tracked p. 10); Manuscript Section 7 (clean p. 11; tracked p. 12); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20).",
+      "locations": "Manuscript Abstract (clean/tracked p. 1); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean/tracked p. 8); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean/tracked p. 11); Manuscript Section 5 (clean p. 11; tracked p. 10); Manuscript Section 7 (clean/tracked p. 12); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20).",
       "original_comment": "Most importantly, the results show that QLoRA achieves performance very close to the TF-IDF + Logistic Regression baseline; therefore, the practical contribution should be framed around the benefits and trade-offs of LLM-based PEFT rather than implying clear classification superiority.",
       "status": "addressed_with_stated_limits"
     },
@@ -94,7 +94,7 @@
       "status": "public_repository_link_provided"
     }
   ],
-  "response_sha256": "b118cdb287186439b6df7fccab3752dd90f1b99366d69ab5772a98ee1896a32a",
+  "response_sha256": "b2cd3059d155bace83fcccd644aea9e952ed1c81f8c1c4c5cc570e2dbaa996e5",
   "source": "Revision.odt",
   "source_sha256": "968ccb0729a23e67b6137a95dd1cc73dc31da8dbf4a00ee67ce5d87d4bab4c86",
   "response_source": "REVISION_PAPER/response_to_reviewers.tex",

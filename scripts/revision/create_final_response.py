@@ -65,7 +65,7 @@ Adapted-model macro-F1 changes from 0.8350 to 0.8331 for Qwen and 0.8378 to 0.84
 \hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue,pdftitle={Response to reviewers: QLoRA complaint classification}}
 \setlength{\emergencystretch}{3em}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
 \begin{document}
-\begin{center}{\Large\bfseries Response to reviewers}\\[5pt]QLoRA Fine-Tuning for Consumer Complaint Classification\end{center}
+\begin{center}{\Large\bfseries Response to reviewers}\\[5pt]QLoRA fine-tuning for consumer complaint classification\end{center}
 ''',escape(intro),r'\begin{itemize}']+[r'\item '+escape(item) for item in summary]+[r'\end{itemize}']
     for reviewer,originals,entries in [(1,r1,bodies),(2,r2,r2b)]:
         md+=['',f'## Reviewer #{reviewer}']

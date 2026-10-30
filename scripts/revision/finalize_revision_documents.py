@@ -112,20 +112,8 @@ def facts():
     pd.DataFrame(off_rows).to_csv(OUT/'corrected_off_label_counts.csv',index=False)
     pd.DataFrame(view_rows).to_csv(OUT/'corrected_legacy_per_view.csv',index=False)
     np.savez_compressed(OUT/'corrected_confusion_counts.npz',**matrices)
-    import matplotlib
-    matplotlib.use('Agg')
-    import matplotlib.pyplot as plt
-    fig,axes=plt.subplots(2,2,figsize=(9,7.8),constrained_layout=True)
-    display=['Banking','Credit rep.','Card','Loans','Debt']
-    for ax,key in zip(axes.flat,['qwen_base','qwen_ft','llama_base','llama_ft']):
-        cm=matrices[key][:5,:5];denom=matrices[key][:5].sum(axis=1,keepdims=True)
-        normalized=cm/denom;im=ax.imshow(normalized,vmin=0,vmax=1,cmap='Blues')
-        ax.set_xticks(range(5),display,rotation=30,ha='right');ax.set_yticks(range(5),display)
-        ax.set_title(NAMES[key]);ax.set_xlabel('Predicted class');ax.set_ylabel('True class')
-        for i in range(5):
-            for j in range(5):ax.text(j,i,f'{normalized[i,j]:.2f}',ha='center',va='center',fontsize=8,color='white' if normalized[i,j]>.55 else 'black')
-    fig.colorbar(im,ax=axes.ravel().tolist(),shrink=.7,label='Within-true-class fraction')
-    fig.savefig(project_path(PAPER, 'figures/corrected_confusion_matrices.pdf'));fig.savefig(project_path(PAPER, 'figures/corrected_confusion_matrices.png'),dpi=170);plt.close(fig)
+    from render_publication_confusion import render
+    render()
     # Full condition-level observed metrics, including actual seed refits.
     long_rows=[]
     for model in ['qwen','llama']:
@@ -145,8 +133,13 @@ def manuscript():
     comparison_tables()
     original=(project_path(PAPER, 'templates/manuscript_baseline.tex')).read_text()
     preamble=original.split(r'\begin{document}')[0]+r'\setlength{\emergencystretch}{2em}'+'\n'
+    preamble += r'\interfootnotelinepenalty=10000'+'\n'
+    preamble=preamble.replace('QLoRA Fine-Tuning for Consumer Complaint Classification', 'QLoRA fine-tuning for consumer complaint classification')
     # Preserve existing bibliography and related-work attribution, including [14]/[15].
     bibliography=original[original.index(r'\begin{thebibliography}'):original.index(r'\end{document}')]
+    # Move online-only entries to footnotes; retain the order of all remaining works.
+    for key in ['cfpbdata', 'mangrulkar2022peft', 'tiwari2021complaints']:
+        bibliography=re.sub(r'\\bibitem\{'+key+r'\}[^\n]*\n', '', bibliography)
     bibliography=bibliography.replace('11 (3): 3606.', '11 (3): 3606-3615.')
     bibliography=bibliography.replace('Gewaly M, Saeed MS, Ammar MA.', 'Gewaly MM, Saeed MS, Ammar AM.')
     bibliography=bibliography.replace('Liu Y, Ouyang X, Bai R, Zhu X, Zhou Y et al. A framework', 'Yuan L, Ouyang X, Bai R, Zhu X, Zhou Y et al. A framework')
@@ -168,7 +161,7 @@ MAIN_BODY=r'''
 \maketitle
 \begin{abstract}
 We evaluate how QLoRA adaptation changes consumer financial complaint classification under a fixed labelled-data budget. Qwen3-8B and Llama 3.1-8B-Instruct are trained on the same 10,000 examples, with 2,000 validation examples and audited separation from evaluation inputs. On the 15,428-row internal test, three-seed mean macro-F1 rises from 0.6295 to 0.8331 for Qwen and from 0.6247 to 0.8402 for Llama. Paired group-bootstrap gains are 0.2035 [0.1934, 0.2141] and 0.2155 [0.2054, 0.2257]. Both adapted models exceed validation-tuned TF-IDF/Logistic Regression at the matched 10,000-example budget and all three matched-budget encoder baselines. Full-data TF-IDF reaches 0.8476 using 120,502 training examples, exceeding Qwen QLoRA; its paired difference from Llama QLoRA has a 95\% confidence interval containing zero. Adaptation substantially improves debt-collection recall, while extending inference text from 500 to 1,500 characters adds 0.0072 and 0.0055 macro-F1 for the adapted models. Controlled batch-one inference adds 0.1224 and 0.0802 seconds per request relative to the corresponding base models. QLoRA refits take about seven GPU-hours, versus 1.5--2.7 GPU-minutes for encoders and under one CPU-minute for sparse baselines. The results support choosing classifiers according to labelled-data and compute budgets.
-\keywords{Consumer complaint classification, large language models, QLoRA, parameter-efficient fine-tuning, model-visible overlap, paired group bootstrap, CFPB}
+\keywords{Consumer complaint classification, large language models, QLoRA, parameter-efficient fine-tuning, model-visible overlap, paired group bootstrap}
 \end{abstract}
 
 \section{Introduction}
@@ -192,7 +185,7 @@ The contributions are as follows:
 \section{Materials and methods}
 \subsection{Data provenance and preserved evaluation views}
 \label{sec:source}
-The processed CFPB-related resource is attributed to Tiwari on Kaggle \cite{tiwari2021complaints,cfpbdata}. Its local archive contains 162,421 rows. The working file is identical by index, label and narrative for the first 162,415 rows; six trailing records contain only the placeholder narrative \texttt{name} and are absent. The archive-to-working-file correspondence identifies the analysed source records; the available records do not establish the undocumented preprocessing decisions. Removing ten rows with missing fields leaves 162,405 usable records. Excluding 8,123 benchmark-related source rows leaves a partitioning pool of 154,282 records. The upstream CFPB-to-Kaggle extraction and product-aggregation code is unavailable; source hashes identify the exact analysed input.
+The processed CFPB-related resource is attributed to Tiwari on Kaggle \footnote{\label{fn:data-sources}Consumer Financial Protection Bureau. Consumer complaint database [online]. Website \url{https://www.consumerfinance.gov/data-research/consumer-complaints/} [accessed 29 October 2026]. Tiwari S. Consumer complaints dataset for NLP [online]. Kaggle, 2021. Website \url{https://www.kaggle.com/datasets/shashwatwork/consume-complaints-dataset-fo-nlp} [accessed 29 October 2026].}. Its local archive contains 162,421 rows. The working file is identical by index, label and narrative for the first 162,415 rows; six trailing records contain only the placeholder narrative \texttt{name} and are absent. The archive-to-working-file correspondence identifies the analysed source records; the available records do not establish the undocumented preprocessing decisions. Removing ten rows with missing fields leaves 162,405 usable records. Excluding 8,123 benchmark-related source rows leaves a partitioning pool of 154,282 records. The upstream CFPB-to-Kaggle extraction and product-aggregation code is unavailable; source hashes identify the exact analysed input.
 
 The five inherited labels are retail banking, credit reporting, credit card, mortgages and loans, and debt collection. No new upstream product aggregation is performed. Twelve preserved legacy files contain 1,000 appearances each: sampling-seed identifiers 1/2/3, balanced/imbalanced sampling, and 250/500-character views. Balanced files contain 200 examples per class. Each imbalanced file contains 511 credit-reporting, 182 debt-collection, 107 mortgage/loan, 100 card and 100 banking examples. These files are byte-identical to their source-archive members. The sampling implementation is unavailable; files and construction manifests are supplied. They are source-related legacy views, not independently collected external data.
 
@@ -222,7 +215,7 @@ QLoRA uses rank 16, alpha 32, dropout 0.05 and all-linear targets, with frozen b
 
 The shared configuration is supported by an exploratory Qwen validation comparison of sampling strategy, learning rate, rank and epoch count. Natural sampling, learning rate $2\times10^{-4}$, rank 16 and two epochs have the highest recorded validation macro-F1, 0.8235, among the six screened conditions. Supplementary Section S8 specifies the screening allocation and its limitations. These configuration-screening fits are auxiliary evidence; their validation scores are excluded from the primary test-set comparison. Llama uses the same settings without family-specific optimisation. In contrast, sparse and encoder baselines receive validation searches on the common fitting allocation. The matched-budget comparison therefore includes explicitly tuned baselines rather than relying on extra model-specific QLoRA tuning.
 
-The primary model comparison uses an RTX 5060 Ti 16 GB, driver 595.99.02, Python 3.12.14, PyTorch 2.7.1+cu128 (CUDA 12.8) \cite{paszke2019pytorch}, Transformers 4.57.6 \cite{wolf2020transformers}, PEFT 0.17.1 \cite{mangrulkar2022peft}, TRL 0.23.1, bitsandbytes 0.46.1 and Accelerate 1.10.1. Configuration-screening and auxiliary dependence analyses use the separately documented TRUBA/V100 environment; their scores are excluded from the primary comparison. Each run retains code, versions, manifests and fitted-weight hashes.
+The primary model comparison uses an RTX 5060 Ti 16 GB, driver 595.99.02, Python 3.12.14, PyTorch 2.7.1+cu128 (CUDA 12.8) \cite{paszke2019pytorch}, Transformers 4.57.6 \cite{wolf2020transformers}, PEFT 0.17.1 \footnote{\label{fn:peft-software}Mangrulkar S, Gugger S, Debut L, Belkada Y, Paul S et al. PEFT: state-of-the-art parameter-efficient fine-tuning methods [online]. GitHub, 2022. Website \url{https://github.com/huggingface/peft} [accessed 29 October 2026].}, TRL 0.23.1, bitsandbytes 0.46.1 and Accelerate 1.10.1. Configuration-screening and auxiliary dependence analyses use the separately documented TRUBA/V100 environment; their scores are excluded from the primary comparison. Each run retains code, versions, manifests and fitted-weight hashes.
 
 \subsection{Validation-tuned supervised baselines}
 \label{sec:baselines}
@@ -346,7 +339,7 @@ The authors acknowledge the TRUBA ARF infrastructure operated by T\"UB\.{I}TAK U
 During the preparation of this manuscript, the authors used AI-assisted tools for English grammar correction, wording refinement, LaTeX formatting support, analysis-code preparation, and literature comparison. The research idea, experimental design, dataset preparation, model fine-tuning, inference runs, statistical analyses, interpretation of results, and final scientific decisions were carried out by the authors. The authors reviewed and edited all AI-assisted text and take full responsibility for the content of the manuscript.
 
 \section*{Data availability statement}
-The source data derive from the CFPB complaint database and the processed Kaggle resource attributed to Tiwari \cite{cfpbdata,tiwari2021complaints}. Source/derived data, fixed selections, code, configurations, model identities, validation and final predictions, and statistical evidence are provided in the reproducibility repository at \url{https://github.com/muhammettan28/CFPB_tuning}. Supplementary Section S8 describes its contents and the CPU result-verification procedure. The repository excludes third-party literature and neural-model weights. Limitations concerning upstream preprocessing and auxiliary-model reconstruction are documented in Supplementary Section S8.
+The source data derive from the CFPB complaint database and the processed Kaggle resource attributed to Tiwari \textsuperscript{\ref{fn:data-sources}}. Source/derived data, fixed selections, code, configurations, model identities, validation and final predictions, and statistical evidence are provided in the reproducibility repository at \url{https://github.com/muhammettan28/CFPB_tuning}. Supplementary Section S8 describes its contents and the CPU result-verification procedure. The repository excludes third-party literature and neural-model weights. Limitations concerning upstream preprocessing and auxiliary-model reconstruction are documented in Supplementary Section S8.
 
 \section*{Funding}
 The authors received no specific funding for this study.

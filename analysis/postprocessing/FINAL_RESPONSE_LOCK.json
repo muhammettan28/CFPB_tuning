@@ -2,8 +2,8 @@
   "date": "2026-10-29",
   "canonical_response": "response_to_reviewers.tex",
   "artifacts_sha256": {
-    "response_to_reviewers.tex": "b118cdb287186439b6df7fccab3752dd90f1b99366d69ab5772a98ee1896a32a",
-    "response_to_reviewers.pdf": "5f4535466d8677986e4661c339836860fc479cd9b011e099a0c3ebdf8bd13bcd"
+    "response_to_reviewers.tex": "b2cd3059d155bace83fcccd644aea9e952ed1c81f8c1c4c5cc570e2dbaa996e5",
+    "response_to_reviewers.pdf": "c72dbcd4d360a85b5187d07172ad99d44285b2ad7360a0bb53db2c7fa1f11b6a"
   },
   "validated_response_artifacts": true
 }

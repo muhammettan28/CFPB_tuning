@@ -47,7 +47,7 @@ class RepositoryLayoutTests(unittest.TestCase):
             self.assertTrue(current.is_file())
 
     def test_paper_directory_contains_only_publication_sources_and_responses(self):
-        allowed = {'.tex', '.pdf', '.md', '.cls', '.eps', '.png'}
+        allowed = {'.tex', '.pdf', '.md', '.cls', '.eps', '.png', '.tif', '.tiff', '.jpg', '.jpeg'}
         responses = {'RESPONSE_TO_REVIEWERS.md', 'REVIEWER_COMMENT_CROSSWALK.md'}
         for path in PAPER.rglob('*'):
             if not path.is_file():

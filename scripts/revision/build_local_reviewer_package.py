@@ -169,7 +169,7 @@ full verification instructions and recorded-path mapping.
         for p in marker.parent.rglob('*'):
             if p.suffix in {'.csv','.gz','.json','.txt','.py','.sha256'}:add(p)
     for p in (project_path(ROOT, 'REVISION_PAPER/figures')).glob('*'):
-        if p.name in {'corrected_confusion_matrices.pdf','corrected_confusion_matrices.png'}:add(p)
+        if p.name in {'corrected_confusion_matrices.pdf','corrected_confusion_matrices.png','corrected_confusion_matrices.tiff'}:add(p)
     for p in EXP.rglob('*'):
         if p.suffix in {'.csv','.json','.sha256','.gz','.joblib'}:add(p)
     for entry in json.loads((OUT/'prediction_sources.json').read_text()):
@@ -190,7 +190,7 @@ full verification instructions and recorded-path mapping.
         add(post/'KEYED_TABLE_VALIDATION.json')
         add(post/'REVIEWER_COVERAGE_FINAL.json')
         add(post/'RESTORED_CONTENT_VALIDATION.json')
-        for name in ['qlora_encoder_contrasts.csv','computational_costs.csv','cpu_latency_summary.csv','training_runtime_evidence.json','training_search_runtime_evidence.json','protocol_comparison_evidence.json','tokenization_path_audit.json','cpu_inference_precision_check.json','COMPARISON_EXTENSION_VALIDATION.json']:
+        for name in ['qlora_encoder_contrasts.csv','computational_costs.csv','cpu_latency_summary.csv','training_runtime_evidence.json','training_search_runtime_evidence.json','protocol_comparison_evidence.json','tokenization_path_audit.json','cpu_inference_precision_check.json','COMPARISON_EXTENSION_VALIDATION.json','CONFUSION_FIGURE_VALIDATION.json']:
             add(post/name)
         for p in (ROOT/'experiments/cpu_costs_v1').rglob('*'):
             if p.suffix in {'.csv','.json'}:add(p)

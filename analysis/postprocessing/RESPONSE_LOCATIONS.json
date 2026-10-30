@@ -13,14 +13,14 @@
         {
           "document": "manuscript",
           "page": 6,
-          "line": 13,
-          "matched_line": "9    3.5. Metrics, dependence and uncertainty"
+          "line": 24,
+          "matched_line": "20   3.5. Metrics, dependence and uncertainty"
         },
         {
           "document": "tracked",
           "page": 6,
-          "line": 18,
-          "matched_line": "13   3.5. Metrics, dependence and uncertainty"
+          "line": 26,
+          "matched_line": "21   3.5. Metrics, dependence and uncertainty"
         }
       ]
     },
@@ -35,7 +35,7 @@
         {
           "document": "manuscript",
           "page": 8,
-          "line": 4,
+          "line": 25,
           "matched_line": "1    4.2. Benchmark views, classes and output compliance"
         },
         {
@@ -121,14 +121,14 @@
         {
           "document": "manuscript",
           "page": 4,
-          "line": 16,
-          "matched_line": "12   3.2. Model-visible separation and fixed selections"
+          "line": 21,
+          "matched_line": "17   3.2. Model-visible separation and fixed selections"
         },
         {
           "document": "tracked",
           "page": 4,
-          "line": 19,
-          "matched_line": "14   3.2. Model-visible separation and fixed selections"
+          "line": 22,
+          "matched_line": "17   3.2. Model-visible separation and fixed selections"
         }
       ]
     },
@@ -143,13 +143,13 @@
         {
           "document": "manuscript",
           "page": 4,
-          "line": 22,
+          "line": 27,
           "matched_line": "Table 2. Data allocation with model-visible overlap screening. Evaluation records are excluded from fitting."
         },
         {
           "document": "tracked",
           "page": 4,
-          "line": 25,
+          "line": 28,
           "matched_line": "Table 2. Data allocation with model-visible overlap screening. Evaluation records are excluded from fitting."
         }
       ]
@@ -224,19 +224,19 @@
       "kind": "Section",
       "number": "3.1",
       "key": "Manuscript Section 3.1",
-      "display": "Manuscript Section 3.1 (clean/tracked p. 3)",
+      "display": "Manuscript Section 3.1 (clean/tracked p. 4)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 3,
-          "line": 48,
-          "matched_line": "20   3.1. Data provenance and preserved evaluation views"
+          "page": 4,
+          "line": 5,
+          "matched_line": "2    3.1. Data provenance and preserved evaluation views"
         },
         {
           "document": "tracked",
-          "page": 3,
-          "line": 50,
-          "matched_line": "22   3.1. Data provenance and preserved evaluation views"
+          "page": 4,
+          "line": 5,
+          "matched_line": "2    3.1. Data provenance and preserved evaluation views"
         }
       ]
     },
@@ -251,14 +251,14 @@
         {
           "document": "manuscript",
           "page": 4,
-          "line": 16,
-          "matched_line": "12   3.2. Model-visible separation and fixed selections"
+          "line": 21,
+          "matched_line": "17   3.2. Model-visible separation and fixed selections"
         },
         {
           "document": "tracked",
           "page": 4,
-          "line": 19,
-          "matched_line": "14   3.2. Model-visible separation and fixed selections"
+          "line": 22,
+          "matched_line": "17   3.2. Model-visible separation and fixed selections"
         }
       ]
     },
@@ -273,8 +273,8 @@
         {
           "document": "manuscript",
           "page": 11,
-          "line": 13,
-          "matched_line": "8    6. Limitations"
+          "line": 47,
+          "matched_line": "29   6. Limitations"
         },
         {
           "document": "tracked",
@@ -295,8 +295,8 @@
         {
           "document": "manuscript",
           "page": 12,
-          "line": 8,
-          "matched_line": "4    Data availability statement"
+          "line": 41,
+          "matched_line": "31   Data availability statement"
         },
         {
           "document": "tracked",
@@ -360,19 +360,19 @@
       "kind": "Section",
       "number": "3.3",
       "key": "Manuscript Section 3.3",
-      "display": "Manuscript Section 3.3 (clean/tracked p. 4)",
+      "display": "Manuscript Section 3.3 (clean/tracked p. 5)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 4,
-          "line": 40,
-          "matched_line": "27   3.3. Pinned LLMs, prompting and QLoRA"
+          "page": 5,
+          "line": 4,
+          "matched_line": "1    3.3. Pinned LLMs, prompting and QLoRA"
         },
         {
           "document": "tracked",
-          "page": 4,
-          "line": 42,
-          "matched_line": "29   3.3. Pinned LLMs, prompting and QLoRA"
+          "page": 5,
+          "line": 4,
+          "matched_line": "1    3.3. Pinned LLMs, prompting and QLoRA"
         }
       ]
     },
@@ -451,14 +451,14 @@
         {
           "document": "manuscript",
           "page": 5,
-          "line": 30,
-          "matched_line": "26   3.4. Validation-tuned supervised baselines"
+          "line": 39,
+          "matched_line": "35   3.4. Validation-tuned supervised baselines"
         },
         {
           "document": "tracked",
           "page": 5,
-          "line": 33,
-          "matched_line": "29   3.4. Validation-tuned supervised baselines"
+          "line": 40,
+          "matched_line": "35   3.4. Validation-tuned supervised baselines"
         }
       ]
     },
@@ -473,13 +473,13 @@
         {
           "document": "manuscript",
           "page": 7,
-          "line": 10,
+          "line": 22,
           "matched_line": "Table 3. Internal test (15,428 rows). Macro-F1 brackets are 95% paired-group intervals; SD is across three actual"
         },
         {
           "document": "tracked",
           "page": 7,
-          "line": 15,
+          "line": 23,
           "matched_line": "Table 3. Internal test (15,428 rows). Macro-F1 brackets are 95% paired-group intervals; SD is across three actual opti-"
         }
       ]
@@ -490,12 +490,12 @@
       "kind": "Table",
       "number": "4",
       "key": "Manuscript Table 4",
-      "display": "Manuscript Table 4 (clean p. 7; tracked p. 8)",
+      "display": "Manuscript Table 4 (clean/tracked p. 8)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 7,
-          "line": 33,
+          "page": 8,
+          "line": 4,
           "matched_line": "Table 4. Internal macro-F1 paired differences, comparison minus reference. All intervals condition on fitted models."
         },
         {
@@ -597,14 +597,14 @@
         {
           "document": "manuscript",
           "page": 6,
-          "line": 13,
-          "matched_line": "9    3.5. Metrics, dependence and uncertainty"
+          "line": 24,
+          "matched_line": "20   3.5. Metrics, dependence and uncertainty"
         },
         {
           "document": "tracked",
           "page": 6,
-          "line": 18,
-          "matched_line": "13   3.5. Metrics, dependence and uncertainty"
+          "line": 26,
+          "matched_line": "21   3.5. Metrics, dependence and uncertainty"
         }
       ]
     },
@@ -619,13 +619,13 @@
         {
           "document": "manuscript",
           "page": 7,
-          "line": 10,
+          "line": 22,
           "matched_line": "Table 3. Internal test (15,428 rows). Macro-F1 brackets are 95% paired-group intervals; SD is across three actual"
         },
         {
           "document": "tracked",
           "page": 7,
-          "line": 15,
+          "line": 23,
           "matched_line": "Table 3. Internal test (15,428 rows). Macro-F1 brackets are 95% paired-group intervals; SD is across three actual opti-"
         }
       ]
@@ -636,12 +636,12 @@
       "kind": "Table",
       "number": "4",
       "key": "Manuscript Table 4",
-      "display": "Manuscript Table 4 (clean p. 7; tracked p. 8)",
+      "display": "Manuscript Table 4 (clean/tracked p. 8)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 7,
-          "line": 33,
+          "page": 8,
+          "line": 4,
           "matched_line": "Table 4. Internal macro-F1 paired differences, comparison minus reference. All intervals condition on fitted models."
         },
         {
@@ -788,19 +788,19 @@
       "kind": "Section",
       "number": "3.1",
       "key": "Manuscript Section 3.1",
-      "display": "Manuscript Section 3.1 (clean/tracked p. 3)",
+      "display": "Manuscript Section 3.1 (clean/tracked p. 4)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 3,
-          "line": 48,
-          "matched_line": "20   3.1. Data provenance and preserved evaluation views"
+          "page": 4,
+          "line": 5,
+          "matched_line": "2    3.1. Data provenance and preserved evaluation views"
         },
         {
           "document": "tracked",
-          "page": 3,
-          "line": 50,
-          "matched_line": "22   3.1. Data provenance and preserved evaluation views"
+          "page": 4,
+          "line": 5,
+          "matched_line": "2    3.1. Data provenance and preserved evaluation views"
         }
       ]
     },
@@ -810,13 +810,13 @@
       "kind": "Section",
       "number": "5",
       "key": "Manuscript Section 5",
-      "display": "Manuscript Section 5 (clean/tracked p. 10)",
+      "display": "Manuscript Section 5 (clean p. 11; tracked p. 10)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 10,
-          "line": 33,
-          "matched_line": "7    5. Discussion"
+          "page": 11,
+          "line": 17,
+          "matched_line": "1    5. Discussion"
         },
         {
           "document": "tracked",
@@ -837,8 +837,8 @@
         {
           "document": "manuscript",
           "page": 11,
-          "line": 13,
-          "matched_line": "8    6. Limitations"
+          "line": 47,
+          "matched_line": "29   6. Limitations"
         },
         {
           "document": "tracked",
@@ -875,14 +875,14 @@
         {
           "document": "manuscript",
           "page": 6,
-          "line": 29,
-          "matched_line": "24   3.6. Longer inputs and controlled latency"
+          "line": 40,
+          "matched_line": "35   3.6. Longer inputs and controlled latency"
         },
         {
           "document": "tracked",
           "page": 6,
-          "line": 36,
-          "matched_line": "28   3.6. Longer inputs and controlled latency"
+          "line": 44,
+          "matched_line": "36   3.6. Longer inputs and controlled latency"
         }
       ]
     },
@@ -892,13 +892,13 @@
       "kind": "Section",
       "number": "4.3",
       "key": "Manuscript Section 4.3",
-      "display": "Manuscript Section 4.3 (clean p. 8; tracked p. 10)",
+      "display": "Manuscript Section 4.3 (clean/tracked p. 10)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 8,
-          "line": 28,
-          "matched_line": "24   4.3. Same-checkpoint longer-input results"
+          "page": 10,
+          "line": 4,
+          "matched_line": "1    4.3. Same-checkpoint longer-input results"
         },
         {
           "document": "tracked",
@@ -911,37 +911,15 @@
     {
       "response_id": "R1.8",
       "document": "manuscript",
-      "kind": "Section",
-      "number": "4.4",
-      "key": "Manuscript Section 4.4",
-      "display": "Manuscript Section 4.4 (clean p. 8; tracked p. 10)",
-      "evidence": [
-        {
-          "document": "manuscript",
-          "page": 8,
-          "line": 37,
-          "matched_line": "32   4.4. Controlled inference cost and supplementary sensitivity"
-        },
-        {
-          "document": "tracked",
-          "page": 10,
-          "line": 25,
-          "matched_line": "9    4.4. Controlled inference cost and supplementary sensitivity"
-        }
-      ]
-    },
-    {
-      "response_id": "R1.8",
-      "document": "manuscript",
       "kind": "Table",
       "number": "5",
       "key": "Manuscript Table 5",
-      "display": "Manuscript Table 5 (clean p. 9; tracked p. 10)",
+      "display": "Manuscript Table 5 (clean/tracked p. 10)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 9,
-          "line": 71,
+          "page": 10,
+          "line": 12,
           "matched_line": "Table 5. Macro-F1 change for 1,500 versus 500 characters, both with a 2,048-token cap. “All” includes 15,428 rows;"
         },
         {
@@ -949,6 +927,28 @@
           "page": 10,
           "line": 12,
           "matched_line": "Table 5. Macro-F1 change for 1,500 versus 500 characters, both with a 2,048-token cap. “All” includes 15,428 rows;"
+        }
+      ]
+    },
+    {
+      "response_id": "R1.8",
+      "document": "manuscript",
+      "kind": "Section",
+      "number": "4.4",
+      "key": "Manuscript Section 4.4",
+      "display": "Manuscript Section 4.4 (clean/tracked p. 10)",
+      "evidence": [
+        {
+          "document": "manuscript",
+          "page": 10,
+          "line": 29,
+          "matched_line": "9    4.4. Controlled inference cost and supplementary sensitivity"
+        },
+        {
+          "document": "tracked",
+          "page": 10,
+          "line": 25,
+          "matched_line": "9    4.4. Controlled inference cost and supplementary sensitivity"
         }
       ]
     },
@@ -963,7 +963,7 @@
         {
           "document": "manuscript",
           "page": 10,
-          "line": 4,
+          "line": 35,
           "matched_line": "Table 6. Fresh-call end-to-end latency (seconds), 500 characters/512 tokens, RTX 5060 Ti. QLoRA mean averages the"
         },
         {
@@ -980,12 +980,12 @@
       "kind": "Table",
       "number": "7",
       "key": "Manuscript Table 7",
-      "display": "Manuscript Table 7 (clean p. 10; tracked p. 11)",
+      "display": "Manuscript Table 7 (clean/tracked p. 11)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 10,
-          "line": 13,
+          "page": 11,
+          "line": 4,
           "matched_line": "Table 7. Implementation-specific compute costs. Neural fitting uses the RTX 5060 Ti; sparse fitting and baseline"
         },
         {
@@ -1007,8 +1007,8 @@
         {
           "document": "manuscript",
           "page": 11,
-          "line": 13,
-          "matched_line": "8    6. Limitations"
+          "line": 47,
+          "matched_line": "29   6. Limitations"
         },
         {
           "document": "tracked",
@@ -1202,13 +1202,13 @@
       "kind": "Section",
       "number": "5",
       "key": "Manuscript Section 5",
-      "display": "Manuscript Section 5 (clean/tracked p. 10)",
+      "display": "Manuscript Section 5 (clean p. 11; tracked p. 10)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 10,
-          "line": 33,
-          "matched_line": "7    5. Discussion"
+          "page": 11,
+          "line": 17,
+          "matched_line": "1    5. Discussion"
         },
         {
           "document": "tracked",
@@ -1240,19 +1240,19 @@
       "kind": "Section",
       "number": "3.1",
       "key": "Manuscript Section 3.1",
-      "display": "Manuscript Section 3.1 (clean/tracked p. 3)",
+      "display": "Manuscript Section 3.1 (clean/tracked p. 4)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 3,
-          "line": 48,
-          "matched_line": "20   3.1. Data provenance and preserved evaluation views"
+          "page": 4,
+          "line": 5,
+          "matched_line": "2    3.1. Data provenance and preserved evaluation views"
         },
         {
           "document": "tracked",
-          "page": 3,
-          "line": 50,
-          "matched_line": "22   3.1. Data provenance and preserved evaluation views"
+          "page": 4,
+          "line": 5,
+          "matched_line": "2    3.1. Data provenance and preserved evaluation views"
         }
       ]
     },
@@ -1267,14 +1267,14 @@
         {
           "document": "manuscript",
           "page": 6,
-          "line": 13,
-          "matched_line": "9    3.5. Metrics, dependence and uncertainty"
+          "line": 24,
+          "matched_line": "20   3.5. Metrics, dependence and uncertainty"
         },
         {
           "document": "tracked",
           "page": 6,
-          "line": 18,
-          "matched_line": "13   3.5. Metrics, dependence and uncertainty"
+          "line": 26,
+          "matched_line": "21   3.5. Metrics, dependence and uncertainty"
         }
       ]
     },
@@ -1289,7 +1289,7 @@
         {
           "document": "manuscript",
           "page": 8,
-          "line": 4,
+          "line": 25,
           "matched_line": "1    4.2. Benchmark views, classes and output compliance"
         },
         {
@@ -1322,19 +1322,19 @@
       "kind": "Section",
       "number": "3.3",
       "key": "Manuscript Section 3.3",
-      "display": "Manuscript Section 3.3 (clean/tracked p. 4)",
+      "display": "Manuscript Section 3.3 (clean/tracked p. 5)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 4,
-          "line": 40,
-          "matched_line": "27   3.3. Pinned LLMs, prompting and QLoRA"
+          "page": 5,
+          "line": 4,
+          "matched_line": "1    3.3. Pinned LLMs, prompting and QLoRA"
         },
         {
           "document": "tracked",
-          "page": 4,
-          "line": 42,
-          "matched_line": "29   3.3. Pinned LLMs, prompting and QLoRA"
+          "page": 5,
+          "line": 4,
+          "matched_line": "1    3.3. Pinned LLMs, prompting and QLoRA"
         }
       ]
     },
@@ -1349,14 +1349,14 @@
         {
           "document": "manuscript",
           "page": 5,
-          "line": 30,
-          "matched_line": "26   3.4. Validation-tuned supervised baselines"
+          "line": 39,
+          "matched_line": "35   3.4. Validation-tuned supervised baselines"
         },
         {
           "document": "tracked",
           "page": 5,
-          "line": 33,
-          "matched_line": "29   3.4. Validation-tuned supervised baselines"
+          "line": 40,
+          "matched_line": "35   3.4. Validation-tuned supervised baselines"
         }
       ]
     },
@@ -1366,13 +1366,13 @@
       "kind": "Section",
       "number": "4.3",
       "key": "Manuscript Section 4.3",
-      "display": "Manuscript Section 4.3 (clean p. 8; tracked p. 10)",
+      "display": "Manuscript Section 4.3 (clean/tracked p. 10)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 8,
-          "line": 28,
-          "matched_line": "24   4.3. Same-checkpoint longer-input results"
+          "page": 10,
+          "line": 4,
+          "matched_line": "1    4.3. Same-checkpoint longer-input results"
         },
         {
           "document": "tracked",
@@ -1388,12 +1388,12 @@
       "kind": "Table",
       "number": "5",
       "key": "Manuscript Table 5",
-      "display": "Manuscript Table 5 (clean p. 9; tracked p. 10)",
+      "display": "Manuscript Table 5 (clean/tracked p. 10)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 9,
-          "line": 71,
+          "page": 10,
+          "line": 12,
           "matched_line": "Table 5. Macro-F1 change for 1,500 versus 500 characters, both with a 2,048-token cap. “All” includes 15,428 rows;"
         },
         {
@@ -1463,14 +1463,14 @@
         {
           "document": "manuscript",
           "page": 6,
-          "line": 13,
-          "matched_line": "9    3.5. Metrics, dependence and uncertainty"
+          "line": 24,
+          "matched_line": "20   3.5. Metrics, dependence and uncertainty"
         },
         {
           "document": "tracked",
           "page": 6,
-          "line": 18,
-          "matched_line": "13   3.5. Metrics, dependence and uncertainty"
+          "line": 26,
+          "matched_line": "21   3.5. Metrics, dependence and uncertainty"
         }
       ]
     },
@@ -1528,19 +1528,19 @@
       "kind": "Section",
       "number": "3.3",
       "key": "Manuscript Section 3.3",
-      "display": "Manuscript Section 3.3 (clean/tracked p. 4)",
+      "display": "Manuscript Section 3.3 (clean/tracked p. 5)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 4,
-          "line": 40,
-          "matched_line": "27   3.3. Pinned LLMs, prompting and QLoRA"
+          "page": 5,
+          "line": 4,
+          "matched_line": "1    3.3. Pinned LLMs, prompting and QLoRA"
         },
         {
           "document": "tracked",
-          "page": 4,
-          "line": 42,
-          "matched_line": "29   3.3. Pinned LLMs, prompting and QLoRA"
+          "page": 5,
+          "line": 4,
+          "matched_line": "1    3.3. Pinned LLMs, prompting and QLoRA"
         }
       ]
     },
@@ -1555,7 +1555,7 @@
         {
           "document": "manuscript",
           "page": 8,
-          "line": 4,
+          "line": 25,
           "matched_line": "1    4.2. Benchmark views, classes and output compliance"
         },
         {
@@ -1572,13 +1572,13 @@
       "kind": "Section",
       "number": "4.3",
       "key": "Manuscript Section 4.3",
-      "display": "Manuscript Section 4.3 (clean p. 8; tracked p. 10)",
+      "display": "Manuscript Section 4.3 (clean/tracked p. 10)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 8,
-          "line": 28,
-          "matched_line": "24   4.3. Same-checkpoint longer-input results"
+          "page": 10,
+          "line": 4,
+          "matched_line": "1    4.3. Same-checkpoint longer-input results"
         },
         {
           "document": "tracked",
@@ -1594,13 +1594,13 @@
       "kind": "Section",
       "number": "4.4",
       "key": "Manuscript Section 4.4",
-      "display": "Manuscript Section 4.4 (clean p. 8; tracked p. 10)",
+      "display": "Manuscript Section 4.4 (clean/tracked p. 10)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 8,
-          "line": 37,
-          "matched_line": "32   4.4. Controlled inference cost and supplementary sensitivity"
+          "page": 10,
+          "line": 29,
+          "matched_line": "9    4.4. Controlled inference cost and supplementary sensitivity"
         },
         {
           "document": "tracked",
@@ -1621,8 +1621,8 @@
         {
           "document": "manuscript",
           "page": 11,
-          "line": 13,
-          "matched_line": "8    6. Limitations"
+          "line": 47,
+          "matched_line": "29   6. Limitations"
         },
         {
           "document": "tracked",
@@ -1697,13 +1697,13 @@
         {
           "document": "manuscript",
           "page": 7,
-          "line": 10,
+          "line": 22,
           "matched_line": "Table 3. Internal test (15,428 rows). Macro-F1 brackets are 95% paired-group intervals; SD is across three actual"
         },
         {
           "document": "tracked",
           "page": 7,
-          "line": 15,
+          "line": 23,
           "matched_line": "Table 3. Internal test (15,428 rows). Macro-F1 brackets are 95% paired-group intervals; SD is across three actual opti-"
         }
       ]
@@ -1714,12 +1714,12 @@
       "kind": "Table",
       "number": "4",
       "key": "Manuscript Table 4",
-      "display": "Manuscript Table 4 (clean p. 7; tracked p. 8)",
+      "display": "Manuscript Table 4 (clean/tracked p. 8)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 7,
-          "line": 33,
+          "page": 8,
+          "line": 4,
           "matched_line": "Table 4. Internal macro-F1 paired differences, comparison minus reference. All intervals condition on fitted models."
         },
         {
@@ -1741,7 +1741,7 @@
         {
           "document": "manuscript",
           "page": 10,
-          "line": 4,
+          "line": 35,
           "matched_line": "Table 6. Fresh-call end-to-end latency (seconds), 500 characters/512 tokens, RTX 5060 Ti. QLoRA mean averages the"
         },
         {
@@ -1758,12 +1758,12 @@
       "kind": "Table",
       "number": "7",
       "key": "Manuscript Table 7",
-      "display": "Manuscript Table 7 (clean p. 10; tracked p. 11)",
+      "display": "Manuscript Table 7 (clean/tracked p. 11)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 10,
-          "line": 13,
+          "page": 11,
+          "line": 4,
           "matched_line": "Table 7. Implementation-specific compute costs. Neural fitting uses the RTX 5060 Ti; sparse fitting and baseline"
         },
         {
@@ -1780,13 +1780,13 @@
       "kind": "Section",
       "number": "5",
       "key": "Manuscript Section 5",
-      "display": "Manuscript Section 5 (clean/tracked p. 10)",
+      "display": "Manuscript Section 5 (clean p. 11; tracked p. 10)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 10,
-          "line": 33,
-          "matched_line": "7    5. Discussion"
+          "page": 11,
+          "line": 17,
+          "matched_line": "1    5. Discussion"
         },
         {
           "document": "tracked",
@@ -1802,13 +1802,13 @@
       "kind": "Section",
       "number": "7",
       "key": "Manuscript Section 7",
-      "display": "Manuscript Section 7 (clean p. 11; tracked p. 12)",
+      "display": "Manuscript Section 7 (clean/tracked p. 12)",
       "evidence": [
         {
           "document": "manuscript",
-          "page": 11,
-          "line": 31,
-          "matched_line": "24   7. Conclusion"
+          "page": 12,
+          "line": 18,
+          "matched_line": "13   7. Conclusion"
         },
         {
           "document": "tracked",
@@ -1861,8 +1861,8 @@
         {
           "document": "manuscript",
           "page": 11,
-          "line": 13,
-          "matched_line": "8    6. Limitations"
+          "line": 47,
+          "matched_line": "29   6. Limitations"
         },
         {
           "document": "tracked",
@@ -1883,8 +1883,8 @@
         {
           "document": "manuscript",
           "page": 12,
-          "line": 8,
-          "matched_line": "4    Data availability statement"
+          "line": 41,
+          "matched_line": "31   Data availability statement"
         },
         {
           "document": "tracked",
@@ -1940,48 +1940,48 @@
     },
     {
       "response_id": "R1.3",
-      "before": "Manuscript Section 3.1 (clean/tracked p. 3); Manuscript Section 3.2 (clean/tracked p. 4); Manuscript Section 6 (clean/tracked p. 11); Manuscript Data availability statement (clean/tracked p. 12); Supplementary material Section S1 (p. 2); Supplementary material Table S16 (p. 11); Supplementary material Section S8 (p. 17).",
-      "after": "Manuscript Section 3.1 (clean/tracked p. 3); Manuscript Section 3.2 (clean/tracked p. 4); Manuscript Section 6 (clean/tracked p. 11); Manuscript Data availability statement (clean/tracked p. 12); Supplementary material Section S1 (p. 2); Supplementary material Table S16 (p. 11); Supplementary material Section S8 (p. 17)."
+      "before": "Manuscript Section 3.1 (clean p. 3; tracked p. 4); Manuscript Section 3.2 (clean/tracked p. 4); Manuscript Section 6 (clean/tracked p. 11); Manuscript Data availability statement (clean/tracked p. 12); Supplementary material Section S1 (p. 2); Supplementary material Table S16 (p. 11); Supplementary material Section S8 (p. 17).",
+      "after": "Manuscript Section 3.1 (clean/tracked p. 4); Manuscript Section 3.2 (clean/tracked p. 4); Manuscript Section 6 (clean/tracked p. 11); Manuscript Data availability statement (clean/tracked p. 12); Supplementary material Section S1 (p. 2); Supplementary material Table S16 (p. 11); Supplementary material Section S8 (p. 17)."
     },
     {
       "response_id": "R1.4",
-      "before": "Manuscript Section 3.3 (clean/tracked p. 4); Supplementary material Table S4 (p. 3); Supplementary material Table S5 (p. 3); Supplementary material Table S6 (p. 4); Supplementary material Section S8 (p. 17).",
-      "after": "Manuscript Section 3.3 (clean/tracked p. 4); Supplementary material Table S4 (p. 3); Supplementary material Table S5 (p. 3); Supplementary material Table S6 (p. 4); Supplementary material Section S8 (p. 17)."
+      "before": "Manuscript Section 3.3 (clean p. 4; tracked p. 5); Supplementary material Table S4 (p. 3); Supplementary material Table S5 (p. 3); Supplementary material Table S6 (p. 4); Supplementary material Section S8 (p. 17).",
+      "after": "Manuscript Section 3.3 (clean/tracked p. 5); Supplementary material Table S4 (p. 3); Supplementary material Table S5 (p. 3); Supplementary material Table S6 (p. 4); Supplementary material Section S8 (p. 17)."
     },
     {
       "response_id": "R1.5",
-      "before": "Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean p. 7; tracked p. 8); Supplementary material Table S7 (p. 4); Supplementary material Table S8 (p. 5); Supplementary material Table S13 (p. 9); Supplementary material Section S7 (p. 16); Supplementary material Table S28 (p. 16).",
-      "after": "Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean p. 7; tracked p. 8); Supplementary material Table S7 (p. 4); Supplementary material Table S8 (p. 5); Supplementary material Table S13 (p. 9); Supplementary material Section S7 (p. 16); Supplementary material Table S28 (p. 16)."
+      "before": "Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean/tracked p. 8); Supplementary material Table S7 (p. 4); Supplementary material Table S8 (p. 5); Supplementary material Table S13 (p. 9); Supplementary material Section S7 (p. 16); Supplementary material Table S28 (p. 16).",
+      "after": "Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean/tracked p. 8); Supplementary material Table S7 (p. 4); Supplementary material Table S8 (p. 5); Supplementary material Table S13 (p. 9); Supplementary material Section S7 (p. 16); Supplementary material Table S28 (p. 16)."
     },
     {
       "response_id": "R1.6",
-      "before": "Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean p. 7; tracked p. 8); Supplementary material Section S3 (p. 6); Supplementary material Table S11 (p. 8); Supplementary material Table S32 (p. 18); Supplementary material Table S33 (p. 18).",
-      "after": "Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean p. 7; tracked p. 8); Supplementary material Section S3 (p. 6); Supplementary material Table S11 (p. 8); Supplementary material Table S32 (p. 18); Supplementary material Table S33 (p. 18)."
+      "before": "Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean/tracked p. 8); Supplementary material Section S3 (p. 6); Supplementary material Table S11 (p. 8); Supplementary material Table S32 (p. 18); Supplementary material Table S33 (p. 18).",
+      "after": "Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean/tracked p. 8); Supplementary material Section S3 (p. 6); Supplementary material Table S11 (p. 8); Supplementary material Table S32 (p. 18); Supplementary material Table S33 (p. 18)."
     },
     {
       "response_id": "R1.7",
-      "before": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 3.1 (clean/tracked p. 3); Manuscript Section 5 (clean/tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S7 (p. 16).",
-      "after": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 3.1 (clean/tracked p. 3); Manuscript Section 5 (clean/tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S7 (p. 16)."
+      "before": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 3.1 (clean p. 3; tracked p. 4); Manuscript Section 5 (clean p. 11; tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S7 (p. 16).",
+      "after": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 3.1 (clean/tracked p. 4); Manuscript Section 5 (clean p. 11; tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S7 (p. 16)."
     },
     {
       "response_id": "R1.8",
-      "before": "Manuscript Section 3.6 (clean/tracked p. 6); Manuscript Section 4.3 (clean p. 8; tracked p. 10); Manuscript Section 4.4 (clean p. 8; tracked p. 10); Manuscript Table 5 (clean p. 9; tracked p. 10); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean p. 10; tracked p. 11); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S5 (p. 12); Supplementary material Table S23 (p. 14); Supplementary material Table S24 (p. 14); Supplementary material Section S6 (p. 14); Supplementary material Table S26 (p. 15); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20).",
-      "after": "Manuscript Section 3.6 (clean/tracked p. 6); Manuscript Section 4.3 (clean p. 8; tracked p. 10); Manuscript Section 4.4 (clean p. 8; tracked p. 10); Manuscript Table 5 (clean p. 9; tracked p. 10); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean p. 10; tracked p. 11); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S5 (p. 12); Supplementary material Table S23 (p. 14); Supplementary material Table S24 (p. 14); Supplementary material Section S6 (p. 14); Supplementary material Table S26 (p. 15); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20)."
+      "before": "Manuscript Section 3.6 (clean/tracked p. 6); Manuscript Section 4.3 (clean/tracked p. 10); Manuscript Table 5 (clean/tracked p. 10); Manuscript Section 4.4 (clean/tracked p. 10); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean/tracked p. 11); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S5 (p. 12); Supplementary material Table S23 (p. 14); Supplementary material Table S24 (p. 14); Supplementary material Section S6 (p. 14); Supplementary material Table S26 (p. 15); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20).",
+      "after": "Manuscript Section 3.6 (clean/tracked p. 6); Manuscript Section 4.3 (clean/tracked p. 10); Manuscript Table 5 (clean/tracked p. 10); Manuscript Section 4.4 (clean/tracked p. 10); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean/tracked p. 11); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Section S5 (p. 12); Supplementary material Table S23 (p. 14); Supplementary material Table S24 (p. 14); Supplementary material Section S6 (p. 14); Supplementary material Table S26 (p. 15); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20)."
     },
     {
       "response_id": "R2.1",
-      "before": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 5 (clean/tracked p. 10); Supplementary material Section S7 (p. 16).",
-      "after": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 5 (clean/tracked p. 10); Supplementary material Section S7 (p. 16)."
+      "before": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 5 (clean p. 11; tracked p. 10); Supplementary material Section S7 (p. 16).",
+      "after": "Manuscript Section 1, Introduction (clean/tracked p. 1); Manuscript Section 2, Related work (clean/tracked p. 2); Manuscript Table 1 (clean/tracked p. 3); Manuscript Section 5 (clean p. 11; tracked p. 10); Supplementary material Section S7 (p. 16)."
     },
     {
       "response_id": "R2.2",
-      "before": "Manuscript Section 3.1 (clean/tracked p. 3); Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Section 4.2 (clean/tracked p. 8); Supplementary material Section S4 (p. 11).",
-      "after": "Manuscript Section 3.1 (clean/tracked p. 3); Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Section 4.2 (clean/tracked p. 8); Supplementary material Section S4 (p. 11)."
+      "before": "Manuscript Section 3.1 (clean p. 3; tracked p. 4); Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Section 4.2 (clean/tracked p. 8); Supplementary material Section S4 (p. 11).",
+      "after": "Manuscript Section 3.1 (clean/tracked p. 4); Manuscript Section 3.5 (clean/tracked p. 6); Manuscript Section 4.2 (clean/tracked p. 8); Supplementary material Section S4 (p. 11)."
     },
     {
       "response_id": "R2.3",
-      "before": "Manuscript Section 3.3 (clean/tracked p. 4); Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Section 4.3 (clean p. 8; tracked p. 10); Manuscript Table 5 (clean p. 9; tracked p. 10); Supplementary material Section S2 (p. 3); Supplementary material Section S7 (p. 16); Supplementary material Table S34 (p. 19).",
-      "after": "Manuscript Section 3.3 (clean/tracked p. 4); Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Section 4.3 (clean p. 8; tracked p. 10); Manuscript Table 5 (clean p. 9; tracked p. 10); Supplementary material Section S2 (p. 3); Supplementary material Section S7 (p. 16); Supplementary material Table S34 (p. 19)."
+      "before": "Manuscript Section 3.3 (clean p. 4; tracked p. 5); Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Section 4.3 (clean/tracked p. 10); Manuscript Table 5 (clean/tracked p. 10); Supplementary material Section S2 (p. 3); Supplementary material Section S7 (p. 16); Supplementary material Table S34 (p. 19).",
+      "after": "Manuscript Section 3.3 (clean/tracked p. 5); Manuscript Section 3.4 (clean/tracked p. 5); Manuscript Section 4.3 (clean/tracked p. 10); Manuscript Table 5 (clean/tracked p. 10); Supplementary material Section S2 (p. 3); Supplementary material Section S7 (p. 16); Supplementary material Table S34 (p. 19)."
     },
     {
       "response_id": "R2.4",
@@ -1990,13 +1990,13 @@
     },
     {
       "response_id": "R2.5",
-      "before": "Manuscript Section 3.3 (clean/tracked p. 4); Manuscript Section 4.2 (clean/tracked p. 8); Manuscript Section 4.3 (clean p. 8; tracked p. 10); Manuscript Section 4.4 (clean p. 8; tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Table S15 (p. 10); Supplementary material Section S6 (p. 14).",
-      "after": "Manuscript Section 3.3 (clean/tracked p. 4); Manuscript Section 4.2 (clean/tracked p. 8); Manuscript Section 4.3 (clean p. 8; tracked p. 10); Manuscript Section 4.4 (clean p. 8; tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Table S15 (p. 10); Supplementary material Section S6 (p. 14)."
+      "before": "Manuscript Section 3.3 (clean p. 4; tracked p. 5); Manuscript Section 4.2 (clean/tracked p. 8); Manuscript Section 4.3 (clean/tracked p. 10); Manuscript Section 4.4 (clean/tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Table S15 (p. 10); Supplementary material Section S6 (p. 14).",
+      "after": "Manuscript Section 3.3 (clean/tracked p. 5); Manuscript Section 4.2 (clean/tracked p. 8); Manuscript Section 4.3 (clean/tracked p. 10); Manuscript Section 4.4 (clean/tracked p. 10); Manuscript Section 6 (clean/tracked p. 11); Supplementary material Table S15 (p. 10); Supplementary material Section S6 (p. 14)."
     },
     {
       "response_id": "R2.6",
-      "before": "Manuscript Abstract (clean/tracked p. 1); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean p. 7; tracked p. 8); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean p. 10; tracked p. 11); Manuscript Section 5 (clean/tracked p. 10); Manuscript Section 7 (clean p. 11; tracked p. 12); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20).",
-      "after": "Manuscript Abstract (clean/tracked p. 1); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean p. 7; tracked p. 8); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean p. 10; tracked p. 11); Manuscript Section 5 (clean/tracked p. 10); Manuscript Section 7 (clean p. 11; tracked p. 12); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20)."
+      "before": "Manuscript Abstract (clean/tracked p. 1); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean/tracked p. 8); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean/tracked p. 11); Manuscript Section 5 (clean p. 11; tracked p. 10); Manuscript Section 7 (clean/tracked p. 12); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20).",
+      "after": "Manuscript Abstract (clean/tracked p. 1); Manuscript Table 3 (clean/tracked p. 7); Manuscript Table 4 (clean/tracked p. 8); Manuscript Table 6 (clean/tracked p. 10); Manuscript Table 7 (clean/tracked p. 11); Manuscript Section 5 (clean p. 11; tracked p. 10); Manuscript Section 7 (clean/tracked p. 12); Supplementary material Table S35 (p. 20); Supplementary material Table S36 (p. 20)."
     },
     {
       "response_id": "R2.7",
@@ -2005,9 +2005,9 @@
     }
   ],
   "source_pdf_sha256": {
-    "manuscript": "71a9c5c4dd72ccb5a5952db758ebdecf64d35ee055075d1b6c6cecaf7bd4eefd",
-    "tracked": "ecca9eef64a4d12ed300191809db4db0e038119449d4af2cb49ebeb0a873a09e",
-    "supplementary_material": "74055e8537e4012ca65478e85069aea8162168679bfb149ac88308a59f60c033"
+    "manuscript": "4e817c1765983efde24d1516b28d55ea049ff72c499f9386acc5e1bfe3b5b0c8",
+    "tracked": "c3f4560d505be8fcf9bc56fec99817384b5553b7636962288b91fb9754e868f3",
+    "supplementary_material": "134144709e3684a06a43b67719a4a4d6f9171bc7143194905d9045bcb2136373"
   },
   "response_arguments_and_quotes_unchanged": true,
   "page_numbers_verified_in_actual_pdfs": true

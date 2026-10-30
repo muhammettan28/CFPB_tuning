@@ -58,7 +58,10 @@ def main():
         for stem in ['manuscript','supplementary_material']:
             text=(ROOT/'REVISION_PAPER'/f'{stem}.tex').read_text();assert not editorial_history_hits(text);assert not internal_workflow_hits(text)
         main=(ROOT/'REVISION_PAPER/manuscript.tex').read_text();response=(ROOT/'REVISION_PAPER/response_to_reviewers.tex').read_text()
-        assert '63.98\\%' in main and '63.01\\%' in main and '\\cite{cfpbdata,tiwari2021complaints}' in main
+        assert '63.98\\%' in main and '63.01\\%' in main
+        assert r'\label{fn:data-sources}' in main and r'\ref{fn:data-sources}' in main
+        assert 'https://www.consumerfinance.gov/data-research/consumer-complaints/' in main
+        assert 'https://www.kaggle.com/datasets/shashwatwork/consume-complaints-dataset-fo-nlp' in main
         assert 'statistical equivalence or non-inferiority' in main
         for value in ['1,401','1,167','333','263','0.6189','0.6247','V100','RTX 5060 Ti']:
             assert value in response,value

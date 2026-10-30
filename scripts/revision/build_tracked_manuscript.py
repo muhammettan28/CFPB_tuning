@@ -169,12 +169,13 @@ def build(original, clean, output, work):
 \soulregister\cite7
 \soulregister\ref7
 \soulregister\texttt7
+\soulregister\textsuperscript7
 \soulregister\textbf7
 \soulregister\emph7
 \soulregister\textit7
 \soulregister\url7
 \pdfstringdefDisableCommands{\def\TrackedHighlight#1{#1}}
-\hypersetup{pdftitle={QLoRA Fine-Tuning for Consumer Complaint Classification -- Highlighted changes}}
+\hypersetup{pdftitle={QLoRA fine-tuning for consumer complaint classification -- Highlighted changes}}
 '''
     tracked = preamble+r'\begin{document}'+body+r'\end{document}'+'\n'
     projection = unwrap_highlights(tracked)
